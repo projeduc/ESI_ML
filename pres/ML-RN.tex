@@ -1,0 +1,1466 @@
+% !TEX TS-program = pdflatex
+% !TeX program = pdflatex
+% !TEX encoding = UTF-8
+% !TEX spellcheck = fr
+
+\documentclass[xcolor=table]{beamer}
+
+\input{options}
+
+\title[ML: Réseaux de neurones] %
+{Machine Learning \\Les réseaux de neurones}  
+
+\changegraphpath{../img/RN/}
+
+\begin{document}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones}
+\framesubtitle{Motivation}
+
+\begin{figure}
+	\centering
+	\hgraphpage[.8\textwidth]{neurone.png}
+	\caption{Schéma d'un neurone biologique \cite{2017-cain}}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones}
+\framesubtitle{Plan}
+
+\begin{multicols}{2}
+	%	\small
+	\tableofcontents
+\end{multicols}
+\end{frame}
+
+\section{Neurone}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones}
+\framesubtitle{Neurone}
+
+\begin{itemize}
+	\item Rappelons \optword{La régression logistique}
+	\item On fait la combinaison linéaire des valeurs des caractéristiques : ceci peut être vu comme le cumul des signaux
+	\[z(x) = \theta_0 + \sum\limits_{j=1}^{N} \theta_j x_j\]
+	\item Ensuite, on applique la fonction logistique sur cette somme : on l'appelle une \keyword{fonction d'activation} (envoyer le signal ou non selon un seuil) 
+	\[\sigma(z) = \frac{1}{1 + e^{-z}}\] 
+	\item Pour calculer l'erreur de classification, on utilise une \keyword{fonction de coût}
+	\item Pour entrainer les paramètres, on utilise une \keyword{fonction d'optimisation}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones}
+\framesubtitle{Neurone}
+
+\hgraphpage[\textwidth]{neurone.pdf}
+
+\end{frame}
+
+\subsection{Le réseau}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : Neurone}
+\framesubtitle{Le réseau : Motivation}
+
+\begin{minipage}{0.59\textwidth}
+\begin{itemize}
+	\item Pour appliquer des fonctions complexes, un seul neurone n'est pas suffisant
+	\item Par exemple, \expword{la fonction XOR avec deux variables}
+	\item Si on fait une régression logistique (un neurone avec la fonction logistique comme fonction d'activation), l'algorithme essaye de séparer les échantillons avec une ligne de décision
+	\item Quelque soit la ligne de décision, il y a au moins un échantillon mal-classé
+\end{itemize}
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+	\hgraphpage[\textwidth]{xor.png}
+\end{minipage}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : Neurone}
+\framesubtitle{Le réseau : Architecture}
+
+\begin{minipage}{0.59\textwidth}
+	\begin{itemize}
+		\item \optword{Couche d'entrée} : contient les entrées d'information, \expword{un peu comme les nerfs optiques de l'être humain} 
+		\item \optword{Couches cachées} : chaque couche reçoit les sorties de la couche précédente. 
+		Elle contient un nombre de neurones qui calculent la somme pondérée avec une fonction d'activation. 
+		\item \optword{Couche de sortie} : contient les neurones qui calculent la sortie. 
+	\end{itemize}
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+	\hgraphpage[\textwidth]{RN.pdf}
+\end{minipage}
+
+\end{frame}
+
+\subsection{Les fonctions d'activation}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : Neurone}
+\framesubtitle{Les fonctions d'activation : Fonctions sigmoïde}
+
+\begin{tabular}{ll}
+	Fonction logistique & Tangente hyperbolique \\
+	\hgraphpage[.4\textwidth]{logistique.png} & 
+	\hgraphpage[.4\textwidth]{tanh.png} \\
+	$\color{blue}\sigma(x) = \frac{1}{1 + e^{-x}}$ & 
+	$\color{blue}tanh(x) = \frac{e^{x} - e^{-x}}{e^{x} + e^{-x}} = \frac{2}{1 + e^{-2x}} - 1$ \\
+	
+	$\sigma(x) \in ]0, 1[$ & 
+	$tanh(x) \in ]-1, 1[$ \\
+	
+	$\color{red}\sigma'(x) = \sigma(x) (1-\sigma(x))$ & 
+	$\color{red}tanh'(x) = 1 - tanh(x)^2$ \\
+\end{tabular}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : Neurone}
+\framesubtitle{Les fonctions d'activation : Fonctions sigmoïde (2)}
+
+\begin{tabular}{ll}
+	Arc tangente & Signe doux \\
+	\hgraphpage[.4\textwidth]{arctan.png} & 
+	\hgraphpage[.4\textwidth]{so.png} \\
+	$\color{blue}f(x) = \frac{2}{\pi} tan^{-1}(x)$ & 
+	$\color{blue}f(x) = \frac{x}{1 + |x|}$ \\
+	
+	$f(x) \in ]-1, 1[$ & 
+	$f(x) \in ]-1, 1[$ \\
+	
+	$\color{red}f'(x) = \frac{2}{\pi} \frac{1}{x^2 + 1}$ & 
+	$\color{red}f'(x) = \frac{1}{(1 + |x|)^2}$ \\
+\end{tabular}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : Neurone}
+\framesubtitle{Les fonctions d'activation : Fonctions linéaires}
+
+\begin{tabular}{ll}
+	Fonction linéaire & Fonction identité \\
+	\hgraphpage[.4\textwidth]{lineaire.png} & 
+	\hgraphpage[.4\textwidth]{identite.png} \\
+	$\color{blue} f(x) = k x$ & 
+	$\color{blue} f(x) = x$ \\
+	
+	$f(x) \in ]-\infty, +\infty[$ & 
+	$f(x) \in ]-\infty, +\infty[$ \\
+	
+	$\color{red}f'(x) = k$ & 
+	$\color{red}f'(x) = 1$ \\
+\end{tabular}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : Neurone}
+\framesubtitle{Les fonctions d'activation : Fonctions échelon}
+
+\begin{tabular}{ll}
+	Fonction de Heaviside & Fonction signe \\
+	\hgraphpage[.4\textwidth]{heaviside.png} & 
+	\hgraphpage[.4\textwidth]{signe.png} \\
+	$\color{blue} H(x) = \begin{cases}
+	0 & \text{si } x < 0 \\
+	1 & \text{sinon}
+	\end{cases}$ & 
+	$\color{blue} S(x) = \begin{cases}
+	-1 & \text{si } x < 0 \\
+	1 & \text{sinon}
+	\end{cases} = 2 H(x) - 1$ \\
+	
+	$H(x) \in \{0, 1\}$ & 
+	$S(x) \in \{-1, 1\}$ \\
+	
+	$\color{red}H'(x) = \begin{cases}
+	0 & \text{si } x \ne 0 \\
+	+\infty & \text{sinon}
+	\end{cases}$ & 
+	$\color{red}S'(x) = 2H'(x)$ \\
+\end{tabular}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : Neurone}
+\framesubtitle{Les fonctions d'activation : Fonctions à bâton de hockey}
+
+\begin{tabular}{ll}
+	Unité de rectification linéaire & ReLU paramétrique \\
+	\hgraphpage[.4\textwidth]{relu.png} & 
+	\hgraphpage[.4\textwidth]{prelu.png} \\
+	$\color{blue} ReLU(x) = x H(x) = \max(0, x)$ & 
+	$\color{blue} PReLU(\alpha, x) = \begin{cases}
+	\alpha x & \text{si } x < 0 \\
+	x & \text{sinon}
+	\end{cases}$ \\
+	
+	$ReLU(x) \in [0, +\infty[$ & 
+	$PReLU(x) \in ]-\infty, +\infty[$ \\
+	
+	$\color{red}ReLU'(x) = H(x) = \begin{cases}
+	0 & \text{si } x < 0 \\
+	1 & \text{sinon}
+	\end{cases}$ & 
+	$\color{red}PReLU'(x) = \begin{cases}
+	\alpha & \text{si } x < 0 \\
+	1 & \text{sinon}
+	\end{cases}$ \\
+\end{tabular}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : Neurone}
+\framesubtitle{Les fonctions d'activation : Fonctions à bâton de hockey (2)}
+
+\begin{tabular}{ll}
+	Unité exponentielle linéaire & Unité sigmoïde linéaire \\
+	\hgraphpage[.4\textwidth]{elu.png} & 
+	\hgraphpage[.4\textwidth]{slu.png} \\
+	$\color{blue} ELU(\alpha, x) = \begin{cases}
+	\alpha (e^x - 1) & \text{si } x < 0 \\
+	x & \text{sinon}
+	\end{cases}$ & 
+	$\color{blue} SLU(x) = x \sigma(x) = \frac{x}{1 + e^{-x}}$ \\
+	
+	$ELU(\alpha, x) \in ]-\infty, +\infty[$ & 
+	$SLU(x) \in ]-\infty, +\infty[$ \\
+	
+	$\color{red}ELU'(\alpha, x) = \begin{cases}
+	ELU(\alpha, x) + \alpha & \text{si } x < 0 \\
+	1 & \text{sinon}
+	\end{cases}$ & 
+	$\color{red}SLU'(x) = \sigma(x) (1 + x \sigma(-x))$ \\
+\end{tabular}
+
+\end{frame}
+
+\subsection{Les fonctions de coût}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : Neurone}
+\framesubtitle{Les fonctions de coût : régression (MSE)}
+
+%\begin{minipage}{0.68\textwidth}
+\begin{columns}
+	\begin{column}{.68\linewidth}
+		\begin{block}{Erreur quadratique moyenne \\(mean squared error, L2 loss)}
+			\[MSE = \frac{1}{2} (y - \hat{y})^2\]
+			
+			\[
+			\frac{\partial MSE}{\partial \hat{y}} = \hat{y} - y
+			\]
+		\end{block}
+		
+		%\end{minipage}
+		%\begin{minipage}{0.3\textwidth}
+	\end{column}%
+	\begin{column}{.3\linewidth}
+		\begin{figure}
+			\hgraphpage[\textwidth]{regression-loss.pdf}
+			\caption{Fonction du coût de régression \cite{2017-rosenberg}}
+		\end{figure}
+		%\end{minipage}
+	\end{column}
+\end{columns}
+
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : Neurone}
+\framesubtitle{Les fonctions de coût : régression (MSE)}
+
+\begin{itemize}
+	\item \optword{Avantages}
+	\begin{itemize}
+		\item Une fonction quadratique n'a qu'un minimum global.
+	\end{itemize}
+	\item \optword{Inconvénients}
+	\begin{itemize}
+		\item MSE est moins robuste aux valeurs aberrantes.
+	\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : Neurone}
+\framesubtitle{Les fonctions de coût : régression (MAE)}
+
+%\begin{minipage}{0.59\textwidth}
+\begin{columns}
+	\begin{column}{.68\linewidth}
+		\begin{block}{Erreur moyenne absolue \\(mean absolute error, L1 loss)}
+			\[MAE = |y - \hat{y}|\]
+			
+			\[
+			\frac{\partial MAE}{\partial \hat{y}} = 
+			\begin{cases}
+			+1 & \text{ si } \hat{y} > y \\
+			-1 & \text{ si } \hat{y} < y \\
+			[-1, +1] & \text{ si } \hat{y} = y \\
+			\end{cases}
+			\]
+		\end{block}
+	\end{column}%
+	\begin{column}{.3\linewidth}
+		%\end{minipage}
+		%\begin{minipage}{0.4\textwidth}
+		\begin{figure}
+			\hgraphpage[\textwidth]{regression-loss.pdf}
+			\caption{Fonction du coût de régression \cite{2017-rosenberg}}
+		\end{figure}
+		%\end{minipage}
+	\end{column}
+\end{columns}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : Neurone}
+\framesubtitle{Les fonctions de coût : régression (MAE)}
+
+\begin{itemize}
+	\item \optword{Avantages}
+	\begin{itemize}
+		\item Moins sensible aux valeurs aberrantes
+	\end{itemize}
+	\item \optword{Inconvénients}
+	\begin{itemize}
+		\item L'amplitude du gradient ne dépend pas de la taille de l'erreur, seulement du signe de y - ŷ. Cela conduit à ce que la magnitude du gradient soit grande même lorsque l'erreur est faible
+	\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : Neurone}
+\framesubtitle{Les fonctions de coût : régression (Huber)}
+
+\begin{columns}
+\begin{column}{.68\linewidth}
+%\begin{minipage}{0.59\textwidth}
+\begin{block}{Huber Loss}
+	\[J = %\frac{1}{M} \sum\limits_{i=1}^{M} 
+	\begin{cases}
+	\frac{1}{2} (y - \hat{y})^2 & \text{si } |y - \hat{y}| \le \delta \\
+	\delta |y - \hat{y}| - \frac{1}{2} \delta^2 & \text{sinon }\\
+	\end{cases}
+	\]
+	
+	\[
+	\frac{\partial J}{\partial \hat{y}} = 
+	\begin{cases}
+	\hat{y} - y & \text{ si } |\hat{y} - y| \le \delta \\
+	-\delta & \text{ si } \hat{y} - y < -\delta \\
+	+\delta & \text{ si } \hat{y} - y > \delta \\
+	\end{cases}
+	\]
+	
+\end{block}
+
+%\end{minipage}
+\end{column}%
+\begin{column}{.3\linewidth}
+%\begin{minipage}{0.4\textwidth}
+\begin{figure}
+	\hgraphpage[\textwidth]{regression-loss.pdf}
+	\caption{Fonction du coût de régression \cite{2017-rosenberg}}
+\end{figure}
+%\end{minipage}
+\end{column}
+\end{columns}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : Neurone}
+\framesubtitle{Les fonctions de coût : régression (Huber)}
+
+\begin{itemize}
+	\item \optword{Avantages}
+	\begin{itemize}
+		\item Prendre les avantages des deux fonctions du coût : MSE et MAE
+	\end{itemize}
+	\item \optword{Inconvénients}
+	\begin{itemize}
+		\item Il faut entraîner l'hyper-paramètre $\delta$
+	\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : Neurone}
+\framesubtitle{Les fonctions de coût : classement binaire (BCE)}
+
+\begin{block}{Binary Cross Entropy Loss}
+	\[J = - (y \log(\hat{y}) + (1 - y) \log(1 - \hat{y}))\]
+	
+	\[
+	\frac{\partial J}{\partial \hat{y}} = \frac{\hat{y} - y}{\hat{y} - \hat{y}^2}
+	\]
+\end{block}
+
+\begin{itemize}
+	\item \optword{Avantages}
+	\begin{itemize}
+		\item marche bien avec les fonctions d'activation qui modélisent des probabilités (sigmoïde)
+		\item Donc, meilleur estimation des probabilités
+	\end{itemize}
+	\item \optword{Inconvénients}
+	\begin{itemize}
+		\item 
+	\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : Neurone}
+\framesubtitle{Les fonctions de coût : classement binaire (Hinge)}
+
+\begin{block}{Hinge Loss (SVM Loss)}
+	\[J = \max(0, 1 - y \hat{y}), y \in \{-1, 1\}\]
+	
+	\[
+	\frac{\partial J}{\partial \hat{y}} = 
+	\begin{cases}
+	0 & \text{si } y \hat{y} \ge 1 \\
+	-y & \text{sinon}
+	\end{cases}
+	\]
+\end{block}
+
+\begin{itemize}
+	\item \optword{Avantages}
+	\begin{itemize}
+		\item entraîne une meilleure précision
+	\end{itemize}
+	\item \optword{Inconvénients}
+	\begin{itemize}
+		\item 
+	\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : Neurone}
+\framesubtitle{Les fonctions de coût : classement multi-classes (Cross entropy)}
+
+\begin{block}{Cross Entropy Loss}
+	\[J = - \sum\limits_{k=1}^{K} y_{k} \log(\hat{y}_{k}) \text{, où } K \text{ est le nnombre des classes} \]
+	
+	\[
+	\frac{\partial J}{\partial \hat{y}_k} = - \frac{y_{k}}{\hat{y}_{k}}
+	\]
+\end{block}
+
+\begin{itemize}
+	\item \optword{Avantages}
+	\begin{itemize}
+		\item 
+	\end{itemize}
+	\item \optword{Inconvénients}
+	\begin{itemize}
+		\item 
+	\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\subsection{Les fonctions d'optimisation}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : Neurone}
+\framesubtitle{Les fonctions d'optimisation : descente du gradient}
+
+\begin{figure}
+	\vgraphpage[.7\textheight]{steepest.png}
+	\caption{Illustration de la descente du gradient \cite{2020-calin}}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : Neurone}
+\framesubtitle{Les fonctions d'optimisation : descente du gradient}
+
+\begin{algorithm}[H]
+	\KwData{$ X, Y, \alpha, T $}
+	\KwResult{$ \theta $}
+	initialiser $ \theta $ ; $ t = 0 $\;
+	\While{$ t < T$ et pas de convergence}{
+		$ \theta = \theta - \alpha \Delta_\theta J(X, Y; \theta) $\;
+%		Mettre à jours les $\theta$\;
+		t = t + 1 \;
+	}
+	\caption{descente du gradient}
+\end{algorithm}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : Neurone}
+\framesubtitle{Les fonctions d'optimisation : descente du gradient}
+
+\begin{itemize}
+	\item \optword{Propriétés} : 
+	\begin{itemize}
+		\item Résoudre la valeur optimale dans le sens de la descente du gradient.
+		\item La méthode converge avec un taux linéaire.
+	\end{itemize}
+	\item \optword{Avantages} : 
+	\begin{itemize}
+		\item La solution est un optimum global lorsque la fonction objective est convexe.
+	\end{itemize}
+	\item \optword{Inconvénients} : 
+	\begin{itemize}
+		\item Pour chaque mise à jours des paramètres, les gradients de tous les échantillons doivent être calculés. Donc, le coût de calcul est très élevé. 
+		\item L'ensemble de l'entraînement peut être trop volumineux pour être traité dans la mémoire
+		\item peut converger vers un minimum local lorsque la fonction objective n'est pas convexe
+	\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : Neurone}
+\framesubtitle{Les fonctions d'optimisation : descente du gradient stochastique}
+
+\begin{algorithm}[H]
+	\KwData{$ X, Y, \alpha, T$}
+	\KwResult{$ \theta $}
+	initialiser $ \theta $ ; $ t = 0 $\;
+	\While{$ t < T$ et pas de convergence}{
+		Mélanger les données aléatoirement\;
+		\ForEach{$ (X^{(i)}, Y^{(i)}) \in (X, Y)$}{
+			$ \theta = \theta - \alpha \Delta_\theta J(X^{(i)}, Y^{(i)}; \theta) $\;
+%			Mettre à jours les $\theta$\;
+		}
+		t = t + 1 \;
+	}
+	\caption{descente du gradient stochastique}
+\end{algorithm}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : Neurone}
+\framesubtitle{Les fonctions d'optimisation : descente du gradient stochastique}
+
+\begin{itemize}
+\item \optword{Propriétés} : 
+\begin{itemize}
+	\item La mise à jours des paramètres se fait par rapport chaque échantillon
+\end{itemize}
+\item \optword{Avantages} : 
+\begin{itemize}
+	\item Peut éviter des minimums locaux
+\end{itemize}
+\item \optword{Inconvénients} : 
+\begin{itemize}
+	\item La mise à jour fréquente est plus coûteuse en terme de calcul
+	\item Il est difficile au modèle à converger vers un minimum
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : Neurone}
+\framesubtitle{Les fonctions d'optimisation : descente du gradient Mini-Batch}
+
+\begin{algorithm}[H]
+	\KwData{$ X, Y, \alpha, T, b $}
+	\KwResult{$ \theta $}
+	initialiser $ \theta $ ; $ t = 0 $\;
+	\While{$ t < T$ et pas de convergence}{
+		Mélanger les données aléatoirement\;
+		Diviser les données sur $b$ batches\;
+		\ForEach{$ (X^b, Y^b) \in batches$}{
+			$ \theta = \theta - \alpha \Delta_\theta J(X^b, Y^b; \theta) $\;
+%			Mettre à jours les $\theta$\;
+		}
+		\tcp{On peut mettre à jours les paramètres avec la moyenne des gradinets}
+		t = t + 1 \;
+	}
+	\caption{descente du gradient Mini-Batch}
+\end{algorithm}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : Neurone}
+\framesubtitle{Les fonctions d'optimisation : descente du gradient Mini-Batch}
+
+\begin{itemize}
+	\item \optword{Propriétés} : 
+	\begin{itemize}
+		\item L'apprentissage se fait sur des sous ensembles du dataset
+		\item Un hyper-paramètre $b$ pour la taille d'un batch
+	\end{itemize}
+	\item \optword{Avantages} : 
+	\begin{itemize}
+		\item Peut éviter le minimum local à cause des mises à jours fréquents
+		\item Efficace en cas des données d'apprentissage volumineux
+	\end{itemize}
+	\item \optword{Inconvénients} : 
+	\begin{itemize}
+		\item Il faut configurer un hyper-paramètre additionnel 
+	\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : Neurone}
+\framesubtitle{Les fonctions d'optimisation : descente du gradient adaptative (AdaGrad)}
+
+\begin{algorithm}[H]
+	\KwData{$ X, Y, \alpha, T$}
+	\KwResult{$ \theta $}
+	initialiser $ \theta $ ; $ t = 0 $\;
+	initialiser $v$ ($|v| = |\theta|$) à zéro\;
+	\While{$ t < T$ et pas de convergence}{
+		$ v = v + (\Delta_\theta J(X, Y; \theta))^2 $\;
+		$ \theta = \theta - \frac{\alpha}{\sqrt{v} + \epsilon} \Delta_\theta J(X, Y; \theta) $\;
+%		Mettre à jours les $\theta$\;
+		\tcp{epsilon est utilisé pour éviter la division par 0, en général 1e-8}
+		t = t + 1 \;
+	}
+	\caption{AdaGrad \cite{2011-duchi-al}}
+\end{algorithm}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : Neurone}
+\framesubtitle{Les fonctions d'optimisation : descente du gradient adaptative (AdaGrad)}
+
+\begin{itemize}
+	\item \optword{Propriétés} : 
+	\begin{itemize}
+		\item Le taux d'apprentissage est ajusté de manière adaptative en fonction de la somme des carrés de tous les gradients historiques.
+	\end{itemize}
+	\item \optword{Avantages} : 
+	\begin{itemize}
+		\item Le taux d'apprentissage de chaque paramètre s'ajuste d'une façon adaptative
+	\end{itemize}
+	\item \optword{Inconvénients} : 
+	\begin{itemize}
+		\item Avec le temps, le taux d'apprentissage tombe vers zéro ; l'algorithme n'est pas souhaitable pour les fonctions non convexes.
+	\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : Neurone}
+\framesubtitle{Les fonctions d'optimisation : Root Mean Square Propagation (RMSProp)}
+
+\begin{algorithm}[H]
+	\KwData{$ X, Y, \alpha, T, \beta$}
+	\KwResult{$ \theta $}
+	initialiser $ \theta $ ; $ t = 0 $\;
+	initialiser $v$ ($|v| = |\theta|$) à zéro\;
+	\While{$ t < T$ et pas de convergence}{
+		$ v = \beta v + (1-\beta)(\Delta_\theta J(X, Y; \theta))^2 $\;
+		$ \theta = \theta - \frac{\alpha}{\sqrt{v} + \epsilon} \Delta_\theta J(X, Y; \theta) $\;
+%		Mettre à jours les $\theta$\;
+		t = t + 1 \;
+	}
+	\caption{RMSProp}
+\end{algorithm}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : Neurone}
+\framesubtitle{Les fonctions d'optimisation : Root Mean Square Propagation (RMSProp)}
+
+\begin{itemize}
+	\item \optword{Propriétés} : 
+	\begin{itemize}
+		\item Modifiez le mode d'accumulation totale du gradient en moyenne mobile exponentielle.
+		\item Par défaut, $\beta = 0.9$ 
+	\end{itemize}
+	\item \optword{Avantages} : 
+	\begin{itemize}
+		\item Amélioration du problème d'apprentissage inefficace au stade avancé d'AdaGrad. 
+		\item Il convient à l'optimisation de problèmes non stationnaires et non convexes.
+	\end{itemize}
+	\item \optword{Inconvénients} : 
+	\begin{itemize}
+		\item A la fin d'entraînement, le processus de mise à jour peut être répété autour du minimum local.
+	\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : Neurone}
+\framesubtitle{Les fonctions d'optimisation : Adaptive Moment Estimation — Adam}
+
+\begin{algorithm}[H]
+	\KwData{$ X, Y, \alpha, T, \beta_1, \beta_2$}
+	\KwResult{$ \theta $}
+	initialiser $ \theta $ ; $ t = 0 $\;
+	initialiser $v$ et $m$ ($|v| = |m| = |\theta|$) à zéro\;
+	\While{$ t < T$ et pas de convergence}{
+		$ g = \Delta_\theta J(X, Y; \theta) $\;
+		$ m = \beta_1 m + (1-\beta_1) g $; $\hat{m} = \frac{m}{1-\beta_1^t}$\;
+		$ v = \beta_2 v + (1-\beta_2) g^2 $;
+		$\hat{v} = \frac{v}{1-\beta_2^t}$\;
+		$ \theta = \theta - \frac{\alpha \hat{m}}{\sqrt{\hat{v}} + \epsilon} $\;
+%		Mettre à jours les $\theta$\;
+		t = t + 1 \;
+	}
+	\caption{Adam \cite{2015-kingma-ba}}
+\end{algorithm}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : Neurone}
+\framesubtitle{Les fonctions d'optimisation : Adaptive Moment Estimation — Adam}
+
+\begin{itemize}
+	\item \optword{Propriétés} : 
+	\begin{itemize}
+		\item Utilisation du moment de premier ordre et du moment de second ordre pour ajuster dynamiquement le taux d'apprentissage de chaque paramètre. 
+		\item Ajout de la correction de biais.
+		\item Par défaut, $\beta_1 = 0.9, \beta_2 = 0.999$ 
+	\end{itemize}
+	\item \optword{Avantages} : 
+	\begin{itemize}
+		\item Le processus de descente de gradient est relativement stable. 
+		\item Il convient à la plupart des problèmes d'optimisation non convexes avec de grands ensembles de données et un espace dimensionnel élevé.
+	\end{itemize}
+	\item \optword{Inconvénients} : 
+	\begin{itemize}
+		\item La méthode peut ne pas converger dans certains cas.
+	\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\section{Réseau de neurones à propagation avant}
+
+\subsection{Architecture multicouches}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : à propagation avant}
+\framesubtitle{Architecture multicouches : notation}
+
+\hgraphpage[\textwidth]{RNPA.pdf}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : à propagation avant}
+\framesubtitle{Architecture multicouches : exemple}
+
+\hgraphpage[\textwidth]{RNPA-exp.pdf}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : à propagation avant}
+\framesubtitle{Architecture multicouches : rétro-propagation [exemple] (1)}
+
+%\begin{itemize}
+%	\item On essaye de mettre à jour $w_{11}^{(3)}$
+%\end{itemize}
+On essaye de mettre à jour $w_{11}^{(4)}$
+
+$ 
+\frac{\partial J}{\partial w_{11}^{(4)}} = \overbrace{\frac{\partial J}{\partial f_{1}^{(4)}} \frac{\partial f_{1}^{(4)}}{\partial z_{1}^{(4)}}}^{\delta_{1}^{(4)}} \overbrace{\frac{\partial z_{1}^{(4)}}{\partial w_{11}^{(4)}}}^{a_{1}^{(3)}}
+$
+ 
+$ 
+\frac{\partial J}{\partial f_{1}^{(4)}} = \frac{(0.840, 0.843) - (0, 1)}{(0.840, 0.843) - (0.840, 0.843)^2} 
+= (6.25, -1.186)
+$
+
+$ 
+\frac{\partial f_{1}^{(4)}}{\partial z_{1}^{(4)}} = (0.840, 0.843) (0.160, 0.157) = (0.134, 0.132)
+$
+
+$
+\delta_{1}^{(4)} = (6.25, -1.186) (0.134, 0.132) \approx (0.838, -0.157)
+$
+
+$
+\frac{\partial J}{\partial w_{11}^{(4)}} = moy((0.838, -0.157) (0.555, 0.612)) 
+\approx moy(0.465, -0.096) = 0.184
+$
+
+$
+w_{11}^{(4)} = 0.7 - 1 * (0.184) = 0.516 \text{ , supossant } \alpha = 1
+$
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : à propagation avant}
+\framesubtitle{Architecture multicouches : rétro-propagation [exemple] (2)}
+
+%\begin{itemize}
+%	\item On essaye de mettre à jour $w_{11}^{(3)}$
+%\end{itemize}
+On essaye de mettre à jour $w_{21}^{(4)}$
+
+$ 
+\frac{\partial J}{\partial w_{21}^{(4)}} = \overbrace{\frac{\partial J}{\partial f_{1}^{(4)}} \frac{\partial f_{1}^{(4)}}{\partial z_{1}^{(4)}}}^{\delta_{1}^{(4)}} \overbrace{\frac{\partial z_{1}^{(4)}}{\partial w_{21}^{(4)}}}^{a_{2}^{(3)}}
+$
+
+
+$
+\delta_{1}^{(4)} = (0.838, -0.157)
+$
+
+$
+\frac{\partial J}{\partial w_{21}^{(4)}} = moy((0.838, -0.157) (0.386, 0.360)) 
+\approx moy(0.323, -0.056) = 0.134
+$
+
+$
+w_{21}^{(4)} = 0.7 - 1 * (0.134) = 0.566 \text{ , supossant } \alpha = 1
+$
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : à propagation avant}
+\framesubtitle{Architecture multicouches : rétro-propagation [exemple] (3)}
+
+On essaye de mettre à jour $w_{11}^{(3)}$
+
+$
+\frac{\partial J}{\partial w_{11}^{(3)}} = 
+\overbrace{
+	\overbrace{
+		\frac{\partial J}{\partial f_{1}^{(4)}} 
+		\frac{\partial f_{1}^{(4)}}{\partial z_{1}^{(4)}}
+	}^{\delta_{1}^{(4)}} 
+	\overbrace{
+		\frac{\partial z_{1}^{(4)}}{\partial f_{1}^{(3)}}
+	}^{w_{11}^{(4)}} 
+	\frac{\partial f_{1}^{(3)}}{\partial z_{1}^{(3)}} 
+}^{\delta_{1}^{(3)}} 
+\overbrace{
+	\frac{\partial z_{1}^{(3)}}{\partial w_{11}^{(3)}}
+}^{a_{1}^{(2)}}
+\text{ Ici, on utilise l'ancien } w_{11}^{(4)}
+$
+
+$
+\frac{\partial f_{1}^{(3)}}{\partial z_{1}^{(3)}} \approx 
+(0.555, 0.612) (0.445, 0.388) = (0.247, 0.237)
+$
+
+$
+\delta_{1}^{(3)} = (0.838, -0.157) * 0.7 * (0.247, 0.237) \approx (0.145, -0.026)
+$
+
+$
+\frac{\partial J}{\partial w_{11}^{(2)}} = moy((0.145, -0.026) (0.622, 0.900)) 
+= moy(0.090, -0.023) = 0.033
+$
+
+$
+w_{11}^{(2)} = 0.3 - 1 * (0.033) = 0.267 \text{ , supossant } \alpha = 1
+$
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : à propagation avant}
+\framesubtitle{Architecture multicouches : rétro-propagation [exemple] (4)}
+
+On essaye de mettre à jour $w_{12}^{(3)}$
+
+$
+\frac{\partial J}{\partial w_{12}^{(3)}} = 
+\overbrace{
+	\overbrace{
+		\frac{\partial J}{\partial f_{1}^{(4)}} 
+		\frac{\partial f_{1}^{(4)}}{\partial z_{1}^{(4)}}
+	}^{\delta_{1}^{(4)}} 
+	\overbrace{
+		\frac{\partial z_{1}^{(4)}}{\partial f_{2}^{(3)}}
+	}^{w_{11}^{(4)}} 
+	\frac{\partial f_{2}^{(3)}}{\partial z_{2}^{(3)}} 
+}^{\delta_{2}^{(3)}} 
+\overbrace{
+	\frac{\partial z_{2}^{(3)}}{\partial w_{12}^{(3)}}
+}^{a_{1}^{(2)}}
+\text{ Ici, on utilise l'ancien } w_{12}^{(4)}
+$
+
+$
+\frac{\partial f_{2}^{(3)}}{\partial z_{2}^{(3)}} \approx 
+(0.386, 0.360) (0.614, 0.64) = (0.237, 0.230)
+$
+
+$
+\delta_{2}^{(3)} = (0.838, -0.157) * 0.7 * (0.237, 0.230) \approx (0.139, -0.025)
+$
+
+$
+\frac{\partial J}{\partial w_{11}^{(2)}} = moy((0.139, -0.025) (0.622, 0.900)) 
+= moy(0.086, -0.023) = 0.032
+$
+
+$
+w_{11}^{(2)} = - 0.1 - 1 * (0.032) = - 0.132 \text{ , supossant } \alpha = 1
+$
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : à propagation avant}
+\framesubtitle{Architecture multicouches : rétro-propagation [exemple] (5)}
+
+On essaye de mettre à jour $w_{11}^{(2)}$
+
+$
+\frac{\partial J}{\partial w_{11}^{(2)}} = 
+\overbrace{ 
+\left(
+	\delta_{1}^{(3)} 
+	\overbrace{
+		\frac{\partial z_{1}^{(3)}}{\partial f_{1}^{(2)}}
+	}^{w_{11}^{(3)}}
+	+
+	\delta_{2}^{(3)} 
+	\overbrace{
+		\frac{\partial z_{2}^{(3)}}{\partial f_{1}^{(2)}}
+	}^{w_{12}^{(3)}}
+\right)
+\frac{\partial f_{1}^{(2)}}{\partial z_{1}^{(2)}}
+}^{\delta_{1}^{(2)}} 
+\overbrace{
+	\frac{\partial z_{1}^{(2)}}{\partial w_{11}^{(2)}}
+}^{a_{1}^{(1)}}
+$
+
+$
+\frac{\partial f_{1}^{(2)}}{\partial z_{1}^{(2)}} = (0.622, 0.900) (0.378, 0.100) = (0.235, 0.09)
+$
+
+$
+\delta_{1}^{(2)} = \left((0.145, -0.026) * (0.3) + (0.139, -0.025) * (-0.1)\right) * (0.235, 0.09) \approx (0.039, -0.01)
+$
+
+
+%$
+%\frac{\partial J}{\partial w_{11}^{(2)}} = moy((0.039, -0.01) (2, 3)) 
+%= moy(0.078, -0.03) = 0.024
+%$
+%
+%$
+%w_{11}^{(2)} = 0.5 - 1 * (0.024) = 0.476 \text{ , supossant } \alpha = 1
+%$
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : à propagation avant}
+\framesubtitle{Architecture multicouches : rétro-propagation [cas général]}
+
+\begin{itemize}
+	\item On calcule les $\delta^{(l)}$ où $l$ est le numéro de la couche
+\end{itemize}
+
+\[ 
+\delta^{(sortie)} = 
+\frac{\partial J}{\partial f^{(sortie)}} \frac{\partial f^{(sortie)}}{\partial z^{(sortie)}}
+\,,\,
+\delta^{(l)} = \frac{\partial f^{(l)}}{\partial z^{(l)}} w^{(l+1)} \delta^{(l+1)}
+\]
+
+\begin{itemize}
+	\item On calcule les gradients
+\end{itemize}
+
+\[ 
+\frac{\partial J}{\partial w^{(l)}} = a^{(l-1)} \delta^{(l)}
+\,,\,
+\frac{\partial J}{\partial b^{(l)}} = \delta^{(l)}
+\]
+
+\begin{itemize}
+	\item On met à jour les paramètres
+\end{itemize}
+
+\[ 
+w = w - \alpha \frac{\partial J}{\partial w^{(l)}}
+\,,\,
+b = b - \alpha \frac{\partial J}{\partial b^{(l)}}
+\]
+
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : à propagation avant}
+\framesubtitle{Architecture multicouches : rétro-propagation (un peu d'humour)}
+
+\hgraphpage[.58\textwidth]{humour-retro1.jpeg}
+\hgraphpage[.4\textwidth]{humour-retro2.jpg}
+
+
+\end{frame}
+
+\subsection{Auto-encodeur}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : à propagation avant}
+\framesubtitle{Auto-encodeur}
+
+\begin{itemize}
+	\item C'est un réseau de neurones multicouches
+	\item Il apprend un algorithme de compression
+	\item Il est caractérisé par \cite{2016-keras} :
+	\begin{itemize}
+		\item axé sur les données : contrairement aux algorithmes de compression comme JPEG
+		\item avec perte de données : la sortie construite n'est pas totalement identique à celle de l'entrée
+		\item apprentissage non supervisé 
+	\end{itemize}
+	\item Il n'est pas vraiment bon pour la tâche de compression 
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : à propagation avant}
+\framesubtitle{Auto-encodeur : Architecture}
+
+\hgraphpage[\textwidth]{AE.pdf}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : à propagation avant}
+\framesubtitle{Auto-encodeur : Auto-encodeur débruiteur}
+
+\hgraphpage[\textwidth]{AE-noise.pdf}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : à propagation avant}
+\framesubtitle{Auto-encodeur : Auto-encodeur débruiteur (quelques applications)}
+
+\begin{itemize}
+	\item Amélioration de la qualité du discours (son) \cite{2013-lu}
+	\item Nettoyage des documents sales (voir cette compétition : \url{https://www.kaggle.com/c/denoising-dirty-documents})
+	\item Récupération des documents historiques \cite{2019-neji}
+	\item Complétion des parties cachées du visage \cite{2017-li-al}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : à propagation avant}
+\framesubtitle{Auto-encodeur : Auto-encodeur épars (sparse)}
+
+\begin{itemize}
+	\item Taille des couches cachées peut être égale ou plus que la taille de l'entrée 
+	\item Il est utilisé pour apprendre automatiquement des caractéristiques (feature engineering) pour être utilisés dans une autre tâche (comme la classification)
+	\item On applique une régularisation des paramètres (poids) d'une couche 
+	\item Les régularisations utilisées sont \textbf{L1} et \textbf{la divergence de Kullback-Leibler}
+	\item Certains poids convergent vers zéro ce qui permet d'apprendre des représentations comme par exemple le contours d'un objet dans une image
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : à propagation avant}
+\framesubtitle{Auto-encodeur : Auto-encodeur variationnel}
+
+\begin{itemize}
+	\item Pour générer du nouveau contenu, on peut passer au décodeur une variable (vecteur) dans l'espace latent
+	\item Le problème est qu'un encodeur apprend à séparer les différentes clusters parfaitement  
+	\item Solution : forcer l'auto-encodeur à apprendre une distribution  
+\end{itemize}
+
+\begin{minipage}{0.60\textwidth} 
+	\begin{align*}
+	z = \mu + \sigma * N(0, 1) \\
+	J'(x, \hat{x}) = J(x, \hat{x}) + KL(N(\mu, \sigma), N(0, 1)) \\
+	KL(p||q) = \sum_i p(x_i) log(\frac{p(x_i)}{q(x_i)})
+	\end{align*}
+\end{minipage}
+%
+\begin{minipage}{0.39\textwidth}
+	\hgraphpage[\textwidth]{AE-var.pdf}
+\end{minipage}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : à propagation avant}
+\framesubtitle{Auto-encodeur : Auto-encodeur variationnel (Récapitulatif)}
+
+\begin{itemize}
+	\item L'auto-encodeur standard apprend une séparation parfaite des clusters (représentation des états latents non lisse)
+	\item Solution : forcer le modèle à apprendre une distribution (en général, similaire à la distribution normale)
+	\item Le modèle peut apprendre des distributions étroites 
+	\item Solution : utiliser une régularisation (Divergence KL)
+	\item Le modèle peut apprendre des valeurs négatives pour $\sigma$
+	\item Solution : apprendre $\log \sigma$
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : à propagation avant}
+\framesubtitle{Auto-encodeur : Un peu d'humour}
+
+\hgraphpage[\textwidth]{humour-unsupervised.jpg}
+
+\end{frame}
+
+\subsection{Réseau neuronal convolutif}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : à propagation avant}
+\framesubtitle{Réseau neuronal convolutif : traitement d'image (exemple d'une architecture traditionnelle)}
+
+\begin{center}
+	\hgraphpage[\textwidth]{img-learn.pdf}
+\end{center}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : à propagation avant}
+\framesubtitle{Réseau neuronal convolutif : traitement d'image (prétraitement)}
+
+\begin{itemize}
+	\item Il existe plusieurs techniques de prétraitement (voir \cite{2010-alginahi})
+	\item On s'intéresse à celles par convolution (modifier la valeur d'un pixel par rapport à ces voisins)
+	\item deux paramètres : \optword{padding} (entourer l'image avec des 0 afin de préserver la taille originale), \optword{stride} (le pas de défilement du noyau/masque)
+\end{itemize}
+
+\begin{center}
+	\hgraphpage[.8\textwidth]{conv.pdf}
+\end{center}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : à propagation avant}
+\framesubtitle{Réseau neuronal convolutif : traitement d'image (exemple de prétraitement)}
+
+Un exemple de \href{https://fr.wikipedia.org/wiki/Noyau\_(traitement\_d\%27image)}{Wikipedia}
+
+\begin{tabular}{p{.3\textwidth}p{.1\textwidth}p{.2\textwidth}p{.2\textwidth}}
+	\hline\hline
+	Opération & originale & Noyau & transformée \\
+	\hline
+	La détection de contours & 
+	\graphpage[valign=c]{Vd-Orig.png} & 
+	$\begin{bmatrix}
+	-1 & -1 & -1\\ 
+	-1 & 8 & -1\\ 
+	-1 & -1 & -1
+	\end{bmatrix}$ & 
+	\graphpage[valign=c]{Vd-Edge3.png} \\
+	
+	\hline
+	Amélioration de la netteté & 
+	\graphpage[valign=c]{Vd-Orig.png} & 
+	$\begin{bmatrix}
+	0 & -1 & 0\\ 
+	-1 & 5 & -1\\ 
+	0 & -1 & 0
+	\end{bmatrix}$ & 
+	\graphpage[valign=c]{Vd-Sharp.png} \\
+	
+	\hline
+	Box blur & 
+	\graphpage[valign=c]{Vd-Orig.png} & 
+	$\frac{1}{9}\begin{bmatrix}
+	1 & 1 & 1\\ 
+	1 & 1 & 1\\ 
+	1 & 1 & 1
+	\end{bmatrix}$ & 
+	\graphpage[valign=c]{Vd-Blur2.png} \\
+	\hline\hline
+	
+\end{tabular}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : à propagation avant}
+\framesubtitle{Réseau neuronal convolutif : limites de la solution précédente}
+
+D'après LeCun et ses collèques \cite{1998-lecun} : 
+\begin{itemize}
+	\item Lorsque la taille des images est grande; on aura plusieurs paramètres à entraîner
+	\item Pour le faire, on doit fournir un grand dataset 
+	\item La mémoire pour stocker les paramètres sera très grande 
+	\item Pour entraîner le modèle sur les images, on doit faire des prétraitements comme les translations et les distorsions
+	\item Les variations dans les images (comme par exemple la position d'un objet) ne peuvent pas être capturées que lorsqu'on utilise plusieurs couches
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : à propagation avant}
+\framesubtitle{Réseau neuronal convolutif : Couche Conv2D}
+
+\begin{minipage}{0.60\textwidth} 
+	\begin{itemize}
+		\item On préserve la structure spatiale des images
+		\item La couche apprend un ou plusieurs noyaux
+		\item $ w' = \frac{w - w_f - 2P}{S} + 1$,  $ h' = \frac{h - h_f - 2P}{S} + 1$
+		\item On peut spécifier le nombres des filtres $k$ à générer 
+		\item Le nombre des paramètres sera $w_f * h_f * c * k$ plus $k$ biais
+		\item Exemple, \expword{image : 32x32x3; noyau : 5x5; s : 1; p: 0; k : 6.} Dans ce cas, on aura \expword{81} paramètres à entraîner
+	\end{itemize}
+\end{minipage}
+%
+\begin{minipage}{0.39\textwidth}
+	\hgraphpage[\textwidth]{conv2d.pdf}
+	
+	\hgraphpage[.8\textwidth]{conv2d-exp.pdf}
+\end{minipage}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : à propagation avant}
+\framesubtitle{Réseau neuronal convolutif : Pooling}
+
+\begin{minipage}{0.60\textwidth} 
+	\begin{itemize}
+		\item Rendre la représentation plus petite et plus gérable
+		\item $ w' = \frac{w - w_f - 2P}{S} + 1$,  $ h' = \frac{h - h_f - 2P}{S} + 1$
+		\item Pas de paramètres 
+		\item \optword{Max Pool} : le gradient est passé seulement à la cellule gagnante (qui a le max) 
+		\item \optword{Average Pool} : le gradient passé aux cellules participantes à la moyennes est $\frac{\text{gradient}}{w_f * h_f}$ 
+	\end{itemize}
+\end{minipage}
+%
+\begin{minipage}{0.39\textwidth}
+	\hgraphpage[\textwidth]{maxpool.pdf}
+	
+	\hgraphpage[.8\textwidth]{pool-exp.pdf}
+\end{minipage}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : à propagation avant}
+\framesubtitle{Réseau neuronal convolutif : Un peu d'humour}
+
+\hgraphpage[\textwidth]{humour-convnet.jpg}
+
+\end{frame}
+
+\subsection{Régularisation}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : à propagation avant}
+\framesubtitle{Régularisation : Abandon (Droupout)}
+
+\begin{itemize}
+	\item Lorsqu'on entraîne un réseaux de neurones larges sur un petit dataset, on peut avoir un sur-apprentissage
+	\item Une solution est de diminuer la taille du réseau 
+	\item Une autre est de désactiver des connections temporairement d'une manière aléatoire
+	\item Cette technique s'appelle \optword{le décrochage} ou \optword{l'abandon}
+	\item La couche d'abandon prend comme paramètre une fréquence d'abandon
+	\item Cette couche désactive certains sorties (les considère comme 0) pendant l'entraînement (pas l'inférence)
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : à propagation avant}
+\framesubtitle{Régularisation : Un peu d'humour}
+
+\hgraphpage[.35\textwidth]{humour-overfiting2.jpeg}
+\hgraphpage[.63\textwidth]{humour-overfiting1.png}
+
+\end{frame}
+
+
+\section{Réseaux de neurones récurrents}
+
+
+\subsection{Architecture (RNN)}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : récurrents}
+\framesubtitle{Architecture (RNN)}
+
+\begin{minipage}{0.49\textwidth} 
+	\begin{itemize}
+		\item \optword{Elman network}
+		\begin{align*}
+		h_t = f(w_x x_t + w_h \textcolor{red}{h_{t-1}} + b_h) \\
+		\hat{y}_t = g(w_y h_t + b_y)
+		\end{align*}
+		\item \optword{Jordan network}
+		\begin{align*}
+		h_t = f(w_x x_t + w_h \textcolor{red}{\hat{y}_{t-1}} + b_h) \\
+		\hat{y}_t = g(w_y h_t + b_y)
+		\end{align*}
+	\end{itemize}
+\end{minipage}
+%
+\begin{minipage}{0.5\textwidth}
+	\hgraphpage[\textwidth]{RNN.pdf}
+\end{minipage}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : récurrents}
+\framesubtitle{Architecture (RNN) : Rétro-propagation}
+
+\begin{itemize}
+	\item La fonction du coût 
+	\[
+	J(\hat{y}, y) = \sum_{t=1}^{T} J(\hat{y}_t, y_t)
+	\]
+	\item On utilise la rétro-propagation dans le temps \cite{1990-werbos}  
+	\begin{itemize}
+		\item Déplier le réseau récurrent sur le temps 
+		\item On va avoir un réseau similaire au réseau de type feed-forward 
+		\item Cumuler les gradients en commençant par le dernier état 
+		\item Mettre à jour les paramètres lorsqu'on arrive au premier état
+	\end{itemize}
+	\item Problème de disparition/explosion du gradient
+\end{itemize}
+
+%\begin{algorithm}[H]
+%	\KwData{$ X, Y, \alpha, T $}
+%	\KwResult{Les paramètres}
+%	a = []\;
+%	\For{$ t = 0 $ jusqu'à $T-1$}{
+%		Les entrées sont $a,\, x[0],\, ...\, x[t]$ 
+%		$ \theta = \theta - \alpha \Delta_\theta J(X, Y; \theta) $\;
+%		%		Mettre à jours les $\theta$\;
+%		t = t + 1 \;
+%	}
+%	\caption{Rétropropagation dans le temps (BPTT) \cite{1990-werbos}}
+%\end{algorithm}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : récurrents}
+\framesubtitle{Architecture (RNN) : Applications}
+
+\begin{tabular}{p{.32\textwidth}p{.15\textwidth}p{.4\textwidth}}
+	\hline\hline
+	Type & Illustration & Exemple \\
+	\hline
+	Plusieurs à plusieurs & 
+	\vgraphpage[0.75cm, valign=c]{RNNpp1.pdf} & 
+	Détection d'entités nommées \\
+	
+	\hline
+	Plusieurs à plusieurs & 
+	\vgraphpage[0.75cm, valign=c]{RNNpp2.pdf} & 
+	Traduction automatique \\
+	
+	\hline
+	Plusieurs à un & 
+	\vgraphpage[0.75cm, valign=c]{RNNp1.pdf} & 
+	Classification de sentiments \\
+	
+	\hline
+	Un à plusieurs & 
+	\vgraphpage[0.75cm, valign=c]{RNN1p.pdf} & 
+	Sous-titrage d'images \\
+	
+	\hline\hline
+	
+\end{tabular}
+
+
+\end{frame}
+
+\subsection{Long Short-Term Memory (LSTM)}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : récurrents}
+\framesubtitle{Long Short-Term Memory (LSTM) : architecture}
+
+\begin{minipage}{0.50\textwidth} 
+	\begin{itemize}
+		\item $i$ : \optword{Porte d'entrée (actualisation)} : 
+		Combien d'information doit-on ajouter à l'état interne de la cellule ?
+		\item $f$ \optword{Porte d'oubli} :  
+		Est-ce qu'on oubli le contexte passé ?
+		\item $o$ \optword{Porte de sortie} : 
+		Sortie générée à partir de l'état interne et actuel de la cellule	
+	\end{itemize}
+\end{minipage}
+%
+\begin{minipage}{0.49\textwidth}
+	\hgraphpage[\textwidth]{LSTM.pdf}
+\end{minipage}
+
+\begin{itemize}
+	\item $g$ : \optword{Porte de modulation d'entrée} (souvent considérée comme partie de la porte d'entrée) : 
+	Est-ce qu'on augmente ou diminuer l'état ?
+%	\item La dérivée de l'erreur sera ue somme de la porte d'oubli avec d'autres dérivées
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : récurrents}
+\framesubtitle{Long Short-Term Memory (LSTM) : Un peu d'humour}
+
+\begin{center}
+	\hgraphpage[.5\textwidth]{humour-lstm.jpg}
+\end{center}
+
+\end{frame}
+
+\subsection{Gated Recurrent Unit (GRU)}
+
+\begin{frame}
+\frametitle{Les réseaux de neurones : récurrents}
+\framesubtitle{Gated Recurrent Unit (GRU)}
+
+\begin{itemize}
+	\item 
+\end{itemize}
+
+\end{frame}
+
+
+\insertbibliography{ML-RN}{*}
+
+\end{document}
+
