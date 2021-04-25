@@ -64,9 +64,9 @@
 \begin{itemize}
 	\item \optword{Sources des données}
 	\begin{itemize}
-		\item Données structurées : BD, tabulateurs (CSV, etc.)
-		\item Données semi-structurées : XML, JSON, etc.
-		\item Données non structurées : documents textes, images, métadonnées, etc.
+		\item Données structurées : \expword{BD, tabulateurs (CSV, etc.)}
+		\item Données semi-structurées : \expword{XML, JSON, etc.}
+		\item Données non structurées : \expword{documents textes, images, métadonnées, etc.}
 	\end{itemize}
 	\item \optword{Intégrité des données}
 	\begin{itemize}
@@ -75,8 +75,8 @@
 	\end{itemize}
 	\item \optword{Fusionnement des données (joindre des schémas)}
 	\begin{itemize}
-		\item Problème de nommage : bd1.numclient, bd2.clientid
-		\item Conflits de valeurs : bd1.taille(cm), bd2.taille(pouces)
+		\item Problème de nommage : \expword{bd1.numclient, bd2.clientid}
+		\item Conflits de valeurs : \expword{bd1.taille(cm), bd2.taille(pouces)}
 		\item Redondance : attributs calculés et enregistrements identiques.
 		\item Types différents des attributs
 	\end{itemize}
@@ -142,14 +142,14 @@
 \begin{column}{0.78\textwidth}
 \begin{itemize}
 	\item Utiliser des plateformes de crowdsourcing.
-	\item Ex. Amazon Mechanical Turk (MTurk) et Clickworker.
+	\item Ex. \expword{Amazon Mechanical Turk (MTurk) et Clickworker}.
 	\item \textbf{Types de crowdsourcing}
 	\begin{enumerate}
 		\item \optword{Explicite} : En demandant directement des contributions
 		\item \optword{Implicite} : En intégrant des tâches dans d’autres formes
 		\begin{itemize}
-			\item Tâches inévitables (par exemple, reCAPTCHA)
-			\item Jeux ayant des objectifs (par exemple, jeu ESP)
+			\item Tâches inévitables (Ex. \expword{reCAPTCHA})
+			\item Jeux ayant des objectifs (Ex. \expword{jeu ESP})
 		\end{itemize}
 	\end{enumerate}
 \end{itemize}
@@ -191,8 +191,8 @@
 			\item Mesure l'agrément entre deux juges et deux catégories
 			\item $K = \frac{P_o - P_e}{1 - P_e}$
 			\item $P_o = \frac{a + d}{a+b+c+d}$
-			\item $P_{oui} = \frac{a+b}{a+b+c+d} + \frac{a+c}{a+b+c+d}$
-			\item $P_{non} = \frac{c+d}{a+b+c+d} + \frac{b+d}{a+b+c+d}$
+			\item $P_{oui} = \frac{a+b}{a+b+c+d} * \frac{a+c}{a+b+c+d}$
+			\item $P_{non} = \frac{c+d}{a+b+c+d} * \frac{b+d}{a+b+c+d}$
 			\item $P_e = P_{oui} + P_{non}$
 			\item \expword{sklearn.metrics.cohen\_kappa\_score}
 		\end{itemize}
@@ -234,20 +234,20 @@
 		\item \optword{Pearson}
 		\begin{itemize}
 			\item Espace continu des valeurs (régression)
-			\item $r_{X,Y} = \frac{covariance(X,Y)}{\sigma_X \sigma_Y}$
+			\item $r_{Y^{(1)},Y^{(2)}} = \frac{covariance(Y^{(1)},Y^{(2)})}{\sigma_{Y^{(1)}} \sigma_{Y^{(2)}}}$
 			\item \expword{scipy.stats.pearsonr}
 		\end{itemize}
 		\item \optword{Spearman}
 		\begin{itemize}
 			\item Espace ordinal des valeurs
-			\item $\rho_{X,Y} = \frac{covariance(rg(X),rg(Y))}{\sigma_{rg(X)} \sigma_{rg(Y)}}$
+			\item $\rho_{Y^{(1)},Y^{(2)}} = \frac{covariance(rg(Y^{(1)}),rg(Y^{(2)}))}{\sigma_{rg(Y^{(1)})} \sigma_{rg(Y^{(2)})}}$
 			\item $rg$ est la fonction rand ; l'ordre croissant
 			\item \expword{scipy.stats.spearmanr}
 		\end{itemize}
 		\item \optword{Kendall}
 		\begin{itemize}
 			\item Espace ordinal des valeurs
-			\item $\tau_{X,Y} = \frac{2}{2 (n-1)} \sum_{i<j} signe(x_i - x_j) signe(y_i - y_j)$
+			\item $\tau_{Y^{(1)},Y^{(2)}} = \frac{2}{2 (n-1)} \sum_{i<j} signe(y^{(1)}_i - y^{(1)}_j) signe(y^{(2)}_i - y^{(2)}_j)$
 			\item \expword{scipy.stats.kendalltau}
 		\end{itemize}
 	\end{itemize}
@@ -458,7 +458,7 @@
 	\begin{itemize}
 		\item On utilise cette normalisation lorsque
 		\begin{itemize}
-			\item il y a des valeurs aberrantes extrêmes.
+			\item la caractéristique conforme à la loi de puissance
 		\end{itemize}
 		\item \textbf{Exemple}
 		\begin{itemize}
@@ -597,8 +597,8 @@
 
 	\begin{itemize}
 		\item \url{https://github.com/scikit-learn-contrib/imbalanced-learn}
-		\item pip install -U imbalanced-learn
-		\item conda install -c conda-forge imbalanced-learn
+		\item \textbf{pip install -U imbalanced-learn}
+		\item \textbf{conda install -c conda-forge imbalanced-learn}
 	\end{itemize}
 	
 \end{frame}
@@ -636,7 +636,7 @@
 	\framesubtitle{Données déséquilibrées : Sur-échantillonnage}
 	
 	\begin{itemize}
-		\item Ajouter des échantillons de la classe majoritaire (downsampling)
+		\item Ajouter des échantillons de la classe minoritaire (oversampling)
 		\item \optword{Duplication aléatoire}
 		\begin{itemize}
 			\item \expword{imblearn.over\_sampling.RandomOverSampler}

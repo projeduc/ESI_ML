@@ -640,7 +640,7 @@
 	initialiser $v$ ($|v| = |\theta|$) à zéro\;
 	\While{$ t < T$ et pas de convergence}{
 		$ v = v + (\Delta_\theta J(X, Y; \theta))^2 $\;
-		$ \theta = \theta - \frac{\alpha}{\sqrt{v} + \epsilon} \Delta_\theta J(X, Y; \theta) $\;
+		$ \theta = \theta - \frac{\alpha}{\sqrt{v + \epsilon}} \Delta_\theta J(X, Y; \theta) $\;
 %		Mettre à jours les $\theta$\;
 		\tcp{epsilon est utilisé pour éviter la division par 0, en général 1e-8}
 		t = t + 1 \;

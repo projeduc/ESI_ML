@@ -1,0 +1,298 @@
+% !TEX TS-program = pdflatex
+% !TeX program = pdflatex
+% !TEX encoding = UTF-8
+% !TEX spellcheck = fr
+
+\documentclass[xcolor=table]{beamer}
+
+\input{options}
+
+\title[ML : Régression multinomiale et AdaGrad] %
+{Machine Learning \\Régression logistique multinomiale et AdaGrad} 
+
+\changegraphpath{../img/rlmul-adagrad/}
+
+\begin{document}
+	
+\begin{frame}
+	\frametitle{Machine Learning}
+	\framesubtitle{Régression logistique multinomiale et AdaGrad : Introduction}
+	
+	\begin{itemize}
+		\item Nous avons vu ...
+		\begin{itemize}
+			\item comment estimer la probabilité d'une classe
+			\item en utilisant la régression logistique
+			\item dans le cas binaire (appartient à une classe ou hors classe)
+		\end{itemize}
+		\item Mais ...
+		\begin{itemize}
+			\item comment faire lorsqu'il y a plusieurs classes ?
+		\end{itemize}
+		\item Nous avons vu ...
+		\begin{itemize}
+			\item comment optimiser la fonction objective
+			\item en utilisant la descente du gradient
+			\item avec un taux d'apprentissage fixe
+		\end{itemize}
+		\item Mais ...
+		\begin{itemize}
+			\item est-ce qu'on peut régler ce taux automatiquement ?
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Machine Learning}
+	\framesubtitle{Régression logistique multinomiale et AdaGrad : Plan}
+	
+	\begin{multicols}{2}
+		%	\small
+		\tableofcontents
+	\end{multicols}
+\end{frame}
+
+\section{Régression logistique multinomiale}
+
+\subsection{Rappel- Régression logistique binaire}
+
+\begin{frame}
+	\frametitle{Régression logistique multinomiale}
+	\framesubtitle{Rappel- Régression logistique binaire}
+	
+	\hgraphpage{RLbin.pdf}
+	
+\end{frame}
+
+\begin{frame}
+\frametitle{Régression logistique multinomiale}
+\framesubtitle{Rappel- Régression logistique binaire : Estimation de la probabilité}
+
+\[Z = \sum_{j=1}^{N} \theta_j X_j = X \cdot \theta\]
+\begin{itemize}
+	\item $Z[M]$ est un vecteur de $M$ éléments (échantillons)
+	\item $X[M, N]$ est une matrice de $M$ échantillons et $N$ caractéristiques
+	\item $\theta[N]$ est un vecteur des paramètres de $N$ caractéristiques
+\end{itemize}
+
+\[H = \sigma(Z) = \frac{1}{1+e^{-Z}}\]
+
+\begin{itemize}
+	\item $H[M]$ est un vecteur de $M$ probabilités (échantillons)
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Régression logistique multinomiale}
+	\framesubtitle{Rappel- Régression logistique binaire : Erreur et gradient}
+	
+	\[J_\theta = BCE = \frac{-1}{M} \sum\limits_{i=1}^{M} [Y^{(i)} \log(H^{(i)}) + (1- Y^{(i)}) \log(1 - H^{(i)})]\]
+	\begin{itemize}
+		\item $Y[M]$ et $H[M]$ sont deux vecteurs de $M$ éléments (échantillons)
+		\item $J_\theta$ est un scalaire
+	\end{itemize}
+	
+	
+	\[
+	\frac{\partial BCE}{\partial \theta_j} = \frac{1}{M} \sum\limits_{i=1}^{M} (H^{(i)} - Y^{(i)}) X_j^{(i)}
+	\]
+	
+	\[
+	\frac{\partial BCE}{\partial \theta} = \frac{1}{M} (H - Y) \cdot X
+	\]
+	
+	\begin{itemize}
+		\item $\frac{\partial BCE}{\partial \theta}[N]$ est un vecteur de $N$ éléments (caractéristiques)
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Régression logistique multinomiale}
+	\framesubtitle{Rappel- Régression logistique binaire : gradient (dérivation)}
+	
+	\scriptsize
+	\vspace{-12pt}
+	\begin{align*}
+	\frac{\partial BCE}{\partial \theta_j} 
+	& = & \frac{-1}{M} \sum\limits_{i=1}^{M} \frac{\partial}{\partial \theta_j} [Y^{(i)} \log(H^{(i)}) + (1- Y^{(i)}) \log(1 - H^{(i)})] \\
+	& = & \frac{-1}{M} \sum\limits_{i=1}^{M} [ Y^{(i)} \frac{\partial}{\partial \theta_j} \log(H^{(i)}) + (1- Y^{(i)}) \frac{\partial}{\partial \theta_j}\log(1 - H^{(i)})]\\
+	& = & \frac{-1}{M} \sum\limits_{i=1}^{M} [ Y^{(i)} \frac{1}{H^{(i)}} \frac{\partial}{\partial \theta_j} H^{(i)} + (1- Y^{(i)}) \frac{-1}{1-H^{(i)}} \frac{\partial}{\partial \theta_j} H^{(i)})] \\
+	& = & \frac{-1}{M} \sum\limits_{i=1}^{M} \frac{Y^{(i)}-H^{(i)}}{H^{(i)}(1-H^{(i)})} \frac{\partial}{\partial \theta_j} H^{(i)} \\
+	\end{align*}
+	
+	\vspace{-24pt}
+	\begin{align*}
+	\frac{\partial H^{(i)}}{\partial \theta_j} 
+	& = & \frac{\partial \sigma(Z^{(i)})}{\partial Z^{(i)}} \frac{\partial Z^{(i)}}{\partial \theta_j}
+	 =  [\sigma(Z^{(i)}) (1-\sigma(Z^{(i)}))]\frac{\partial}{\partial \theta_j} \sum\limits_{k=0}^{N} \theta_k X_k^{(i)} 
+	 =  H^{(i)} (1-H^{(i)})  X_j^{(i)}\\
+	\end{align*}
+	
+	\vspace{-24pt}
+	\begin{align*}
+	\frac{\partial BCE}{\partial \theta_j} 
+	& = & \frac{-1}{M} \sum\limits_{i=1}^{M} \frac{Y^{(i)}-H^{(i)}}{H^{(i)}(1-H^{(i)})} [H^{(i)} (1-H^{(i)}) X_j^{(i)}] \\
+	& = & \frac{1}{M} \sum\limits_{i=1}^{M} (H^{(i)} - Y^{(i)}) X_j^{(i)}\\
+	\end{align*}
+		
+\end{frame}
+
+\begin{frame}
+	\frametitle{Régression logistique multinomiale}
+	\framesubtitle{Rappel- Régression logistique binaire : Mise à jours des paramètres}
+	
+	\[\theta = \theta - \alpha \frac{\partial J_\theta}{\partial \theta}\]
+	
+	\begin{itemize}
+		\item $\frac{\partial J_\theta}{\partial \theta}[N]$ est un vecteur de $N$ éléments (caractéristiques)
+		\item $\theta[N]$ est un vecteur de $N$ éléments (caractéristiques)
+		\item $\alpha \in [0, 1]$ taux d'apprentissage
+	\end{itemize}
+	
+\end{frame}
+
+\subsection{Régression logistique multinomiale (One-vs-Rest)}
+
+\begin{frame}
+	\frametitle{Régression logistique multinomiale}
+	\framesubtitle{Régression logistique multinomiale (One-vs-Rest)}
+	
+	\hgraphpage{RLovr.pdf}
+	
+\end{frame}
+
+\subsection{Régression logistique multinomiale (One-vs-One)}
+
+\begin{frame}
+	\frametitle{Régression logistique multinomiale}
+	\framesubtitle{Régression logistique multinomiale (One-vs-One)}
+	
+	\hgraphpage{RLovo.pdf}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Régression logistique multinomiale}
+	\framesubtitle{Régression logistique multinomiale (One-vs-One) : Estimation de la probabilité}
+	
+	\[Z = \sum_{j=1}^{N} \theta_j X_j = X \cdot \theta\]
+	\begin{itemize}
+		\item $Z[M, L]$ est une matrice de $M$ lignes (échantillons), $L$ colonnes (classes)
+		\item $X[M, N]$ est une matrice de $M$ lignes (échantillons), $N$ colonnes (caractéristiques)
+		\item $\theta[N, L]$ est une matrice de $N$ lignes (caractéristiques), $L$ colonnes (classes)
+	\end{itemize}
+	
+	\[H = softmax(Z) = \frac{e^{Z}}{\sum_{k=1}^{L} e^{Z_k}}\]
+	
+	\begin{itemize}
+		\item $H[M, L]$ est une matrice de $M$ lignes (échantillons), $L$ colonnes (classes)
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Régression logistique multinomiale}
+	\framesubtitle{Régression logistique multinomiale (One-vs-One) : Erreur et gradient}
+	
+	\[J_\theta = \frac{-1}{M} \sum\limits_{i=1}^{M} \sum_{k=1}^{L} Y^{(i)}_k \log(H^{(i)}_k)\]
+	\begin{itemize}
+		\item $Y[M, L]$ et $H[M, L]$ sont deux matrices de $M\times L$ éléments (échantillons X classes)
+		\item $J_\theta$ est un scalaire
+	\end{itemize}
+	
+	
+	\[
+	\frac{\partial BCE}{\partial \theta_j} = \frac{1}{M} \sum\limits_{i=1}^{M} (H^{(i)} - Y^{(i)}) X_j^{(i)}
+	\]
+	
+	\[
+	\frac{\partial BCE}{\partial \theta} = \frac{1}{M} (H - Y) \cdot X
+	\]
+	
+	\begin{itemize}
+		\item $\frac{\partial BCE}{\partial \theta}[N, L]$ est une matrice de $N\times L$ éléments (caractéristiques X classes)
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Régression logistique multinomiale}
+	\framesubtitle{Régression logistique multinomiale (One-vs-One) : Mise à jours des paramètres}
+	
+	\[\theta = \theta - \alpha \frac{\partial J_\theta}{\partial \theta}\]
+	
+	\begin{itemize}
+		\item $\frac{\partial BCE}{\partial \theta}[N, L]$ est une matrice de $N\times L$ éléments (caractéristiques X classes)
+		\item $\theta[N, L]$ est une matrice de $N$ lignes (caractéristiques), $L$ colonnes (classes)
+		\item $\alpha \in [0, 1]$ taux d'apprentissage
+	\end{itemize}
+	
+\end{frame}
+
+\section{AdaGrad}
+
+\subsection{Rappel- Descente du gradient}
+
+\begin{frame}
+	\frametitle{AdaGrad}
+	\framesubtitle{Rappel- Descente du gradient}
+	
+\begin{columns}
+\begin{column}{.7\textwidth}
+	\begin{algorithm}[H]
+		\KwData{$ X, Y, \alpha, T $}
+		\KwResult{$ \theta $}
+		initialiser $ \theta $ ; $ t = 0 $\;
+		\While{$ t < T$ et pas de convergence}{
+			$ \theta = \theta - \alpha \Delta_\theta J(X, Y; \theta) $\;
+			%		Mettre à jours les $\theta$\;
+			t = t + 1 \;
+		}
+		\caption{descente du gradient}
+	\end{algorithm}
+\end{column}
+\begin{column}{.3\textwidth}
+	\hgraphpage{DG-J.png}
+\end{column}
+\end{columns}
+	
+\end{frame}
+
+\subsection{AdaGrad}
+
+\begin{frame}
+	\frametitle{AdaGrad}
+	\framesubtitle{Descente du gradient adaptative (AdaGrad)}
+\begin{columns}
+\begin{column}{.7\textwidth}
+	\begin{algorithm}[H]
+		\KwData{$ X, Y, \alpha, T$}
+		\KwResult{$ \theta $}
+		initialiser $ \theta $ ; $ t = 0 $\;
+		initialiser $V$ ($|V| = |\theta|$) à zéro\;
+		\While{$ t < T$ et pas de convergence}{
+			$ V = V + (\Delta_\theta J(X, Y; \theta))^2 $\;
+			$ \theta = \theta - \frac{\alpha}{\sqrt{v + \epsilon}} \Delta_\theta J(X, Y; \theta) $\;
+			%		Mettre à jours les $\theta$\;
+			\tcp{epsilon est utilisé pour éviter la division par 0, en général 1e-8}
+			t = t + 1 \;
+		}
+		\caption{AdaGrad}
+	\end{algorithm}
+\end{column}
+\begin{column}{.3\textwidth}
+	\hgraphpage{AdaGrad-J.png}
+\end{column}
+\end{columns}
+\end{frame}
+
+
+%\insertbibliography{ML-preparation}{*}
+
+\end{document}
+
+
+
