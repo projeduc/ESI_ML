@@ -1,0 +1,41 @@
+TP01 : Régression  
+===========================
+
+Les étudiants doivent compléter le code afin de créer un regresseur linéaire et un autre logistique binaire. 
+Ils doivent, aussi, analyser quelques résultats
+
+OUTILS : Python, Jupyter, pandas, scikit-learn, numpy, matplotlib
+
+DATASETS : prix des maisons (régression), notes des étudiants (classement)
+
+PLAN : 
+
+I. Réalisation des algorithmes
+    I.1. Regression linéaire
+    I.2. Régression logistique
+    I.3. Déscente du gradient
+    I.4. Regroupement et test de l'implémentation
+II. Application et analyse
+    II.1. Regression linéaire
+    II.2. Régression logistique binaire
+
+QUOI FAIRE : 
+
+I. Réalisation des algorithmes
+    - Calculer la combinaison linéaire
+    - Définir la fonction du coût MSE
+    - Définir la fonction de gradient MSE
+    - La fonction ségmoid
+    - Prédiction de probabilité dans la régression logistique
+    - La fonction de cout BCE 
+    - Définir la fonction de gradient BCE
+    - Définir la fonction d'arret de la descente du gradient
+    - Définir la fonction de la mise à jours des paramètres
+    
+II. Application et analyse
+    - Taux d'apprentissage et convergence dans la régression linéaire (analyse)
+    - Capacité de prédiction dans la régression linéaire (analyse)
+    - Capacité de prédiction dans la régression polynomiale (analyse)
+    - Normalisation et convergence dans la régression logistique (analyse)
+    - Complexité du modèle et apprentissage dans la régression logistique (analyse)
+    

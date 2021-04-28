@@ -1,0 +1,15 @@
+temps,temperature,humidite,vent,jouer
+ensoleile,chaude,haute,non,non
+ensoleile,chaude,haute,oui,non
+nuageux,chaude,haute,non,oui
+pluvieux,douce,haute,non,oui
+pluvieux,fraiche,normale,non,oui
+pluvieux,fraiche,normale,oui,non
+nuageux,fraiche,normale,oui,oui
+ensoleile,douce,haute,non,non
+ensoleile,fraiche,normale,non,oui
+pluvieux,douce,normale,non,oui
+ensoleile,douce,normale,oui,oui
+nuageux,douce,haute,oui,oui
+nuageux,chaude,normale,non,oui
+pluvieux,douce,haute,oui,non
