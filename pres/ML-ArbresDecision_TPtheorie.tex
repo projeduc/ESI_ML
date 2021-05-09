@@ -1,0 +1,284 @@
+% !TEX TS-program = pdflatex
+% !TeX program = pdflatex
+% !TEX encoding = UTF-8
+% !TEX spellcheck = fr
+
+\documentclass[xcolor=table]{beamer}
+
+\input{options}
+
+\title[ML : Arbres de décision (TP)] %
+{Machine Learning \\Arbres de décision (support TP)} 
+
+\changegraphpath{../img/arbres/}
+
+\begin{document}
+	
+\begin{frame}
+	\frametitle{Machine Learning}
+	\framesubtitle{Arbres de décision (support TP) : Introduction}
+	
+	\begin{itemize}
+		\item Les arbres de décision
+		\begin{itemize}
+			\item comment créer un arbre de décision en utilisant ID3
+			\item en utilisant la régression logistique
+			\item dans le cas binaire (appartient à une classe ou hors classe)
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Machine Learning}
+	\framesubtitle{Arbres de décision (support TP) : Plan}
+	
+	\begin{multicols}{2}
+		%	\small
+		\tableofcontents
+	\end{multicols}
+\end{frame}
+
+\section{Arbres de décision}
+
+\begin{frame}
+	\frametitle{Arbres de décision}
+	
+	\begin{itemize}
+		\item \optword{ID3 (Iterative Dichotomiser 3)} : dévelopé en 1986 par Ross Quinlan. Il peut être appliqué seulement sur les caractéristiques nominales. Il est utilisé pour le classement.
+		\item \optword{C4.5} : une extension de ID3 par Ross Quinlan. Il peut être appliqué sur tous les types de caractéristiques. Il est utilisé pour le classement.
+		\item \optword{C5.0} : une extension commerciale de C4.5, toujours par Ross Quinlan.
+		\item \optword{CART (Classification and Regression Trees)} : comme C4.5 mais utilise d'autres métriques. Aussi, l'algorithme supporte la régression.
+	\end{itemize}
+	
+\end{frame}
+
+\subsection{Algorithmes}
+
+\begin{frame}
+	\frametitle{Arbres de décision}
+	\framesubtitle{Algorithmes : Construction (apprentissage)}
+	
+	\begin{algorithm}[H]
+		\KwData{$ X, Y$}
+		\KwResult{$ (S, A) $ : un arbre} 
+		créer un sommet $ s \in S $\;
+		
+		\eIf{$Y$ est homogène ou on a atteint une condition d'arrêt}{
+			$s.classe=\arg\max_{k}{|\{y \in Y / y = k \}|}$ \tcp{$s$ est une feuille}
+		}{
+			déterminer la caractéristique $X_j$ qui divise le mieux $Y$\;
+			diviser $Y$ en sous-ensembles $Y_1, \ldots, Y_K$ selon les valeurs de $X_j$\;
+			diviser $X$ en sous-ensembles $X_{*,1}, \ldots, X_{*, K}$ selon les valeurs de $X_j$\;
+			$s.j = j$\;
+			\ForEach{$ k \in \{1, \ldots, K\}$}{
+				$s_k = Construction(X_{*,k}, Y_k) \in S$ $(s, s_k) \in A$ $val(s, s_k) = k$\;
+			}
+		}
+		\caption{Génération d'un arbre de décision (algorithme général)}
+	\end{algorithm}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Arbres de décision}
+	\framesubtitle{Algorithmes : Recherche (prédiction)}
+	
+	\begin{algorithm}[H]
+		\KwData{$x$ : un échantillon; $(S, A)$ : l'arbre de décision}
+		\KwResult{$ y $ : sa classe} 
+		
+		$s$ est la racine de $(S, A)$\;
+		
+		
+		\eIf{$s$ est une feuille}{
+			\Return $s.classe$\;
+		}{
+			$j = s.j$\; 
+			choisir l'arrête $(s, s_k)$ tel que $val(s, s_k) \equiv x_j$\;
+			\Return Parcourir(x, $(s_k, A)$)\;
+		}
+		\caption{Parcours d'un arbre de décision (algorithme général)}
+	\end{algorithm}
+	
+\end{frame}
+
+\subsection{Critique}
+
+\begin{frame}
+	\frametitle{Arbres de décision}
+	\framesubtitle{Critique : Avantages}
+	
+	\begin{itemize}
+		\item simples à comprendre et à interpréter. On peut visualiser les arbres. Aussi, on peut expliquer les résultats obtenus facilement.
+		\item peuvent travailler sur des données avec peu de préparation. Par exemple, ils n'ont pas besoin de la normalisation des données.
+		\item acceptent les données numériques et nominales. Les autres algorithmes d'apprentissage sont spécialisés dans un seul type de données.
+		\item donnent de bonne performance même si leurs hypothèses sont un peu violées par le modèle réel à partir duquel les données ont été générées.
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Arbres de décision}
+	\framesubtitle{Critique : Inconvénients}
+	
+	\begin{itemize}
+		\item peuvent être aussi complexes, ils ne généralisent pas bien (overfitting: surapprentissage). On peut régler ça en fixant le nombre minimum des échantillons dans les feuilles ou en fixant la profondeur maximale de l'arbre.
+		\item peuvent être instables à cause des variations des données.
+		\item il existe des problèmes qui sont un peu difficiles à apprendre par les arbres de décision. Ils ne sont pas faciles à exprimer, par exemple: XOR.
+		\item peuvent être biaisés à la classe dominante. Donc, il faut balancer les données avant d'entrainer le système.
+		\item ce n'est pas garanti de tomber sur l'arbre de décision optimal.
+	\end{itemize}
+	
+\end{frame}
+
+\section{ID3 (Rappel)}
+
+\begin{frame}
+	\frametitle{ID3 (Rappel)}
+	
+	\begin{itemize}
+		\item \keyword{Iterative Dichotomiser 3}
+		\item n'accepte que les caractéristiques nominales
+		\item seulement pour le classement
+		\item on s'arrête si les ensembles des classes dans les feuilles sont homogènes
+	\end{itemize}
+	
+\end{frame}
+
+\subsection{Homogénéité d'un ensemble}
+
+\begin{frame}
+	\frametitle{ID3 (Rappel)}
+	\framesubtitle{Homogénéité d'un ensemble}
+	
+	\begin{itemize}
+		\item Entropie de Shannon $H(Y)$ pour mesurer l'incertitude d'un ensemble $Y$
+		\item $H(Y)=0$ : $Y$ contient les mêmes valeurs (classes)
+		\item $H(Y)=1$ : $Y$ contient des valeurs totalement différentes
+		\item étant donné $V_y$ l'ensemble du vocabulaire de $Y$ (différentes valeurs ou classes)
+	\end{itemize}
+
+	\[H(Y) = - \sum\limits_{v \in V_y} p(v/Y) \log_2 p(v/Y)\]
+	
+	\[p(v/Y) = \frac{|\{y / y \in Y \wedge y = v\}|}{|S|}\]
+	
+\end{frame}
+
+\subsection{Division d'un ensemble}
+
+\begin{frame}
+	\frametitle{ID3 (Rappel)}
+	\framesubtitle{Division d'un ensemble}
+	
+	\begin{itemize}
+		\item $Y$ : un ensemble des prédictions 
+		\item $X_j$ : les valeurs de la caractéristique $j$ des échantillons ayant comme prédictions $Y$
+		\item $v$ : une valeur parmi les valeurs possibles de $X_j$ (vocabulaire $V_j$)
+		\item pour chaque valeur $v \in V_j$, on crée un ensemble $Y_{j, v}$
+		\item si $|V| = K$, on aura $K$ ensembles $Y_1, \cdots, Y_K$ et 
+	\end{itemize}
+	
+	\[Y_{j,v} = \{y^{(i)} \in Y / X_j^{(i)} \in X_j \wedge X_j^{(i)} = v\}\]
+
+	
+\end{frame}
+
+\subsection{Choix de caractéristique de division}
+
+\begin{frame}
+	\frametitle{ID3 (Rappel)}
+	\framesubtitle{Choix de caractéristique de division}
+	
+	\begin{itemize}
+		\item On utilise le gain d'entropie (information gain) $IG(Y, X_j)$
+		\item $j = \arg\max_{j'} IG(Y, X_{j'})$
+		\item Cette mesure calcule combien d'incertitude dans $Y$ a été réduite après sa division en utilisant l'attribut $j$.
+		\item c'est la différence entre l'entropie de $Y$ et l'entropie pondérée des ensembles divisées
+	\end{itemize}
+
+	\[IG(Y, X_j) = H(Y) - \sum_{v \in V_j} p(v/X_j) H(Y_{j, v})\]
+	
+	
+\end{frame}
+
+\section{CART}
+
+\begin{frame}
+	\frametitle{CART}
+	
+	\begin{itemize}
+		\item \keyword{Classification and Regression Trees}
+		\item supporte la régression.
+		\item essaye de minimiser une fonction de coût.
+		\item utilise le pré-élagage en utilisant un critère d'arrêt.
+		\item crée des arbres binaires 
+	\end{itemize}
+	
+\end{frame}
+
+\subsection{Homogénéité d'un ensemble}
+
+\begin{frame}
+	\frametitle{CART}
+	\framesubtitle{Homogénéité d'un ensemble}
+	
+	\begin{itemize}
+		\item indexe de diversité $Gini(Y)$ pour mesurer l'erreur de classification de $Y$
+		\item $Gini(Y)=0$ représente la meilleur division
+		\item $H(Y)=0.5$ représente la division la plus pire
+		\item étant donné $V_y$ l'ensemble du vocabulaire de $Y$ (différentes valeurs ou classes)
+		\item Dans le cas de la régression, on utilise \keyword{MSE}
+	\end{itemize}
+	
+	\[Gini(S) = \sum\limits_{v \in V_y} p(v/Y) (1-p(v/Y)) = 1 - \sum\limits_{v \in V_y} p(v/Y)^2 \]
+	
+	\[p(v/Y) = \frac{|\{y / y \in Y \wedge y = v\}|}{|S|}\]
+	
+\end{frame}
+
+\subsection{Division d'un ensemble}
+
+\begin{frame}
+	\frametitle{CART}
+	\framesubtitle{Division d'un ensemble}
+	
+	\begin{itemize}
+		\item $Y$ : un ensemble des prédictions 
+		\item $X_j$ : les valeurs de la caractéristique $j$ des échantillons ayant comme prédictions $Y$
+		\item $v$ : une valeur parmi les valeurs possibles de $X_j$ (vocabulaire $V_j$)
+		\item pour chaque valeur $v \in V_j$, on crée deux ensembles $Y_G$ et $Y_D$
+		\item Donc, on aura 2 ensembles $Y_G$ (avec des valeurs $X_j > v$) et $Y_D$ (avec des valeurs $X_j \le v$)
+	\end{itemize}
+	
+	\[Y_G = \{y^{(i)} \in Y / X_j^{(i)} \in X_j \wedge X_j^{(i)} > v\}\]
+	\[Y_D = \{y^{(i)} \in Y / X_j^{(i)} \in X_j \wedge X_j^{(i)} \le v\}\]
+	
+\end{frame}
+
+\subsection{Choix de caractéristique de division}
+
+\begin{frame}
+	\frametitle{CART}
+	\framesubtitle{Choix de caractéristique de division}
+	
+	\begin{itemize}
+		\item On utilise la diversité Gini de la division $Gini_{div}(Y_G, Y_D)$
+		\item $j, v = \arg\min_{j', v'} Gini_{div}(Y_G, Y_D)$
+		\item Ici, on ne cherche pas seulement la caractéristique $j$, mais aussi la valeur $v$ qui minimise la diversité Gini de la division
+		\item $|S| = |S_G| + |S_D|$
+		\item pour la régression, on utilise \keyword{MSE} à la place de \keyword{Gini}
+		\item l'estimation dans le cas de la régression est la moyenne des $Y$ dans la feuille
+	\end{itemize}
+	
+	\[Gini_{div}(S_G, S_D) = \frac{|S_G|}{|S|} Gini(S_G) + \frac{|S_D|}{|S|} Gini(S_D)\]
+	
+	
+\end{frame}
+
+%\insertbibliography{ML-preparation}{*}
+
+\end{document}
+
+
+

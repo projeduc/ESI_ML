@@ -119,17 +119,18 @@
 	\frametitle{Naïve Bayes}
 	\framesubtitle{Théorie : Apprentissage (vraisemblance - loi multinomiale)}
 	
-	\[P(x_j = v_j|Y_k) = \frac{|X_j = v_j|_{Y_k}}{\sum_{k'=1}^{L} |X_j = v_j|_{Y_k'}}\]
+	\[P(x_j = v_j|Y_k) = \frac{|X_j = v_j|_{Y_k}}{|Y = k|}\]
 	
 	\begin{itemize}
 		\item $x_j$ est la caractéristique $j$
 		\item $v_j$ est une valeur parmi les valeurs existantes dans la caractéristique $j$
 		\item $|X_j = v_j|_{Y_k} = |\{Y^{(i)} / Y^{(i)} = k \wedge X^{(i)}_j = v_j\}|$ le nombre des échantillons de la caractéristique $j$ ayant la valeur $v_j$ et appartenant à la classe $k$
+		\item $|Y = k| = |\{Y^{(i)} / Y^{(i)} = k \}|$ le nombre des échantillons appartenant à la classe $k$
 		\item $V_j$ est la liste des valeurs uniques dans la caractéristique $j$
 		\item \expword{sklearn.naive\_bayes.CategoricalNB}
 	\end{itemize}
 
-	\[P(x_j = v_j|Y_k) = \frac{|X_j = v_j|_{Y_k} + \alpha}{\sum_{k'=1}^{L} |X_j = v_j|_{Y_k'} + \alpha |V_j|}\]
+	\[P(x_j = v_j|Y_k) = \frac{|X_j = v_j|_{Y_k} + \alpha}{|Y = k| + \alpha |V_j|}\]
 	
 	
 \end{frame}
@@ -140,13 +141,13 @@
 	
 	\begin{itemize}
 		\item Un texte peut être vu comme une seule caractéristique où les mots sont les catégories
-		\item $C_j$ est le compte du mot $w_j$ dans tous les textes
+		\item $C_k$ est le compte de la classe $k$ dans tous les échantillons
 		\item $C_{jk}$ est le compte du mot $w_j$ dans les textes appartenant à la classe $Y_k$
 		\item $V$ est le vocabulaire (les différents mots dans le dataset d'entraînement)
 		\item \expword{sklearn.naive\_bayes.MultinomialNB}
 	\end{itemize}
 	
-	\[P(mot = w_j|Y_k) = \frac{C_{jk} + \alpha}{C_j + \alpha |V|}\]
+	\[P(mot = w_j|Y_k) = \frac{C_{jk} + \alpha}{C_k + \alpha |V|}\]
 	\[\hat{Y} = \arg\max_{Y_k} P(Y_k) * \prod_{m \in texte} P(mot = m|Y_k)\]
 	
 \end{frame}
@@ -170,7 +171,7 @@
 	\frametitle{Naïve Bayes}
 	\framesubtitle{Théorie : Apprentissage (vraisemblance - loi normale)}
 	
-	\[P(X_j = v|Y_k) = \frac{1}{2\pi \sigma_{kj}^2} e^\frac{-(v-\mu_{kj})^2}{2 \sigma_{kj}^2}\]
+	\[P(X_j = v|Y_k) = \frac{1}{\sqrt{2\pi \sigma_{kj}^2}} e^\frac{-(v-\mu_{kj})^2}{2 \sigma_{kj}^2}\]
 	\begin{itemize}
 		\item $x_j \in \{0, 1\}$ est représentée par une valeur numérique
 		\item $\mu_{kj}$ est l'espérance (la moyenne) des valeurs de l'attribut $j$ appartenant à la classe $k$
@@ -215,6 +216,58 @@
 
 	\begin{itemize}
 		\item Trouver la classe de \{pluvieux, chaude, haute, non \}
+	\end{itemize}
+	
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Naïve Bayes}
+	\framesubtitle{Application : Loi multinomiale (calcul)}
+	
+	\begin{itemize}
+		\item Probabilité à priori
+		\begin{itemize}
+			\item $P(jouer=oui) = \frac{nbr(jouer = oui)}{nbr(echantillons)} = \frac{9}{14}$
+			\item $P(jouer=non) = \frac{nbr(jouer = non)}{nbr(echantillons)} = \frac{5}{14}$
+		\end{itemize}
+	\item Probabilité de vraisemblance (par caractéristique)
+	\begin{itemize}
+		\item $P(temps=pluvieux|jouer=oui) = \frac{nbr(temps=pluvieux \wedge jouer=oui)}{nbr(jouer=oui)} = \frac{3}{9}$
+		\item $P(temps=pluvieux|jouer=non) = \frac{nbr(temps=pluvieux \wedge jouer=non)}{nbr(jouer=non)} = \frac{2}{5}$
+		\item $P(tempur=chaude|jouer=oui) = \frac{nbr(tempurature=chaude \wedge jouer=oui)}{nbr(jouer=oui)} = \frac{2}{9}$
+		\item $P(tempur=chaude|jouer=non) = \frac{nbr(tempurature=chaude \wedge jouer=non)}{nbr(jouer=non)} = \frac{2}{5}$
+		\item $P(humidite=haute|jouer=oui) = \frac{nbr(humidite=haute \wedge jouer=oui)}{nbr(jouer=oui)} = \frac{3}{9}$
+		\item $P(humidite=haute|jouer=non) = \frac{nbr(humidite=haute \wedge jouer=non)}{nbr(jouer=non)} = \frac{4}{5}$
+		\item $P(vent=non|jouer=oui) = \frac{nbr(vent=non \wedge jouer=oui)}{nbr(jouer=oui)} = \frac{6}{9}$
+		\item $P(vent=non|jouer=non) = \frac{nbr(vent=non \wedge jouer=non)}{nbr(jouer=non)} = \frac{2}{5}$
+	\end{itemize}
+	\end{itemize}
+	
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Naïve Bayes}
+	\framesubtitle{Application : Loi multinomiale (calcul - suite)}
+	
+	\begin{itemize}
+		\item Probabilité de vraisemblance de l'échantillon $x$
+		\begin{itemize}
+			\item $P(X=x|jouer=oui) = P(temps=pluvieux|jouer=oui) * P(temps=pluvieux|jouer=non) 
+			* P(tempurature=chaude|jouer=oui) * \cdots$
+			\item $P(X=x|jouer=oui) = \frac{3}{9} * \frac{2}{9} * \frac{3}{9} * \frac{6}{9} = \frac{12}{9^3}$
+			\item $P(X=x|jouer=non) = \frac{2}{5} * \frac{2}{5} * \frac{4}{5} * \frac{2}{5} = \frac{2^5}{5^4}$
+		\end{itemize}
+		\item Probabilité postérieure $P(y|X=x)$
+		\begin{itemize}
+			\item $P(jouer=oui|X=x) \propto P(jouer=oui) * P(X=x|jouer=oui) = \frac{9}{14} * \frac{12}{9^3} = \frac{6}{7 * 9^2} = \frac{6}{567} \approx 0.0106$
+			\item $P(jouer=non|X=x) \propto P(jouer=non) * P(X=x|jouer=non) = \frac{5}{14} * \frac{2^5}{5^4} = \frac{2^4}{7 * 5^3} = \frac{16}{875} \approx 0.0183$
+		\end{itemize}
+		\item Décision
+		\begin{itemize}
+			\item $y=Non$
+		\end{itemize}
 	\end{itemize}
 	
 	

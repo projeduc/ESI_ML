@@ -1,0 +1,15 @@
+temperature,humidite,vent,jouer
+30,85,0,non
+27,90,1,non
+28,78,0,oui
+21,96,0,oui
+20,80,0,oui
+18,70,1,non
+18,65,1,oui
+22,95,0,non
+21,70,0,oui
+24,80,0,oui
+24,70,1,oui
+22,90,1,oui
+27,75,0,oui
+22,80,1,non

@@ -1,0 +1,42 @@
+﻿TP04 : Arbres de décision et Forêts aléatoires
+==============================================
+
+Les étudiants doivent compléter le code afin de créer deux classifieurs : ID3 et CART.
+Dans la deuxième partie, on applique une série des tests sur les arbres de décision (CART) et les forêts aléatoires en modifiant certains paramètres. 
+L'étudiant doit lier les résultats de ces tests avec ce qu'il a vu dans le cours. 
+
+
+OUTILS : Python, Jupyter, pandas, scikit-learn, numpy, timeit, graphviz
+
+DATASETS : Jouer (caractéristiques nominales), Jouer (caractéristiques numériques), Cars Data
+
+PLAN : 
+
+I. Implémentation
+    I.1. ID3
+    I.2. CART
+II. Application et analyse
+    II.1. Arbres de décision
+    II.2. Forêts aléatoires
+  
+QUOI FAIRE : 
+
+I- Implémentation
+    - Calculer la probabilité d'occurence d'une valeur val dans un ensemble S [1pt]
+    - Compléter la fonction d'entropie [1pt]
+    - Compléter la fonction du gain d'entropie [1pt]
+    - Compléter la fonction du choix d'attribut de dévision ID3 [1pt]
+    - Réaliser la fonction d'arrêt ID3 [1pt]
+    - Compléter la fonction Gini [1pt]
+    - Compléter la fonction du choix de l'attribut et la valeur de division CART [1pts]
+    
+II- Application et analyse
+    - Critère de choix des caractéristiques (analyse) [2pts]
+    - Profondeur maximale de l'arbre (analyse) [2pts]
+    - Observations minimales dans les feuilles (analyse) [2pts]
+    - Nombre des arbres dans un forêt (analyse) [1pt]
+    - Profondeur maximale des arbres (analyse) [2pts]
+    - Observations minimales dans les feuilles (analyse) [2pts]
+    - Taille d'un Bootstrap (analyse) [1pt]
+    
+Rendre le TP à temps [1pt]
