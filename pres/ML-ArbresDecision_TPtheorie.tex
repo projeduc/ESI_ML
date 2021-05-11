@@ -103,6 +103,21 @@
 	
 \end{frame}
 
+\subsection{Conditions d'arrêt}
+
+\begin{frame}
+	\frametitle{Arbres de décision}
+	\framesubtitle{Conditions d'arrêt}
+	
+	\begin{itemize}
+		\item \optword{Homogénéité} : les observations dans le nœud ont la même classe
+		\item \optword{Impureté minimale} : l'impureté ou l'erreur de classification/régression des observations dans le nœud est inférieure ou égale à ce seuil
+		\item \optword{Nombre minimal des observations} : le nombre des observations dans un nœud est inférieure ou égale à ce seuil
+		\item \optword{Profondeur} : la profondeur du nœud dans l'arbre est inférieure à ce seuil
+	\end{itemize}
+	
+\end{frame}
+
 \subsection{Critique}
 
 \begin{frame}
@@ -273,6 +288,143 @@
 	
 	\[Gini_{div}(S_G, S_D) = \frac{|S_G|}{|S|} Gini(S_G) + \frac{|S_D|}{|S|} Gini(S_D)\]
 	
+	
+\end{frame}
+
+\section{Forêts aléatoires}
+
+\begin{frame}
+	\frametitle{Forêts aléatoires (Rappel)}
+	
+	\begin{itemize}
+		\item méthode d'ensembles
+		\item utilise les arbres de décision pour l'estimation
+		\item l'estimation finale se fait par vote majoritaire 
+		\item utilise des Bootstraps (ensembles d'observations aléatoires) pour l'apprentissage des arbres 
+		\item utilise des attributs aléatoires pour entrainer chaque arbre : en utilisant moins d'attributs dans chaque arbre, on peut prévenir le problème de sur-apprentissage
+	\end{itemize}
+	
+\end{frame}
+
+\subsection{Apprentissage ensembliste}
+
+\begin{frame}
+	\frametitle{Forêts aléatoires}
+	\framesubtitle{Apprentissage ensembliste}
+	
+	\begin{itemize}
+		\item \optword{Bootstrap aggregating (Bagging)}
+		\begin{itemize}
+			\item Entraîner des estimateurs en parallèle sur des données aléatoires
+		\end{itemize}
+		\item \optword{Boosting}
+		\begin{itemize}
+			\item Entrainer des estimateurs sur les mêmes données d'une façon séquentielle ; l'un améliore la performance de l'aure
+		\end{itemize}
+		\item \optword{Stacking}
+		\begin{itemize}
+			\item Entrainer des estimateurs sur les mêmes données d'une façon parallèle ; Entraîner un estimateur qui fusionne les estimation des autres estimateurs
+		\end{itemize}
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Forêts aléatoires}
+	\framesubtitle{Apprentissage ensembliste : Bootstrap aggregating (Bagging)}
+	
+	\begin{itemize}
+		\item \textbf{Entraînement}
+		\begin{itemize}
+			\item Créer \textbf{K} Bootstraps (ensembles aléatoires) à partir du dataset d'entraînement
+			\item Entraîner un modèle par Bootstrap
+		\end{itemize}
+		\item \textbf{Estimation}
+		\begin{itemize}
+			\item Utiliser les modèles pour avoir \textbf{K} estimations
+			\item estimation finale (Classification) : par vote majoritaire
+			\item estimation finale (Régression) : par moyenne mathématique
+		\end{itemize}
+		\item \textbf{Exemples}
+		\begin{itemize}
+			\item \expword{Forêts aléatoires}
+		\end{itemize}
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Forêts aléatoires}
+	\framesubtitle{Apprentissage ensembliste : Boosting}
+	
+	\begin{itemize}
+		\item \textbf{Entraînement}
+		\begin{itemize}
+			\item Entrainer un estimateur sur le dataset d'entraînement
+			\item Faire des prédictions sur ce dataset pour extraire les échantillons qui ne sont pas bien estimés
+			\item Entrainer un autre estimateur sur le même dataset mais avec plus de poids aux échantillons mal-estimés
+			\item Fait la même opération jusqu'à génération de \textbf{K} estimateurs
+		\end{itemize}
+		\item \textbf{Estimation}
+		\begin{itemize}
+			\item Utiliser les modèles pour avoir \textbf{K} estimations
+			\item estimation finale (Classification) : par vote majoritaire
+			\item estimation finale (Régression) : par moyenne mathématique
+		\end{itemize}
+		\item \textbf{Exemples}
+		\begin{itemize}
+			\item \expword{AdaBoost}
+		\end{itemize}
+	\end{itemize}
+	
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Forêts aléatoires}
+	\framesubtitle{Apprentissage ensembliste : Stacking}
+	
+	\begin{itemize}
+		\item \textbf{Entraînement}
+		\begin{itemize}
+			\item Entrainer \textbf{K} estimateurs sur le même dataset d'entraînement
+			\item Ces estimateurs doivent avoir des hyper-paramètres différents ou des algorithmes d'apprentissage différents
+			\item Entraîner un estimateur qui a comme entrée les sorties des autres \textbf{K} estimateurs 
+			\item Ce dernier va apprendre à fusionner les estimations des autres estimateurs pour avoir une qui est meilleure
+		\end{itemize}
+		\item \textbf{Estimation}
+		\begin{itemize}
+			\item Utiliser les \textbf{K} estimateurs pour avoir des estimations initiales
+			\item Utiliser le dernier estimateur pour combiner ces estimations
+		\end{itemize}
+	\end{itemize}
+	
+\end{frame}
+
+\subsection{Paramètres d'un forêt}
+
+\begin{frame}
+	\frametitle{Forêts aléatoires}
+	\framesubtitle{Paramètres d'un forêt}
+	
+	\begin{itemize}
+		\item \optword{bootstrap}
+		\begin{itemize}
+			\item Est-ce qu'on utilise le dataset comme il est ou on utilise le \keyword{bootraping} ?
+			\item Quelle est la taille d'un Bootstrap ?
+			\item Combien d'aléatoire utilise-t-on pour générer le Bootstrap ? 
+		\end{itemize}
+		\item \optword{attribut}
+		\begin{itemize}
+			\item Combien d'attributs doit-t-on utiliser par arbre ?
+			\item Comment choisir ces attributs (quantité d'aléatoire) ?
+		\end{itemize}
+		\item \optword{arbre}
+		\begin{itemize}
+			\item Combien d'arbres utilise-t-on pour l'estimation ?
+			\item plus les paramètres des arbres
+		\end{itemize}
+	\end{itemize}
 	
 \end{frame}
 

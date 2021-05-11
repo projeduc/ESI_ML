@@ -47,6 +47,22 @@ Ceci est le répo contenant quelques cours du module "Machine Learning" destiné
         - Loi multinomiale
         - Loi de Bernoulli
         - Loi normale
+- **Arbres de décision**
+    - Arbres de décision
+        - Algorithmes (construction et parcours)
+        - Conditions d'arrêt
+        - Critique (avantages et inconvénients)
+    - ID3 (Rappel)
+        - Homogénéité d'un ensemble
+        - Division d'un ensemble
+        - Choix de caractéristique de division
+    - CART
+        - Homogénéité d'un ensemble
+        - Division d'un ensemble
+        - Choix de caractéristique de division
+    - Forêts aléatoires
+        - Apprentissage ensembliste
+        - Paramètres d'un forêt
 - **Les réseaux de neurones**
     - Neurone
         - Le réseau
