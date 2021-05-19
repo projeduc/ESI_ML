@@ -63,6 +63,15 @@ Ceci est le répo contenant quelques cours du module "Machine Learning" destiné
     - Forêts aléatoires
         - Apprentissage ensembliste
         - Paramètres d'un forêt
+- **Régularisation et sélection d’attributs (support TP)**
+    - Régularisation
+        - Ridge (Régularisation de Tikhonov, L2 loss)
+        - Lasso (L1 loss)
+        - ElasticNet
+    - Sélection des données
+        - Par filtrage
+        - Intégrées (Embedded)
+        - Enveloppante (Wrapper)
 - **Les réseaux de neurones**
     - Neurone
         - Le réseau
