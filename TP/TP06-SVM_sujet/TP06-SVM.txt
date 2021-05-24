@@ -1,0 +1,40 @@
+﻿TP06 : Machine à vecteurs de support (SVM)
+===========================================
+
+Les étudiants doivent implémenter et analyser les résultats. 
+Dans ce TP, notre but est de comprendre comment SVM fonctionne en implémentant les deux formulations : primal et dual.
+L'implémentation nous permet de découvrir quelques avantages et inconvénients des deux formulations.
+En plus, on va voir quelques méthodes d'optimisation.
+Dans la partie "analyse", on va mener quelques expérimentations pour tester quelques notions théoriques.
+
+OUTILS : Python, Jupyter, pandas, scikit-learn, numpy, matplotlib, timeit
+
+DATASETS : Diabetics prediction using logistic regression.
+
+PLAN : 
+
+I. Implémentation
+    - I.1. SVM Linéaire (Primal)
+    - I.2. SVM avec noyau (Dual)
+II. Application et analyse
+    - II.1. Comparison entre les méthodes d'optimisation (cas primal)
+    - II.2. Comparison entre les formulations "primal" et "dual"
+    
+QUOI FAIRE : 
+
+I. Implémentation
+    - Réaliser la fonction d'estimation SVM (primal) [1pt]
+    - Réaliser la fonction du coût SVM (primal) [1pt]
+    - Réaliser la fonction des gradients SVM (primal) [2pts]
+    - Réaliser la fonction du coût SVM (dual) [2pts]
+    - Réaliser la fonction d'estimation SVM (dual) [2pt]
+    
+II. Application et analyse
+    - Comparison entre les méthodes d'optimisation (cas primal) [3pts]
+    - Comparison entre les formulations "primal" et "dual" [2pts]
+    - Effet du paramètre C [2pts]
+    - Choix des noyaux [2pts]
+    - Problème et noyaux [2pts]
+
+
+Rendre le TP à temps [1pt]
