@@ -268,7 +268,7 @@
 	\end{column}%
 	\begin{column}{.3\linewidth}
 		\begin{figure}
-			\hgraphpage[\textwidth]{regression-loss.pdf}
+			\hgraphpage[\textwidth]{regression-loss_.pdf}
 			\caption{Fonction du coût de régression \cite{2017-rosenberg}}
 		\end{figure}
 		%\end{minipage}
@@ -319,7 +319,7 @@
 		%\end{minipage}
 		%\begin{minipage}{0.4\textwidth}
 		\begin{figure}
-			\hgraphpage[\textwidth]{regression-loss.pdf}
+			\hgraphpage[\textwidth]{regression-loss_.pdf}
 			\caption{Fonction du coût de régression \cite{2017-rosenberg}}
 		\end{figure}
 		%\end{minipage}
@@ -377,7 +377,7 @@
 \begin{column}{.3\linewidth}
 %\begin{minipage}{0.4\textwidth}
 \begin{figure}
-	\hgraphpage[\textwidth]{regression-loss.pdf}
+	\hgraphpage[\textwidth]{regression-loss_.pdf}
 	\caption{Fonction du coût de régression \cite{2017-rosenberg}}
 \end{figure}
 %\end{minipage}
@@ -423,7 +423,7 @@
 	\end{itemize}
 	\item \optword{Inconvénients}
 	\begin{itemize}
-		\item 
+		\item la marge de séparation linéaire n'est pas garantie d'être optimale
 	\end{itemize}
 \end{itemize}
 
@@ -452,7 +452,8 @@
 	\end{itemize}
 	\item \optword{Inconvénients}
 	\begin{itemize}
-		\item 
+		\item non lisse et non différenciable, donc moins d'algorithmes d'optimisation
+		\item ne modélise pas la probabilité $p(y|x)$ directement
 	\end{itemize}
 \end{itemize}
 
@@ -470,16 +471,16 @@
 	\]
 \end{block}
 
-\begin{itemize}
-	\item \optword{Avantages}
-	\begin{itemize}
-		\item 
-	\end{itemize}
-	\item \optword{Inconvénients}
-	\begin{itemize}
-		\item 
-	\end{itemize}
-\end{itemize}
+%\begin{itemize}
+%	\item \optword{Avantages}
+%	\begin{itemize}
+%		\item 
+%	\end{itemize}
+%	\item \optword{Inconvénients}
+%	\begin{itemize}
+%		\item 
+%	\end{itemize}
+%\end{itemize}
 
 \end{frame}
 
@@ -547,11 +548,13 @@
 	\KwResult{$ \theta $}
 	initialiser $ \theta $ ; $ t = 0 $\;
 	\While{$ t < T$ et pas de convergence}{
-		Mélanger les données aléatoirement\;
-		\ForEach{$ (X^{(i)}, Y^{(i)}) \in (X, Y)$}{
-			$ \theta = \theta - \alpha \Delta_\theta J(X^{(i)}, Y^{(i)}; \theta) $\;
-%			Mettre à jours les $\theta$\;
-		}
+		Choisir $ (X^{(i)}, Y^{(i)}) \in (X, Y)$ aléatoirement\;
+		$ \theta = \theta - \alpha \Delta_\theta J(X^{(i)}, Y^{(i)}; \theta) $\;
+%		Mélanger les données aléatoirement\;
+%		\ForEach{$ (X^{(i)}, Y^{(i)}) \in (X, Y)$}{
+%			$ \theta = \theta - \alpha \Delta_\theta J(X^{(i)}, Y^{(i)}; \theta) $\;
+%%			Mettre à jours les $\theta$\;
+%		}
 		t = t + 1 \;
 	}
 	\caption{descente du gradient stochastique}
@@ -574,7 +577,7 @@
 \end{itemize}
 \item \optword{Inconvénients} : 
 \begin{itemize}
-	\item La mise à jour fréquente est plus coûteuse en terme de calcul
+%	\item La mise à jour fréquente est plus coûteuse en terme de calcul
 	\item Il est difficile au modèle à converger vers un minimum
 \end{itemize}
 \end{itemize}
@@ -1247,7 +1250,7 @@ D'après LeCun et ses collèques \cite{1998-lecun} :
 \begin{minipage}{0.39\textwidth}
 	\hgraphpage[\textwidth]{conv2d.pdf}
 	
-	\hgraphpage[.8\textwidth]{conv2d-exp.pdf}
+	\hgraphpage[.8\textwidth]{conv2d-exp_.pdf}
 \end{minipage}
 
 \end{frame}
@@ -1269,7 +1272,7 @@ D'après LeCun et ses collèques \cite{1998-lecun} :
 \begin{minipage}{0.39\textwidth}
 	\hgraphpage[\textwidth]{maxpool.pdf}
 	
-	\hgraphpage[.8\textwidth]{pool-exp.pdf}
+	\hgraphpage[.8\textwidth]{pool-exp_.pdf}
 \end{minipage}
 
 \end{frame}
@@ -1383,22 +1386,22 @@ D'après LeCun et ses collèques \cite{1998-lecun} :
 	Type & Illustration & Exemple \\
 	\hline
 	Plusieurs à plusieurs & 
-	\vgraphpage[0.75cm, valign=c]{RNNpp1.pdf} & 
+	\vgraphpage[1.5cm, valign=c]{RNNpp1.pdf} & 
 	Détection d'entités nommées \\
 	
 	\hline
 	Plusieurs à plusieurs & 
-	\vgraphpage[0.75cm, valign=c]{RNNpp2.pdf} & 
+	\vgraphpage[1.5cm, valign=c]{RNNpp2.pdf} & 
 	Traduction automatique \\
 	
 	\hline
 	Plusieurs à un & 
-	\vgraphpage[0.75cm, valign=c]{RNNp1.pdf} & 
+	\vgraphpage[1.5cm, valign=c]{RNNp1.pdf} & 
 	Classification de sentiments \\
 	
 	\hline
 	Un à plusieurs & 
-	\vgraphpage[0.75cm, valign=c]{RNN1p.pdf} & 
+	\vgraphpage[1.5cm, valign=c]{RNN1p.pdf} & 
 	Sous-titrage d'images \\
 	
 	\hline\hline
@@ -1416,11 +1419,11 @@ D'après LeCun et ses collèques \cite{1998-lecun} :
 
 \begin{minipage}{0.50\textwidth} 
 	\begin{itemize}
-		\item $i$ : \optword{Porte d'entrée (actualisation)} : 
+		\item $i$ : \optword{Porte d'entrée (actualisation)} ;
 		Combien d'information doit-on ajouter à l'état interne de la cellule ?
-		\item $f$ \optword{Porte d'oubli} :  
+		\item $f$ : \optword{Porte d'oubli} ;
 		Est-ce qu'on oubli le contexte passé ?
-		\item $o$ \optword{Porte de sortie} : 
+		\item $o$ : \optword{Porte de sortie} ;
 		Sortie générée à partir de l'état interne et actuel de la cellule	
 	\end{itemize}
 \end{minipage}
@@ -1430,11 +1433,27 @@ D'après LeCun et ses collèques \cite{1998-lecun} :
 \end{minipage}
 
 \begin{itemize}
-	\item $g$ : \optword{Porte de modulation d'entrée} (souvent considérée comme partie de la porte d'entrée) : 
+	\item $g$ : \optword{Porte de modulation d'entrée} ;
 	Est-ce qu'on augmente ou diminuer l'état ?
+	(souvent considérée comme partie de la porte d'entrée)
 %	\item La dérivée de l'erreur sera ue somme de la porte d'oubli avec d'autres dérivées
 \end{itemize}
 
+\end{frame}
+
+\begin{frame}
+	\frametitle{Les réseaux de neurones : récurrents}
+	\framesubtitle{Long Short-Term Memory (LSTM) : équations}
+	
+	\begin{align*}
+	f_t &= \sigma(W_f X_t + U_f h_{t-1} + b_f) \\
+	i_t &= \sigma(W_i X_t + U_i h_{t-1} + b_i) \\
+	g_t &= \tanh(W_g X_t + U_g h_{t-1} + b_g) \\
+	o_t &= \tanh(W_o X_t + U_o h_{t-1} + b_o) \\
+	c_t &= f_t \circ c_{t-1} \oplus i_t \circ g_t \\
+	h_t &= o_t + \tanh(c_t)
+	\end{align*}
+	
 \end{frame}
 
 \begin{frame}
@@ -1451,14 +1470,53 @@ D'après LeCun et ses collèques \cite{1998-lecun} :
 
 \begin{frame}
 \frametitle{Les réseaux de neurones : récurrents}
-\framesubtitle{Gated Recurrent Unit (GRU)}
-
-\begin{itemize}
-	\item 
-\end{itemize}
+\framesubtitle{Gated Recurrent Unit (GRU) : architecture}
+	
+	\begin{minipage}{0.50\textwidth} 
+		\begin{itemize}
+			\item $z$ : \optword{Porte d'actualisation} ; 
+			Fusionne les portes d'entrée et d'oubli des LSTMs.
+			\item $r$ : \optword{Porte de réinitialisation} ; 
+			Combien on passe de l'état précédent ?
+			\item $h'$ : \optword{Porte de l'état candidat} ;
+			L'état courant	
+		\end{itemize}
+	\end{minipage}
+	%
+	\begin{minipage}{0.49\textwidth}
+		\hgraphpage[\textwidth]{GRU.pdf}
+	\end{minipage}
+	
+%	\begin{itemize}
+%		\item $g$ : \optword{Porte de modulation d'entrée} (souvent considérée comme partie de la porte d'entrée) : 
+%		Est-ce qu'on augmente ou diminuer l'état ?
+%		%	\item La dérivée de l'erreur sera ue somme de la porte d'oubli avec d'autres dérivées
+%	\end{itemize}
 
 \end{frame}
 
+\begin{frame}
+	\frametitle{Les réseaux de neurones : récurrents}
+	\framesubtitle{Gated Recurrent Unit (GRU) : équations}
+	
+	\begin{align*}
+	z_t &= \sigma(W_z X_t + U_z h_{t-1} + b_z) \\
+	r_t &= \sigma(W_r X_t + U_r h_{t-1} + b_r) \\
+	h'_t &= \tanh(W X_t + U (h_{t-1} \circ r_t) + b) \\
+	h_t &= z_t \circ h_{t-1} \oplus (1-z_t) \circ h'_{t-1}
+	\end{align*}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Les réseaux de neurones : récurrents}
+	\framesubtitle{Gated Recurrent Unit (GRU) : Un peu d'humeur}
+	
+	\begin{center}
+		\vgraphpage{humour-gru.png}
+	\end{center}
+	
+\end{frame}
 
 \insertbibliography{ML-RN}{*}
 
