@@ -1240,7 +1240,7 @@ D'après LeCun et ses collèques \cite{1998-lecun} :
 	\begin{itemize}
 		\item On préserve la structure spatiale des images
 		\item La couche apprend un ou plusieurs noyaux
-		\item $ w' = \frac{w - w_f - 2P}{S} + 1$,  $ h' = \frac{h - h_f - 2P}{S} + 1$
+		\item $ w' = \frac{w - w_f + 2P}{S} + 1$,  $ h' = \frac{h - h_f + 2P}{S} + 1$
 		\item On peut spécifier le nombres des filtres $k$ à générer 
 		\item Le nombre des paramètres sera $w_f * h_f * c * k$ plus $k$ biais
 		\item Exemple, \expword{image : 32x32x3; noyau : 5x5; s : 1; p: 0; k : 6.} Dans ce cas, on aura \expword{81} paramètres à entraîner
@@ -1262,7 +1262,7 @@ D'après LeCun et ses collèques \cite{1998-lecun} :
 \begin{minipage}{0.60\textwidth} 
 	\begin{itemize}
 		\item Rendre la représentation plus petite et plus gérable
-		\item $ w' = \frac{w - w_f - 2P}{S} + 1$,  $ h' = \frac{h - h_f - 2P}{S} + 1$
+		\item $ w' = \frac{w - w_f + 2P}{S} + 1$,  $ h' = \frac{h - h_f + 2P}{S} + 1$
 		\item Pas de paramètres 
 		\item \optword{Max Pool} : le gradient est passé seulement à la cellule gagnante (qui a le max) 
 		\item \optword{Average Pool} : le gradient passé aux cellules participantes à la moyennes est $\frac{\text{gradient}}{w_f * h_f}$ 
