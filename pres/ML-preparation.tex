@@ -73,12 +73,12 @@
 		\item Conformité des fichiers XML à leurs définitions DTD
 		\item Séparateurs correctes des fichiers CSV
 	\end{itemize}
-	\item \optword{Fusionnement des données (joindre des schémas)}
+	\item \optword{Fusionnement des données (joindre les schémas)}
 	\begin{itemize}
 		\item Problème de nommage : \expword{bd1.numclient, bd2.clientid}
 		\item Conflits de valeurs : \expword{bd1.taille(cm), bd2.taille(pouces)}
 		\item Redondance : attributs calculés et enregistrements identiques.
-		\item Types différents des attributs
+		\item Types différents des attributs : \expword{bd1.temperature (froid, chaud, ...), bd2.temperature (15, 23, ...)}
 	\end{itemize}
 \end{itemize}
 
@@ -176,7 +176,7 @@
 
 \begin{frame}
 	\frametitle{Collection des données}
-	\framesubtitle{Annotation (Étiquetage) des données : Évaluation (Kappa)}
+	\framesubtitle{Annotation (Étiquetage) des données : Évaluation (Kappa ; classification)}
 	
 	\begin{itemize}
 		\item Concordance inter-juges (fiabilité inter-évaluateurs) 
@@ -228,7 +228,7 @@
 
 \begin{frame}
 	\frametitle{Collection des données}
-	\framesubtitle{Annotation (Étiquetage) des données : Évaluation (Corrélation)}
+	\framesubtitle{Annotation (Étiquetage) des données : Évaluation (Corrélation ; régression)}
 	
 	\begin{itemize}
 		\item \optword{Pearson}
@@ -512,7 +512,7 @@
 
 \begin{frame}
 	\frametitle{Transformation des données}
-	\framesubtitle{Valeurs numériques : Génération de caractéristiques (les interactions)}
+	\framesubtitle{Valeurs numériques : Génération de caractéristiques}
 	
 %	\begin{columns}
 %		\begin{column}{.5\textwidth}
@@ -522,10 +522,15 @@
 				\begin{itemize}
 					\item on veut avoir des représentations complexes 
 				\end{itemize}
-				\item \optword{Génération polynomiale}
+				\item \optword{Génération polynomiale} (les interactions)
 				\begin{itemize}
 					\item $(X_1, X_2, \ldots) \longrightarrow (1, X_1, X_2, X_1 X_2, X_1^2, X_2^2, \ldots)$
 					\item \expword{sklearn.preprocessing.PolynomialFeatures}
+				\end{itemize}
+				\item \optword{Auto-encodeurs épars}
+				\begin{itemize}
+					\item Un réseaux de neurones avec apprentissage non supervisé 
+					\item Il vise à représenter les échantillon avec plus de caractéristiques (une représentation vectorielle avec plus de dimensionnalité)
 				\end{itemize}
 			\end{itemize}
 %		\end{column}
@@ -921,7 +926,7 @@
 	\frametitle{Évaluation des modèles}
 	\frametitle{Régression : Erreur absolue moyenne}
 	
-	\[MAE(\hat{y}, y) = \mathbb{E}|y - \hat{y}| =  \frac{1}{|S|} \sum_{i=1}^{|S|} (y_i - \hat{y}_i)^2\]
+	\[MAE(\hat{y}, y) = \mathbb{E}|y - \hat{y}| =  \frac{1}{|S|} \sum_{i=1}^{|S|} |y_i - \hat{y}_i|\]
 	
 	\begin{itemize}
 		\item \optword{Mean Absolute Error}
