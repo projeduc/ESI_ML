@@ -1348,18 +1348,14 @@ D'après LeCun et ses collèques \cite{1998-lecun} :
 \framesubtitle{Architecture (RNN) : Rétro-propagation}
 
 \begin{itemize}
-	\item La fonction du coût 
-	\[
-	J(\hat{y}, y) = \sum_{t=1}^{T} J(\hat{y}_t, y_t)
-	\]
-	\item On utilise la rétro-propagation dans le temps \cite{1990-werbos}  
+	\item Définir la fonction du coût de chaque sortie
+	\item Utiliser la rétro-propagation dans le temps \cite{1990-werbos}  
 	\begin{itemize}
 		\item Déplier le réseau récurrent sur le temps 
-		\item On va avoir un réseau similaire au réseau de type feed-forward 
+		\item Le réseau sera similaire à celui de type feed-forward 
 		\item Cumuler les gradients en commençant par le dernier état 
 		\item Mettre à jour les paramètres lorsqu'on arrive au premier état
 	\end{itemize}
-	\item Problème de disparition/explosion du gradient
 \end{itemize}
 
 %\begin{algorithm}[H]
@@ -1411,6 +1407,107 @@ D'après LeCun et ses collèques \cite{1998-lecun} :
 
 \end{frame}
 
+
+\begin{frame}
+	\frametitle{Les réseaux de neurones : récurrents}
+	\framesubtitle{Architecture (RNN) : Applications (plusieurs à plusieurs direct)}
+	\vspace*{-0.5cm}
+	\[ h_t = f(x_t, h_{t-1}, W_x, W_h),\,\,\, \hat{y}_t = g(h_t, W_y),\,\,\,  J(\hat{y}, y) = \textcolor{red}{[\frac{1}{T}]?} \sum_{t=1}^{T} j(\hat{y}_t, y_t)\]
+	
+	\vspace*{-0.5cm}
+	\begin{minipage}{0.7\textwidth}\scriptsize
+	\[\frac{\partial J}{\partial W_h} = \sum_{t=1}^{T} \frac{\partial j(\hat{y}_t, y_t)}{\partial W_h}
+	= \sum_{t=1}^{T} \frac{\partial j(\hat{y}_t, y_t)}{\partial \hat{y}_t} 
+	\frac{\partial g(h_t, W_y)}{\partial h_t} 
+	\frac{\partial h_t}{\partial W_h}
+	\]
+	\[\frac{\partial h_t}{\partial W_h} = 
+	\frac{\partial f(x_t, h_{t-1}, W_x, W_h)}{\partial W_h} + 
+	\frac{\partial f(x_t, h_{t-1}, W_x, W_h)}{\partial h_{t-1}} \frac{\partial h_{t-1}}{\partial W_h}
+	\]
+	\[\frac{\partial J}{\partial W_y} 
+	= \sum_{t=1}^{T} \frac{\partial j(\hat{y}_t, y_t)}{\partial W_y}
+	= \sum_{t=1}^{T} \frac{\partial j(\hat{y}_t, y_t)}{\partial \hat{y}_t} 
+	\frac{\partial g(h_t, W_y)}{\partial W_y}
+	\]
+	\[\frac{\partial J}{\partial W_x} = \sum_{t=1}^{T} \frac{\partial j(\hat{y}_t, y_t)}{\partial W_x}
+	= \sum_{t=1}^{T} \frac{\partial j(\hat{y}_t, y_t)}{\partial \hat{y}_t} 
+	\frac{\partial g(h_t, W_y)}{\partial h_t} 
+	\frac{\partial h_t}{\partial W_x}
+	\]
+	\[\frac{\partial h_t}{\partial W_x} = 
+	\frac{\partial f(x_t, h_{t-1}, W_x, W_h)}{\partial W_x} + 
+	\frac{\partial f(x_t, h_{t-1}, W_x, W_h)}{\partial h_{t-1}} \frac{\partial h_{t-1}}{\partial W_x}
+	\]
+	\end{minipage}
+	\begin{minipage}{0.2\textwidth}
+		\hgraphpage[1.5\textwidth]{RNNpp1_exp.pdf}
+	\end{minipage}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Les réseaux de neurones : récurrents}
+	\framesubtitle{Architecture (RNN) : Applications (plusieurs à plusieurs indirect)}
+	
+	\begin{itemize}
+		\item Ici, deux cellules LSTMs sont utilisées : encodeur et décodeur
+	\end{itemize}
+
+	\[ h^e_t = f^e(x_t, h^e_{t-1}, W^e_x, W^e_h), \,\,\, \hat{y}_1 = g^e(h^e_{T1}, W_y)\]
+	\[ h^d_{t} = f^d(\hat{y}_{t}, h^d_{t-1}, W^d_x, W^d_h), \,\,\, \hat{y}_{t+1} = g^d(h^d_{t}, W^d_y)\]
+	\[ J(\hat{y}, y) = \textcolor{red}{[\frac{1}{T}]?} \sum_{t=1}^{T2} j(\hat{y}_{t}, y_t)\]
+	\begin{center}
+		\hgraphpage[0.5\textwidth]{RNNpp2_exp.pdf}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Les réseaux de neurones : récurrents}
+	\framesubtitle{Architecture (RNN) : Applications (plusieurs à un)}
+	
+	\vspace*{-0.5cm}
+	\[ h_t = f(x_t, h_{t-1}, W_x, W_h),\,\,\, \hat{y}_t = g(h_t, W_y),\,\,\,  J(\hat{y}, y) = j(\hat{y}_T, y)\]
+	
+%	\vspace*{-0.5cm}
+	\begin{minipage}{0.7\textwidth}\scriptsize
+		\[\frac{\partial J}{\partial W_h} = \frac{\partial j(\hat{y}_T, y)}{\partial W_h}
+		= \frac{\partial j(\hat{y}_T, y)}{\partial \hat{y}_T} 
+		\frac{\partial g(h_T, W_y)}{\partial h_T} 
+		\frac{\partial h_T}{\partial W_h}
+		\]
+%		\[\frac{\partial h_t}{\partial W_h} = 
+%		\frac{\partial f(x_t, h_{t-1}, W_x, W_h)}{\partial W_h} + 
+%		\frac{\partial f(x_t, h_{t-1}, W_x, W_h)}{\partial h_{t-1}} \frac{\partial h_{t-1}}{\partial W_h}
+%		\]
+%		\[\frac{\partial J}{\partial W_y} 
+%		= \sum_{t=1}^{T} \frac{\partial j(\hat{y}_t, y_t)}{\partial W_y}
+%		= \sum_{t=1}^{T} \frac{\partial j(\hat{y}_t, y_t)}{\partial \hat{y}_t} 
+%		\frac{\partial g(h_t, W_y)}{\partial W_y}
+%		\]
+%		\[\frac{\partial J}{\partial W_x} = \sum_{t=1}^{T} \frac{\partial j(\hat{y}_t, y_t)}{\partial W_x}
+%		= \sum_{t=1}^{T} \frac{\partial j(\hat{y}_t, y_t)}{\partial \hat{y}_t} 
+%		\frac{\partial g(h_t, W_y)}{\partial h_t} 
+%		\frac{\partial h_t}{\partial W_x}
+%		\]
+%		\[\frac{\partial h_t}{\partial W_x} = 
+%		\frac{\partial f(x_t, h_{t-1}, W_x, W_h)}{\partial W_x} + 
+%		\frac{\partial f(x_t, h_{t-1}, W_x, W_h)}{\partial h_{t-1}} \frac{\partial h_{t-1}}{\partial W_x}
+%		\]
+	\end{minipage}
+	\begin{minipage}{0.2\textwidth}
+		\hgraphpage[1.5\textwidth]{RNNp1_exp.pdf}
+	\end{minipage}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Les réseaux de neurones : récurrents}
+	\framesubtitle{Architecture (RNN) : Applications (un à plusieurs)}
+	
+	
+\end{frame}
+
 \subsection{Long Short-Term Memory (LSTM)}
 
 \begin{frame}
@@ -1453,6 +1550,8 @@ D'après LeCun et ses collèques \cite{1998-lecun} :
 	c_t &= f_t \circ c_{t-1} \oplus i_t \circ g_t \\
 	h_t &= o_t + \tanh(c_t)
 	\end{align*}
+	
+	
 	
 \end{frame}
 
@@ -1506,6 +1605,10 @@ D'après LeCun et ses collèques \cite{1998-lecun} :
 	h_t &= z_t \circ h_{t-1} \oplus (1-z_t) \circ h'_{t-1}
 	\end{align*}
 	
+	Tutoriel sur la rétro-propagation dans les GRUs :
+	
+	\url{https://www.math.ucla.edu/~minchen/doc/BPTTTutorial.pdf}
+	
 \end{frame}
 
 \begin{frame}
@@ -1515,6 +1618,17 @@ D'après LeCun et ses collèques \cite{1998-lecun} :
 	\begin{center}
 		\vgraphpage{humour-gru.png}
 	\end{center}
+	
+\end{frame}
+
+
+\subsection{Attention}
+
+\begin{frame}
+	\frametitle{Les réseaux de neurones : récurrents}
+	\framesubtitle{Attention}
+	
+	
 	
 \end{frame}
 
