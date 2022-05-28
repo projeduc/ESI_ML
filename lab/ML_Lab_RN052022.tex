@@ -1,0 +1,105 @@
+% !TEX TS-program = pdflatex
+% !TeX program = pdflatex
+% !TEX encoding = UTF-8
+% !TEX spellcheck = fr
+
+\documentclass[11pt, a4paper]{article}
+%\usepackage{fullpage}
+\usepackage[left=1cm,right=1cm,top=1cm,bottom=2cm]{geometry}
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+%\usepackage{indentfirst}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french,english]{babel}
+\usepackage{txfonts} 
+\usepackage[]{graphicx}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{parskip}
+\usepackage{multicol}
+\usepackage{wrapfig}
+
+\usepackage{turnstile}%Induction symbole
+
+\usepackage{tikz}
+\usetikzlibrary{arrows, automata}
+\usetikzlibrary{decorations.pathmorphing}
+
+\renewcommand{\baselinestretch}{1}
+
+\setlength{\parindent}{24pt}
+
+
+\begin{document}
+
+\selectlanguage {french}
+%\pagestyle{empty} 
+
+\noindent
+\begin{tabular}{ll}
+\multirow{3}{*}{\includegraphics[width=2cm]{../img/esi-logo.png}} & \'Ecole national Supérieure d'Informatique\\
+& 2\textsuperscript{ème} année cycle supérieure (2CSSIL2, 2CSSIQ2, 2CSSIQ3)\\
+& Machine Learning (2021-2022)
+\end{tabular}\\[.25cm]
+\noindent\rule{\textwidth}{1pt}\\%[-0.25cm]
+\begin{center}
+{\LARGE \textbf{Lab : Réseaux de neurones (auto-encodeurs et CNN)}}
+\begin{flushright}
+	ARIES Abdelkrime
+\end{flushright}
+\end{center}
+\noindent\rule{\textwidth}{1pt}
+
+\section*{Information}
+
+\begin{itemize}
+	\item Dataset : Pokemon Image Dataset : {\scriptsize\url{https://www.kaggle.com/datasets/vishalsubbiah/pokemon-images-and-types}}
+	\item Il n'y a pas des spécifications pour construire les architectures : l'étudiant est libre à utiliser les composants vus dans le tutoriel : {\scriptsize \url{https://github.com/projeduc/ESI_2CS_ML/tree/main/tuto/NN}}
+	\item Le pré-traitement est fourni avec ce lab 
+\end{itemize}
+
+\section*{Classement CNN}
+
+Concevoir un modèle qui classe les pokémons selon leurs type selon les spécifications : 
+\begin{itemize}
+	\item Utiliser les CNNs (pas un simple réseau de neurones à propagation avant)
+	\item Entraîner le modèle avec validation en calculant l'accuracy
+	\item Dessiner l'évolution des coûts et des accuracy
+\end{itemize}
+
+\section*{Auto-encodeur de clustering}
+
+Concevoir un modèle qui apprend la codification des pokémons en suivant les étapes : 
+\begin{itemize}
+	\item Le code est un vecteur de 10 à 50 éléments (au choix)
+	\item L'auto-encodeur peut être complètement FFNN ou en utilisant des CNN
+	\item Il faut séparer l'encodeur et le décodeur afin de les ré-utiliser
+	\item Générer les vecteurs représentant chaque échantillon de l'entraînement afin de construire un autre dataset d'entraînement
+	\item Appliquer K-Means sur ce nouveau dataset avec K est le nombre des classes réelles
+	\item Pour chaque cluster généré, nous supposons que la classe majoritaire est celle représentée par ce cluster.
+	\item Claculer l'indice de Rand : \textbf{sklearn.metrics.rand\_score}
+\end{itemize}
+
+\section*{Auto-encodeur de clustering pour classement}
+
+Concevoir un modèle qui prend le code généré par l'auto-encodeur précédent et classe le pokémon selon son type : 
+\begin{itemize}
+	\item Il faut utiliser le décodeur entraîné précédemment ; c-à-d. l'entrée doit être une image et pas le vecteur de son code
+	\item Le modèle est un simple FFNN (obviously!) qui prend la sortie de l'encodeur comme entrée et qui génère le type du pokémon
+	\item Lors de l'entraînement du classeur, il ne faut pas mettre à jours l'encodeur ; il faut désactiver l'entraînement du modèle : \textbf{model.trainable = False} 
+	\item Comparer entre ce modèle et celui du classement CNN 
+\end{itemize}
+
+\section*{Génération des images}
+
+Concevoir un modèle qui génère des nouveaux pokémons en suivant les spécifications suivantes : 
+\begin{itemize}
+	\item Le code est un vecteur de 10 à 50 éléments (au choix)
+	\item Deux architectures sont à considérer au choix : Auto-encodeur variationnelle ou GAN
+	\item De préférence, utiliser des CNN
+	\item De préférence, utiliser la classe du pokémon afin d'apprendre la génération. C-à-d, l'entrée du décodeur doit être un code aléatoire fusionné avec le code one-hot de la classe.
+\end{itemize}
+
+
+\end{document}
