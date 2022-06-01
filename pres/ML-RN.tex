@@ -1456,7 +1456,7 @@ D'après LeCun et ses collèques \cite{1998-lecun} :
 
 	\[ h^e_t = f^e(x_t, h^e_{t-1}, W^e_x, W^e_h), \,\,\, \hat{y}_1 = g^e(h^e_{T1}, W_y)\]
 	\[ h^d_{t} = f^d(\hat{y}_{t}, h^d_{t-1}, W^d_x, W^d_h), \,\,\, \hat{y}_{t+1} = g^d(h^d_{t}, W^d_y)\]
-	\[ J(\hat{y}, y) = \textcolor{red}{[\frac{1}{T}]?} \sum_{t=1}^{T2} j(\hat{y}_{t}, y_t)\]
+	\[ J(\hat{y}, y) = \textcolor{red}{[\frac{1}{T2}]?} \sum_{t=1}^{T2} j(\hat{y}_{t}, y_t)\]
 	\begin{center}
 		\hgraphpage[0.5\textwidth]{RNNpp2_exp.pdf}
 	\end{center}
@@ -1476,10 +1476,10 @@ D'après LeCun et ses collèques \cite{1998-lecun} :
 		\frac{\partial g(h_T, W_y)}{\partial h_T} 
 		\frac{\partial h_T}{\partial W_h}
 		\]
-%		\[\frac{\partial h_t}{\partial W_h} = 
-%		\frac{\partial f(x_t, h_{t-1}, W_x, W_h)}{\partial W_h} + 
-%		\frac{\partial f(x_t, h_{t-1}, W_x, W_h)}{\partial h_{t-1}} \frac{\partial h_{t-1}}{\partial W_h}
-%		\]
+		\[\frac{\partial h_t}{\partial W_h} = 
+		\frac{\partial f(x_t, h_{t-1}, W_x, W_h)}{\partial W_h} + 
+		\frac{\partial f(x_t, h_{t-1}, W_x, W_h)}{\partial h_{t-1}} \frac{\partial h_{t-1}}{\partial W_h}
+		\]
 %		\[\frac{\partial J}{\partial W_y} 
 %		= \sum_{t=1}^{T} \frac{\partial j(\hat{y}_t, y_t)}{\partial W_y}
 %		= \sum_{t=1}^{T} \frac{\partial j(\hat{y}_t, y_t)}{\partial \hat{y}_t} 
@@ -1505,7 +1505,44 @@ D'après LeCun et ses collèques \cite{1998-lecun} :
 	\frametitle{Les réseaux de neurones : récurrents}
 	\framesubtitle{Architecture (RNN) : Applications (un à plusieurs)}
 	
+	\vspace*{-0.5cm}
+	\[ h^e = f^e(x, h^e_{0}, W^e_x, W^e_h), \,\,\, \hat{y}_1 = g^e(h^e, W_y)\]
+	\[ h^d_{t} = f^d(\hat{y}_{t}, h^d_{t-1}, W^d_x, W^d_h), \,\,\, \hat{y}_{t+1} = g^d(h^d_{t}, W^d_y)\]
+	\[ J(\hat{y}, y) = \textcolor{red}{[\frac{1}{T}]?} \sum_{t=1}^{T} j(\hat{y}_{t}, y_t)\]
 	
+%	\vspace*{-0.5cm}
+%	\begin{minipage}{0.7\textwidth}\scriptsize
+%		\[\frac{\partial J}{\partial W_h} = \sum_{t=1}^{T} \frac{\partial j(\hat{y}_t, y_t)}{\partial W_h}
+%		= \sum_{t=1}^{T} \frac{\partial j(\hat{y}_t, y_t)}{\partial \hat{y}_t} 
+%		\frac{\partial g(h_t, W_y)}{\partial h_t} 
+%		\frac{\partial h_t}{\partial W_h}
+%		\]
+%		\[\frac{\partial h_t}{\partial W_h} = 
+%		\frac{\partial f(x_t, h_{t-1}, W_x, W_h)}{\partial W_h} + 
+%		\frac{\partial f(x_t, h_{t-1}, W_x, W_h)}{\partial h_{t-1}} \frac{\partial h_{t-1}}{\partial W_h}
+%		\]
+%		\[\frac{\partial J}{\partial W_y} 
+%		= \sum_{t=1}^{T} \frac{\partial j(\hat{y}_t, y_t)}{\partial W_y}
+%		= \sum_{t=1}^{T} \frac{\partial j(\hat{y}_t, y_t)}{\partial \hat{y}_t} 
+%		\frac{\partial g(h_t, W_y)}{\partial W_y}
+%		\]
+%		\[\frac{\partial J}{\partial W_x} = \sum_{t=1}^{T} \frac{\partial j(\hat{y}_t, y_t)}{\partial W_x}
+%		= \sum_{t=1}^{T} \frac{\partial j(\hat{y}_t, y_t)}{\partial \hat{y}_t} 
+%		\frac{\partial g(h_t, W_y)}{\partial h_t} 
+%		\frac{\partial h_t}{\partial W_x}
+%		\]
+%		\[\frac{\partial h_t}{\partial W_x} = 
+%		\frac{\partial f(x_t, h_{t-1}, W_x, W_h)}{\partial W_x} + 
+%		\frac{\partial f(x_t, h_{t-1}, W_x, W_h)}{\partial h_{t-1}} \frac{\partial h_{t-1}}{\partial W_x}
+%		\]
+%	\end{minipage}
+%	\begin{minipage}{0.2\textwidth}
+%		\hgraphpage[1.5\textwidth]{RNN1p_exp.pdf}
+%	\end{minipage}
+\begin{center}
+	\hgraphpage[0.4\textwidth]{RNN1p_exp.pdf}
+\end{center}
+
 \end{frame}
 
 \subsection{Long Short-Term Memory (LSTM)}
@@ -1628,9 +1665,143 @@ D'après LeCun et ses collèques \cite{1998-lecun} :
 	\frametitle{Les réseaux de neurones : récurrents}
 	\framesubtitle{Attention}
 	
+	\begin{itemize}
+		\item Modèle : Seq2Seq (encodeur-décodeur)
+		\item Les dépendances à long terme ne sont pas considérées pour des longues séquences
+		\item La génération des mots destinataires dépend seulement des mots générés précédemment et les derniers mots du texte original
+		\item IDÉE 
+		\begin{itemize}
+			\item Garder $T$ états cachés de l'encodeur : $h_i$
+			\item Pour chaque sortie précédente du décodeur $s_{t-1}$, nous calculons son alignement avec les états cachés.
+			$ e_{t, i} = a(s_{t-1}, h_i) $
+			\item Calculer les poids des états cachés : $\alpha_{t, i} = softmax(e_{t, i})$
+			\item Calculer le vecteur de l'état $c_t = \sum_{i=1}^{T} \alpha_{t, i} h_i$
+		\end{itemize}
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Les réseaux de neurones : récurrents}
+	\framesubtitle{Attention : Formulation}
+	
+	\begin{itemize}
+		\item Clés (keys) : $m$ états sur lesquels le poids de chaque valeur est estimé $k_i$
+		\item Valeurs (Values) : $m$ états avec lesquels le contexte est construit $v_i$
+		\item Requête (Query) : représentation courante $q$
+	\end{itemize}
+	
+	\[e_i = a(q, k_i)\]
+	\[\alpha_i = softmax(e_i) = \frac{exp(e_i)}{\sum_j exp(e_j)}\]
+	\[attention(q, K, V) = \sum_{i=1}^{m} \alpha_i v_i\]
+	
+	\begin{itemize}
+		\item Des fois l'opération softmax est masquée
+		\item Un vecteur des 0 et des 1 est utilisé pour décider les éléments à prendre en compte
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Les réseaux de neurones : récurrents}
+	\framesubtitle{Attention : Architecture}
+	
+	\hgraphpage{attention.pdf}
+	
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Les réseaux de neurones : récurrents}
+	\framesubtitle{Attention : Fonctions de notation de l'attention (sans paramètres)}
+	
+	\[Q \in \mathbb{R}^{n \times d}, \, K \in \mathbb{R}^{m \times d}, \, a(Q, K) \in \mathbb{R}^{n \times m}, V \in \mathbb{R}^{m \times v} \]
+	
+	Dot product (\textbf{tf.keras.layers.Attention})
+	\[a(Q, K) = Q \cdot K^\top\]
+	
+	Scaled dot product 
+	\[a(Q, K) = \frac{Q \cdot K^\top}{\sqrt{d}}\]
+	
+	Cosine similarity
+	\[a(Q, K) = \frac{Q \cdot K^\top}{||Q|| \, ||K||}\]
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Les réseaux de neurones : récurrents}
+	\framesubtitle{Attention : Fonctions de notation de l'attention (avec paramètres)}
+	
+	\[Q \in \mathbb{R}^{n \times d}, \, K \in \mathbb{R}^{m \times d}, \, a(Q, K) \in \mathbb{R}^{n \times m}, V \in \mathbb{R}^{m \times v} \]
+	
+	Additive attention (\textbf{tf.keras.layers.AdditiveAttention})
+	
+	Bahdanau Attention
+	
+	\[a(Q, K) = W_v^\top \cdot \tanh(W_q Q + W_k K)\]
+	
 	
 	
 \end{frame}
+
+
+\begin{frame}
+	\frametitle{Les réseaux de neurones : récurrents}
+	\framesubtitle{Attention : Attention multi-têtes (Multi-Head Attention)}
+	\vspace{-0.5cm}
+	\begin{figure}
+		\centering
+		\hgraphpage[0.9\textwidth]{multi_head_att_.pdf}
+		\caption{Attention multi-têtes \cite{2017-vaswani-al}}
+	\end{figure}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Les réseaux de neurones : récurrents}
+	\framesubtitle{Attention : Attention multi-têtes (Multi-Head Attention)}
+	
+	\[Q \in \mathbb{R}^{n \times d}, \, K \in \mathbb{R}^{m \times d}, \, MultiHead \in \mathbb{R}^{n \times d_{model}}, V \in \mathbb{R}^{m \times v} \]
+	
+	\[W^Q_i \in \mathbb{R}^{d_{model} \times d}, \,  W^K_i \in \mathbb{R}^{d_{model} \times d}, \, W^V_i \in \mathbb{R}^{d_{model} \times v}, \, W^O \in \mathbb{R}^{hv \times d_{model}}\]
+	
+	
+	\[MultiHead(Q, K, V) = Concat(head_1, \ldots, head_h) \cdot W^O\]
+	
+	\[head_i = Attention(Q W^Q_i, K W^Q_i, V W^V_i)\]
+	
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Les réseaux de neurones : récurrents}
+	\framesubtitle{Attention : Self attention}
+	
+	\[Q = K = V\]
+	
+	\begin{itemize}
+		\item Pour chaque élément d'une séquence, on essaye d'encoder son attention par rapport au même séquence
+		\item Attention multi-têtes peut être utilisée pour ce faire
+		\item La sortie sera une séquence encodée comme celle des RNN
+		\item Le problème est que la séquence n'a pas l'information de l'ordre des séquences 
+		\item Un embedding de la position peut être ajouté à l'encodage de chaque séquence
+	\end{itemize}
+	
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Les réseaux de neurones : récurrents}
+	\framesubtitle{Attention : Transformers}
+	\vspace{-0.4cm}
+	\begin{figure}
+		\centering
+		\hgraphpage[0.35\textwidth]{transformers_.pdf}
+		\caption{Architecture des transformers \cite{2017-vaswani-al}}
+	\end{figure}
+	
+\end{frame}
+
 
 \insertbibliography{ML-RN}{*}
 
