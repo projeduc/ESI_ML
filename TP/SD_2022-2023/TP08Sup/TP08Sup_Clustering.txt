@@ -1,0 +1,46 @@
+﻿TP08Sup : Clustering
+=======================
+
+Les étudiants doivent implémenter et analyser les résultats. 
+Dans ce TP, notre but est de comprendre comment le clutering fonctionne.
+Pour ce faire, nous commençons par implémenter un des algorithmes : KMeans.
+Ensuite, nous 
+
+OUTILS : 
+========
+Python, Jupyter, pandas, scikit-learn, numpy, matplotlib, timeit
+
+DATASETS : 
+==========
+Synthetique (sklearn)
+
+PLAN : 
+======
+
+I. Réalisation des algorithmes
+    - I.1. Initialisation KMeans
+    - I.2. Regroupement avec centres
+    - I.3. Centroid
+    - I.4. Regrouper le tout
+II. Application et analyse
+    - II.1. KMeans
+    - II.2. DBSCAN
+    - II.3. Classification ascendante hiérarchique
+    - II.4. GMM
+    
+QUOI FAIRE : 
+============
+
+I. Réalisation des algorithmes
+    - Initialisation Kmeans aléatoire
+    - Initialisation Kmeans++
+    - Regrouper des échantillons selon des centres
+    - Calculer le centroid
+    
+II. Application et analyse
+    - Initialisation des centres dans KMeans
+    - Nombre des clusters dans KMeans
+    - Distance maximale (DBSCAN)
+    - Nombre minimal des échantillons dans un cluster (DBSCAN)
+    - Nombre des clusters dans le regroupement hiérarchique
+    - Seuil de distance dans le regroupement hiérarchique

@@ -1,0 +1,39 @@
+﻿TP05 : Machine à vecteurs de support (SVM) et optimisation stochastique
+========================================================================
+
+Les étudiants doivent implémenter et analyser les résultats. 
+Dans ce TP, notre but est de comprendre comment SVM fonctionne en implémentant les deux formulations : primal et dual.
+L'implémentation nous permet de découvrir quelques avantages et inconvénients des deux formulations.
+En plus, nous allons voir l'optimisation stochastique.
+Dans la partie "analyse", nous allons mener quelques expérimentations pour tester quelques notions théoriques.
+
+OUTILS : Python, Jupyter, pandas, scikit-learn, numpy, matplotlib, timeit
+
+DATASETS : Iris (2 classes, 3 classes), Cercles (synthetique)
+
+PLAN : 
+=======
+
+I. Réalisation des algorithmes
+    - I.1. SVM Linéaire (Primal)
+    - I.2. SVM avec noyau (Dual)
+II. Application et analyse
+    - II.1. Comparison entre les méthodes d'optimisation (cas primal)
+    - II.2. Comparison entre les formulations "primal" et "dual"
+    
+QUOI FAIRE : 
+============
+
+I. Réalisation des algorithmes
+    - Estimation SVM (primal)
+    - Coût SVM (primal)
+    - Gradients SVM (primal)
+    - Coût SVM (dual)
+    - Estimation SVM (dual)
+    
+II. Application et analyse
+    - Comparison entre les méthodes d'optimisation (cas primal)
+    - Comparison entre les formulations "primal" et "dual"
+    - Effet du paramètre C
+    - Choix des noyaux
+    - Problème et noyaux

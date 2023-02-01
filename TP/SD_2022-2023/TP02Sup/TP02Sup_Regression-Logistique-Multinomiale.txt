@@ -1,0 +1,46 @@
+TP02Sup : Régression logistique multinomiale et AdaGrad
+========================================================
+
+Les étudiants doivent compléter le code afin de créer un regresseur logistique multinomial (maximum entropy). 
+En plus, ils vont voir une autre variante de la désente des gradients : AdaGrad.
+Ils doivent, aussi, analyser quelques résultats
+
+OUTILS : 
+--------
+Python, Jupyter, pandas, scikit-learn, numpy, matplotlib
+
+DATASETS : 
+----------
+Iris
+
+PLAN : 
+------
+I. Réalisation des algorithmes
+    I.1. Combinaison linéaire
+    I.2. Calcul des probabilités
+    I.3. Prédiction
+    I.4. Calcul du coût
+    I.5. Calcul des gradients
+    I.6. Descente du gradient adaptative
+    I.7. Regrouper les fonctions ensemble
+II. Application et analyse
+    II.1. Séparabilité des classes
+    II.2. AdaGrad
+    II.3. One-vs-Rest OU One-vs-One
+
+QUOI FAIRE : 
+------------
+I. Réalisation des algorithmes
+    - Combinaison linéaire
+    - Softmax
+    - Prédictions multiclasses
+    - Coût du classement multiclasses 
+    - Coût classement multiclasses 
+    - Mise à jours des paramètres AdaGrad
+    
+II. Application et analyse
+    - Séparabilité des classes et relation avec la performance
+    - Comparaison entre la convergence de la Descente du gradient (DG) et AdaGrad
+    - Comparaison entre la performance de la Descente du gradient (DG) et AdaGrad
+    - Comparaison entre MaXent et modèles binaires pour le classement multinomial
+

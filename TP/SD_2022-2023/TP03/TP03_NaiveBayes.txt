@@ -1,0 +1,39 @@
+﻿TP03 : Naive Bayes
+===================
+
+Les étudiants doivent compléter le code afin de créer un classifieur Naive Bayes pour les caractéristiques nominales. 
+Aussi, ils doivent analyser des résultats en se basant sur des tests dans le but de comprendre l'effet des différents hyper-paramètres.
+
+
+OUTILS : Python, Jupyter, pandas, scikit-learn, numpy
+
+DATASETS : Jouer (caractéristiques nominales), SMS Spam Collection Dataset
+
+PLAN : 
+
+I. Réalisation des algorithmes
+    I.1. Entraînement de la probabilité antérieure
+    I.2. Entraînement de la probabilité de vraissemblance (loi multinomiale)
+    I.3. Entraînement loi multinomiale
+    I.4. Estimation de la probabilité de vraissemblance (loi multinomiale)
+    I.5. Prédiction de la classe (loi multinomiale)
+    I.6. Regrouper en une classe (loi multinomiale)
+II. Application et analyse
+    II.1. Probabilité antérieure
+    II.2. Lissage
+    II.3. Comparaison avec d'autres algorithmes
+  
+QUOI FAIRE : 
+
+I- Réalisation des algorithmes
+    - Stastistiques sur la probabilité antérieure
+    - Statistiques de vraissemblance (une seule caractéristique)
+    - Calculer la vraissamblance d'une valeur donnée
+    - Prédiction des log des probabilités
+    
+II- Application et analyse
+    - Effet de la probabilité antérieure
+    - Effet du lissage
+    - Comparaison avec d'autres algorithmes en terme du temps d'apprentissage et de test
+    - Comparaison avec d'autres algorithmes en terme de qualité de prédiction
+

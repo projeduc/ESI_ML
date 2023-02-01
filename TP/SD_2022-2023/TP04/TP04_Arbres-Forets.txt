@@ -1,0 +1,48 @@
+﻿TP04 : Arbres de décision et apprentissage par ensembles
+==========================================================
+
+Les étudiants doivent compléter le code afin de créer deux classifieurs : ID3 et CART.
+Le premier pour les caractéristiques nominales et le deuxième pour celles numériques.
+Dans la deuxième partie, une série des tests sur les arbres de décision (CART) 
+et les forêts aléatoires est appliuée, en modifiant certains paramètres. 
+Les étudiants doivent lier les résultats de ces tests avec ce qu'il ont vu dans le cours. 
+
+
+OUTILS : 
+--------
+Python, Jupyter, pandas, scikit-learn, numpy, timeit, graphviz
+
+DATASETS : 
+----------
+Jouer (caractéristiques nominales), Jouer (caractéristiques numériques), Cars Data
+
+PLAN : 
+-------
+I. Réalisation des algorithmes
+    I.1. ID3
+    I.2. CART
+II. Application et analyse
+    II.1. Arbres de décision
+    II.2. Forêts aléatoires
+  
+QUOI FAIRE : 
+------------
+I- Réalisation des algorithmes
+    - Probabilité d'occurence d'une valeur dans un ensemble [5mn]
+    - Entropie [5mn]
+    - Gain d'entropie [5mn]
+    - Choix d'attribut de dévision [5mn]
+    - Arrêt ID3 [5mn]
+    - Gini [5mn]
+    - Diversité gini de la division [5mn]
+    - Choix de l'attribut et la valeur de division CART [10mn]
+    
+II- Application et analyse
+    - Critère de choix des caractéristiques [10mn]
+    - Profondeur maximale de l'arbre [5mn]
+    - Observations minimales dans les feuilles [5mn]
+    - Nombre des arbres dans un forêt [5mn]
+    - Profondeur maximale des arbres [10mn]
+    - Observations minimales dans les feuilles [10mn]
+    - Taille d'un Bootstrap [5mn]
+    

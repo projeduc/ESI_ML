@@ -1,0 +1,38 @@
+﻿TP06 : Réseaux de neurones
+============================
+
+Les étudiants doivent implémenter et analyser les résultats. 
+Dans ce TP, nous allons voir les réseaux de neurones.
+Premierement, nous allons implémenter la rétro-propagation, une fonction d'activation et une fonction du cout.
+Ensuite, nous allons tester l'effet de l'initialisation des paramètres, les fonctions d'activation, ainsi que les fonctions d'optimisation.
+
+OUTILS : Python, Jupyter, pandas, numpy, scikit-learn, matplotlib, tensorflow
+
+DATASETS : Diabetes
+
+PLAN : 
+=======
+
+I. Réalisation des algorithmes
+    - I.1. Fonctions d'activation
+    - I.2. Fonctions du coût
+    - I.3. Neurone
+    - I.4. Couche
+    - I.5. Réseau
+II. Application et analyse
+    - II.1. Paramètres initiaux et complexité
+    - II.2. Fonctions d'activation
+    - II.3. Fonctions d'optimisation
+    
+QUOI FAIRE : 
+============
+
+I. Réalisation des algorithmes
+    - Dérivée de la fonction d'activation logistique
+    - Dérivée de la fonction d'erreur BCE
+    - Rétro-propagation (neurone)
+    
+II. Application et analyse
+    - Paramètres initiaux et complexité (initialisation aléatoire et couches cachées)
+    - Fonctions d'activation (couche cachée vs. de sortie : ReLu, Sigmoid, Tanh)
+    - Fonctions d'optimisation (DG vs. AdaGrad vs. RMSProp vs. Adam)

@@ -1,0 +1,47 @@
+﻿TP07 : Régularisation et sélection d'attributs
+===============================================
+
+Les étudiants doivent implémenter et analyser les résultats. 
+Dans ce TP, notre but est de comprendre comment la régularisation et le filtrage des données fonctionnent. 
+Pour ce faire, nous devons implémenter deux fonctions de régularisation pour la régression : L2 (Ridge) et L1 (Lasso).
+Concernant la sélection d'attributs, nous devons implémenter un algorithme par filtrage : ANOVA
+
+OUTILS : 
+========
+
+Python, Jupyter, pandas, scikit-learn, numpy, matplotlib, timeit
+
+DATASETS : 
+==========
+
+Diabetics prediction using logistic regression.
+
+PLAN : 
+======
+
+I. Réalisation des algorithmes
+    - I.1. Régularisation L2 (Ridge)
+    - I.2. Régularisation L1 (Lasso)
+    - I.3. Régression avec réglularisation
+    - I.4. Filtrage des attributs (ANOVA : Analysis of Variance)
+II. Application et analyse
+    - II.1. Régularisation
+    - II.2. Sélection d'attributs
+    
+QUOI FAIRE : 
+============
+
+I. Réalisation des algorithmes
+    - Coût L2
+    - Gradient L2
+    - Coût L1
+    - Soft-thresholding : prox(theta)
+    - One-way ANOVA pour un attribut
+    
+II. Application et analyse
+    - Convergence et généralisation sans et avec régularisation par itérations
+    - Convergence des paramètres par itérations
+    - Sélection d'attributs par filtrage (Choix ANOVA)
+    - Sélection d'attributs par filtrage (Convergence et performance)
+    - Comparaison entre les différentes approches de sélections d'attributs
+

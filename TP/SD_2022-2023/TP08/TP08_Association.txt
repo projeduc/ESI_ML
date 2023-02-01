@@ -1,0 +1,42 @@
+﻿TP08 : Règles d'association
+=============================
+
+Les étudiants doivent implémenter et analyser les résultats. 
+Dans ce TP, notre but est de comprendre comment les règles d'association sont construites.
+Pour ce faire, nous implémentons quelques algorithmes et discutons les effets des paramètres.
+
+OUTILS : 
+========
+Python, Jupyter, pandas, scikit-learn, numpy, matplotlib, timeit, mlxtend
+
+DATASETS : 
+===========
+Internes (cours + liste des achats).
+
+PLAN : 
+=======
+
+I. Réalisation des algorithmes
+    - I.1. Itemsets fréquentes
+    - I.2. Règles d'association
+    - I.3. Regrouper le tous
+II. Application et analyse
+    - II.1. Génération des itemsets
+    - II.2. Génération des règles d'association 
+    
+QUOI FAIRE : 
+============
+
+I. Réalisation des algorithmes
+    - Fusion de deux itemsets
+    - Support d'un itemset
+    - Enrichir un itemset avec des items
+    - Création des itemsets fréquents
+    - Mesures de qualité d'une règle
+    - Générer les règles d'association
+    
+II. Application et analyse
+    - Comparaison entre les méthodes de génération (A-priori, FPmax, FPgrowth)
+    - Effet du support minimal
+    - Métrique de sélection des règles
+    - Seuil minimal
