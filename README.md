@@ -1,5 +1,7 @@
 # Cours "Machine Learning"
 
+![Logo](img/esi.ml-logo.png)
+
 [![Type](https://img.shields.io/badge/Type-Cours-0014A8.svg?style=flat)](https://github.com/projeduc/ESI_2CS_ML)
 [![License](https://img.shields.io/badge/Licence-CC--BY_4.0-0014A8.svg?style=flat)](https://creativecommons.org/licenses/by/4.0/deed.fr)
 [![GitHub release](https://img.shields.io/github/release/projeduc/ESI_2CS_ML.svg)](https://github.com/projeduc/ESI_2CS_ML/releases)
