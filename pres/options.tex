@@ -15,6 +15,7 @@
 \usepackage{multirow}
 \usepackage{hyperref}
 \usepackage{colortbl}
+\usepackage{tabularray}
 \usepackage{listingsutf8}
 \usepackage{wrapfig}
 \usepackage{multicol}
@@ -62,12 +63,16 @@
 	\vspace{6pt}
 	École  nationale Supérieure d'Informatique (ESI, ex. INI), Alger, Algérie
 }
-\author[ \textbf{\footnotesize\insertframenumber/\inserttotalframenumber} \hspace*{1.5cm} ESI - ARIES \& BENATCHBA (2021-2022)] %
+\author[ \textbf{\footnotesize\insertframenumber/\inserttotalframenumber} \hspace*{1.5cm} ESI - ARIES \& BENATCHBA (2022-2023)] %
 {ARIES Abdelkrime \hfill BENATCHBA Karima}
 
-\titlegraphic{\includegraphics[height=1cm]{../img/esi-logo.png}}%\hspace*{4.75cm}~
+\titlegraphic{%
+	\includegraphics[height=1cm]{../img/esi-logo.png}%
+	\hspace*{2cm}%
+	\includegraphics[height=1cm]{../extra/logo/esi.ml.pdf}%
+}%\hspace*{4.75cm}~
 
-\date{Année universitaire : 2021/2022} %\today
+\date{Année universitaire : 2022/2023} %\today
 
 \usetheme{Warsaw} % Antibes Boadilla Warsaw
 
@@ -518,3 +523,11 @@
 \makeatletter
 \newcommand{\xRightarrow}[2][]{\ext@arrow 0359\Rightarrowfill@{#1}{#2}}
 \makeatother
+
+% equations
+\AtBeginDocument{
+	\abovedisplayskip=0pt
+	\abovedisplayshortskip=0pt
+	\belowdisplayskip=0pt
+	\belowdisplayshortskip=0pt
+}

@@ -1,0 +1,219 @@
+% !TEX TS-program = pdflatex
+% !TeX program = pdflatex
+% !TEX encoding = UTF-8
+% !TEX spellcheck = fr
+
+\documentclass[11pt, a4paper]{article}
+%\usepackage{fullpage}
+\usepackage[left=1cm,right=1cm,top=1cm,bottom=2cm]{geometry}
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+%\usepackage{indentfirst}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french,english]{babel}
+\usepackage{txfonts} 
+\usepackage[]{graphicx}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{parskip}
+\usepackage{multicol}
+\usepackage{wrapfig}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{tcolorbox}
+\usepackage{natbib}
+
+\usepackage{turnstile}%Induction symbole
+
+\renewcommand{\baselinestretch}{1}
+
+\setlength{\parindent}{24pt}
+
+%\usepackage{etoolbox}
+%\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+
+\fancyhf{}
+
+\lfoot{ARIES Abdelkrime}
+\cfoot{ESI/NLP/SIQ2-SIL2  (2022-2023)}
+\rfoot{\textbf{\thepage}}
+
+\renewcommand{\headrulewidth}{0pt} % remove lines as well
+\renewcommand{\footrulewidth}{1pt}
+
+\newcommand\repeatstr[1]{\leavevmode\xleaders\hbox{#1}\hfill\kern0pt}
+
+\renewcommand{\bibsection}{}
+%\bibliographystyle{humannat}
+
+\begin{document}
+
+\selectlanguage {french}
+%\pagestyle{empty} 
+\pagestyle{fancy}
+
+\noindent
+\begin{tabular}{ll}
+\multirow{3}{*}{\includegraphics[width=1.5cm]{../logo/esi.ml.pdf}} & \'Ecole national Supérieure d'Informatique\\
+& 2ème année cycle supérieur (SIQ2/SIL2)\\
+& Machine Learning (2023-2024)
+\end{tabular}\\[2pt]
+\noindent\rule{\textwidth}{1pt}\\[-0.5cm]
+\begin{center}
+{\LARGE \textbf{TP : Programme}}
+\begin{flushright}
+	ARIES Abdelkrime
+\end{flushright}
+\end{center}\vspace{-0.5cm}
+\noindent\rule{\textwidth}{1pt}
+
+\begin{abstract}
+	Machine learning (ML, en français : Apprentissage automatique) fait partie aux méthodes de l'intélligence artificielle.
+	Il se base sur les approches mathématiques et statistiques afin de permettre à une machine d'apprendre à partir de certaines données. 
+	Ces dernières jouent un grand rôle dans la réussite d'un modèle ML.
+	
+	Certes, la préparation des données est une grande étape dans la conception d'un système ML.
+	Mais, la compréhension des algorithmes ML est aussi importante.
+	Dans ces TPs, nous allons apprendre comment ces algorithmes fonctionnent en essayant d'implémenter des version simples.
+	Aussi, nous testerons quelques paramètres afin de comprendre leurs effets.
+	
+	Dans la séance du TPs, nous allons avoir deux types des TPs : TPs notés et Workshops.
+	Les TPs notés ont comme but de comprendre les concepts vus en cours.
+	Ils sont divisés sur deux parties : Réalisation et Analyse.
+	La première partie est une implémentation des algorithmes de zéro (from scratch).
+	Le code complet est implémenté ensuite une partie est supprimée afin de la remplir (gap filling).
+	La deuxième partie exploite des APIs existants afin de faire des tests sur les différents paramètres d'un algorithme.
+	Dans cette partie, l'étudiant doit analyser les résultats du test (pourquoi nous avons eu ces résultats ?).
+	
+	Les Workshops sont des TPs très guidés : étape par étape. 
+	Ils ne sont pas notés, mais restent importants.
+	Leur but est d'apprendre un outil ou une architecture comme par exemple les GANs.
+	Des 
+\end{abstract}
+
+\section{Informations générales}
+
+\begin{minipage}{0.49\textwidth}
+
+\subsection{Pré-requis}
+
+\begin{itemize}
+	\item Probabilités et statistiques
+	\item Algèbre et analyse 
+	\item Programmation (Python avec Jupyter notebook)
+\end{itemize}
+\end{minipage}
+\begin{minipage}{0.49\textwidth}
+\subsection{Objectifs}
+
+\begin{itemize}
+	\item Appliquer des notions mathématiques apprises au long du cursus sur des problèmes réels.
+	\item Implémenter quelques algorithmes ML afin de comprendre leur fonctionnement.
+	\item Découvrir quelques outils et ressources du ML.
+	\item Apprendre à mener des tests et à analyser les résultats (Aspect synthèse).
+\end{itemize}
+
+\end{minipage}
+
+\subsection{Outils}
+
+\begin{itemize}
+	\item \href{https://jupyter.org}{Jupyter Notebook} : Les TPs seront présentés sous forme d'un fichier Jupyter Notebook afin d'intégrer la documentation avec le code Python.
+	\item \href{https://pandas.pydata.org/}{pandas} : Un API d'analyse et manipulation de données
+	\item \href{https://scikit-learn.org/}{scikit-learn} : Un API utilisé pour le prétraitement et l'apprentissage automatique (différents algorithmes)
+	\item \href{https://www.tensorflow.org/}{Tensorflow} : Un API utilisé pour les réseaux de neurones. Ce n'ai pas la peine de l'installer pour l'instant.
+\end{itemize}
+
+Les trois premiers outils peuvent être installés en plus de Python en installant \href{https://www.anaconda.com/products/individual#Downloads}{Anaconda}.
+Sur Linux, ces outils peuvent être installés en utilisant l'outil \textbf{pip} (l'outil d'installation des packages python).
+Il est, aussi, possible d'utiliser Google Colab. 
+Mais, c'est préféré d'utiliser les machines personnelles puisque les TPs ne nécessitent pas une grande quantité de ressources (mémoire, puissance de calcul). 
+
+
+\section{Organisation de la séance}
+
+\begin{itemize}
+	\item \textbf{Mercredi matin} : l'énoncé du TP sera partagé sur \textit{Google Classroom}.
+	
+	\item \textbf{20mn de la séance} : le TP passé sera discuté.
+	\begin{itemize}
+		\item La deuxième partie seulement.
+		\item Il faut participer à la discussion même si la réponse est fausse.
+		\item Il faut suivre la discussion afin de comprendre les notions du TP passé.
+		\item Aucun corrigé-type ne sera fourni. Ce TP se base seulement sur la discussion.
+	\end{itemize}
+
+	\item \textbf{10mn de la séance} : le nouveau TP sera expliqué.
+	\begin{itemize}
+		\item Il faut suivre l'expliquation afin de comprendre ce qu'il faut faire.
+	\end{itemize}
+	
+	\item \textbf{1h20mn de la séance} : le nouveau TP sera fait par les étudiants.
+	\begin{itemize}
+		\item Le TP se fait en binôme ou en monôme.
+		\item Pour chaque nouveau TP, il est admis de changer le binôme.
+		\item Durant la séance, il faut appeler l'enseignant en cas d'ambiguité ou au cas où on stagne sur un code.
+	\end{itemize}
+
+	\item \textbf{10mn de la séance} : l'état d'avancement sera vérifié.
+	\begin{itemize}
+		\item La première partie du TP doit être complétée durant la séance.
+		\item L'avancement est noté.
+	\end{itemize}
+
+	\item \textbf{Mardi soir} : la version finale du TP doit être rendue sur \textit{Google Classroom}.
+	\begin{itemize}
+		\item Il faut rendre le TP avant la date limite.
+		\item En cas d'un binôme, un seul étudiant doit rendre le TP (pas les deux).
+		\item On peut rendre plusieurs versions du TP (seule la dernière sera prise en compte).
+		\item Il faut seulement rendre le fichier \textbf{.ipynb} sans les données.
+		\item Le noms du fichier doit être sous format \textbf{TPXX\_NOM1\_NOM2\_vY.ipynb}
+	\end{itemize}
+
+\end{itemize}
+
+
+\section{Plan des TPs}
+
+Un planning est partagé sur Google Drive. 
+Il faut le vérifier à chaque fois au cas où il y aura des modifications.
+
+
+\section{Notation et plagiat}
+
+\begin{itemize}
+	\item Chaque TP est noté sur 64/80 (16/20). La distribution des notes sur la partie 1 et 2 est selon la nature du TP.
+	\item L'avancement est noté sur 8/80 (2/20). 
+	Un étudiant qui n'a pas assisté la séance aura 0 dans l'avancement même si son binôme a assisté.
+	\item Rendre le TP au temps aura 8/80 (2/20). 
+	La date limite est mardi 23:59 (sauf si changé dans classroom).
+	Après 30 minutes de cette limite, cette note sera 0.
+	Dire que c'est un problème de connexion n'est pas accepté. 
+	Vous avez eu une semaine pour rendre le TP.
+	Attendre jusqu'à la dernière minute est une mauvaise gestion de votre part ; vous devez être sanctionné pour ça. 
+	\item Une fois le TP est discuté (la première séance entre les deux groupes), les TPs envoyés aurons seulement la note d'avancement plus le pourcentage fait en classe.
+	Si un étudiant a été absent durant la séance, il aura un zéro (La partie faite dans la classe est celle de son binôme seulement).
+	\item Il est possible d'utiliser des ressources externes (livres, sites, etc.) pour répondre aux questions. 
+	Mais, il ne faut pas copier la réponse telle qu'elle est (verbatim).
+	Il faut tout d'abord comprendre la question, ensuite répondre avec votre expression. 
+	\item Toutes réponses similaires (partie 2) serons sanctionnées
+	\begin{itemize}
+		\item Si le fichier contient des noms d'autre binôme, les deux équipes aurons un zéros même si le contenu est différent.
+		\item Si deux (ou plus) équipes répondent sur une question de la même façon, ils aurons un 0 pour cette question.
+		Rendre une phrase à la voie passive ou remplacer un mot par son synonyme reste toujours la même réponse.
+		\item Aucune de ces raisons ne sera acceptée : "\textit{J'ai envoyé le mauvais fichier}" (le fait d'avoir la solution d'une autre équipe est déjà une erreur), "\textit{Mon binôme a envoyé la solution à une autre équipe sans que je le sache}" (Vous avez choisi votre binôme, donc il faut assumer), "\textit{Je les ai envoyé la solution pour qu'ils puissent comprendre ce qu'il faut faire}" (Ils comprennent en assistant au TP ; Rester à la maison et attendre les solutions de ces collègues n'a jamais été une méthode d'apprentissage), "\textit{Nous avons utilisé la même ressource.}" (Il faut rédiger! Recopier la réponse telle qu'elle est veut dire que vous n'avez rien compris), "\textit{Je vous en supplie !}" (Vous allez avoir un zéro parmi plusieurs TPs, donc ce n'est pas grave. Aussi, en lisant ceci, vous savez le risque. ), etc.
+	\end{itemize}
+\end{itemize}
+
+\section{Bibliographie}
+
+Ceci est le répo Github officiel du TP-ML : \url{https://github.com/projeduc/ESI_ML}
+
+\nocite{*}
+
+\bibliographystyle{apalike}
+
+\bibliography{ML_TP_biblio}
+
+\end{document}

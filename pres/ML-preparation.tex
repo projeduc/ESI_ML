@@ -589,15 +589,19 @@
 	\framesubtitle{Données déséquilibrées}
 	
 	\begin{table}
-		\rowcolors{2}{lightblue}{lightyellow}
-		\begin{tabular}{p{0.3\textwidth}p{0.5\textwidth}}
-			\rowcolor{darkblue}
+	\SetTblrInner{rowsep=0pt,colsep=1pt}
+	\begin{tblr}{
+			colspec = {p{0.3\textwidth}p{0.5\textwidth}},
+			row{odd} = {lightblue, font=\small},
+			row{even} = {lightyellow, font=\small},
+			row{1} = {darkblue, font=\bfseries},
+		}
 			\textcolor{white}{Degré de déséquilibre} & \textcolor{white}{Proportion de classe minoritaire} \\
 			léger & 20-40\% de données \\
 			modéré & 1-20\% de données \\
 			extrême &	\textless 1\% de données \\
-		\end{tabular}
-		\caption{Degré de déséquilibre \cite{2021-google-prep}}
+	\end{tblr}
+	\caption{Degré de déséquilibre \cite{2021-google-prep}}
 	\end{table}
 
 	\begin{itemize}
@@ -871,14 +875,18 @@
 
 
 \begin{center}
-	\rowcolors{2}{lightblue}{lightyellow}
-	\begin{tabular}{p{0.3\textwidth}p{0.5\textwidth}}
-		\rowcolor{darkblue}
+	\SetTblrInner{rowsep=0pt,colsep=1pt}
+	\begin{tblr}{
+			colspec = {p{0.3\textwidth}p{0.5\textwidth}},
+			row{odd} = {lightblue, font=\small},
+			row{even} = {lightyellow, font=\small},
+			row{1} = {darkblue, font=\bfseries},
+		}
 		\textcolor{white}{Moyenne} & \textcolor{white}{Formule de calcul} \\
-		micro & $M(y, \hat{y})$ \\
-		macro & $\frac{1}{|L|} \sum_{l \in L} M(y_l, \hat{y}_l)$ \\
-		pondérée & $\frac{1}{\sum_{l \in L} |\hat{y}_l|} \sum_{l \in L} |\hat{y}_l| M(y_l, \hat{y}_l)$ \\
-	\end{tabular}
+		micro (Précision) & \vspace{-6pt}\[\frac{\sum_{l \in L} TP_l}{\sum_{l \in L} (TP_l + FP_l)}\]\vspace{-6pt} \\
+		macro & \vspace{-6pt}\[\frac{1}{|L|} \sum_{l \in L} M(y_l, \hat{y}_l)\]\vspace{-6pt}\\
+		pondérée & \vspace{-6pt}\[\frac{1}{\sum_{l \in L} |\hat{y}_l|} \sum_{l \in L} |\hat{y}_l| M(y_l, \hat{y}_l)\]\vspace{-6pt} \\
+	\end{tblr}
 \end{center}
 	
 	
