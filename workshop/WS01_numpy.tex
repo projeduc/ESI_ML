@@ -38,20 +38,18 @@
 
 \noindent
 \begin{tabular}{ll}
-\multirow{3}{*}{\includegraphics[width=2cm]{../img/esi-logo.png}} & \'Ecole national Supérieure d'Informatique\\
-& 2\textsuperscript{ème} année cycle supérieure (2CSSIL2, 2CSSIQ2, 2CSSIQ3)\\
-& Machine Learning (2021-2022)
+\multirow{3}{*}{\includegraphics[width=1.5cm]{../extra/logo/esi.ml.pdf}} & \'Ecole national Supérieure d'Informatique\\
+& 2\textsuperscript{ème} année cycle supérieure (2CSSIQ2, 2CSSIL2)\\
+& Machine Learning (2022-2023)
 \end{tabular}\\[.25cm]
-\noindent\rule{\textwidth}{1pt}\\%[-0.25cm]
+\noindent\rule{\textwidth}{1pt}\\[-0.5cm]
 \begin{center}
-{\LARGE \textbf{T.P. Tutoriel : Outils}}
+{\LARGE \textbf{Workshop : Numpy}}
 \begin{flushright}
 	ARIES Abdelkrime
 \end{flushright}
-\end{center}
+\end{center}\vspace{-.25cm}
 \noindent\rule{\textwidth}{1pt}
-
-\section*{Exercice : Numpy}
 
 %\vspace{-12pt}
 %\begin{tabular}{|p{\textwidth}|}
@@ -63,11 +61,12 @@
 %	\hline
 %\end{tabular}
 
-On veut étudier la popularité des utilisateurs sur Twitter. 
-Pour ce faire, on va étudier les interactions (Reply, Retweet, Like) entre 5 utilisateurs.
+Nous voulons étudier la popularité des utilisateurs sur Twitter. 
+Pour ce faire, nous allons étudier les interactions (Reply, Retweet, Like) entre 5 utilisateurs.
 Le nombre des tweets de chaque utilisateur est représenté par le vecteur : [2, 5, 10, 4, 3].
-On ne considère pas les réponses comme des tweets.
-Le graphe suivant représente les interactions de la forme (Reply, Retweet, Like) entre les utilisateurs :
+Les réponses ne sont pas considérées comme des tweets.
+Le graphe suivant représente les interactions de la forme (Reply, Retweet, Like) entre les utilisateurs. 
+Lorsqu'il n'y a pas un arc d'un nœud vers un autre, ceci veut dire que les trois interactions sont (0, 0, 0).
 \begin{center}
 	
 \begin{tikzpicture}[
@@ -117,48 +116,54 @@ minimum size = 4mm
 	\item Représenter les interactions sous forme de trois matrices 5X5 pour chaque type d'interaction.  
 \end{itemize}
 
-\subsection*{Statistiques d'engagement}
+\section*{Statistiques d'engagement}
 
-Ici, on veut extraire quelques statistiques sur l'engagement des utilisateurs envers les autres.
-Dans la théorie des graphes, on s'intéresse par les arcs sortants.
-
-\begin{itemize}
-	\item Trouver l'utilisateur qui répond (Reply) plus que les autres
-	\item Trouver l'utilisateur qui partage (Retweet) plus que les autres
-	\item Trouver les utilisateurs qui ne répondent pas (Reply) et qui ne partagent pas (Retweet)
-	\item Afficher le nombre des Likes que chaque utilisateur fait pour ses propres tweets
-	\item Afficher le nombre des Likes que chaque utilisateur fait pour les tweets autre que les tien
-	\item Trouver les utilisateurs qui aiment leurs propres tweets plus qu'ils aiment les tweets des autres
-	\item Calculer leur nombre
-	\item Afficher le nombre des interactions que chaque utilisateur a fait
-\end{itemize}
-
-\subsection*{Statistiques sue les interactions}
+Ici, nous voulons extraire quelques statistiques sur l'engagement des utilisateurs avec les autres.
+Dans la théorie des graphes, nous nous intéressons par les arcs sortants.
 
 \begin{enumerate}
-	\item Afficher le max des Likes que chaque utilisateur a reçu
-	\item Trouver les utilisateurs qui ont des likes pour tous leurs tweets au moins par une personne
-	\item Calculer le nombre des arcs entrants (ayant au moins une interaction)
-	\item Calculer le nombre des arcs sortants (qui ont fait au moins une interaction)
-	\item Trouver les nœuds où le nombre des arcs entrants est égale au nombre de ceux sortants
-	\item Afficher les Likes qu'ils ont fait entre eux
+	\item Trouver l'utilisateur qui répond (Reply) plus que les autres.
+	\item Trouver l'utilisateur qui partage (Retweet) plus que les autres.
+	\item Trouver les utilisateurs qui ne répondent pas (Reply) et qui ne partagent pas (Retweet).
+	\item Afficher le nombre des Likes que chaque utilisateur a donné à ses propres tweets.
+	\item Afficher le nombre des Likes que chaque utilisateur a donné aux tweets autre que ces propres tweets.
+	\item Trouver les utilisateurs qui aiment leurs propres tweets plus qu'ils aiment les tweets des autres.
+	\item Calculer leur nombre.
+	\item Afficher le nombre des interactions que chaque utilisateur a fait.
 \end{enumerate}
 
-\subsection*{Popularité}
+\section*{Statistiques sur les interactions}
+
+\begin{enumerate}
+	\item Afficher le max des Likes que chaque utilisateur a reçu (des utilisateurs autres que lui-même).
+	\textit{Pour annuler la diagonale, nous pouvons créer une matrice diagonale 5X5 et inverser les valeurs.
+		Ensuite, appliquer une multiplication élément par élément.}
+	\item Trouver les utilisateurs qui ont reçu des Likes pour tous leurs tweets au moins par une personne autre qu'elle.
+	Par exemple, l'utilisateur 1 a publié 5 postes et il existe au moins un autre utilisateur qui a Liker ces 5 tweets (dans ce cas, 0 et 2).
+	\item Calculer le nombre des arcs entrants (ayant au moins une interaction).
+	\item Calculer le nombre des arcs sortants (qui ont fait au moins une interaction).
+	\item Trouver les nœuds où le nombre des arcs entrants est égale au nombre de ceux sortants.
+	\item Afficher les Likes qu'ils ont fait entre eux.
+\end{enumerate}
+
+\section*{Popularité}
 
 \begin{itemize}
-	\item On ne s'intéresse pas par les interactions réflexives (Ex. quelqu'un qui aime ses propres tweets) qui sont représentées par la diagonale. 
-	Pour annuler la diagonale, on peut créer une matrice diagonale 10X10 et inverser les valeurs.
-	Ensuite, appliquer une multiplication élément par élément.
+	\item Nous ne nous intéressons pas par les interactions réflexives (Ex. quelqu'un qui aime ses propres tweets) qui sont représentées par la diagonale pour les Likes et les Reply. 
+	Par contre, nous nous intéressons par les Retweets réflexives.
+	\textit{Pour annuler la diagonale, nous pouvons créer une matrice diagonale 5X5 et inverser les valeurs.
+	Ensuite, appliquer une multiplication élément par élément.}
 	\item On veut pondérer les matrices à tel sorte que :
 	\begin{itemize}
-		\item Reply : on suppose que les Reply sont des objections en général ; donc, ils ont un effet négatif. 
-		Pour chaque interaction, si le nombre des Reply reçus d'une personne est plus que celui des Likes, on le multiplie par (-0.5). S'il est égale, on le multiplie par 0. \textbf{HINT : utiliser numpy.where}
-		\item Retweet : on suppose que les Retweet sont neutres en général ; donc, on ne fait aucune transformation.
-		\item Likes : on suppose que les Likes ont un effet positif sur la popularité.
-		Pour chaque interaction, si le nombre des Likes reçus d'une personne est plus que la moitié des tweets publiées, on le multiplie par (1.5).
+		\item Score Reply : nous supposons que les Reply sont des objections en général ; donc, ils ont un effet négatif. 
+		Pour chaque interaction, si le nombre des Reply reçus d'une personne est plus que celui de ces Likes, nous multiplions le nombre des Reply par (-0.5). S'il est égale, nous multiplions ces propres Likes par (-0.25). Sinon, il n'a aucun effet (0). \textbf{HINT : utiliser numpy.where}
+		\item Score Retweet : nous supposons que les Retweet sont neutres en général ; donc, nous n'appliquons aucune transformation sur ces interactions.
+		Mais, si quelqu'un fait des Retweets à ces propres tweets, il va être sanctionné par (-0.25) pour chaque retweet.
+		\item Score Likes : nous supposons que les Likes ont un effet positif sur la popularité.
+		Pour chaque interaction, si le nombre des Likes reçus d'une personne est plus grand que la moitié des tweets publiées, nous le multiplions par (1.5). Sinon, le score est le nombre des Likes.
 	\end{itemize}
-	\item 
+	\item Le score de popularité de chaque utilisateur pour chaque interaction est la moyenne des scores reçus.
+	\item Le score final est la moyenne des scores des différentes interactions.
 
 \end{itemize}
 
