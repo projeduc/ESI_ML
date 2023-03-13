@@ -1,0 +1,420 @@
+% !TEX TS-program = pdflatex
+% !TeX program = pdflatex
+% !TEX encoding = UTF-8
+% !TeX spellcheck = en_US
+
+\documentclass[xcolor=table]{beamer}
+
+\input{options.en}
+
+\title[ML: Multi-class classification] %
+{Machine Learning\\Multi-class classification} 
+
+\changegraphpath{../img/multi-class/}
+
+\begin{document}
+	
+\begin{frame}
+	\frametitle{Machine Learning}
+	\framesubtitle{Multi-class classification: Introduction}
+	
+	\begin{itemize}
+		\item We have already seen ...
+		\begin{itemize}
+			\item how to estimate the probability of a class
+			\item using logistic regression
+			\item in case of binary classification (belongs to a class or not)
+		\end{itemize}
+		\item But ...
+		\begin{itemize}
+			\item how to estimate them in case of multiple classes?
+			\item how to affect a sample into many classes at once?
+		\end{itemize}
+
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Machine Learning}
+	\framesubtitle{Multi-class classification: Plan}
+	
+	\begin{multicols}{2}
+		%	\small
+		\tableofcontents
+	\end{multicols}
+\end{frame}
+
+\section{Classification}
+
+\begin{frame}
+	\frametitle{Machine Learning}
+	\framesubtitle{Classification}
+	
+	\hgraphpage{classif.pdf}
+	
+\end{frame}
+
+\subsection{Binary classification}
+
+\begin{frame}
+	\frametitle{Machine Learning: Classification}
+	\framesubtitle{Binary classification}
+	
+	\begin{itemize}
+		\item Number of available classes: 2
+		\item Number of chosen classes: 1
+		\item Examples
+		\begin{itemize}
+			\item Classify an image as containing an object or not.
+			\item Finding out if a message is spam or not
+		\end{itemize}
+	\end{itemize}
+	
+\end{frame}
+
+\subsection{Multi-class classification}
+
+\begin{frame}
+	\frametitle{Machine Learning: Classification}
+	\framesubtitle{Multi-class classification}
+	
+	\begin{itemize}
+		\item Number of available classes: L \textgreater\ 2
+		\item Number of chosen classes: 1
+		\item Examples
+		\begin{itemize}
+			\item Detect an animal from an input image.
+			\item Detect a movie's certification (PG, R, etc.) from its description.
+		\end{itemize}
+	\end{itemize}
+	
+\end{frame}
+
+\subsection{Multi-label classification}
+
+\begin{frame}
+	\frametitle{Machine Learning: Classification}
+	\framesubtitle{Multi-label classification}
+	
+	\begin{itemize}
+		\item Number of available classes: L \textgreater\ 2
+		\item Number of chosen classes: K \textless= L
+		\item Examples
+		\begin{itemize}
+			\item Detect many animals from an input image.
+			\item Find the clothes (hat, jeans, scarf, etc.) from an image.
+			\item Detect movie's genres (Sci-fi, Action, Comedy, etc.) from its description.
+		\end{itemize}
+	\end{itemize}
+	
+\end{frame}
+
+\section{Binary logistic regression}
+
+\begin{frame}
+	\frametitle{Machine Learning}
+	\framesubtitle{Binary logistic regression}
+	
+	\begin{center}
+		\vgraphpage{LR_bin.pdf}
+	\end{center}
+	
+\end{frame}
+
+\subsection{Probability estimation}
+
+\begin{frame}
+\frametitle{Machine Learning: Binary logistic regression}
+\framesubtitle{Probability estimation}
+
+\[Z = \sum_{j=1}^{N} \theta_j X_j = X \cdot \theta\]
+\begin{itemize}
+	\item $Z[M]$ is a vector of $M$ elements (samples)
+	\item $X[M, N]$ is a matrix of $M$ samples and $N$ features
+	\item $\theta[N]$ is a vector of $N$ parameters (weights)
+\end{itemize}
+
+\[H = \sigma(Z) = \frac{1}{1+e^{-Z}}\]
+
+\begin{itemize}
+	\item $H[M]$ is a vector of $M$ probabilities (samples)
+\end{itemize}
+
+\end{frame}
+
+\subsection{Cost and Gradient}
+
+\begin{frame}
+	\frametitle{Machine Learning: Binary logistic regression}
+	\framesubtitle{Cost and Gradient}
+
+	\[J_\theta = BCE = \frac{-1}{M} \sum\limits_{i=1}^{M} [Y^{(i)} \log(H^{(i)}) + (1- Y^{(i)}) \log(1 - H^{(i)})]\]
+	\begin{itemize}
+		\item $Y[M]$ and $H[M]$ are two vectors of $M$ elements (samples)
+		\item $J_\theta$ is a scalar
+	\end{itemize}
+	
+	
+	\[
+	\frac{\partial BCE}{\partial \theta_j} = \frac{1}{M} \sum\limits_{i=1}^{M} (H^{(i)} - Y^{(i)}) X_j^{(i)}
+	\]
+	
+	\[
+	\frac{\partial BCE}{\partial \theta} = \frac{1}{M} (H - Y) \cdot X
+	\]
+	
+	\begin{itemize}
+		\item $\frac{\partial BCE}{\partial \theta}[N]$ is a vector of $N$ elements (features)
+	\end{itemize}
+	
+\end{frame}
+
+\subsection{Gradient (derivation)}
+
+\begin{frame}
+	\frametitle{Machine Learning: Binary logistic regression}
+	\framesubtitle{Gradient (derivation)}
+
+	\scriptsize
+	\begin{align*}
+	\frac{\partial BCE}{\partial \theta_j} 
+	& = & \frac{-1}{M} \sum\limits_{i=1}^{M} \frac{\partial}{\partial \theta_j} [Y^{(i)} \log(H^{(i)}) + (1- Y^{(i)}) \log(1 - H^{(i)})] \\
+	& = & \frac{-1}{M} \sum\limits_{i=1}^{M} [ Y^{(i)} \frac{\partial}{\partial \theta_j} \log(H^{(i)}) + (1- Y^{(i)}) \frac{\partial}{\partial \theta_j}\log(1 - H^{(i)})]\\
+	& = & \frac{-1}{M} \sum\limits_{i=1}^{M} [ Y^{(i)} \frac{1}{H^{(i)}} \frac{\partial}{\partial \theta_j} H^{(i)} + (1- Y^{(i)}) \frac{-1}{1-H^{(i)}} \frac{\partial}{\partial \theta_j} H^{(i)})] \\
+	& = & \frac{-1}{M} \sum\limits_{i=1}^{M} \frac{Y^{(i)}-H^{(i)}}{H^{(i)}(1-H^{(i)})} \frac{\partial}{\partial \theta_j} H^{(i)} \\
+	\end{align*}
+	
+%	\vspace{-26pt}
+	\begin{align*}
+	\frac{\partial H^{(i)}}{\partial \theta_j} 
+	& = & \frac{\partial \sigma(Z^{(i)})}{\partial Z^{(i)}} \frac{\partial Z^{(i)}}{\partial \theta_j}
+	 =  [\sigma(Z^{(i)}) (1-\sigma(Z^{(i)}))]\frac{\partial}{\partial \theta_j} \sum\limits_{k=0}^{N} \theta_k X_k^{(i)} 
+	 =  H^{(i)} (1-H^{(i)})  X_j^{(i)}\\
+	\end{align*}
+	
+	\vspace{-24pt}
+	\begin{align*}
+	\frac{\partial BCE}{\partial \theta_j} 
+	& = & \frac{-1}{M} \sum\limits_{i=1}^{M} \frac{Y^{(i)}-H^{(i)}}{H^{(i)}(1-H^{(i)})} [H^{(i)} (1-H^{(i)}) X_j^{(i)}] \\
+	& = & \frac{1}{M} \sum\limits_{i=1}^{M} (H^{(i)} - Y^{(i)}) X_j^{(i)}\\
+	\end{align*}
+		
+\end{frame}
+
+\subsection{Parameters' update}
+
+\begin{frame}
+	\frametitle{Machine Learning: Binary logistic regression}
+	\framesubtitle{Parameters' update}
+
+	\[\theta = \theta - \alpha \frac{\partial J_\theta}{\partial \theta}\]
+	
+	\begin{itemize}
+		\item $\frac{\partial J_\theta}{\partial \theta}[N]$ is a vector of $N$ elements (features)
+		\item $\theta[N]$ is a vector of $N$ elements (features)
+		\item $\alpha $ is a learning rate
+	\end{itemize}
+	
+\end{frame}
+
+\section{Multi-class logistic regression}
+
+\begin{frame}
+	\frametitle{Machine Learning}
+	\framesubtitle{Multi-class logistic regression}
+	
+	\hgraphpage{multi-class.pdf}
+	
+\end{frame}
+
+\subsection{One-vs-Rest}
+
+\begin{frame}
+	\frametitle{Machine Learning: Multi-class logistic regression}
+	\framesubtitle{One-vs-Rest}
+	
+	\begin{center}
+		\vgraphpage{LR_ovr.pdf}
+	\end{center}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Machine Learning: Multi-class logistic regression}
+	\framesubtitle{One-vs-Rest: Description}
+	
+	Given $L$ output classes:
+	\begin{itemize}
+		\item Training
+		\begin{itemize}
+			\item For each class $C_l$, we train a binary model $M_l$ separately
+			\item In this case, we will have $L$ binary models
+			\item The positive class is represented by $C_l$ class's samples
+			\item The negative class is represented by the rest of the samples
+		\end{itemize}
+		\item Estimation
+		\begin{itemize}
+			\item Given a sample
+			\item For each class $C_l$, we estimate its probability using $M_l$
+			\item We take the class with the maximum probability
+			\item In this case, the sum of probabilities does not always give $1$
+			\[\sum_{l=1}^{L} P(l|x; \theta^{M_l}) \in [0, L]\]
+		\end{itemize}
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Machine Learning: Multi-class logistic regression}
+	\framesubtitle{One-vs-One}
+	
+%	\begin{center}
+		\hgraphpage{LR_ovo.pdf}
+%	\end{center}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Machine Learning: Multi-class logistic regression}
+	\framesubtitle{One-vs-One: Description}
+	
+	Given $L$ output classes:
+	\begin{itemize}
+		\item Training
+		\begin{itemize}
+			\item For each two classes $C_{l}$ and $C_{l'}$, we train a binary model $M_{ll'}$ separately
+			\item In this case, we will have $L (L-1)/2$ binary models
+			\item The positive class is represented one of the two classes
+			\item The negative class is represented by the other class
+		\end{itemize}
+		\item Estimation
+		\begin{itemize}
+			\item Given a sample
+			\item For each model $C_{ll'}$, we estimate a probability
+			\item In this case, the class is either $l$ or $l'$
+			\item We count the number of each class being estimated
+			\item The majority wins (vote)
+		\end{itemize}
+	\end{itemize}
+	
+\end{frame}
+
+\subsection{Multinomial}
+
+\begin{frame}
+	\frametitle{Machine Learning: Multi-class logistic regression}
+	\framesubtitle{Multinomial}
+	
+	\begin{center}
+		\vgraphpage{LR_multi.pdf}
+	\end{center}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Machine Learning: Multi-class logistic regression}
+	\framesubtitle{Multinomial: Description}
+	
+	Given $L$ output classes:
+	\begin{itemize}
+		\item This is a generalization of binary classification in logistic regression
+		\item Training
+		\begin{itemize}
+			\item For each class $C_{l}$, we calculate a weighted sum
+			\item We apply \textbf{Softmax} function on these outputs
+			\item It is a function which transforms the sums into probabilities
+			\item Also, it normalizes these probabilities to get a sum of $1$
+			\item The output classes are represented using One-Hot
+			\item The cost function is a generalized version of that of binary classification
+		\end{itemize}
+		\item Estimation
+		\begin{itemize}
+			\item Given a sample
+			\item We apply the model to get a vector of probabilities
+			\item The most probable class wins
+		\end{itemize}
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Machine Learning: Multi-class logistic regression}
+	\framesubtitle{Multinomial: Probability estimation}
+	
+	\[Z = \sum_{j=1}^{N} \theta_j X_j = X \cdot \theta\]
+	\begin{itemize}
+		\item $Z[M, L]$ is a matrix of $M$ samples and $L$ classes
+		\item $X[M, N]$ is a matrix of $M$ samples and $N$ features
+		\item $\theta[N, L]$ is a matrix of $N$ features and $L$ classes
+	\end{itemize}
+	
+	\[H = softmax(Z) = \frac{e^{Z}}{\sum_{k=1}^{L} e^{Z_k}}\]
+	
+	\begin{itemize}
+		\item $H[M, L]$ is a matrix of $M$ samples and $L$ classes
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Machine Learning: Multi-class logistic regression}
+	\framesubtitle{Multinomial: Cost and gradient}
+	
+	\[J_\theta = \frac{-1}{M} \sum\limits_{i=1}^{M} \sum_{k=1}^{L} Y^{(i)}_k \log(H^{(i)}_k)\]
+	\begin{itemize}
+		\item $Y[M, L]$ and $H[M, L]$ are two matrices of $M\times L$ elements (features X classes)
+		\item $J_\theta$ is a scalar
+	\end{itemize}
+	
+	
+	\[
+	\frac{\partial BCE}{\partial \theta_j} = \frac{1}{M} \sum\limits_{i=1}^{M} (H^{(i)} - Y^{(i)}) X_j^{(i)}
+	\]
+	
+	\[
+	\frac{\partial BCE}{\partial \theta} = \frac{1}{M} (H - Y) \cdot X
+	\]
+	
+	\begin{itemize}
+		\item $\frac{\partial BCE}{\partial \theta}[N, L]$ is a matrix of $N\times L$ elements (features X classes)
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Machine Learning: Multi-class logistic regression}
+	\framesubtitle{Multinomial: Parameters' update}
+	
+	\[\theta = \theta - \alpha \frac{\partial J_\theta}{\partial \theta}\]
+	
+	\begin{itemize}
+		\item $\frac{\partial BCE}{\partial \theta}[N, L]$ is a matrix of $N\times L$ elements (features X classes)
+		\item $\theta[N, L]$ is a matrix of $N$ features and $L$ classes
+		\item $\alpha$ is the learning rate
+	\end{itemize}
+	
+\end{frame}
+
+\section{Multi-label logistic regression}
+
+\begin{frame}
+	\frametitle{Machine Learning}
+	\framesubtitle{Multi-label logistic regression}
+	
+	\begin{itemize}
+		\item Like multi-class classification
+		\item The output is a vector of $L$ classes
+		\item When trained, the vector can have many ones
+	\end{itemize}
+	
+	
+\end{frame}
+
+
+%\insertbibliography{ML-preparation}{*}
+
+\end{document}
+
+
+
