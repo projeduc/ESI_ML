@@ -19,7 +19,7 @@
 \framesubtitle{Rappel}
 \huge
 \[
-\overbrace{P(A|B)}^\text{Posérieure} = \frac{\overbrace{P(A)}^\text{Antérieure} \overbrace{P(B|A)}^{\text{Vraissemblance}}}{\underbrace{P(B)}_\text{Evidence}}
+\overbrace{P(A|B)}^\text{Postérieure} = \frac{\overbrace{P(A)}^\text{Antérieure} \overbrace{P(B|A)}^{\text{Vraisemblance}}}{\underbrace{P(B)}_\text{Évidence}}
 \]
 \end{frame}
 
@@ -84,7 +84,7 @@
 	\frametitle{Naïve Bayes}
 	\framesubtitle{Théorie : Classification}
 	
-	\[P(Y_k|X) = \frac{P(Y_k) P(X|Y_k)}{X}\]
+	\[P(Y_k|X) = \frac{P(Y_k) P(X|Y_k)}{P(X)}\]
 	
 	\[P(Y_k|X) \propto P(Y_k) P(X|Y_k)\]
 	
@@ -192,10 +192,14 @@
 	\framesubtitle{Application : Loi multinomiale}
 	
 	\scriptsize
-	\rowcolors{2}{lightblue}{lightyellow}
-	\begin{center}
-		\begin{tabular}{lllll}
-		\rowcolor{darkblue}
+	\SetTblrInner{rowsep=0pt,colsep=1pt}
+\begin{center}
+		\begin{tblr}{
+			colspec = {p{.2\textwidth}p{.2\textwidth}p{.2\textwidth}p{.2\textwidth}},
+			row{odd} = {lightblue, font=\small},
+			row{even} = {lightyellow, font=\small},
+			row{1} = {darkblue, font=\bfseries},
+		}
 		\textcolor{white}{temps} & \textcolor{white}{temperature} & \textcolor{white}{humidite} & \textcolor{white}{vent} & \textcolor{white}{jouer} \\
 		ensoleile & chaude & haute & non & non \\
 		ensoleile & chaude & haute & oui & non \\
@@ -211,8 +215,8 @@
 		nuageux & douce & haute & oui & oui \\
 		nuageux & chaude & normale & non & oui \\
 		pluvieux & douce & haute & oui & non \\
-	\end{tabular}
-	\end{center}
+	\end{tblr}
+\end{center}
 
 	\begin{itemize}
 		\item Trouver la classe de \{pluvieux, chaude, haute, non \}
@@ -281,18 +285,22 @@
 	\framesubtitle{Application : Loi de Bernoulli}
 	
 	\scriptsize
-	\rowcolors{2}{lightblue}{lightyellow}
-	\begin{center}
-		\begin{tabular}{llll}
-			\rowcolor{darkblue}
+	\SetTblrInner{rowsep=0pt,colsep=1pt}
+\begin{center}
+		\begin{tblr}{
+			colspec = {p{.2\textwidth}p{.2\textwidth}p{.2\textwidth}p{.2\textwidth}},
+			row{odd} = {lightblue, font=\small},
+			row{even} = {lightyellow, font=\small},
+			row{1} = {darkblue, font=\bfseries},
+		}
 			\textcolor{white}{confiant} & \textcolor{white}{étudié} & \textcolor{white}{malade} & \textcolor{white}{résultat} \\
 			Oui & Non & Non & échouer \\
 			Oui & Non & Oui & passer \\
 			Non & Oui & Oui & échouer \\
 			Non & Oui & Non & passer \\
 			Oui & Oui & Oui & passer \\
-		\end{tabular}
-	\end{center}
+	\end{tblr}
+\end{center}
 	
 	\begin{itemize}
 		\item Trouver la classe de \{Non, Non, Non \}
@@ -309,10 +317,14 @@
 	\framesubtitle{Application : Loi normale}
 	
 	\scriptsize
-	\rowcolors{2}{lightblue}{lightyellow}
-	\begin{center}
-		\begin{tabular}{llll}
-			\rowcolor{darkblue}
+	\SetTblrInner{rowsep=0pt,colsep=1pt}
+\begin{center}
+		\begin{tblr}{
+			colspec = {p{.2\textwidth}p{.2\textwidth}p{.2\textwidth}p{.2\textwidth}},
+			row{odd} = {lightblue, font=\small},
+			row{even} = {lightyellow, font=\small},
+			row{1} = {darkblue, font=\bfseries},
+		}
 			\textcolor{white}{taille} & \textcolor{white}{poids} & \textcolor{white}{pointure} & \textcolor{white}{sexe} \\
 			182 & 81.6 & 30 & masculin\\
 			180 & 86.2 & 28 & masculin\\
@@ -322,8 +334,8 @@
 			168 & 68.0 & 20 & féminin\\
 			165 & 59.0 & 18 & féminin\\
 			175 & 68.0 & 23 & féminin\\
-		\end{tabular}
-	\end{center}
+	\end{tblr}
+\end{center}
 	
 	\begin{itemize}
 		\item Trouver la classe de \{183, 59, 20 \}
