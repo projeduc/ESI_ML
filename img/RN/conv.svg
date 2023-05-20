@@ -2,24 +2,23 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="220mm"
    height="75mm"
    viewBox="0 0 220 75"
    version="1.1"
    id="svg8"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   inkscape:version="1.2.2 (1:1.2.2+202212051552+b0a8486541)"
    sodipodi:docname="conv.svg"
    inkscape:export-filename="/home/kariminf/Github/projeduc/1CP_BWeb/img/Bweb01-environnement/access-web.png"
    inkscape:export-xdpi="90"
-   inkscape:export-ydpi="90">
+   inkscape:export-ydpi="90"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -28,21 +27,24 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:zoom="1"
-     inkscape:cx="825.87543"
-     inkscape:cy="151.14053"
+     inkscape:cx="826"
+     inkscape:cy="151"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g1725-3"
      showgrid="false"
-     inkscape:window-width="1366"
-     inkscape:window-height="708"
+     inkscape:window-width="1920"
+     inkscape:window-height="1007"
      inkscape:window-x="0"
      inkscape:window-y="0"
-     inkscape:window-maximized="1" />
+     inkscape:window-maximized="1"
+     inkscape:showpageshadow="2"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1" />
   <defs
      id="defs2">
     <linearGradient
        id="linearGradient2967"
-       osb:paint="solid">
+       inkscape:swatch="solid">
       <stop
          style="stop-color:#000000;stop-opacity:1;"
          offset="0"
@@ -745,15 +747,10 @@
      inkscape:label="Calque 1">
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="88.370834"
        y="218.15416"
-       id="text175"><tspan
-         sodipodi:role="line"
-         id="tspan173"
-         x="88.370834"
-         y="221.07256"
-         style="stroke-width:0.26458332px" /></text>
+       id="text175" />
     <g
        id="g1725"
        transform="translate(-8.73125,25.4)">
@@ -779,7 +776,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214" /></flowRegion><flowPara
-               id="flowPara1216">1</flowPara></flowRoot>        </g>
+               id="flowPara1216">1</flowPara></flowRoot>
+        </g>
         <g
            transform="translate(14.435424)"
            id="g1236-3">
@@ -801,7 +799,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-3" /></flowRegion><flowPara
-               id="flowPara1216-5">2</flowPara></flowRoot>        </g>
+               id="flowPara1216-5">2</flowPara></flowRoot>
+        </g>
         <g
            transform="translate(28.870848)"
            id="g1236-6">
@@ -823,7 +822,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-2" /></flowRegion><flowPara
-               id="flowPara1216-7">3</flowPara></flowRoot>        </g>
+               id="flowPara1216-7">3</flowPara></flowRoot>
+        </g>
         <g
            transform="translate(43.306272)"
            id="g1236-0">
@@ -845,7 +845,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-0" /></flowRegion><flowPara
-               id="flowPara1216-6">4</flowPara></flowRoot>        </g>
+               id="flowPara1216-6">4</flowPara></flowRoot>
+        </g>
         <g
            transform="translate(57.741696)"
            id="g1236-2">
@@ -867,7 +868,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-9" /></flowRegion><flowPara
-               id="flowPara1216-2">5</flowPara></flowRoot>        </g>
+               id="flowPara1216-2">5</flowPara></flowRoot>
+        </g>
       </g>
       <g
          id="g1362-9"
@@ -892,7 +894,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-93" /></flowRegion><flowPara
-               id="flowPara1216-1">6</flowPara></flowRoot>        </g>
+               id="flowPara1216-1">6</flowPara></flowRoot>
+        </g>
         <g
            transform="translate(14.435424)"
            id="g1236-3-9">
@@ -914,7 +917,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-3-4" /></flowRegion><flowPara
-               id="flowPara1216-5-5">7</flowPara></flowRoot>        </g>
+               id="flowPara1216-5-5">7</flowPara></flowRoot>
+        </g>
         <g
            transform="translate(28.870848)"
            id="g1236-6-0">
@@ -936,7 +940,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-2-0" /></flowRegion><flowPara
-               id="flowPara1216-7-6">8</flowPara></flowRoot>        </g>
+               id="flowPara1216-7-6">8</flowPara></flowRoot>
+        </g>
         <g
            transform="translate(43.306272)"
            id="g1236-0-3">
@@ -958,7 +963,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-0-1" /></flowRegion><flowPara
-               id="flowPara1216-6-5">9</flowPara></flowRoot>        </g>
+               id="flowPara1216-6-5">9</flowPara></flowRoot>
+        </g>
         <g
            transform="translate(57.741696)"
            id="g1236-2-5">
@@ -980,7 +986,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-9-5" /></flowRegion><flowPara
-               id="flowPara1216-2-6">0</flowPara></flowRoot>        </g>
+               id="flowPara1216-2-6">0</flowPara></flowRoot>
+        </g>
       </g>
       <g
          id="g1362-93"
@@ -1005,7 +1012,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-7" /></flowRegion><flowPara
-               id="flowPara1216-4">1</flowPara></flowRoot>        </g>
+               id="flowPara1216-4">1</flowPara></flowRoot>
+        </g>
         <g
            transform="translate(14.435424)"
            id="g1236-3-4">
@@ -1027,7 +1035,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-3-8" /></flowRegion><flowPara
-               id="flowPara1216-5-6">3</flowPara></flowRoot>        </g>
+               id="flowPara1216-5-6">3</flowPara></flowRoot>
+        </g>
         <g
            transform="translate(28.870848)"
            id="g1236-6-8">
@@ -1049,7 +1058,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-2-1" /></flowRegion><flowPara
-               id="flowPara1216-7-4">5</flowPara></flowRoot>        </g>
+               id="flowPara1216-7-4">5</flowPara></flowRoot>
+        </g>
         <g
            transform="translate(43.306272)"
            id="g1236-0-9">
@@ -1071,7 +1081,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-0-9" /></flowRegion><flowPara
-               id="flowPara1216-6-2">7</flowPara></flowRoot>        </g>
+               id="flowPara1216-6-2">7</flowPara></flowRoot>
+        </g>
         <g
            transform="translate(57.741696)"
            id="g1236-2-6">
@@ -1093,7 +1104,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-9-50" /></flowRegion><flowPara
-               id="flowPara1216-2-4">9</flowPara></flowRoot>        </g>
+               id="flowPara1216-2-4">9</flowPara></flowRoot>
+        </g>
       </g>
       <g
          id="g1362-8"
@@ -1118,7 +1130,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-6" /></flowRegion><flowPara
-               id="flowPara1216-10">0</flowPara></flowRoot>        </g>
+               id="flowPara1216-10">0</flowPara></flowRoot>
+        </g>
         <g
            transform="translate(14.435424)"
            id="g1236-3-6">
@@ -1140,7 +1153,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-3-49" /></flowRegion><flowPara
-               id="flowPara1216-5-0">2</flowPara></flowRoot>        </g>
+               id="flowPara1216-5-0">2</flowPara></flowRoot>
+        </g>
         <g
            transform="translate(28.870848)"
            id="g1236-6-9">
@@ -1162,7 +1176,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-2-11" /></flowRegion><flowPara
-               id="flowPara1216-7-5">4</flowPara></flowRoot>        </g>
+               id="flowPara1216-7-5">4</flowPara></flowRoot>
+        </g>
         <g
            transform="translate(43.306272)"
            id="g1236-0-97">
@@ -1184,7 +1199,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-0-6" /></flowRegion><flowPara
-               id="flowPara1216-6-56">6</flowPara></flowRoot>        </g>
+               id="flowPara1216-6-56">6</flowPara></flowRoot>
+        </g>
         <g
            transform="translate(57.741696)"
            id="g1236-2-3">
@@ -1206,7 +1222,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-9-2" /></flowRegion><flowPara
-               id="flowPara1216-2-9">8</flowPara></flowRoot>        </g>
+               id="flowPara1216-2-9">8</flowPara></flowRoot>
+        </g>
       </g>
     </g>
     <g
@@ -1234,7 +1251,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-96" /></flowRegion><flowPara
-               id="flowPara1216-3">-3</flowPara></flowRoot>        </g>
+               id="flowPara1216-3">-3</flowPara></flowRoot>
+        </g>
         <g
            transform="translate(14.435424)"
            id="g1236-3-8">
@@ -1256,7 +1274,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-3-1" /></flowRegion><flowPara
-               id="flowPara1216-5-59">-1</flowPara></flowRoot>        </g>
+               id="flowPara1216-5-59">-1</flowPara></flowRoot>
+        </g>
         <g
            transform="translate(28.870848)"
            id="g1236-6-84">
@@ -1278,7 +1297,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-2-4" /></flowRegion><flowPara
-               id="flowPara1216-7-44">1</flowPara></flowRoot>        </g>
+               id="flowPara1216-7-44">1</flowPara></flowRoot>
+        </g>
         <g
            transform="translate(43.306272)"
            id="g1236-0-4">
@@ -1300,7 +1320,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-0-7" /></flowRegion><flowPara
-               id="flowPara1216-6-59">3</flowPara></flowRoot>        </g>
+               id="flowPara1216-6-59">3</flowPara></flowRoot>
+        </g>
         <g
            transform="translate(57.741696)"
            id="g1236-2-62">
@@ -1322,7 +1343,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-9-7" /></flowRegion><flowPara
-               id="flowPara1216-2-41">21</flowPara></flowRoot>        </g>
+               id="flowPara1216-2-41">21</flowPara></flowRoot>
+        </g>
       </g>
       <g
          id="g1362-9-8"
@@ -1347,7 +1369,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-93-3" /></flowRegion><flowPara
-               id="flowPara1216-1-8">21</flowPara></flowRoot>        </g>
+               id="flowPara1216-1-8">21</flowPara></flowRoot>
+        </g>
         <g
            transform="translate(14.435424)"
            id="g1236-3-9-8">
@@ -1369,7 +1392,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-3-4-9" /></flowRegion><flowPara
-               id="flowPara1216-5-5-6">19</flowPara></flowRoot>        </g>
+               id="flowPara1216-5-5-6">16</flowPara></flowRoot>
+        </g>
         <g
            transform="translate(28.870848)"
            id="g1236-6-0-4">
@@ -1391,7 +1415,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-2-0-8" /></flowRegion><flowPara
-               id="flowPara1216-7-6-6">16</flowPara></flowRoot>        </g>
+               id="flowPara1216-7-6-6">16</flowPara></flowRoot>
+        </g>
         <g
            transform="translate(43.306272)"
            id="g1236-0-3-0">
@@ -1413,7 +1438,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-0-1-8" /></flowRegion><flowPara
-               id="flowPara1216-6-5-9">26</flowPara></flowRoot>        </g>
+               id="flowPara1216-6-5-9">26</flowPara></flowRoot>
+        </g>
         <g
            transform="translate(57.741696)"
            id="g1236-2-5-7">
@@ -1435,7 +1461,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-9-5-3" /></flowRegion><flowPara
-               id="flowPara1216-2-6-0">-23</flowPara></flowRoot>        </g>
+               id="flowPara1216-2-6-0">-23</flowPara></flowRoot>
+        </g>
         <flowRoot
            xml:space="preserve"
            id="flowRoot361"
@@ -1450,7 +1477,8 @@
                y="127.5433"
                style="line-height:100%" /></flowRegion><flowPara
              id="flowPara5582"
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:33.33333206px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start" /></flowRoot>      </g>
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:33.3333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start" /></flowRoot>
+      </g>
       <g
          id="g1362-93-3"
          transform="translate(-2.9797365e-7,28.87085)">
@@ -1476,7 +1504,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-7-4" /></flowRegion><flowPara
-               id="flowPara1216-4-0">-4</flowPara></flowRoot>        </g>
+               id="flowPara1216-4-0">-4</flowPara></flowRoot>
+        </g>
         <g
            transform="translate(14.435424)"
            id="g1236-3-4-5">
@@ -1498,7 +1527,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-3-8-9" /></flowRegion><flowPara
-               id="flowPara1216-5-6-2">0</flowPara></flowRoot>        </g>
+               id="flowPara1216-5-6-2">0</flowPara></flowRoot>
+        </g>
         <g
            transform="translate(28.870848)"
            id="g1236-6-8-2">
@@ -1520,7 +1550,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-2-1-5" /></flowRegion><flowPara
-               id="flowPara1216-7-4-4">3</flowPara></flowRoot>        </g>
+               id="flowPara1216-7-4-4">3</flowPara></flowRoot>
+        </g>
         <g
            transform="translate(43.306272)"
            id="g1236-0-9-8">
@@ -1542,7 +1573,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-0-9-9" /></flowRegion><flowPara
-               id="flowPara1216-6-2-3">6</flowPara></flowRoot>        </g>
+               id="flowPara1216-6-2-3">6</flowPara></flowRoot>
+        </g>
         <g
            transform="translate(57.741696)"
            id="g1236-2-6-6">
@@ -1564,7 +1596,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-9-50-1" /></flowRegion><flowPara
-               id="flowPara1216-2-4-0">30</flowPara></flowRoot>        </g>
+               id="flowPara1216-2-4-0">30</flowPara></flowRoot>
+        </g>
       </g>
       <g
          id="g1362-8-5"
@@ -1590,7 +1623,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-6-5" /></flowRegion><flowPara
-               id="flowPara1216-10-0">-3</flowPara></flowRoot>        </g>
+               id="flowPara1216-10-0">-3</flowPara></flowRoot>
+        </g>
         <g
            transform="translate(14.435424)"
            id="g1236-3-6-6">
@@ -1612,7 +1646,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-3-49-5" /></flowRegion><flowPara
-               id="flowPara1216-5-0-8">3</flowPara></flowRoot>        </g>
+               id="flowPara1216-5-0-8">3</flowPara></flowRoot>
+        </g>
         <g
            transform="translate(28.870848)"
            id="g1236-6-9-6">
@@ -1634,7 +1669,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-2-11-7" /></flowRegion><flowPara
-               id="flowPara1216-7-5-2">7</flowPara></flowRoot>        </g>
+               id="flowPara1216-7-5-2">7</flowPara></flowRoot>
+        </g>
         <g
            transform="translate(43.306272)"
            id="g1236-0-97-4">
@@ -1656,7 +1692,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-0-6-9" /></flowRegion><flowPara
-               id="flowPara1216-6-56-9">11</flowPara></flowRoot>        </g>
+               id="flowPara1216-6-56-9">11</flowPara></flowRoot>
+        </g>
         <g
            transform="translate(57.741696)"
            id="g1236-2-3-0">
@@ -1678,7 +1715,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-9-2-1" /></flowRegion><flowPara
-               id="flowPara1216-2-9-1">25</flowPara></flowRoot>        </g>
+               id="flowPara1216-2-9-1">25</flowPara></flowRoot>
+        </g>
       </g>
     </g>
     <g
@@ -1707,7 +1745,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-22" /></flowRegion><flowPara
-               id="flowPara1216-8">0</flowPara></flowRoot>        </g>
+               id="flowPara1216-8">0</flowPara></flowRoot>
+        </g>
         <g
            transform="translate(96.033226,17.720516)"
            id="g1236-02-0">
@@ -1729,7 +1768,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-22-3" /></flowRegion><flowPara
-               id="flowPara1216-8-9">-1</flowPara></flowRoot>        </g>
+               id="flowPara1216-8-9">-1</flowPara></flowRoot>
+        </g>
         <g
            transform="translate(81.597802,17.720516)"
            id="g1236-02-1">
@@ -1751,7 +1791,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-22-33" /></flowRegion><flowPara
-               id="flowPara1216-8-8">0</flowPara></flowRoot>        </g>
+               id="flowPara1216-8-8">0</flowPara></flowRoot>
+        </g>
       </g>
       <g
          id="g2178-0"
@@ -1777,7 +1818,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-22-4" /></flowRegion><flowPara
-               id="flowPara1216-8-6">-1</flowPara></flowRoot>        </g>
+               id="flowPara1216-8-6">-1</flowPara></flowRoot>
+        </g>
         <g
            transform="translate(96.033226,17.720516)"
            id="g1236-02-0-2">
@@ -1799,7 +1841,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-22-3-6" /></flowRegion><flowPara
-               id="flowPara1216-8-9-9">5</flowPara></flowRoot>        </g>
+               id="flowPara1216-8-9-9">5</flowPara></flowRoot>
+        </g>
         <g
            transform="translate(81.597802,17.720516)"
            id="g1236-02-1-8">
@@ -1821,7 +1864,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-22-33-2" /></flowRegion><flowPara
-               id="flowPara1216-8-8-9">-1</flowPara></flowRoot>        </g>
+               id="flowPara1216-8-8-9">-1</flowPara></flowRoot>
+        </g>
       </g>
       <g
          id="g2178-9"
@@ -1847,7 +1891,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-22-6" /></flowRegion><flowPara
-               id="flowPara1216-8-1">0</flowPara></flowRoot>        </g>
+               id="flowPara1216-8-1">0</flowPara></flowRoot>
+        </g>
         <g
            transform="translate(96.033226,17.720516)"
            id="g1236-02-0-3">
@@ -1869,7 +1914,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-22-3-9" /></flowRegion><flowPara
-               id="flowPara1216-8-9-1">-1</flowPara></flowRoot>        </g>
+               id="flowPara1216-8-9-1">-1</flowPara></flowRoot>
+        </g>
         <g
            transform="translate(81.597802,17.720516)"
            id="g1236-02-1-4">
@@ -1891,7 +1937,8 @@
                  height="134.3503"
                  width="130.10765"
                  id="rect1214-22-33-7" /></flowRegion><flowPara
-               id="flowPara1216-8-8-5">0</flowPara></flowRoot>        </g>
+               id="flowPara1216-8-8-5">0</flowPara></flowRoot>
+        </g>
       </g>
     </g>
     <flowRoot
@@ -1908,7 +1955,8 @@
            y="127.5433"
            style="line-height:100%" /></flowRegion><flowPara
          id="flowPara5582-2"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:33.33333206px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start">Originale</flowPara></flowRoot>    <flowRoot
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:33.3333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start">Originale</flowPara></flowRoot>
+    <flowRoot
        xml:space="preserve"
        id="flowRoot361-9"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -1922,7 +1970,8 @@
            y="127.5433"
            style="line-height:100%" /></flowRegion><flowPara
          id="flowPara5582-0"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:33.33333206px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start">Noyau</flowPara></flowRoot>    <flowRoot
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:33.3333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start">Noyau</flowPara></flowRoot>
+    <flowRoot
        xml:space="preserve"
        id="flowRoot361-8-4"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -1936,7 +1985,8 @@
            y="127.5433"
            style="line-height:100%" /></flowRegion><flowPara
          id="flowPara5582-2-2"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:33.33333206px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start">Traitée</flowPara></flowRoot>    <flowRoot
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:33.3333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start">Traitée</flowPara></flowRoot>
+    <flowRoot
        xml:space="preserve"
        id="flowRoot361-9-9"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -1950,5 +2000,6 @@
            y="127.5433"
            style="line-height:100%" /></flowRegion><flowPara
          id="flowPara5582-0-0"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:33.33333206px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start">Padding : 1</flowPara></flowRoot>  </g>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:33.3333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start">Padding : 1</flowPara></flowRoot>
+  </g>
 </svg>

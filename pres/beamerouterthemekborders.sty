@@ -1,0 +1,128 @@
+% Copyright 2007 by Till Tantau
+% Copyright 2015 by Vedran Mileti\'c, Joseph Wright
+% Copyright 2023 by Abdelkrime Aries
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+%
+% See the file doc/licenses/LICENSE for more details.
+
+\RequirePackage{tcolorbox}
+
+\mode<presentation>
+
+
+%\setbeamercolor{section in head/foot}{parent=palette quaternary}
+%\setbeamercolor{subsection in head/foot}{parent=palette primary}
+%
+%\setbeamercolor{author in head/foot}{parent=section in head/foot}
+%\setbeamercolor{title in head/foot}{parent=subsection in head/foot}
+
+
+
+\usesectionheadtemplate
+{\hfill\insertsectionhead}
+{\hfill\color{fg!50!bg}\insertsectionhead}
+
+\newcommand{\kcolorbox}[3][0.4cm]{%
+	\begin{tikzpicture}%
+		\node [draw=\beamer@thc@fg, line width=2pt, rounded corners=5pt, %
+		inner sep=0pt,minimum height=#1, text width=\dimexpr#2-4pt\relax, align=center] {%
+			\begin{minipage}[b]{\dimexpr#2-4pt\relax}%
+				#3%
+			\end{minipage}%
+		};%
+	\end{tikzpicture}%
+}
+
+
+
+% Head
+\ifbeamer@compress
+
+\defbeamertemplate*{headline}{ksplit theme}
+{%
+	\leavevmode%
+	\usebeamercolor{frametitle}%
+	\kcolorbox{\insertsectionnavigationhorizontal{.5\paperwidth}{\hskip0pt plus1filll}{}}
+%	\hskip-\Gm@lmargin\fcolorbox{\beamer@thc@fg}{\beamer@thc@bg}{%
+%	\hbox{\begin{minipage}[b]{\dimexpr0.5\paperwidth-6pt\relax}%
+%		\vbox{}\vskip-.75ex%
+%		\leftskip0.2cm%
+%		\rightskip0.2cm plus1fil\leavevmode%
+%		\insertsectionnavigationhorizontal{.5\paperwidth}{\hskip0pt plus1filll}{}
+%	\end{minipage}}}
+%	\begin{beamercolorbox}[wd=.5\paperwidth-10pt,ht=2.5ex,dp=1.125ex]{section in head/foot}%
+%		\insertsectionnavigationhorizontal{.5\paperwidth}{\hskip0pt plus1filll}{}%
+%	\end{beamercolorbox}%
+	\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex]{subsection in head/foot}%
+		\insertsubsectionnavigationhorizontal{.5\paperwidth}{}{\hskip0pt plus1filll}%
+	\end{beamercolorbox}%
+}
+
+\else
+
+\defbeamertemplate*{headline}{kborders theme}
+{%
+	\vskip1pt\hskip1pt\hbox{%
+		\usebeamercolor{section in head/foot}%
+		\usebeamerfont{section in head/foot}%
+		\kcolorbox[\dimexpr\headheight-4pt\relax]{0.5\paperwidth}{\vfil\insertsectionnavigation{\dimexpr0.5\paperwidth-4pt\relax}\vfil}%
+		\hskip2pt%
+		\usebeamercolor{subsection in head/foot}%
+		\usebeamerfont{subsection in head/foot}%
+		\kcolorbox[\dimexpr\headheight-4pt\relax]{0.5\paperwidth}{\vfil\insertsubsectionnavigation{\dimexpr0.5\paperwidth-4pt\relax}\vfil}%
+	}%
+	\vskip1pt%
+}
+
+\fi
+
+
+\defbeamertemplate*{page number in head/foot}{kborders theme}
+{%
+	\usebeamerfont{page number in head/foot}\usebeamercolor{page number in head/foot}%
+	\kcolorbox{0.1\paperwidth}{\centering\color{\beamer@thc@fg}\insertframenumber/\inserttotalframenumber}%
+}
+
+\defbeamertemplate*{author in head/foot}{kborders theme}
+{%
+	\usebeamerfont{author in head/foot}\usebeamercolor{author in head/foot}%
+	\kcolorbox{\dimexpr0.4\paperwidth\relax}{\centering\color{\beamer@thc@fg}\insertshortauthor}%
+}
+
+\defbeamertemplate*{title in head/foot}{kborders theme}
+{%
+	\usebeamerfont{title in head/foot}\usebeamercolor{title in head/foot}%
+	\kcolorbox{\dimexpr0.5\paperwidth\relax}{\centering\color{\beamer@thc@fg}\insertshorttitle}%
+}
+
+\defbeamertemplate*{footline}{kborders theme}
+{%
+	\leavevmode%
+	\hskip1pt\usebeamertemplate{page number in head/foot}\hskip2pt%
+	\usebeamertemplate{author in head/foot}\hskip2pt%
+	\usebeamertemplate{title in head/foot}%
+	\vskip1pt%
+}
+
+
+
+\defbeamertemplate*{frametitle}{kborders theme}
+{%
+  \leavevmode%
+  \hbox{\hskip\dimexpr-\Gm@lmargin+1pt\relax\hbox{%\leavevmode%%
+  \kcolorbox{\paperwidth}{%
+  	\hskip\Gm@lmargin\vbox{
+  	\usebeamerfont{frametitle}\strut\insertframetitle\strut\par%
+  	\ifx\insertframesubtitle\@empty\else%
+  	{\usebeamerfont*{framesubtitle}{\usebeamercolor{framesubtitle}\insertframesubtitle}\strut\par}%
+  	\fi%
+  }}}}%
+  \vskip-3pt%
+}
+
+\mode
+<all>

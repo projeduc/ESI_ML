@@ -1,0 +1,165 @@
+% Copyright 2007 by Till Tantau
+% Copyright 2015 by Vedran Mileti\'c, Joseph Wright
+% Copyright 2023 by Abdelkrime Aries
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+%
+% See the file doc/licenses/LICENSE for more details.
+
+\RequirePackage{tcolorbox}
+
+\mode<presentation>
+
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamertemplate{items}[ball]
+\setbeamertemplate{sections/subsections in toc}[ball]
+\setbeamertemplate{title page}[default][colsep=-4bp,rounded=true,shadow=true]
+\setbeamertemplate{part page}[default][colsep=-4bp,rounded=true,shadow=true]
+\setbeamertemplate{section page}[default][colsep=-4bp,rounded=true,shadow=true]
+\setbeamertemplate{subsection page}[default][colsep=-4bp,rounded=true,shadow=true]
+
+% Section page: default
+
+\defbeamertemplate*{section page}{kborders theme}[1][]
+{
+	\begingroup
+	\setbeamertemplate{headline}{}
+	\centering
+	{\usebeamerfont{section name}\usebeamercolor[fg]{section name}\sectionname~\insertsectionnumber}
+	\usebeamercolor{section title}\vskip1em\par
+	\begin{tcolorbox}[
+		colback=\beamer@thc@bg,
+		colframe=\beamer@thc@fg,  
+		boxrule=2pt,
+		arc=10pt,
+		valign=center, 
+		halign=center,
+		height=2cm,
+		width=\textwidth]
+		\color{\beamer@thc@fg}\usebeamerfont{section title}\insertsection
+	\end{tcolorbox}
+%	\begin{tikzpicture}
+%		\node [draw=\beamer@thc@fg, line width=2pt, rounded corners=0.5cm, 
+%		       inner sep=10pt, align=center, minimum height=2cm] {
+%			\begin{minipage}[b]{\dimexpr\textwidth-24pt\relax}%
+%				\centering\color{\beamer@thc@fg}\usebeamerfont{section title}\insertsection\par
+%			\end{minipage}
+%		};
+%	\end{tikzpicture}
+	\endgroup
+}
+
+\defbeamertemplate*{block example begin}{kborders theme}
+{
+	\usebeamerfont*{block title example}
+	\usebeamercolor*{block title example}
+	\begin{tcolorbox}[
+		title=\insertblocktitle,
+		coltitle=\beamer@thc@fg,
+		colback=white,
+		colbacktitle=\beamer@thc@bg,
+		colframe=\beamer@thc@fg,  
+		boxrule=2pt,
+		valign=top, 
+		halign=left,
+		boxsep=1pt, top=1pt, bottom=1pt, left=1pt, bottom=1pt,
+		width=\textwidth]
+		\usebeamercolor{block body example}
+		\usebeamerfont*{block body example}
+}
+	
+\defbeamertemplate*{block example end}{kborders theme}
+{
+\end{tcolorbox}
+}
+
+
+\defbeamertemplate*{block alerted begin}{kborders theme}
+{
+	\usebeamerfont*{block title alerted}
+	\usebeamercolor*{block title alerted}
+	\begin{tcolorbox}[
+		title=\insertblocktitle,
+		coltitle=\beamer@thc@fg,
+		colback=white,
+		colbacktitle=\beamer@thc@bg,
+		colframe=\beamer@thc@fg,  
+		boxrule=2pt,
+		valign=top, 
+		halign=left,
+		boxsep=1pt, top=1pt, bottom=1pt, left=1pt, bottom=1pt,
+		width=\textwidth]
+		\usebeamercolor{block body alerted}
+		\usebeamerfont*{block body alerted}
+}
+	
+\defbeamertemplate*{block alerted end}{kborders theme}
+{
+	\end{tcolorbox}
+}
+
+\defbeamertemplate*{block begin}{kborders theme}
+{
+	\usebeamerfont*{block title}
+	\usebeamercolor*{block title}
+	\begin{tcolorbox}[
+		title=\insertblocktitle,
+		coltitle=\beamer@thc@fg,
+		colback=white,
+		colbacktitle=\beamer@thc@bg,
+		colframe=\beamer@thc@fg,  
+		boxrule=2pt,
+		valign=top, 
+		halign=left,
+		boxsep=1pt, top=1pt, bottom=1pt, left=1pt, bottom=1pt,
+		width=\textwidth]
+		\usebeamercolor{block body}
+		\usebeamerfont*{block body}
+}
+	
+\defbeamertemplate*{block end}{kborders theme}
+{
+	\end{tcolorbox}
+}
+
+\defbeamertemplate*{title page}{kborders theme}[1][]
+{
+	\vbox{}
+	\vfill
+	\begingroup
+	\centering
+	\usebeamercolor{title}
+	\begin{tcolorbox}[
+		colback=white,
+		colframe=\beamer@thc@fg,  
+		boxrule=2pt,
+		arc=10pt,
+		valign=center, 
+		halign=center,
+		height=2cm,
+		boxsep=20pt,
+		width=\textwidth]
+		\usebeamerfont{title}
+		{\color{\beamer@thc@fg}\inserttitle}\par%
+		\ifx\insertsubtitle\@empty%
+		\else%
+		\vskip0.25em%
+		{\usebeamerfont{subtitle}\usebeamercolor{subtitle}\color{\beamer@thc@fg}\insertsubtitle\par}%
+		\fi%  
+	\end{tcolorbox}
+	\vskip1em\par
+	{\usebeamerfont{author}\usebeamercolor{author}\color{\beamer@thc@fg}\insertauthor}
+	\par
+	{\usebeamerfont{institute}\usebeamercolor{institute}\insertinstitute}
+	\vskip1em\par
+	\usebeamerfont{date}\usebeamercolor{date}\insertdate
+	\vskip2em\par
+	{\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+	\endgroup
+	\vfill
+}
+  
+\mode<all>

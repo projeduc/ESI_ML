@@ -28,10 +28,10 @@
 
 \tcbuselibrary{listings}
 
-\hypersetup{
-	colorlinks,
-	urlcolor = blue
-}
+%\hypersetup{
+%	colorlinks,
+%	urlcolor = blue
+%}
 
 %\renewcommand{\baselinestretch}{1.5}
 
@@ -57,14 +57,15 @@
 
 \institute{ %
 	\parbox{.3\textwidth}{Laboratoire de la Communication dans les Systèmes Informatiques (LCSI)}
-	\hfill
+	\hskip2cm%\hfill
 	\parbox{.3\textwidth}{Laboratoire des Méthodes de Conception des Systèmes	(LMCS)}
 	
 	\vspace{6pt}
 	École  nationale Supérieure d'Informatique (ESI, ex. INI), Alger, Algérie
 }
-\author[ \textbf{\footnotesize\insertframenumber/\inserttotalframenumber} \hspace*{1.5cm} ESI - ARIES \& BENATCHBA (2022-2023)] %
-{ARIES Abdelkrime \hfill BENATCHBA Karima}
+
+\author[ESI - ARIES \& BENATCHBA (2022-2023)] %
+{ARIES Abdelkrime \hskip2cm BENATCHBA Karima}
 
 \titlegraphic{%
 	\includegraphics[height=1cm]{../img/esi-logo.png}%
@@ -74,9 +75,15 @@
 
 \date{Année universitaire : 2022/2023} %\today
 
-\usetheme{Warsaw} % Antibes Boadilla Warsaw
+\usetheme{Karim} % Antibes Boadilla Warsaw
 
 \beamertemplatenavigationsymbolsempty
+
+\let\oldcite\cite
+\renewcommand{\cite}[1]{{\bfseries\color{red}\oldcite{#1}}}
+
+\let\oldurl\url
+\renewcommand{\url}[1]{{\color{blue}\oldurl{#1}}}
 
 %\setbeamertemplate{headline}{}
 
@@ -523,6 +530,11 @@
 \makeatletter
 \newcommand{\xRightarrow}[2][]{\ext@arrow 0359\Rightarrowfill@{#1}{#2}}
 \makeatother
+
+\usefonttheme{structurebold}
+
+% figure caption
+\setlength\abovecaptionskip{2pt}
 
 % equations
 \AtBeginDocument{
