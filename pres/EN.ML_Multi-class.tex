@@ -57,19 +57,25 @@
 
 \subsection{Binary classification}
 
+
 \begin{frame}
 	\frametitle{Machine Learning: Classification}
 	\framesubtitle{Binary classification}
 	
+	\begin{minipage}{0.65\textwidth}
 	\begin{itemize}
-		\item Number of available classes: 2
+		\item Number of available classes: 2 (Actually, it is just one class. We test if a sample belongs to it or not)
 		\item Number of chosen classes: 1
 		\item Examples
 		\begin{itemize}
-			\item Classify an image as containing an object or not.
-			\item Finding out if a message is spam or not
+			\item \expword{Classify an image as containing a specific object or not.}
+			\item \expword{Finding out if a message is a spam or not.}
 		\end{itemize}
 	\end{itemize}
+	\end{minipage}
+	\begin{minipage}{0.3\textwidth}
+		\hgraphpage{binary.pdf}
+	\end{minipage}
 	
 \end{frame}
 
@@ -79,15 +85,28 @@
 	\frametitle{Machine Learning: Classification}
 	\framesubtitle{Multi-class classification}
 	
+	\begin{minipage}{0.65\textwidth}
 	\begin{itemize}
-		\item Number of available classes: L \textgreater\ 2
+		\item Number of available classes: L $ \ge $ 2
 		\item Number of chosen classes: 1
 		\item Examples
 		\begin{itemize}
-			\item Detect an animal from an input image.
-			\item Detect a movie's certification (PG, R, etc.) from its description.
+			\item \expword{Detect an animal from an input image.}
+			\item \expword{Detect a movie's certification (PG, R, etc.) from its description.}
 		\end{itemize}
 	\end{itemize}
+	\end{minipage}
+	\begin{minipage}{0.3\textwidth}
+		\hgraphpage{multiclass.pdf}
+	\end{minipage}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Machine Learning: Classification}
+	\framesubtitle{Multi-class classification: Methods}
+	
+	\hgraphpage{multi-class.pdf}
 	
 \end{frame}
 
@@ -97,15 +116,32 @@
 	\frametitle{Machine Learning: Classification}
 	\framesubtitle{Multi-label classification}
 	
+	\begin{minipage}{0.65\textwidth}
 	\begin{itemize}
-		\item Number of available classes: L \textgreater\ 2
-		\item Number of chosen classes: K \textless= L
+		\item Number of available classes: L $ \ge $ 2
+		\item Number of chosen classes: K $ \le $ L
 		\item Examples
 		\begin{itemize}
-			\item Detect many animals from an input image.
-			\item Find the clothes (hat, jeans, scarf, etc.) from an image.
-			\item Detect movie's genres (Sci-fi, Action, Comedy, etc.) from its description.
+			\item \expword{Detect many animals from an input image.}
+			\item \expword{Find the clothes (hat, jeans, scarf, etc.) from an image.}
+			\item \expword{Detect movie's genres (Sci-fi, Action, Comedy, etc.) from its description.}
 		\end{itemize}
+	\end{itemize}
+	\end{minipage}
+	\begin{minipage}{0.3\textwidth}
+		\hgraphpage{multilabel.pdf}
+	\end{minipage}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Machine Learning: Classification}
+	\framesubtitle{Multi-label classification: Methods \cite{2012-madjarov-al}}
+	
+	\hgraphpage{multi-label.pdf}
+	
+	\begin{itemize}
+		\item scikit-multilearn: \url{http://scikit.ml/}
 	\end{itemize}
 	
 \end{frame}
@@ -176,7 +212,7 @@
 	\frametitle{Machine Learning: Binary logistic regression}
 	\framesubtitle{Gradient (derivation)}
 
-	\scriptsize
+	\tiny\vspace{-6pt}
 	\begin{align*}
 	\frac{\partial BCE}{\partial \theta_j} 
 	& = & \frac{-1}{M} \sum\limits_{i=1}^{M} \frac{\partial}{\partial \theta_j} [Y^{(i)} \log(H^{(i)}) + (1- Y^{(i)}) \log(1 - H^{(i)})] \\
@@ -185,7 +221,7 @@
 	& = & \frac{-1}{M} \sum\limits_{i=1}^{M} \frac{Y^{(i)}-H^{(i)}}{H^{(i)}(1-H^{(i)})} \frac{\partial}{\partial \theta_j} H^{(i)} \\
 	\end{align*}
 	
-%	\vspace{-26pt}
+	\vspace{-3pt}
 	\begin{align*}
 	\frac{\partial H^{(i)}}{\partial \theta_j} 
 	& = & \frac{\partial \sigma(Z^{(i)})}{\partial Z^{(i)}} \frac{\partial Z^{(i)}}{\partial \theta_j}
@@ -193,7 +229,7 @@
 	 =  H^{(i)} (1-H^{(i)})  X_j^{(i)}\\
 	\end{align*}
 	
-	\vspace{-24pt}
+	\vspace{-3pt}
 	\begin{align*}
 	\frac{\partial BCE}{\partial \theta_j} 
 	& = & \frac{-1}{M} \sum\limits_{i=1}^{M} \frac{Y^{(i)}-H^{(i)}}{H^{(i)}(1-H^{(i)})} [H^{(i)} (1-H^{(i)}) X_j^{(i)}] \\
@@ -220,13 +256,13 @@
 
 \section{Multi-class logistic regression}
 
-\begin{frame}
-	\frametitle{Machine Learning}
-	\framesubtitle{Multi-class logistic regression}
-	
-	\hgraphpage{multi-class.pdf}
-	
-\end{frame}
+%\begin{frame}
+%	\frametitle{Machine Learning}
+%	\framesubtitle{Multi-class logistic regression}
+%	
+%	\hgraphpage{multi-class.pdf}
+%	
+%\end{frame}
 
 \subsection{One-vs-Rest}
 
@@ -264,6 +300,8 @@
 	\end{itemize}
 	
 \end{frame}
+
+\subsection{One-vs-One}
 
 \begin{frame}
 	\frametitle{Machine Learning: Multi-class logistic regression}
@@ -398,21 +436,76 @@
 
 \section{Multi-label logistic regression}
 
+\subsection{Binary relevance}
+
 \begin{frame}
-	\frametitle{Machine Learning}
-	\framesubtitle{Multi-label logistic regression}
+	\frametitle{Machine Learning: Multi-label logistic regression}
+	\framesubtitle{Binary relevance}
 	
-	\begin{itemize}
-		\item Like multi-class classification
-		\item The output is a vector of $L$ classes
-		\item When trained, the vector can have many ones
-	\end{itemize}
-	
+	\begin{center}
+		\vgraphpage{LR_binary_relevance.pdf}
+	\end{center}
 	
 \end{frame}
 
+\begin{frame}
+	\frametitle{Machine Learning: Multi-class logistic regression}
+	\framesubtitle{Binary relevance: Description}
+	
+	Given $L$ output classes:
+	\begin{itemize}
+		\item Training
+		\begin{itemize}
+			\item For each class $C_l$, we train a binary model $M_l$ separately
+			\item In this case, we will have $L$ binary models
+			\item The positive class is represented by $C_l$ class's samples
+			\item The negative class is represented by the rest of the samples
+		\end{itemize}
+		\item Estimation
+		\begin{itemize}
+			\item Given a sample
+			\item For each class $C_l$, we estimate its probability using $M_l$
+			\item If the probability is greater or equals 50\%, then the sample belongs to the class $C_l$
+		\end{itemize}
+	\end{itemize}
+	
+\end{frame}
 
-%\insertbibliography{ML-preparation}{*}
+\subsection{Label powerset}
+
+\begin{frame}
+	\frametitle{Machine Learning: Multi-label logistic regression}
+	\framesubtitle{Label powerset}
+	
+%	\begin{center}
+		\hgraphpage{LR_label_powerset.pdf}
+%	\end{center}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Machine Learning: Multi-class logistic regression}
+	\framesubtitle{Label powerset: Description}
+	
+	Given $L$ output classes:
+	\begin{itemize}
+		\item Training
+		\begin{itemize}
+			\item We look for all combinations of classes
+			\item Each combination is considered as a new class
+			\item We train a multi-class model
+		\end{itemize}
+		\item Estimation
+		\begin{itemize}
+			\item Given a sample
+			\item We use our trained multi-class model to get one class
+			\item This class is a combination of many original classes
+		\end{itemize}
+	\end{itemize}
+	
+\end{frame}
+
+\insertbibliography{EN.ML_Multi-class}{*}
 
 \end{document}
 
