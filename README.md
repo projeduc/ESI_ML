@@ -1,4 +1,4 @@
-# <img src="img/esi.ml-logo.png" width=100px> Cours "Machine Learning"
+# <img src="extra/logo/esi.ml-logo.png" width=100px> Cours "Machine Learning"
 
 
 [![Type](https://img.shields.io/badge/Type-Cours-0014A8.svg?style=flat)](https://github.com/projeduc/ESI_2CS_ML)
