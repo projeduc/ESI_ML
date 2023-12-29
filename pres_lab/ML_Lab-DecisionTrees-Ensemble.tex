@@ -1,41 +1,43 @@
 % !TEX TS-program = pdflatex
 % !TeX program = pdflatex
 % !TEX encoding = UTF-8
-% !TEX spellcheck = fr
+% !TEX spellcheck = en_US
 
 \documentclass[xcolor=table]{beamer}
 
+\usepackage{../extra/beamer/karimml}
+
 \input{options}
 
-\title[ML : Arbres de décision (TP)] %
-{Machine Learning \\Arbres de décision (support TP)} 
+\subtitle[DT \& Ensemble]{Decision trees and Ensemble learning}
 
 \changegraphpath{../img/arbres/}
 
 \begin{document}
 	
 \begin{frame}
-	\frametitle{Machine Learning}
-	\framesubtitle{Arbres de décision (support TP) : Introduction}
+	\frametitle{\inserttitle}
+	\framesubtitle{\insertshortsubtitle: Introduction}
 	
 	\begin{itemize}
-		\item Arbres de décision
+		\item Decision trees
 		\begin{itemize}
-			\item comment créer un arbre de décision en utilisant ID3
-			\item comment créer un arbre de décision en utilisant CART
+			\item how to create a decision tree using ID3
+			\item how to create a decision tree using CART
 		\end{itemize}
-		\item Forets aléatoires 
+		\item Random Forests
 		\begin{itemize}
-			\item Apprentissage ensembliste
-			\item Fonctionnement d'un foret
+			\item Ensemble learning
+			\item How a random forest works
 		\end{itemize}
 	\end{itemize}
+
 \end{frame}
 
 
 \begin{frame}
-	\frametitle{Machine Learning}
-	\framesubtitle{Arbres de décision (support TP) : Plan}
+	\frametitle{\inserttitle}
+	\framesubtitle{\insertshortsubtitle: Plan}
 	
 	\begin{multicols}{2}
 		%	\small
@@ -43,10 +45,10 @@
 	\end{multicols}
 \end{frame}
 
-\section{Arbres de décision}
+\section{Decision trees}
 
 \begin{frame}
-	\frametitle{Arbres de décision}
+	\frametitle{\insertsection}
 	
 	\begin{itemize}
 		\item \optword{ID3 (Iterative Dichotomiser 3)} : dévelopé en 1986 par Ross Quinlan. Il peut être appliqué seulement sur les caractéristiques nominales. Il est utilisé pour le classement.
@@ -60,8 +62,8 @@
 \subsection{Algorithmes}
 
 \begin{frame}
-	\frametitle{Arbres de décision}
-	\framesubtitle{Algorithmes : Construction (apprentissage)}
+	\frametitle{\insertsection}
+	\framesubtitle{\insertsubsection: Construction (apprentissage)}
 	
 	\begin{algorithm}[H]\small
 		\KwData{$ X, Y$}
@@ -85,8 +87,8 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Arbres de décision}
-	\framesubtitle{Algorithmes : Recherche (prédiction)}
+	\frametitle{\insertsection}
+	\framesubtitle{\insertsubsection: Recherche (prédiction)}
 	
 	\begin{algorithm}[H]
 		\KwData{$x$ : un échantillon; $(S, A)$ : l'arbre de décision}
@@ -110,8 +112,8 @@
 \subsection{Conditions d'arrêt}
 
 \begin{frame}
-	\frametitle{Arbres de décision}
-	\framesubtitle{Conditions d'arrêt}
+	\frametitle{\insertsection}
+	\framesubtitle{\insertsubsection}
 	
 	\begin{itemize}
 		\item \optword{Homogénéité} : les observations dans le nœud ont la même classe
@@ -125,8 +127,8 @@
 \subsection{Critique}
 
 \begin{frame}
-	\frametitle{Arbres de décision}
-	\framesubtitle{Critique : Avantages}
+	\frametitle{\insertsection}
+	\framesubtitle{\insertsubsection: Avantages}
 	
 	\begin{itemize}
 		\item simples à comprendre et à interpréter. On peut visualiser les arbres. Aussi, on peut expliquer les résultats obtenus facilement.
@@ -138,8 +140,8 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Arbres de décision}
-	\framesubtitle{Critique : Inconvénients}
+	\frametitle{\insertsection}
+	\framesubtitle{\insertsubsection: Inconvénients}
 	
 	\begin{itemize}
 		\item peuvent être aussi complexes, ils ne généralisent pas bien (overfitting: surapprentissage). On peut régler ça en fixant le nombre minimum des échantillons dans les feuilles ou en fixant la profondeur maximale de l'arbre.
@@ -154,7 +156,7 @@
 \section{ID3 (Rappel)}
 
 \begin{frame}
-	\frametitle{ID3 (Rappel)}
+	\frametitle{\insertsection}
 	
 	\begin{itemize}
 		\item \keyword{Iterative Dichotomiser 3}
@@ -168,8 +170,8 @@
 \subsection{Homogénéité d'un ensemble}
 
 \begin{frame}
-	\frametitle{ID3 (Rappel)}
-	\framesubtitle{Homogénéité d'un ensemble}
+	\frametitle{\insertsection}
+	\framesubtitle{\insertsubsection}
 	
 	\begin{itemize}
 		\item Entropie de Shannon $H(Y)$ pour mesurer l'incertitude d'un ensemble $Y$
@@ -187,8 +189,8 @@
 \subsection{Division d'un ensemble}
 
 \begin{frame}
-	\frametitle{ID3 (Rappel)}
-	\framesubtitle{Division d'un ensemble}
+	\frametitle{\insertsection}
+	\framesubtitle{\insertsubsection}
 	
 	\begin{itemize}
 		\item $Y$ : un ensemble des prédictions 
@@ -206,8 +208,8 @@
 \subsection{Choix de caractéristique de division}
 
 \begin{frame}
-	\frametitle{ID3 (Rappel)}
-	\framesubtitle{Choix de caractéristique de division}
+	\frametitle{\insertsection}
+	\framesubtitle{\insertsubsection}
 	
 	\begin{itemize}
 		\item On utilise le gain d'entropie (information gain) $IG(Y, X_j)$
@@ -224,7 +226,7 @@
 \section{CART}
 
 \begin{frame}
-	\frametitle{CART}
+	\frametitle{\insertsection}
 	
 	\begin{itemize}
 		\item \keyword{Classification and Regression Trees}
@@ -239,8 +241,8 @@
 \subsection{Homogénéité d'un ensemble}
 
 \begin{frame}
-	\frametitle{CART}
-	\framesubtitle{Homogénéité d'un ensemble}
+	\frametitle{\insertsection}
+	\framesubtitle{\insertsubsection}
 	
 	\begin{itemize}
 		\item indexe de diversité $Gini(Y)$ pour mesurer l'erreur de classification de $Y$
@@ -259,8 +261,8 @@
 \subsection{Division d'un ensemble}
 
 \begin{frame}
-	\frametitle{CART}
-	\framesubtitle{Division d'un ensemble}
+	\frametitle{\insertsection}
+	\framesubtitle{\insertsubsection}
 	
 	\begin{itemize}
 		\item $Y$ : un ensemble des prédictions 
@@ -278,8 +280,8 @@
 \subsection{Choix de caractéristique de division}
 
 \begin{frame}
-	\frametitle{CART}
-	\framesubtitle{Choix de caractéristique de division}
+	\frametitle{\insertsection}
+	\framesubtitle{\insertsubsection}
 	
 	\begin{itemize}
 		\item On utilise la diversité Gini de la division $Gini_{div}(Y_G, Y_D)$
@@ -298,7 +300,7 @@
 \section{Forêts aléatoires}
 
 \begin{frame}
-	\frametitle{Forêts aléatoires (Rappel)}
+	\frametitle{\insertsection}
 	
 	\begin{itemize}
 		\item méthode d'ensembles
@@ -313,8 +315,8 @@
 \subsection{Apprentissage ensembliste}
 
 \begin{frame}
-	\frametitle{Forêts aléatoires}
-	\framesubtitle{Apprentissage ensembliste}
+	\frametitle{\insertsection}
+	\framesubtitle{\insertsubsection}
 	
 	\begin{itemize}
 		\item \optword{Bootstrap aggregating (Bagging)}
@@ -334,8 +336,8 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Forêts aléatoires}
-	\framesubtitle{Apprentissage ensembliste : Bootstrap aggregating (Bagging)}
+	\frametitle{\insertsection}
+	\framesubtitle{\insertsubsection: Bootstrap aggregating (Bagging)}
 	
 	\begin{itemize}
 		\item \textbf{Entraînement}
@@ -358,8 +360,8 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Forêts aléatoires}
-	\framesubtitle{Apprentissage ensembliste : Boosting}
+	\frametitle{\insertsection}
+	\framesubtitle{\insertsubsection: Boosting}
 	
 	\begin{itemize}
 		\item \textbf{Entraînement}
@@ -385,8 +387,8 @@
 
 
 \begin{frame}
-	\frametitle{Forêts aléatoires}
-	\framesubtitle{Apprentissage ensembliste : Stacking}
+	\frametitle{\insertsection}
+	\framesubtitle{\insertsubsection: Stacking}
 	
 	\begin{itemize}
 		\item \textbf{Entraînement}
@@ -408,8 +410,8 @@
 \subsection{Paramètres d'un forêt}
 
 \begin{frame}
-	\frametitle{Forêts aléatoires}
-	\framesubtitle{Paramètres d'un forêt}
+	\frametitle{\insertsection}
+	\framesubtitle{\insertsubsection}
 	
 	\begin{itemize}
 		\item \optword{bootstrap}
@@ -432,7 +434,7 @@
 	
 \end{frame}
 
-%\insertbibliography{ML-preparation}{*}
+%\insertbibliography{ML_Lab-DecisionTrees-Ensemble}{*}
 
 \end{document}
 

@@ -1,13 +1,11 @@
 
-%\usepackage{fullpage}
-%\usepackage[left=2.8cm,right=2.2cm,top=2 cm,bottom=2 cm]{geometry}
 \setbeamersize{text margin left=10pt,text margin right=10pt}
 \usepackage{amsmath,amssymb} 
 \usepackage{fontenc}
 \usepackage{textcomp}
 \usepackage[utf8]{inputenc}
 \usepackage[frenchb]{babel}
-\usepackage{arabtex,acolor}
+\usepackage{arabtex}
 \usepackage{txfonts}
 \usepackage{tipa}
 \usepackage{CJKutf8}
@@ -35,6 +33,26 @@
 
 %\renewcommand{\baselinestretch}{1.5}
 
+%\def\@acadyear{}
+%\def\acadyear#1{\def\@acadyear{#1}}
+%\def\insertacadyear{\@acadyear}
+
+\makeatletter
+\def\beamer@calltheme#1#2#3{%
+	\def\beamer@themelist{#2}
+	\@for\beamer@themename:=\beamer@themelist\do
+	{\IfFileExists{\beamer@themelocation/#3\beamer@themename.sty}{%
+			\usepackage[{#1}]{\beamer@themelocation/#3\beamer@themename}}{\usepackage[{#1}]{#3\beamer@themename}}
+		
+	}%
+}
+
+\def\usefolder#1{
+	\def\beamer@themelocation{#1}
+}
+\def\beamer@themelocation{}
+\makeatother
+
 \def\supit#1{\raisebox{0.8ex}{\small\it #1}\hspace{0.05em}}
 
 \AtBeginSection{%
@@ -54,38 +72,6 @@
 \usepackage{longtable}
 \usepackage{tabu}
 
-
-\institute{ %
-	\parbox{.6\textwidth}{\begin{center}
-			Laboratoire de la Communication dans les Systèmes Informatiques (LCSI)\\
-			\includegraphics[height=.8cm]{../extra/logo/lcsi-logo.png}
-	\end{center}}
-	\hskip0.5cm%\hfill
-	\parbox{.35\textwidth}{\begin{center}
-			Laboratoire des Méthodes de Conception des Systèmes	(LMCS)\\
-			\includegraphics[height=1cm]{../extra/logo/lmcs-logo.png}
-		\end{center}
-	}
-	
-	
-	\vspace{6pt}
-	École nationale Supérieure d'Informatique (ESI, ex. INI), Alger, Algérie
-}
-
-\author[ESI - ARIES/HAMDAD/BENATCHBA (2023-2024)] %
-{Abdelkrime Aries  \hskip1cm Leila Hamdad \hskip2cm Karima Benatchba}
-
-\titlegraphic{%
-	\includegraphics[height=1cm]{../extra/logo/esi-logo.png}%
-	\hspace*{2cm}%
-	\includegraphics[height=1cm]{../extra/logo/esi.ml.pdf}%
-}%\hspace*{4.75cm}~
-
-\date{Academic year: 2023/2024} %\today
-
-\usetheme{Karim} % Antibes Boadilla Warsaw
-
-\beamertemplatenavigationsymbolsempty
 
 \let\oldcite\cite
 \renewcommand{\cite}[1]{{\bfseries\color{red}\oldcite{#1}}}
