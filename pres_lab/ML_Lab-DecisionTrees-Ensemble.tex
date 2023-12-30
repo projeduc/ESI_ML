@@ -51,133 +51,149 @@
 	\frametitle{\insertsection}
 	
 	\begin{itemize}
-		\item \optword{ID3 (Iterative Dichotomiser 3)} : dévelopé en 1986 par Ross Quinlan. Il peut être appliqué seulement sur les caractéristiques nominales. Il est utilisé pour le classement.
-		\item \optword{C4.5} : une extension de ID3 par Ross Quinlan. Il peut être appliqué sur tous les types de caractéristiques. Il est utilisé pour le classement.
-		\item \optword{C5.0} : une extension commerciale de C4.5, toujours par Ross Quinlan.
-		\item \optword{CART (Classification and Regression Trees)} : comme C4.5 mais utilise d'autres métriques. Aussi, l'algorithme supporte la régression.
+		\item \optword{ID3 (Iterative Dichotomiser 3)}: developed in 1986 by Ross Quinlan. It can be applied only to nominal characteristics. It is used for ranking.
+		\item \optword{C4.5}: an extension of ID3 by Ross Quinlan. It can be applied on all types of features. It is used for ranking.
+		\item \optword{C5.0}: a commercial extension of C4.5, again by Ross Quinlan.
+		\item \optword{CART (Classification and Regression Trees)}: like C4.5 but uses other metrics. Also, the algorithm supports regression.
 	\end{itemize}
 	
 \end{frame}
 
-\subsection{Algorithmes}
+\subsection{Algorithms}
 
 \begin{frame}
 	\frametitle{\insertsection}
-	\framesubtitle{\insertsubsection: Construction (apprentissage)}
+	\framesubtitle{\insertsubsection: Construction (Training)}
 	
-	\begin{algorithm}[H]\small
+	\begin{algorithm}[H]\scriptsize
+		\SetKwFunction{FConst}{build}
+		\SetKwProg{Fn}{function}{}{end}
+		
 		\KwData{$ X, Y$}
-		\KwResult{$ (S, A) $ : un arbre} 
-		créer un sommet $ s \in S $\;
+		\KwResult{A decision tree} 
+		\Return \FConst{$X, Y$};\tcp{return the tree's root}
 		
-		\eIf{$Y$ est homogène ou on a atteint une condition d'arrêt}{
-			$s.classe=\arg\max_{k}{|\{y \in Y / y = k \}|}$ \tcp{$s$ est une feuille}
-		}{
-			déterminer la caractéristique $X_j$ qui divise le mieux $Y$\;
-			diviser $Y$ en sous-ensembles $Y_1, \ldots, Y_K$ selon les valeurs de $X_j$\;
-			diviser $X$ en sous-ensembles $X_{*,1}, \ldots, X_{*, K}$ selon les valeurs de $X_j$\;
-			$s.j = j$\;
-			\ForEach{$ k \in \{1, \ldots, K\}$}{
-				$s_k = Construction(X_{*,k}, Y_k) \in S$ $(s, s_k) \in A$ $val(s, s_k) = k$\;
+		\Fn{\FConst{$X', Y'$}}{
+			n $\leftarrow$ new Node()\;
+			\eIf{$Y'$ is homogeneous or stop criteria is reached}{
+				$s.class \leftarrow \arg\max_{k}{|\{y \in Y' / y = k \}|}$ \tcp{$n$ is a leaf}
+			}{
+				determine the feature $j$ of $ X' $ which better divides $Y'$\;
+				split $(X, Y)$ into $(X_1, Y_1), \ldots, (X_K, Y_K)$ based on the $ K $ values of $X'_j$\;
+				$n.feature = j$\;
+				\lForEach{$ k \in \{1, \ldots, K\}$}{
+					$ n.children[k] \leftarrow$ \FConst{$ X_k, Y_k $})
+				}
 			}
+			
+			\Return n\;
 		}
-		\caption{Génération d'un arbre de décision (algorithme général)}
+		\caption{Generating a decision tree (General algorithm)}
 	\end{algorithm}
 	
 \end{frame}
 
 \begin{frame}
 	\frametitle{\insertsection}
-	\framesubtitle{\insertsubsection: Recherche (prédiction)}
+	\framesubtitle{\insertsubsection: Search (prediction)}
 	
-	\begin{algorithm}[H]
-		\KwData{$x$ : un échantillon; $(S, A)$ : l'arbre de décision}
-		\KwResult{$ y $ : sa classe} 
+	\begin{algorithm}[H]\scriptsize
+		\SetKwFunction{FSearch}{Search}
+		\SetKwProg{Fn}{function}{}{end}
 		
-		$s$ est la racine de $(S, A)$\;
+		\KwData{$x$: a sample; $T = (V, E)$: a decision tree}
+		\KwResult{$ y $: the result class} 
 		
+		Let $n_{root}$ be the root node of $T$\;
+		\Return \FSearch($n_{root};\ x$)\;
 		
-		\eIf{$s$ est une feuille}{
-			\Return $s.classe$\;
-		}{
-			$j = s.j$\; 
-			choisir l'arrête $(s, s_k)$ tel que $val(s, s_k) \equiv x_j$\;
-			\Return Parcourir(x, $(s_k, A)$)\;
+	
+		\Fn{\FSearch{$n$: a node; $x$: a sample}}{
+			
+			\eIf{$n$ is a leaf \tcp{it has no children}}{
+				\Return $n.class$\;
+			}{
+				$k = x[n.feature]$\; 
+				\Return \FSearch($n.children[k];\ x$)\;
+			}
+			
+			\Return n\;
 		}
-		\caption{Parcours d'un arbre de décision (algorithme général)}
+	
+		\caption{Traversing a decision tree (general algorithm)}
 	\end{algorithm}
 	
 \end{frame}
 
-\subsection{Conditions d'arrêt}
+\subsection{Stop conditions}
 
 \begin{frame}
 	\frametitle{\insertsection}
 	\framesubtitle{\insertsubsection}
 	
 	\begin{itemize}
-		\item \optword{Homogénéité} : les observations dans le nœud ont la même classe
-		\item \optword{Impureté minimale} : l'impureté ou l'erreur de classification/régression des observations dans le nœud est inférieure ou égale à ce seuil
-		\item \optword{Nombre minimal des observations} : le nombre des observations dans un nœud est inférieure ou égale à ce seuil
-		\item \optword{Profondeur} : la profondeur du nœud dans l'arbre est inférieure à ce seuil
+		\item \optword{Homogeneity}: the observations in the node have the same class;
+		\item \optword{Minimum impurity}: the impurity or classification/regression error of observations in the node is less than or equal to this threshold;
+		\item \optword{Minimum number of observations}: the number of observations in a node is less than or equal to this threshold;
+		\item \optword{Depth}: the depth of the node in the tree is less than this threshold.
 	\end{itemize}
 	
 \end{frame}
 
-\subsection{Critique}
+\subsection{Review}
 
 \begin{frame}
 	\frametitle{\insertsection}
-	\framesubtitle{\insertsubsection: Avantages}
+	\framesubtitle{\insertsubsection: Advantages}
 	
 	\begin{itemize}
-		\item simples à comprendre et à interpréter. On peut visualiser les arbres. Aussi, on peut expliquer les résultats obtenus facilement.
-		\item peuvent travailler sur des données avec peu de préparation. Par exemple, ils n'ont pas besoin de la normalisation des données.
-		\item acceptent les données numériques et nominales. Les autres algorithmes d'apprentissage sont spécialisés dans un seul type de données.
-		\item donnent de bonne performance même si leurs hypothèses sont un peu violées par le modèle réel à partir duquel les données ont été générées.
+		\item simple to understand and interpret. We can visualize the trees. Also, we can easily explain the obtained results.
+		\item can work on data with little preparation. For example, they do not need data normalization.
+		\item accept numeric and nominal data. Other learning algorithms are specialized in a single type of data.
+		\item perform well even if their assumptions are somewhat violated by the actual model from which the data was generated.
 	\end{itemize}
 	
 \end{frame}
 
 \begin{frame}
 	\frametitle{\insertsection}
-	\framesubtitle{\insertsubsection: Inconvénients}
+	\framesubtitle{\insertsubsection: Limits}
 	
 	\begin{itemize}
-		\item peuvent être aussi complexes, ils ne généralisent pas bien (overfitting: surapprentissage). On peut régler ça en fixant le nombre minimum des échantillons dans les feuilles ou en fixant la profondeur maximale de l'arbre.
-		\item peuvent être instables à cause des variations des données.
-		\item il existe des problèmes qui sont un peu difficiles à apprendre par les arbres de décision. Ils ne sont pas faciles à exprimer, par exemple: XOR.
-		\item peuvent être biaisés à la classe dominante. Donc, il faut balancer les données avant d'entrainer le système.
-		\item ce n'est pas garanti de tomber sur l'arbre de décision optimal.
+		\item can be too complex to not generalize well (overfitting). This can be adjusted by setting the minimum number of samples in the leaves or by setting the maximum depth of the tree.
+		\item may be unstable due to data variations.
+		\item there are problems that are a bit difficult to learn by decision trees. They are not easy to express, for example: XOR.
+		\item may be biased to the dominant class. So, you have to balance the data before training the system.
+		\item it is not guaranteed to fall on the optimal decision tree.
 	\end{itemize}
 	
 \end{frame}
 
-\section{ID3 (Rappel)}
+\section{ID3}
 
 \begin{frame}
 	\frametitle{\insertsection}
 	
 	\begin{itemize}
-		\item \keyword{Iterative Dichotomiser 3}
-		\item n'accepte que les caractéristiques nominales
-		\item seulement pour le classement
-		\item on s'arrête si les ensembles des classes dans les feuilles sont homogènes
+		\item \keyword{Iterative Dichotomize 3};
+		\item only accepts nominal characteristics;
+		\item only for classification (no regression);
+		\item the training stops if the sets of classes in the leafs are homogeneous.
 	\end{itemize}
 	
 \end{frame}
 
-\subsection{Homogénéité d'un ensemble}
+\subsection{Homogeneity of a set}
 
 \begin{frame}
 	\frametitle{\insertsection}
 	\framesubtitle{\insertsubsection}
 	
 	\begin{itemize}
-		\item Entropie de Shannon $H(Y)$ pour mesurer l'incertitude d'un ensemble $Y$
-		\item $H(Y)=0$ : $Y$ contient les mêmes valeurs (classes)
-		\item $H(Y)=1$ : $Y$ contient des valeurs totalement différentes
-		\item étant donné $V_y$ l'ensemble du vocabulaire de $Y$ (différentes valeurs ou classes)
+		\item Shannon's entropy $H(Y)$ to measure the uncertainty of a set $Y$;
+		\item $H(Y)=0$: $Y$ contains the same values (classes);
+		\item $H(Y)=1$: $Y$ contains totally different values;
+		\item given $V_y$ the vocabulary set of $Y$ (unique values).
 	\end{itemize}
 
 	\[H(Y) = - \sum\limits_{v \in V_y} p(v/Y) \log_2 p(v/Y)\]
@@ -186,18 +202,18 @@
 	
 \end{frame}
 
-\subsection{Division d'un ensemble}
+\subsection{Set's split}
 
 \begin{frame}
 	\frametitle{\insertsection}
 	\framesubtitle{\insertsubsection}
 	
 	\begin{itemize}
-		\item $Y$ : un ensemble des prédictions 
-		\item $X_j$ : les valeurs de la caractéristique $j$ des échantillons ayant comme prédictions $Y$
-		\item $v$ : une valeur parmi les valeurs possibles de $X_j$ (vocabulaire $V_j$)
-		\item pour chaque valeur $v \in V_j$, on crée un ensemble $Y_{j, v}$
-		\item si $|V| = K$, on aura $K$ ensembles $Y_1, \cdots, Y_K$ et 
+		\item $Y$: a set of predictions;
+		\item $X_j$: the values of the feature $j$;
+		\item $v$: one value out of the possible values of $X_j$ (vocabulary $V_j$);
+		\item for each value $v \in V_j$, we create a set $Y_{j, v}$;
+		\item if $|V_j| = K$, we will have $K$ sets $Y_1, \cdots, Y_K$;
 	\end{itemize}
 	
 	\[Y_{j,v} = \{y^{(i)} \in Y / X_j^{(i)} \in X_j \wedge X_j^{(i)} = v\}\]
@@ -205,17 +221,17 @@
 	
 \end{frame}
 
-\subsection{Choix de caractéristique de division}
+\subsection{Choice of split feature}
 
 \begin{frame}
 	\frametitle{\insertsection}
 	\framesubtitle{\insertsubsection}
 	
 	\begin{itemize}
-		\item On utilise le gain d'entropie (information gain) $IG(Y, X_j)$
-		\item $j = \arg\max_{j'} IG(Y, X_{j'})$
-		\item Cette mesure calcule combien d'incertitude dans $Y$ a été réduite après sa division en utilisant l'attribut $j$.
-		\item c'est la différence entre l'entropie de $Y$ et l'entropie pondérée des ensembles divisées
+		\item Entropy gain (information gain) $IG(Y, X_j)$ is used;
+		\item $j = \arg\max_{j'} IG(Y, X_{j'})$;
+		\item This measure calculates how much uncertainty in $Y$ was reduced after it was split using the feature $j$;
+		\item $ IG $ is the difference between the entropy of $Y$ and the weighted entropy of the split sets;
 	\end{itemize}
 
 	\[IG(Y, X_j) = H(Y) - \sum_{v \in V_j} p(v/X_j) H(Y_{j, v})\]
@@ -229,27 +245,27 @@
 	\frametitle{\insertsection}
 	
 	\begin{itemize}
-		\item \keyword{Classification and Regression Trees}
-		\item supporte la régression.
-		\item essaye de minimiser une fonction de coût.
-		\item utilise le pré-élagage en utilisant un critère d'arrêt.
-		\item crée des arbres binaires 
+		\item \keyword{Classification and Regression Trees};
+		\item supports regression;
+		\item tries to minimize a cost function;
+		\item uses pre-pruning based on a stopping criterion;
+		\item creates binary trees.
 	\end{itemize}
 	
 \end{frame}
 
-\subsection{Homogénéité d'un ensemble}
+\subsection{Homogeneity of a set}
 
 \begin{frame}
 	\frametitle{\insertsection}
 	\framesubtitle{\insertsubsection}
 	
 	\begin{itemize}
-		\item indexe de diversité $Gini(Y)$ pour mesurer l'erreur de classification de $Y$
-		\item $Gini(Y)=0$ représente la meilleur division
-		\item $H(Y)=0.5$ représente la division la plus pire
-		\item étant donné $V_y$ l'ensemble du vocabulaire de $Y$ (différentes valeurs ou classes)
-		\item Dans le cas de la régression, on utilise \keyword{MSE}
+		\item diversity index $Gini(Y)$ to measure the classification error of $Y$;
+		\item $Gini(Y)=0$ represents the best division;
+		\item $Gini(Y)=0.5$ represents the worst division;
+		\item given $V_y$ the vocabulary of $Y$ (unique values or classes);
+		\item In the case of regression, \keyword{MSE} is used;
 	\end{itemize}
 	
 	\[Gini(S) = \sum\limits_{v \in V_y} p(v/Y) (1-p(v/Y)) = 1 - \sum\limits_{v \in V_y} p(v/Y)^2 \]
@@ -258,18 +274,18 @@
 	
 \end{frame}
 
-\subsection{Division d'un ensemble}
+\subsection{Set's split}
 
 \begin{frame}
 	\frametitle{\insertsection}
 	\framesubtitle{\insertsubsection}
 	
 	\begin{itemize}
-		\item $Y$ : un ensemble des prédictions 
-		\item $X_j$ : les valeurs de la caractéristique $j$ des échantillons ayant comme prédictions $Y$
-		\item $v$ : une valeur parmi les valeurs possibles de $X_j$ (vocabulaire $V_j$)
-		\item pour chaque valeur $v \in V_j$, on crée deux ensembles $Y_G$ et $Y_D$
-		\item Donc, on aura 2 ensembles $Y_G$ (avec des valeurs $X_j > v$) et $Y_D$ (avec des valeurs $X_j \le v$)
+		\item $Y$: a set of predictions;
+		\item $X_j$: the values of the feature $j$;
+		\item $v$: a value out of the possible values of $X_j$ (vocabulary $V_j$)
+		\item for each value $v \in V_j$, two sets ($Y_G$ and $Y_D$) are created;
+		\item $Y_G$ (with values $X_j > v$) and $Y_D$ (with values $X_j \le v$);
 	\end{itemize}
 	
 	\[Y_G = \{y^{(i)} \in Y / X_j^{(i)} \in X_j \wedge X_j^{(i)} > v\}\]
@@ -277,19 +293,19 @@
 	
 \end{frame}
 
-\subsection{Choix de caractéristique de division}
+\subsection{Choice of split feature}
 
 \begin{frame}
 	\frametitle{\insertsection}
 	\framesubtitle{\insertsubsection}
 	
 	\begin{itemize}
-		\item On utilise la diversité Gini de la division $Gini_{div}(Y_G, Y_D)$
-		\item $j, v = \arg\min_{j', v'} Gini_{div}(Y_G, Y_D)$
-		\item Ici, on ne cherche pas seulement la caractéristique $j$, mais aussi la valeur $v$ qui minimise la diversité Gini de la division
-		\item $|S| = |S_G| + |S_D|$
-		\item pour la régression, on utilise \keyword{MSE} à la place de \keyword{Gini}
-		\item l'estimation dans le cas de la régression est la moyenne des $Y$ dans la feuille
+		\item Gini diversity of the division $Gini_{div}(Y_G, Y_D)$ is used;
+		\item $j, v = \arg\min_{j', v'} Gini_{div}(Y_G, Y_D)$;
+		\item Here, not only the split feature $j$ is explored, but also the value $v$ which minimizes the Gini diversity of the division;
+		\item $|S| = |S_G| + |S_D|$;
+		\item for regression, \keyword{MSE} is used instead of \keyword{Gini};
+		\item the estimate in the case of regression is the average of the leaf's $Y$;
 	\end{itemize}
 	
 	\[Gini_{div}(S_G, S_D) = \frac{|S_G|}{|S|} Gini(S_G) + \frac{|S_D|}{|S|} Gini(S_D)\]
@@ -297,22 +313,22 @@
 	
 \end{frame}
 
-\section{Forêts aléatoires}
+\section{Random forests}
 
 \begin{frame}
 	\frametitle{\insertsection}
 	
 	\begin{itemize}
-		\item méthode d'ensembles
-		\item utilise les arbres de décision pour l'estimation
-		\item l'estimation finale se fait par vote majoritaire 
-		\item utilise des Bootstraps (ensembles d'observations aléatoires) pour l'apprentissage des arbres 
-		\item utilise des attributs aléatoires pour entrainer chaque arbre : en utilisant moins d'attributs dans chaque arbre, on peut prévenir le problème de sur-apprentissage
+		\item ensemble method;
+		\item uses decision trees for estimation;
+		\item final estimation is done by majority vote;
+		\item uses Bootstraps (sets of random observations) for tree learning;
+		\item uses random features to train each tree: by using fewer attributes in each tree, overfitting issues can be prevented.
 	\end{itemize}
 	
 \end{frame}
 
-\subsection{Apprentissage ensembliste}
+\subsection{Ensemble learning}
 
 \begin{frame}
 	\frametitle{\insertsection}
@@ -321,15 +337,15 @@
 	\begin{itemize}
 		\item \optword{Bootstrap aggregating (Bagging)}
 		\begin{itemize}
-			\item Entraîner des estimateurs en parallèle sur des données aléatoires
+			\item Concurrently train different estimators on random data subsets.
 		\end{itemize}
 		\item \optword{Boosting}
 		\begin{itemize}
-			\item Entrainer des estimateurs sur les mêmes données d'une façon séquentielle ; l'un améliore la performance de l'aure
+			\item Sequentially train estimators on the same data; each one improves the performance of the others.
 		\end{itemize}
 		\item \optword{Stacking}
 		\begin{itemize}
-			\item Entrainer des estimateurs sur les mêmes données d'une façon parallèle ; Entraîner un estimateur qui fusionne les estimation des autres estimateurs
+			\item Concurrently train estimators on the same data; Train an estimator that combines the predictions of the other estimators.
 		\end{itemize}
 	\end{itemize}
 	
@@ -340,20 +356,21 @@
 	\framesubtitle{\insertsubsection: Bootstrap aggregating (Bagging)}
 	
 	\begin{itemize}
-		\item \textbf{Entraînement}
+		\item \textbf{Training}
 		\begin{itemize}
-			\item Créer \textbf{K} Bootstraps (ensembles aléatoires) à partir du dataset d'entraînement
-			\item Entraîner un modèle par Bootstrap
+			\item Create \textbf{K} Bootstraps (random sets) from the training dataset
+			\item A bootstrap can have a subset of features
+			\item Train a model for each Bootstrap
 		\end{itemize}
 		\item \textbf{Estimation}
 		\begin{itemize}
-			\item Utiliser les modèles pour avoir \textbf{K} estimations
-			\item estimation finale (Classification) : par vote majoritaire
-			\item estimation finale (Régression) : par moyenne mathématique
+			\item Use the models to obtain \textbf{K} estimations
+			\item Final estimation (Classification): by majority vote
+			\item Final estimation (Regression): by mathematical average
 		\end{itemize}
-		\item \textbf{Exemples}
+		\item \textbf{Examples}
 		\begin{itemize}
-			\item \expword{Forêts aléatoires}
+			\item \expword{Random Forests}
 		\end{itemize}
 	\end{itemize}
 	
@@ -364,22 +381,22 @@
 	\framesubtitle{\insertsubsection: Boosting}
 	
 	\begin{itemize}
-		\item \textbf{Entraînement}
+		\item \textbf{Training}
 		\begin{itemize}
-			\item Entrainer un estimateur sur le dataset d'entraînement
-			\item Faire des prédictions sur ce dataset pour extraire les échantillons qui ne sont pas bien estimés
-			\item Entrainer un autre estimateur sur le même dataset mais avec plus de poids aux échantillons mal-estimés
-			\item Fait la même opération jusqu'à génération de \textbf{K} estimateurs
+			\item Train an estimator on the training dataset
+			\item Make predictions on this dataset to extract samples that are not well-estimated
+			\item Train another estimator on the same dataset but with more weight on poorly estimated samples
+			\item Repeat the same operation until generating \textbf{K} estimators
 		\end{itemize}
 		\item \textbf{Estimation}
 		\begin{itemize}
-			\item Utiliser les modèles pour avoir \textbf{K} estimations
-			\item estimation finale (Classification) : par vote majoritaire
-			\item estimation finale (Régression) : par moyenne mathématique
-		\end{itemize}
-		\item \textbf{Exemples}
-		\begin{itemize}
-			\item \expword{AdaBoost}
+			\item Use the models to obtain \textbf{K} estimations
+			\item Final estimation (Classification): by majority vote
+			\item Final estimation (Regression): by mathematical average
+			\item \textbf{Examples}
+			\begin{itemize}
+				\item \expword{AdaBoost}
+			\end{itemize}
 		\end{itemize}
 	\end{itemize}
 	
@@ -391,48 +408,49 @@
 	\framesubtitle{\insertsubsection: Stacking}
 	
 	\begin{itemize}
-		\item \textbf{Entraînement}
+		\item \textbf{Training}
 		\begin{itemize}
-			\item Entrainer \textbf{K} estimateurs sur le même dataset d'entraînement
-			\item Ces estimateurs doivent avoir des hyper-paramètres différents ou des algorithmes d'apprentissage différents
-			\item Entraîner un estimateur qui a comme entrée les sorties des autres \textbf{K} estimateurs 
-			\item Ce dernier va apprendre à fusionner les estimations des autres estimateurs pour avoir une qui est meilleure
+			\item Train \textbf{K} estimators on the same training dataset
+			\item These estimators should have different hyperparameters or different training algorithms
+			\item Train an estimator that takes the outputs of the other \textbf{K} estimators as input
+			\item This final estimator will learn to merge the estimations of the other estimators to produce a better one
 		\end{itemize}
 		\item \textbf{Estimation}
 		\begin{itemize}
-			\item Utiliser les \textbf{K} estimateurs pour avoir des estimations initiales
-			\item Utiliser le dernier estimateur pour combiner ces estimations
+			\item Use the \textbf{K} estimators to obtain initial estimations
+			\item Use the final estimator to combine these estimations
 		\end{itemize}
 	\end{itemize}
 	
 \end{frame}
 
-\subsection{Paramètres d'un forêt}
+\subsection{Parameters of a Forest}
 
 \begin{frame}
 	\frametitle{\insertsection}
 	\framesubtitle{\insertsubsection}
 	
 	\begin{itemize}
-		\item \optword{bootstrap}
+		\item \optword{Bootstrap}
 		\begin{itemize}
-			\item Est-ce qu'on utilise le dataset comme il est ou on utilise le \keyword{bootraping} ?
-			\item Quelle est la taille d'un Bootstrap ?
-			\item Combien d'aléatoire utilise-t-on pour générer le Bootstrap ? 
+			\item Do we use the dataset as it is, or do we use \keyword{bootstrapping}?
+			\item What is the size of a Bootstrap?
+			\item How much randomness do we use to generate the Bootstrap?
 		\end{itemize}
-		\item \optword{attribut}
+		\item \optword{Feature}
 		\begin{itemize}
-			\item Combien d'attributs doit-t-on utiliser par arbre ?
-			\item Comment choisir ces attributs (quantité d'aléatoire) ?
+			\item How many features should we use per tree?
+			\item How do we choose these features (amount of randomness)?
 		\end{itemize}
-		\item \optword{arbre}
+		\item \optword{Tree}
 		\begin{itemize}
-			\item Combien d'arbres utilise-t-on pour l'estimation ?
-			\item plus les paramètres des arbres
+			\item How many trees do we use for estimation?
+			\item Plus other parameters related to the trees
 		\end{itemize}
 	\end{itemize}
 	
 \end{frame}
+
 
 %\insertbibliography{ML_Lab-DecisionTrees-Ensemble}{*}
 
