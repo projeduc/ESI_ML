@@ -17,8 +17,8 @@
 \begin{document}
 	
 \begin{frame}
-	\frametitle{Machine Learning}
-	\framesubtitle{Multi-class classification: Introduction}
+	\frametitle{\inserttitle}
+	\framesubtitle{\insertshortsubtitle: Introduction}
 	
 	\begin{itemize}
 		\item We have already seen ...
@@ -38,8 +38,8 @@
 
 
 \begin{frame}
-	\frametitle{Machine Learning}
-	\framesubtitle{Multi-class classification: Plan}
+	\frametitle{\inserttitle}
+	\framesubtitle{\insertshortsubtitle: Plan}
 	
 	\begin{multicols}{2}
 		%	\small
@@ -50,8 +50,8 @@
 \section{Classification}
 
 \begin{frame}
-	\frametitle{Machine Learning}
-	\framesubtitle{Classification}
+	\frametitle{\insertshortsubtitle}
+	\framesubtitle{\insertsection}
 	
 	\hgraphpage{classif.pdf}
 	
@@ -61,8 +61,8 @@
 
 
 \begin{frame}
-	\frametitle{Machine Learning: Classification}
-	\framesubtitle{Binary classification}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection}
 	
 	\begin{minipage}{0.65\textwidth}
 	\begin{itemize}
@@ -84,8 +84,8 @@
 \subsection{Multi-class classification}
 
 \begin{frame}
-	\frametitle{Machine Learning: Classification}
-	\framesubtitle{Multi-class classification}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection}
 	
 	\begin{minipage}{0.65\textwidth}
 	\begin{itemize}
@@ -105,8 +105,8 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Machine Learning: Classification}
-	\framesubtitle{Multi-class classification: Methods}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Methods}
 	
 	\hgraphpage{multi-class.pdf}
 	
@@ -115,8 +115,8 @@
 \subsection{Multi-label classification}
 
 \begin{frame}
-	\frametitle{Machine Learning: Classification}
-	\framesubtitle{Multi-label classification}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection}
 	
 	\begin{minipage}{0.65\textwidth}
 	\begin{itemize}
@@ -137,8 +137,8 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Machine Learning: Classification}
-	\framesubtitle{Multi-label classification: Methods \cite{2012-madjarov-al}}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Methods \cite{2012-madjarov-al}}
 	
 	\hgraphpage{multi-label.pdf}
 	
@@ -151,8 +151,8 @@
 \section{Binary logistic regression}
 
 \begin{frame}
-	\frametitle{Machine Learning}
-	\framesubtitle{Binary logistic regression}
+	\frametitle{\insertshortsubtitle}
+	\framesubtitle{\insertsection}
 	
 	\begin{center}
 		\vgraphpage{LR_bin.pdf}
@@ -163,8 +163,8 @@
 \subsection{Probability estimation}
 
 \begin{frame}
-\frametitle{Machine Learning: Binary logistic regression}
-\framesubtitle{Probability estimation}
+\frametitle{\insertshortsubtitle: \insertsection}
+\framesubtitle{\insertsubsection}
 
 \[Z = \sum_{j=1}^{N} \theta_j X_j = X \cdot \theta\]
 \begin{itemize}
@@ -184,8 +184,8 @@
 \subsection{Cost and Gradient}
 
 \begin{frame}
-	\frametitle{Machine Learning: Binary logistic regression}
-	\framesubtitle{Cost and Gradient}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection}
 
 	\[J_\theta = BCE = \frac{-1}{M} \sum\limits_{i=1}^{M} [Y^{(i)} \log(H^{(i)}) + (1- Y^{(i)}) \log(1 - H^{(i)})]\]
 	\begin{itemize}
@@ -211,8 +211,8 @@
 \subsection{Gradient (derivation)}
 
 \begin{frame}
-	\frametitle{Machine Learning: Binary logistic regression}
-	\framesubtitle{Gradient (derivation)}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection}
 
 	\tiny\vspace{-6pt}
 	\begin{align*}
@@ -243,8 +243,8 @@
 \subsection{Parameters' update}
 
 \begin{frame}
-	\frametitle{Machine Learning: Binary logistic regression}
-	\framesubtitle{Parameters' update}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection}
 
 	\[\theta = \theta - \alpha \frac{\partial J_\theta}{\partial \theta}\]
 	
@@ -258,19 +258,19 @@
 
 \section{Multi-class logistic regression}
 
-%\begin{frame}
-%	\frametitle{Machine Learning}
-%	\framesubtitle{Multi-class logistic regression}
-%	
+\begin{frame}
+	\frametitle{\insertshortsubtitle}
+	\framesubtitle{\insertsection}
+	
 %	\hgraphpage{multi-class.pdf}
-%	
-%\end{frame}
+	
+\end{frame}
 
 \subsection{One-vs-Rest}
 
 \begin{frame}
-	\frametitle{Machine Learning: Multi-class logistic regression}
-	\framesubtitle{One-vs-Rest}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection}
 	
 	\begin{center}
 		\vgraphpage{LR_ovr.pdf}
@@ -279,8 +279,8 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Machine Learning: Multi-class logistic regression}
-	\framesubtitle{One-vs-Rest: Description}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Description}
 	
 	Given $L$ output classes:
 	\begin{itemize}
@@ -306,8 +306,8 @@
 \subsection{One-vs-One}
 
 \begin{frame}
-	\frametitle{Machine Learning: Multi-class logistic regression}
-	\framesubtitle{One-vs-One}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection}
 	
 %	\begin{center}
 		\hgraphpage{LR_ovo.pdf}
@@ -316,8 +316,8 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Machine Learning: Multi-class logistic regression}
-	\framesubtitle{One-vs-One: Description}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Description}
 	
 	Given $L$ output classes:
 	\begin{itemize}
@@ -343,8 +343,8 @@
 \subsection{Multinomial}
 
 \begin{frame}
-	\frametitle{Machine Learning: Multi-class logistic regression}
-	\framesubtitle{Multinomial}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection}
 	
 	\begin{center}
 		\vgraphpage{LR_multi.pdf}
@@ -353,8 +353,8 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Machine Learning: Multi-class logistic regression}
-	\framesubtitle{Multinomial: Description}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Description}
 	
 	Given $L$ output classes:
 	\begin{itemize}
@@ -379,8 +379,8 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Machine Learning: Multi-class logistic regression}
-	\framesubtitle{Multinomial: Probability estimation}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Probability estimation}
 	
 	\[Z = \sum_{j=1}^{N} \theta_j X_j = X \cdot \theta\]
 	\begin{itemize}
@@ -398,8 +398,8 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Machine Learning: Multi-class logistic regression}
-	\framesubtitle{Multinomial: Cost and gradient}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Cost and gradient}
 	
 	\[J_\theta = \frac{-1}{M} \sum\limits_{i=1}^{M} \sum_{k=1}^{L} Y^{(i)}_k \log(H^{(i)}_k)\]
 	\begin{itemize}
@@ -423,8 +423,8 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Machine Learning: Multi-class logistic regression}
-	\framesubtitle{Multinomial: Parameters' update}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Parameters' update}
 	
 	\[\theta = \theta - \alpha \frac{\partial J_\theta}{\partial \theta}\]
 	
@@ -438,11 +438,19 @@
 
 \section{Multi-label logistic regression}
 
+\begin{frame}
+	\frametitle{\insertshortsubtitle}
+	\framesubtitle{\insertsection}
+	
+	%	\hgraphpage{multi-class.pdf}
+	
+\end{frame}
+
 \subsection{Binary relevance}
 
 \begin{frame}
-	\frametitle{Machine Learning: Multi-label logistic regression}
-	\framesubtitle{Binary relevance}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection}
 	
 	\begin{center}
 		\vgraphpage{LR_binary_relevance.pdf}
@@ -451,8 +459,8 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Machine Learning: Multi-class logistic regression}
-	\framesubtitle{Binary relevance: Description}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Description}
 	
 	Given $L$ output classes:
 	\begin{itemize}
@@ -476,8 +484,8 @@
 \subsection{Label powerset}
 
 \begin{frame}
-	\frametitle{Machine Learning: Multi-label logistic regression}
-	\framesubtitle{Label powerset}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection}
 	
 %	\begin{center}
 		\hgraphpage{LR_label_powerset.pdf}
@@ -486,8 +494,8 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Machine Learning: Multi-class logistic regression}
-	\framesubtitle{Label powerset: Description}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Description}
 	
 	Given $L$ output classes:
 	\begin{itemize}
