@@ -11,7 +11,7 @@
 
 \subtitle[DT \& Ensemble]{Decision trees and Ensemble learning}
 
-\changegraphpath{../img/arbres/}
+\changegraphpath{../img/tree-ens/}
 
 \begin{document}
 	
@@ -50,6 +50,68 @@
 \begin{frame}
 	\frametitle{\insertshortsubtitle}
 	\framesubtitle{\insertsection}
+	
+	\vspace{-8pt}
+	\begin{exampleblock}{Example of expected model}
+		\begin{minipage}{0.33\textwidth} 
+			\tiny\bfseries
+			\SetTblrInner{rowsep=0pt,colsep=1pt}
+			\begin{tblr}{
+					colspec = {llllll},
+					row{odd} = {lightblue},
+					row{even} = {lightyellow},
+					row{1} = {bg=darkblue, fg=white},
+				} 
+				%			\begin{tabular}{llllll}
+					id & outlook & temp & humidity & windy & play \\
+					01 & sunny & hot & high & false & no \\
+					02 & sunny & hot & high & true & no \\
+					03 & overcast & hot & high & false & yes \\
+					04 & rainy & mild & high & false & yes \\
+					05 & rainy & cool & normal & false & yes \\
+					06 & rainy & cool & normal & true & no \\
+					07 & overcast & cool & normal & true & yes \\
+					08 & sunny & mild & high & false & no \\
+					09 & sunny & cool & normal & false & yes \\
+					10 & rainy & mild & normal & false & yes \\
+					11 & sunny & mild & normal & true & yes \\
+					12 & overcast & mild & high & true & yes \\
+					13 & overcast & hot & normal & false & yes \\
+					14 & rainy & mild & high & true & no \\
+					%			\end{tabular}
+			\end{tblr}
+		\end{minipage}
+		\begin{minipage}{0.25\textwidth} 
+			\tiny\bfseries\itshape
+			\textcolor{red}{if} outlook == '\textcolor{darkgreen}{sunny}':\\
+			\hspace*{10pt}\textcolor{red}{if}  humidity == '\textcolor{darkgreen}{high}':\\
+			\hspace*{20pt}\textcolor{red}{return}  '\textcolor{darkgreen}{no}'\\
+			\hspace*{10pt}\textcolor{red}{else}: \textcolor{gray}{\# 'normal'}\\
+			\hspace*{20pt}\textcolor{red}{return} '\textcolor{darkgreen}{yes}'\\
+			\textcolor{red}{elif}  outlook == '\textcolor{darkgreen}{overcast}':\\
+			\hspace*{10pt}\textcolor{red}{return} '\textcolor{darkgreen}{yes}'\\
+			\textcolor{red}{else}: \textcolor{gray}{\# 'rainy'}\\
+			\hspace*{10pt}\textcolor{red}{if not} windy:\\
+			\hspace*{20pt}\textcolor{red}{return} '\textcolor{darkgreen}{yes}'\\
+			\hspace*{10pt}\textcolor{red}{else}:\\
+			\hspace*{20pt}\textcolor{red}{return} '\textcolor{darkgreen}{no}' 
+		\end{minipage}
+		\begin{minipage}{0.38\textwidth} 
+			\hgraphpage{exp_DT.pdf}
+		\end{minipage}
+	\end{exampleblock}
+	
+	\vspace{-6pt}
+	\begin{itemize}
+		\item \textbf{GOAL}: Create a tree by splitting the training data. The leafs must contain homogeneous samples (same class)
+		\item \textbf{Estimation}: navigate the tree from the root till a leaf based on the sample's features
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle}
+	\framesubtitle{\insertsection: Some algorithms}
 	
 	\begin{itemize}
 		\item \optword{ID3 (Iterative Dichotomiser 3)}: developed in 1986 by Ross Quinlan. It can be applied only to nominal characteristics. It is used for ranking.
@@ -237,6 +299,42 @@
 
 	\[IG(Y, X_j) = H(Y) - \sum_{v \in V_j} p(v/X_j) H(Y_{j, v})\]
 	
+	
+\end{frame}
+
+\subsection{Example}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection}
+	
+	\tiny
+	\begin{enumerate}
+		\item Create a node $ ROOT $
+		\begin{itemize}\tiny\bfseries
+			\item $ H(Y) = - p(yes \in Y) \log_2 p(yes\in Y) - p(no \in Y) \log_2 p(no\in Y)  $
+			$ = -\frac{9}{14} \log_2 \frac{9}{14} - \frac{5}{14} \log_2 \frac{5}{14} \approx\ 0.94$ (not pure)
+			%				\item $ IG(Y, outlook) = H(Y) - \sum_{v \in \{sunny, overcast, rainy\}} p(v\in A) H(Y_{v\in outlook}) $
+			\item $ IG(Y, outlook) = 0.94 - [ \underbrace{\frac{5}{14} (- \frac{3}{5} \log_2 \frac{3}{5} - \frac{2}{5} \log_2 \frac{2}{5} )}_{sunny} + \underbrace{\frac{4}{14} (- \frac{0}{4} \log_2 \frac{0}{4} - \frac{4}{4} \log_2 \frac{4}{4})}_{overcast} +  \underbrace{\frac{5}{14} (- \frac{2}{5} \log_2 \frac{2}{5} - \frac{3}{5} \log_2 \frac{3}{5})}_{rainy} ]$
+			\item $ IG(Y, outlook) \approx 0.247 , IG(Y, temp) \approx 0.029 , IG(Y, humidity) \approx 0.152 ,  IG(Y, wind) \approx 0.048 $ (outlook is the best)
+			\item split the dataset into three datasets ($ X_1, X_2, X_3 $), each will be used to create a child of $ ROOT $
+		\end{itemize}
+		
+		\item Create a node $ N_1 $ where $ X_1, Y_1 $ are split on $ X[outlook] = sunny$ (5 samples)
+		\begin{itemize}\tiny\bfseries
+			\item $ H(Y_1) = - \frac{3}{5} \log_2 \frac{3}{5} - \frac{2}{5} \log_2 \frac{2}{5} \approx\ 0.97$ (not pure)
+			\item $ IG(Y_1, temp) = 0.97 - [ \underbrace{\frac{2}{5} (- \frac{2}{2} \log_2 \frac{2}{2} - \frac{0}{2} \log_2 \frac{0}{2} )}_{hot} + \underbrace{\frac{2}{5} (- \frac{1}{2} \log_2 \frac{1}{2} - \frac{1}{2} \log_2 \frac{1}{2})}_{mild} +  \underbrace{\frac{1}{5} (- \frac{0}{1} \log_2 \frac{0}{1} - \frac{1}{1} \log_2 \frac{1}{1})}_{cool} ]$
+			\item $ IG(Y_1, temp) \approx 0.57 , IG(Y_1, humidity) \approx 0.97 ,  IG(Y_1, wind) \approx 0.02 $ (humidity is the best)
+			\item split the dataset into two datasets ($ X_{11}, X_{12}$), each will be used to create a child of $ N_1 $
+		\end{itemize}
+		
+		\item Create a node $ N_2 $ where $ X_2, Y_2 $ are split on $ X[outlook] = overcast$ (4 samples)
+		\begin{itemize}\tiny\bfseries
+			\item $ H(Y_2) = - \frac{0}{4} \log_2 \frac{0}{4} - \frac{4}{4} \log_2 \frac{4}{4} = 0$ (pure: one class)
+			\item $ N_2.class = 'yes' $
+		\end{itemize}
+		
+	\end{enumerate}
 	
 \end{frame}
 
