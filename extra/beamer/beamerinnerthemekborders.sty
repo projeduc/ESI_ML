@@ -131,7 +131,11 @@
 	\vfill
 	\begingroup
 	\centering
-	\usebeamercolor{title}
+	\ifx\insertsubtitle\@empty%
+	\else%
+	\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle\par%
+	\fi%  
+	\usebeamercolor{subtitle}
 	\begin{tcolorbox}[
 		colback=white,
 		colframe=\beamer@thc@fg,  
@@ -142,22 +146,22 @@
 		height=2cm,
 		boxsep=20pt,
 		width=\textwidth]
-		\usebeamerfont{title}
-		{\color{\beamer@thc@fg}\inserttitle}\par%
+		
 		\ifx\insertsubtitle\@empty%
+		\usebeamerfont{title}\usebeamercolor[fg]{subtitle}\inserttitle\par%
 		\else%
 		\vskip0.25em%
-		{\usebeamerfont{subtitle}\usebeamercolor{subtitle}\color{\beamer@thc@fg}\insertsubtitle\par}%
+		\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par%
 		\fi%  
 	\end{tcolorbox}
 	\vskip1em\par
-	{\usebeamerfont{author}\usebeamercolor{author}\color{\beamer@thc@fg}\insertauthor}
+	\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor
 	\par
-	{\usebeamerfont{institute}\usebeamercolor{institute}\insertinstitute}
+	\usebeamerfont{institute}\usebeamercolor[fg]{institute}\insertinstitute
 	\vskip1em\par
-	\usebeamerfont{date}\usebeamercolor{date}\insertdate
+	\usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate
 	\vskip2em\par
-	{\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+	\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par
 	\endgroup
 	\vfill
 }

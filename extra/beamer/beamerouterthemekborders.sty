@@ -37,8 +37,6 @@
 	\end{tikzpicture}%
 }
 
-
-
 % Head
 \ifbeamer@compress
 
@@ -108,15 +106,13 @@
 	\vskip1pt%
 }
 
-
-
 \defbeamertemplate*{frametitle}{kborders theme}
 {%
   \leavevmode%
   \hbox{\hskip\dimexpr-\Gm@lmargin+1pt\relax\hbox{%\leavevmode%%
   \kcolorbox{\paperwidth}{%
   	\hskip\Gm@lmargin\vbox{
-  	\usebeamerfont{frametitle}\strut\insertframetitle\strut\par%
+  	\usebeamerfont{frametitle}\vskip2pt\strut\insertframetitle\strut\par%
   	\ifx\insertframesubtitle\@empty\else%
   	{\usebeamerfont*{framesubtitle}{\usebeamercolor{framesubtitle}\insertframesubtitle}\strut\par}%
   	\fi%

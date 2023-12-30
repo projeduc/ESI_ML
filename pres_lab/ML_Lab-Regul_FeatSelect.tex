@@ -3,7 +3,7 @@
 % !TEX encoding = UTF-8
 % !TeX spellcheck = en_US
 
-\documentclass[xcolor=table]{beamer}
+\documentclass[xcolor=table]{beamer}%, aspectratio = 169
 
 \usepackage{../extra/beamer/karimml}
 
@@ -11,89 +11,92 @@
 
 \usepackage{cancel}
 
-\subtitle[Regularization and feature selection] %
-{Regularization and feature selection} 
+\subtitle[Regularization and feature selection]{Regularization and feature selection} 
 
 \changegraphpath{../img/regsel/}
 
 \begin{document}
 	
 \begin{frame}
-	\frametitle{Machine Learning}
-	\framesubtitle{Régularisation et sélection d'attributs  (support TP) : Introduction}
+	\frametitle{\inserttitle}
+	\framesubtitle{\insertshortsubtitle: Introduction}
 	
 	\begin{itemize}
-		\item Vous avez vu en cours ...
+		\item You saw in the lecture ...
 		\begin{itemize}
-			\item le problème de sur-apprentissage ;
-			\item la régularisation par pénalité (L2 comme exemple) ;
-			\item les différentes approches de sélection d'attributs.
+			\item the overfitting problem;
+			\item regularization by penalty (L2 as an example);
+			\item the different approaches to feature selection.
 		\end{itemize}
-		\item Dans ce support de TP, on va présenter ...
+		\item In this lab support, we will present ...
 		\begin{itemize}
-			\item quelques approches de régularisation ;
-			\item trois techniques de régularisation par pénalité ;
-			\item un rappel sur les approches de sélection d'attributs
-			\item du détail des techniques de chaque approche (avec exemple de scikit-learn)
+			\item some regularization approaches;
+			\item three penalty regularization techniques;
+			\item a reminder about feature selection approaches
+			\item detailing the techniques of each approach (with example from scikit-learn)
 		\end{itemize}
 	\end{itemize}
+	
 \end{frame}
 
 
 \begin{frame}
-	\frametitle{Machine Learning}
-	\framesubtitle{Régularisation et sélection d'attributs (support TP) : Plan}
+	\frametitle{\inserttitle}
+	\framesubtitle{\insertshortsubtitle: Plan}
 	
 	\begin{multicols}{2}
 		%	\small
 		\tableofcontents
 	\end{multicols}
+
 \end{frame}
 
-\section{Régularisation}
+\section{Regularization}
 
 \begin{frame}
-	\frametitle{Régularisation}
-	
+	\frametitle{\insertshortsubtitle}
+	\framesubtitle{\insertsection}
+
 	\begin{itemize}
-		\item utilisée pour réduire le sur-apprentissage 
-		\item peut causer une convergence plus rapide
-		\item \optword{Par augmentation} : ajouter plus de données
+		\item used to reduce overfitting
+		\item can cause faster convergence
+		\item \optword{By augmentation}: add more data
 		\begin{itemize}
-			\item génération automatique des données 
-			\item Ex. \expword{Générer de nouvelles images par rotation}
+			\item automatic data generation
+			\item Ex. \expword{Generate new images by rotation}
 		\end{itemize}
-		\item \optword{Early stopping} : utiliser la validation dans la décision d'arrêt
+		\item \optword{Early stopping}: use validation in the stopping decision
 		\begin{itemize}
-			\item entrainer sur un dataset et utiliser un autre pour la validation dans chaque itération
-			\item lorsque l'erreur de validation augmente, on s'arrête
+			\item train on one dataset and use another for validation in each iteration
+			\item when the validation error increases, stop
 		\end{itemize}
-		\item \optword{Par pénalité} : ajouter une pénalité à la fonction objective
+		\item \optword{By penalty}: add a penalty to the objective function
 		\begin{itemize}
-			\item réduire la complexité du modèle
-			\item en ajoutant une autre contrainte sur les paramètres (pénalité)
+			\item reduce model complexity
+			\item by adding another constraint on the parameters (penalty)
 		\end{itemize}
 	\end{itemize}
 	
 \end{frame}
 
 \begin{frame}
-	\frametitle{Régularisation (par pénalité)}
+	\frametitle{\insertshortsubtitle}
+	\framesubtitle{\insertsection: By penalty}
 	
 	\[
 	\begin{cases}
-	\min J_\text{erreur}(\theta) & \\
-	\wedge  & \Rightarrow \min J_\text{erreur}(\theta) + J_\text{complexité}(\theta)\\
-	\min J_\text{complexité}(\theta) \\
+	\min J_\text{cost}(\theta) & \\
+	\wedge  & \Rightarrow \min J_\text{cost}(\theta) + J_\text{complexity}(\theta)\\
+	\min J_\text{complexity}(\theta) \\
 	\end{cases}
 	\]
-	
+
 	\begin{itemize}
-		\item minimiser la complexité par augmentation du biais : $\theta_0$ n'a pas de contrainte, donc le modèle lui donne plus d'importance lors de l'entrainement
-		\item la pénalité sur la complexité utilise un hyper-paramètre $\lambda$
+		\item minimize the complexity by increasing the bias: $\theta_0$ has no constraint, so the model gives it more importance during training
+		\item the complexity penalty uses a hyper-parameter $\lambda$
 		\begin{itemize}
-			\item si $\lambda$ est trop grand, le modèle sera trop simple (non dépendant aux attributs). Donc, \keyword{sous-apprentissage}.
-			\item si $\lambda$ est trop petit, le modèle sera trop complexe (trop dépendant aux attributs). Donc, \keyword{sur-apprentissage}.
+			\item if $\lambda$ is too big, the model will be too simple (not dependent on attributes). So, \keyword{underfitting}.
+			\item if $\lambda$ is too small, the model will be too complex (too dependent on attributes). So, \keyword{overfitting}.
 		\end{itemize}
 	\end{itemize}
 	
@@ -102,22 +105,22 @@
 \subsection{Ridge}
 
 \begin{frame}
-	\frametitle{Régularisation et sélection d'attributs (support TP)}
-	\framesubtitle{Ridge (Régularisation de Tikhonov, L2 loss)}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Tikhonov regularization, L2 loss}
 	
 	\begin{columns}
-		\begin{column}{.6\textwidth}
+		\begin{column}{.64\textwidth}
 			\[J_{L2} = \frac{\lambda}{2M} \sum_{j=1}^{N} \theta_j^2\]
 	
 			\begin{itemize}
-				\item $\theta_0$ n'est pas concerné par la régularisation
-				\item $\theta_j$ converge vers $0$, mais n'égale pas $0$
+				\item $\theta_0$ is not affected by regularization
+				\item $\theta_j$ converges to $0$, but does not equal $0$
 				\item $\lambda \rightarrow \infty \Rightarrow \theta_j \rightarrow 0$
-				\item $L2$ essaye de tirer les valeurs des $\theta$ à l'intérieur d'un sphère
-				\item la taille du sphère est inversement proportionnelle à $\lambda$
+				\item $L2$ tries to pull the values of $\theta$ inside a sphere
+				\item the size of the sphere is inversely proportional to $\lambda$
 			\end{itemize}
 		\end{column}
-		\begin{column}{.4\textwidth}
+		\begin{column}{.35\textwidth}
 			\hgraphpage{L1L2comp.png}
 		\end{column}
 	\end{columns}
@@ -127,23 +130,23 @@
 \subsection{Lasso}
 
 \begin{frame}
-	\frametitle{Régularisation et sélection d'attributs (support TP)}
-	\framesubtitle{Lasso (L1 loss)}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: L1 loss}
 	
 	\begin{columns}
-		\begin{column}{.6\textwidth}
+		\begin{column}{.64\textwidth}
 			\[J_{L1} = \frac{\lambda}{M} \sum_{j=1}^{N} |\theta_j|\]
 	
 			\begin{itemize}
 				\item least absolute shrinkage and selection operator
-				\item $\theta_0$ n'est pas concerné par la régularisation
-				\item $\theta_j$ s'annule après quelques itérations (il va durer selon l'importance de son attribut)
+				\item $\theta_0$ is not affected by regularization
+				\item $\theta_j$ is canceled after a few iterations (it will last depending on the importance of its attribute)
 				\item $it \rightarrow \infty \Rightarrow \theta_j = 0$
-				\item $L1$ essaye de tirer les valeurs des $\theta$ à l'intérieur d'un cube
-				\item la taille du cube est inversement proportionnelle à $\lambda$
+				\item $L1$ tries to pull the values of $\theta$ inside a cube
+				\item the size of the cube is inversely proportional to $\lambda$
 			\end{itemize}
 		\end{column}
-		\begin{column}{.4\textwidth}
+		\begin{column}{.35\textwidth}
 			\hgraphpage{L1L2comp.png}
 		\end{column}
 	\end{columns}
@@ -151,16 +154,16 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Régularisation et sélection d'attributs (support TP)}
-	\framesubtitle{Lasso : optimisation}
-	
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Optimization}
+
 	\begin{itemize}
-		\item L1 n'est pas différentielle dans $0$
-		\item Plusieurs techniques ont été proposées pour trouver le chemin de solution $L1$
+		\item L1 is not differential in $0$
+		\item Several techniques have been proposed to find the solution path $L1$
 		\begin{itemize}
-			\item méthodes de sous-gradients; ex. \expword{least-angle regression (LARS)}
-			\item descente par coordonnée
-			\item méthodes de gradient proximal (par opérateur \keyword{soft thresholding})
+			\item Subgradient methods; ex. \expword{least-angle regression (LARS)}
+			\item Coordinate descent
+			\item Proximal gradient methods (by operator \keyword{soft thresholding})
 		\end{itemize}
 	\end{itemize}
 
@@ -173,8 +176,8 @@
 	\]
 	
 	\begin{itemize}
-		\item Dans le cas du gradient proximal, la mise à jour des paramètres se fait comme suit : 
-		\item $\theta = S_\frac{\lambda}{M} (\theta - \alpha \frac{\partial}{\partial \theta} J_\text{erreur}(\theta)) $
+		\item In case of the proximal gradient, the parameters are updated as follows: 
+		\item $\theta = S_\frac{\lambda}{M} (\theta - \alpha \frac{\partial}{\partial \theta} J_\text{cost}(\theta)) $
 	\end{itemize}
 	
 \end{frame}
@@ -182,77 +185,79 @@
 \subsection{ElasticNet}
 
 \begin{frame}
-	\frametitle{Régularisation et sélection d'attributs (support TP)}
-	\framesubtitle{ElasticNet}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection}
 	
 	\[J_{EN} = \frac{\lambda}{M} \sum_{j=1}^{N} \left( r  |\theta_j| + \frac{(r-1)}{2} \theta_j^2\right)\]
 	
+
 	\begin{itemize}
-		\item $\theta_0$ n'est pas concerné par la régularisation
-		\item $r \in [0, 1]$ contrôle le pourcentage de la régularisation $L1$
+		\item $\theta_0$ is not affected by regularization
+		\item $r \in [0, 1]$ controls the percentage of $L1$ regularization
 	\end{itemize}
 	
 \end{frame}
 
-\section{Sélection d'attributs}
+\section{Feature selection}
 
 \begin{frame}
-	\frametitle{Sélection d'attributs}
+	\frametitle{\insertshortsubtitle}
+	\framesubtitle{\insertsection}
 	
 	\begin{itemize}
-		\item réduire le sur-apprentissage 
-		\item réduire le temps d'entraînement
-		\item améliorer l'exactitude du système
-		\item \optword{Filtrage} : indépendamment de l'estimateur, on sélectionne les meilleurs attributs en se basant sur des tests statistiques uni-variées
-		\item \optword{Intégrées (embedded)} : les attributs sont sélectionnés pendant l'entraînement
-		\item \optword{Enveloppante (Wrapper)} : on sélectionne les meilleurs attributs pour un estimateur donné avant d'entraîner
+		\item can reduce overfitting: the model can overfit over noise features 
+		\item can improve system accuracy
+		\item reduce training time
+		\item \optword{Filter}: independently of the estimator, the best features are selected based on univariate statistical tests
+		\item \optword{Embedded}: the best features are selected during training
+		\item \optword{Wrapper}: the best features are selected for a given estimator before training
 	\end{itemize}
 	
 \end{frame}
 
-\subsection{Par filtrage}
+\subsection{Filter}
 
 \begin{frame}
-	\frametitle{Sélection d'attributs}
-	\framesubtitle{Par filtrage : score}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Score}
 	
-	\begin{tabular}{|p{0.4\textwidth}|p{0.2\textwidth}|p{0.3\textwidth}|}
-	\hline
-	\multirow{2}{*}{Attribut de sortie}	& \multicolumn{2}{c|}{Attribut d'entrée} \\
+	\begin{tabular}{p{0.2\textwidth}p{0.3\textwidth}p{0.3\textwidth}}
+%	\hline
+	& \multicolumn{2}{c}{Input} \\
 	\cline{2-3}
-		& Numérique & Nominal \\
+	Output	& Numerical & Categorical \\
 	\hline
-	Numérique (Régression) & Pearson & Information mutuelle \\
+	Numerical \linebreak(Regression) & Pearson & Mutual information \\
 	\hline
-	Nominal (Classification) & ANOVA, Information mutuelle & Chi-2, Information mutuelle\\
+	Categorical \linebreak(Classification) & ANOVA, \linebreak Mutual information & Chi-2, \linebreak Mutual information\\
 	\hline
 	\end{tabular}
 
 	\begin{itemize}
-		\item \optword{Pearson} : \expword{sklearn.feature\_selection.f\_regression}
-		\item \optword{ANOVA} : \expword{sklearn.feature\_selection.f\_classif}
-		\item \optword{Chi2} : \expword{sklearn.feature\_selection.chi2}
-		\item \optword{Information mutuelle} : \expword{feature\_selection.mutual\_info\_classif}
-		\item \optword{Information mutuelle} : \expword{feature\_selection.mutual\_info\_regression}
+		\item \optword{Pearson}: \expword{sklearn.feature\_selection.f\_regression}
+		\item \optword{ANOVA}: \expword{sklearn.feature\_selection.f\_classif}
+		\item \optword{Chi2}: \expword{sklearn.feature\_selection.chi2}
+		\item \optword{Mutual information}: \expword{feature\_selection.mutual\_info\_classif}
+		\item \optword{Mutual information}: \expword{feature\_selection.mutual\_info\_regression}
 	\end{itemize}
 	
 \end{frame}
 
 \begin{frame}
-	\frametitle{Sélection d'attributs}
-	\framesubtitle{Par filtrage : sélection}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Selection}
 	
 	\begin{itemize}
-		\item En se basant sur les scores précédents, on peut sélectionner les attributs les plus importants de plusieurs façons
-		\item \optword{Nombre} : nombre des attributs à sélectionner
+		\item Based on previous scores, the most important features can be selected in several ways
+		\item \optword{Number}: number of features to select
 		\begin{itemize}
 			\item \expword{sklearn.feature\_selection.SelectKBest}
 		\end{itemize}
-		\item \optword{Percentile} : centile des scores les plus élevés.
+		\item \optword{Percentile}: percentile of highest scores.
 		\begin{itemize}
 			\item \expword{sklearn.feature\_selection.SelectPercentile}
 		\end{itemize}
-		\item \optword{P-value} : seuil max des p-values acceptées
+		\item \optword{P-value}: max threshold of accepted p-values
 		\begin{itemize}
 			\item \expword{sklearn.feature\_selection.SelectFpr}
 		\end{itemize}
@@ -261,84 +266,83 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Sélection d'attributs}
-	\framesubtitle{Par filtrage : One-Way ANOVA (raisonnement)}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: One-Way ANOVA (logic)}
 	
 	\begin{itemize}
-		\item COMPLETELY RANDOM DESIGN (CRD) 
-		\item Étant donné un attribut $A$ ($M$ échantillons) avec des valeurs continues (réelles)
-		\item on divise ses valeurs sur des ensembles $A_j$ où $j$ est une classe parmi les $N$ classes. On les appelles \keyword{Treatements}
-		\item un attribut est représentatif (bien corrélé) des classes de sortie, si ..
+		\item Given a feature $A$ ($M$ samples) with numerical values
+		\item the values are split on sets $A_j$ where $j$ is a class among $N$ classes. We call them \keyword{Treatments}
+		\item an attribute is representative (well correlated) of the output classes, if ...
 		\begin{itemize}
-			\item les valeurs de la même classe ont moins de variance (variance intra-classe)
-			\item les valeurs des classes ont plus de variance avec le reste (variance inter-classes)
-			\item \textbf{DONC}, le ratio (variance inter-classes)/(variance intra-classe) doit être grand
-			\item On appelle ce ratio : \keyword{F-value} d'ANOVA
+			\item values of the same class have less variance (intra-class variance)
+			\item class values have more variance with the rest (inter-class variance)
+			\item \textbf{SO}, the ratio (inter-class variance)/(intra-class variance) must be large
+			\item We call this ratio: \keyword{F-value} of ANOVA
 		\end{itemize}
 	\end{itemize}
 	
 \end{frame}
 
 \begin{frame}
-	\frametitle{Sélection d'attributs}
-	\framesubtitle{Par filtrage : One-Way ANOVA (Calcul)}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: One-Way ANOVA (math)}
 	
 	\begin{itemize}
-		\item Correlation factor : $CF = \frac{(\sum_{ij} A_{ij})^2}{M} $
-		\item Total Sum of Squares : $TotalSS = \sum_{ij} A_{ij}^2 - CF$
-		\item Treatment Sum of Squares : $TreatmentSS = \sum_j \frac{(\sum_{i} A_{ij})^2}{|A_j|} - CF$
-		\item Error Sum of Squares : $ErrorSS = TotalSS - TreatmentSS$
-		\item Mean of Squares Between : $MSB = \frac{TreatmentSS}{(N - 1)}$
-		\item Mean of Squares Within : $MSW =  \frac{ErrorSS}{(M - N)}$
+		\item Correlation factor: $CF = \frac{(\sum_{ij} A_{ij})^2}{M} $
+		\item Total Sum of Squares: $TotalSS = \sum_{ij} A_{ij}^2 - CF$
+		\item Treatment Sum of Squares: $TreatmentSS = \sum_j \frac{(\sum_{i} A_{ij})^2}{|A_j|} - CF$
+		\item Error Sum of Squares: $ErrorSS = TotalSS - TreatmentSS$
+		\item Mean of Squares Between: $MSB = \frac{TreatmentSS}{(N - 1)}$
+		\item Mean of Squares Within: $MSW =  \frac{ErrorSS}{(M - N)}$
 		\item $Fvalue = \frac{MSB}{MSW}$
 	\end{itemize}
 	
 \end{frame}
 
-\subsection{Intégrées (Embedded)}
+\subsection{Embedded}
 
 \begin{frame}
-	\frametitle{Sélection de données}
-	\framesubtitle{Intégrées (Embedded)}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection}
 	
 	\begin{itemize}
-		\item \optword{Arbres de décision}
+		\item \optword{Decision trees}
 		\begin{itemize}
-			\item Dans chaque nœud, on choisi le meilleur attribut pour éclater l'ensemble de sortie.
-			\item Certains attributs ne vont pas être considérés.
-			\item Finalement, l'arbre n'utilisera que les attributs avec grande capacité de séparation.
+			\item In each node, the best split feature is chosen.
+			\item Certain features will not be considered.
+			\item Finally, the tree will only use features with high separation capacity.
 		\end{itemize}
-		\item \optword{Régularisation L1}
+		\item \optword{L1 regularization}
 		\begin{itemize}
-			\item Elle force les paramètres thétas à avoir des petites valeurs.
-			\item Dans L1, certains paramètres sont mises à 0 après convergence.
-			\item Dans ce cas, lors de l'estimation le modèle ne tient as compte les attributs avec des paramètres nuls.
+			\item It forces parameters to have small values.
+			\item In L1, certain parameters are set to 0 after convergence.
+			\item In this case, during the estimation the model does not take into account features with parameters of zero.
 		\end{itemize}
 	\end{itemize}
 	
 \end{frame}
 
-\subsection{Enveloppante (Wrapper)}
+\subsection{Wrapper}
 
 \begin{frame}
-	\frametitle{Sélection de données}
-	\framesubtitle{Enveloppante (Wrapper)}
-	
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection}
+
 	\begin{itemize}
-		\item utiliser un estimateur et essayer de trouver la combinaison des attributs avec plus de performance
+		\item use an estimator and try to find feature combination giving more performance
 		\expword{sklearn.feature\_selection.SequentialFeatureSelector}
-		\item \optword{Ascendante (Forward selection)}
+		\item \optword{Ascending (Forward selection)}
 		\begin{itemize}
-			\item l'ensemble initial des attribut est vide
-			\item commence par sélectionner un seul attribut qui maximise la cross-validation
-			\item ajoute des attributs de la même manière jusqu'à arriver au nombre voulu
+			\item the initial set of features is empty
+			\item start by selecting a single feature that maximizes cross-validation
+			\item add more features in the same way until reaching the desired number
 			\item \expword{SequentialFeatureSelector(direction="forward")}
 		\end{itemize}
-		\item \optword{Descendante (Backward elimination)}
+		\item \optword{Backward elimination}
 		\begin{itemize}
-			\item l'ensemble initial des attribut égale à $N$
-			\item commence par éliminer un seul attribut qui minimise la cross-validation
-			\item élimine des attributs de la même manière jusqu'à arriver au nombre voulu
+			\item the initial set of features equals to $N$
+			\item start by eliminating a single feature which minimizes cross-validation
+			\item eliminate more features in the same way until reaching the desired number
 			\item \expword{SequentialFeatureSelector(direction="backward")}
 		\end{itemize}
 	\end{itemize}
@@ -346,24 +350,24 @@
 \end{frame}
 
 
-\begin{frame}
+\begin{frame}[plain]
 	
-	\Huge 
+	\huge 
 	\[
-	\text{The end of the } \cancelto{\text{presentation}}{\text{world}}
+	\hspace{-4cm}\text{The end of the } \cancelto{\text{presentation}}{\text{world}}
 	\]
 	
 \end{frame}
 
-\begin{frame}
+\begin{frame}[plain]
 	
 	\begin{center}
 		\Huge 
-		arrêter le défilement 
+		Stop scrolling
 		
 		... 
 		
-		c'est la fin !
+		It is the end!
 	\end{center}
 	
 \end{frame}

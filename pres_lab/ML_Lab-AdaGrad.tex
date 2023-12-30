@@ -1,7 +1,7 @@
 % !TEX TS-program = pdflatex
 % !TeX program = pdflatex
 % !TEX encoding = UTF-8
-% !TEX spellcheck = fr
+% !TeX spellcheck = en_US
 
 \documentclass[xcolor=table]{beamer}
 
@@ -9,44 +9,44 @@
 
 \input{options}
 
-\subtitle[Multinomial regression and AdaGrad]{Multinomial regression and AdaGrad} 
+\subtitle[MultiReg. \& AdaGrad]{Multinomial regression and AdaGrad} 
 
 \changegraphpath{../img/rlmul-adagrad/}
 
 \begin{document}
 	
 \begin{frame}
-	\frametitle{Machine Learning}
-	\framesubtitle{Régression logistique multinomiale et AdaGrad : Introduction}
+	\frametitle{\inserttitle}
+	\framesubtitle{\insertshortsubtitle: Introduction}
 	
 	\begin{itemize}
-		\item Nous avons vu ...
+		\item We saw ...
 		\begin{itemize}
-			\item comment estimer la probabilité d'une classe
-			\item en utilisant la régression logistique
-			\item dans le cas binaire (appartient à une classe ou hors classe)
+			\item how to estimate the probability of a class
+			\item using logistic regression
+			\item in the binary case (belonging to a class or not)
 		\end{itemize}
-		\item Mais ...
+		\item But ...
 		\begin{itemize}
-			\item comment faire lorsqu'il y a plusieurs classes ?
+			\item what to do when there are several classes?
 		\end{itemize}
-		\item Nous avons vu ...
+		\item We saw ...
 		\begin{itemize}
-			\item comment optimiser la fonction objective
-			\item en utilisant la descente du gradient
-			\item avec un taux d'apprentissage fixe
+			\item how to optimize the objective function
+			\item using gradient descent
+			\item with a fixed learning rate
 		\end{itemize}
-		\item Mais ...
+		\item But ...
 		\begin{itemize}
-			\item est-ce qu'on peut régler ce taux automatiquement ?
+			\item can we adjust this rate automatically?
 		\end{itemize}
 	\end{itemize}
 \end{frame}
 
 
 \begin{frame}
-	\frametitle{Machine Learning}
-	\framesubtitle{Régression logistique multinomiale et AdaGrad : Plan}
+	\frametitle{\inserttitle}
+	\framesubtitle{\insertshortsubtitle: Plan}
 	
 	\begin{multicols}{2}
 		%	\small
@@ -54,40 +54,42 @@
 	\end{multicols}
 \end{frame}
 
-\section{Régression logistique multinomiale}
-
-\subsection{Rappel- Régression logistique binaire}
+\section{Binary logistic regression (review)}
 
 \begin{frame}
-	\frametitle{Régression logistique multinomiale}
-	\framesubtitle{Rappel- Régression logistique binaire}
+	\frametitle{\insertshortsubtitle}
+	\framesubtitle{\insertsection}
 	
 	\hgraphpage{RLbin.pdf}
 	
 \end{frame}
 
+\subsection{Probability estimation}
+
 \begin{frame}
-\frametitle{Régression logistique multinomiale}
-\framesubtitle{Rappel- Régression logistique binaire : Estimation de la probabilité}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection}
 
-\[Z = \sum_{j=1}^{N} \theta_j X_j = X \cdot \theta\]
-\begin{itemize}
-	\item $Z[M]$ est un vecteur de $M$ éléments (échantillons)
-	\item $X[M, N]$ est une matrice de $M$ échantillons et $N$ caractéristiques
-	\item $\theta[N]$ est un vecteur des paramètres de $N$ caractéristiques
-\end{itemize}
+	\[Z = \sum_{j=1}^{N} \theta_j X_j = X \cdot \theta\]
+	\begin{itemize}
+		\item $Z[M]$ est un vecteur de $M$ éléments (échantillons)
+		\item $X[M, N]$ est une matrice de $M$ échantillons et $N$ caractéristiques
+		\item $\theta[N]$ est un vecteur des paramètres de $N$ caractéristiques
+	\end{itemize}
 
-\[H = \sigma(Z) = \frac{1}{1+e^{-Z}}\]
+	\[H = \sigma(Z) = \frac{1}{1+e^{-Z}}\]
 
-\begin{itemize}
-	\item $H[M]$ est un vecteur de $M$ probabilités (échantillons)
-\end{itemize}
+	\begin{itemize}
+		\item $H[M]$ est un vecteur de $M$ probabilités (échantillons)
+	\end{itemize}
 
 \end{frame}
 
+\subsection{Error and gradient}
+
 \begin{frame}
-	\frametitle{Régression logistique multinomiale}
-	\framesubtitle{Rappel- Régression logistique binaire : Erreur et gradient}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection}
 	
 	\[J_\theta = BCE = \frac{-1}{M} \sum\limits_{i=1}^{M} [Y^{(i)} \log(H^{(i)}) + (1- Y^{(i)}) \log(1 - H^{(i)})]\]
 	\begin{itemize}
@@ -111,8 +113,8 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Régression logistique multinomiale}
-	\framesubtitle{Rappel- Régression logistique binaire : gradient (dérivation)}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: gradient (derivation)}
 	
 	\scriptsize
 	\vspace{-16pt}
@@ -141,9 +143,11 @@
 		
 \end{frame}
 
+\subsection{Parameters' update}
+
 \begin{frame}
-	\frametitle{Régression logistique multinomiale}
-	\framesubtitle{Rappel- Régression logistique binaire : Mise à jours des paramètres}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection}
 	
 	\[\theta = \theta - \alpha \frac{\partial J_\theta}{\partial \theta}\]
 	
@@ -155,29 +159,48 @@
 	
 \end{frame}
 
-\subsection{Régression logistique multinomiale (One-vs-Rest)}
+\section{Multinomial logistic regression}
 
 \begin{frame}
-	\frametitle{Régression logistique multinomiale}
-	\framesubtitle{Régression logistique multinomiale (One-vs-Rest)}
+	\frametitle{\insertshortsubtitle}
+	\framesubtitle{\insertsection}
+	
+	
+\end{frame}
+
+\subsection{Maximum entropy}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection}
 	
 	\hgraphpage{RLovr.pdf}
 	
 \end{frame}
 
-\subsection{Régression logistique multinomiale (One-vs-One)}
+\subsection{One-vs-Rest}
 
 \begin{frame}
-	\frametitle{Régression logistique multinomiale}
-	\framesubtitle{Régression logistique multinomiale (One-vs-One)}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection}
+	
+	\hgraphpage{RLovr.pdf}
+	
+\end{frame}
+
+\subsection{One-vs-One}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection}
 	
 	\hgraphpage{RLovo.pdf}
 	
 \end{frame}
 
 \begin{frame}
-	\frametitle{Régression logistique multinomiale}
-	\framesubtitle{Régression logistique multinomiale (One-vs-One) : Estimation de la probabilité}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Probability estimation}
 	
 	\[Z = \sum_{j=1}^{N} \theta_j X_j = X \cdot \theta\]
 	\begin{itemize}
@@ -195,8 +218,8 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Régression logistique multinomiale}
-	\framesubtitle{Régression logistique multinomiale (One-vs-One) : Erreur et gradient}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Error and gradient}
 	
 	\[J_\theta = \frac{-1}{M} \sum\limits_{i=1}^{M} \sum_{k=1}^{L} Y^{(i)}_k \log(H^{(i)}_k)\]
 	\begin{itemize}
@@ -220,8 +243,8 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Régression logistique multinomiale}
-	\framesubtitle{Régression logistique multinomiale (One-vs-One) : Mise à jours des paramètres}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Parameters' update}
 	
 	\[\theta = \theta - \alpha \frac{\partial J_\theta}{\partial \theta}\]
 	
@@ -235,11 +258,18 @@
 
 \section{AdaGrad}
 
-\subsection{Rappel- Descente du gradient}
+\begin{frame}
+	\frametitle{\insertshortsubtitle}
+	\framesubtitle{\insertsection}
+	
+	
+\end{frame}
+
+\subsection{Gradient descent (review)}
 
 \begin{frame}
-	\frametitle{AdaGrad}
-	\framesubtitle{Rappel- Descente du gradient}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection}
 	
 \begin{columns}
 \begin{column}{.7\textwidth}
@@ -265,8 +295,8 @@
 \subsection{AdaGrad}
 
 \begin{frame}
-	\frametitle{AdaGrad}
-	\framesubtitle{Descente du gradient adaptative (AdaGrad)}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection}
 \begin{columns}
 \begin{column}{.7\textwidth}
 	\begin{algorithm}[H]
