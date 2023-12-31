@@ -1,0 +1,295 @@
+% !TEX TS-program = pdflatex
+% !TeX program = pdflatex
+% !TEX encoding = UTF-8
+% !TeX spellcheck = en_US
+
+\documentclass[xcolor=table]{beamer}
+
+\usepackage{../extra/beamer/karimml}
+
+\input{options}
+
+\subtitle[SVM]{Support vector machine (SVM)} 
+
+\changegraphpath{../img/svm/}
+
+\begin{document}
+	
+\begin{frame}
+	\frametitle{\inserttitle}
+	\framesubtitle{\insertshortsubtitle: Introduction}
+	
+	\begin{itemize}
+		\item We have already seen ...
+		\begin{itemize}
+			\item logistic regression searches a linear separation between two classes
+			\item it draws a hyperplane between them
+			\item there could be many possible hyperplanes
+		\end{itemize}
+		\item But ...
+		\begin{itemize}
+			\item how about drawing a hyperplane which has the same distance from the two classes
+		\end{itemize}
+
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{\inserttitle}
+	\framesubtitle{\insertshortsubtitle: Plan}
+	
+	\begin{multicols}{2}
+		%	\small
+		\tableofcontents
+	\end{multicols}
+\end{frame}
+
+\section{Problem definition}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle}
+	\framesubtitle{\insertsection}
+	
+	\begin{minipage}{0.75\textwidth} 
+		\begin{itemize}
+			\item in logistic regression, the hyperplane's equation is $ \sigma(z = \theta_0 + \sum_{j=1}^{N} \theta_j x_j) = 0.5 $
+			\item we want it to be $ z = \theta_0 + \sum_{j=1}^{N} \theta_j x_j = 0 $
+			\item in this case, $ y \in \{-1, +1\} $
+			\item thus, $ z^{(i)} \ge 1 \Rightarrow \hat{y}^{(i)} = 1 $ and $ z^{(i)} \le -1 \Rightarrow \hat{y}^{(i)} = -1 $
+		\end{itemize}
+	\end{minipage}
+	\begin{minipage}{0.24\textwidth} 
+		\hgraphpage{SVM_primal.pdf}
+	\end{minipage}
+	
+	\begin{itemize}
+		\item the space between $ -1 $ and $ +1 $ is a margin which equals $ \frac{2}{||\theta||} $
+		\item the idea is to maximize this margin, thus minimizing $ \frac{||\theta||^2}{2} $
+	\end{itemize}
+	
+\end{frame}
+
+\subsection{Hard-margin}
+
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection}
+	
+	\begin{itemize}
+		\item $ z^{(i)} \ge 1 \Rightarrow \hat{y}^{(i)} = 1 $ and $ z^{(i)} \le -1 \Rightarrow \hat{y}^{(i)} = -1 $
+		\item So, $ \hat{y}^{(i)} = sign(z^{(i)}) $ where $ z^{(i)} \in ]-\infty, +\infty[ $
+		\item we want, $ y^{(i)} =  \hat{y}^{(i)} $ where $ y^{(i)} \in \{-1, +1\} $ 
+		\item in this case, $ y^{(i)} \hat{y}^{(i)} = 1 $, thus $ y^{(i)} z^{(i)} \ge 1 $
+		\item the optimization problem will be formulated as:
+		\begin{align*}
+			& \min_\theta \frac{||\theta||^2}{2}  \\
+			& \text{subject to } y^{(i)} z^{(i)} \ge 1,\ \forall i \in {1 \cdots M} \\
+		\end{align*}
+		
+		\item in this case, no sample must be inside the margin; even the ones in the correct side
+	\end{itemize}
+	
+\end{frame}
+
+\subsection{Soft-margin}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection}
+	
+	\begin{itemize}
+		\item when $y^{(i)} z^{(i)} < 1 $ there are two possible interpretations 
+		\item $y^{(i)} z^{(i)} < 0 $ the sample is on the wrong side of the decision vector
+		\item $0 \ge y^{(i)} z^{(i)} < 1 $ it is on the correct side, but it is inside the margin 
+		\item to allow this second case, \keyword{hinge loss} is used:
+		\[\max (0, 1 - y^{(i)} z^{(i)})\]
+		\item then, the goal will be to minimize this loss function:
+		\[\lambda \frac{||\theta||^2}{2}  + \frac{1}{M} \sum_{i=1}^{M} \max (0, 1 - y^{(i)} z^{(i)}) \]
+		\item $ \lambda $ is trad-off between increasing the margin size and having samples on the correct side
+	\end{itemize}
+	
+\end{frame}
+
+
+\section{Primal form}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle}
+	\framesubtitle{\insertsection}
+	
+	\begin{minipage}{0.70\textwidth} 
+		\begin{itemize}
+			\item Draw a decision line between two classes $ y $ 
+			\item Maximize the margin between the two classes.
+			\item Use linear combination over features $ x $ like LR. 
+			\item Based on the coordinates $ x $, a sample belongs to a given class if it is located on its side
+		\end{itemize}
+	\end{minipage}
+	\begin{minipage}{0.29\textwidth} 
+		\hgraphpage{SVM_primal.pdf}
+	\end{minipage}
+	
+
+\end{frame}
+
+\subsection{Cost function}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection}
+	
+	\begin{itemize}
+		\item The loss function can be formulated as 
+		\[J_\theta = \frac{||\theta||^2}{2}  +  C \sum_{i=1}^{M} \max (0, 1 - y^{(i)} z^{(i)}) \]
+		\item $ C $ is inversely related to $ \lambda $
+		\item when $ C $ is big, having samples on the correct side is preferred over having a big margin
+		\item when $ C $ is small, having having a big margin is preferred over samples on the correct side
+	\end{itemize}
+	
+	\[\frac{\partial J_\theta}{\partial \theta_{j}} = \theta_j + \frac{1}{M} \sum\limits_{i=1}^{M} \begin{cases}
+		0 & \text{if } y^{(i)} z^{(i)} \ge 1\\
+		- C x^{(i)}_j y^{(i)} & \text{otherwise}  \\
+	\end{cases}\]
+	
+\end{frame}
+
+\subsection{Class estimation}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection}
+	
+	\begin{itemize}
+		\item Once the model trained, $ z^{(i)} = 0 $ will be the decision hyperplane
+		\item we define the sign function as $ sign(x) = \begin{cases}
+			1 & \text{if } x \ge 0\\
+			-1 & \text{otherwise}\\
+		\end{cases} $
+		\item $ \hat{y} = sign(z)$
+		\item $ z = \theta_0 + \sum_{j=1}^{N} \theta_j x_j $
+	\end{itemize}
+	
+	
+\end{frame}
+
+\subsection{Optimization algorithms}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection}
+	
+	\begin{itemize}
+		\item Since the loss function is differentiable, \keyword{Gradient descent} can be used
+	\end{itemize}
+	
+\end{frame}
+
+
+\section{Dual form}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle}
+	\framesubtitle{\insertsection}
+	
+	\begin{minipage}{0.70\textwidth} 
+		\begin{itemize}
+			\item Draw a decision line between two classes $ y $ 
+			\item Maximize the margin between the two classes.
+			\item Use similarity of the new sample with training samples. 
+			\begin{itemize}
+				\item If it is more similar to positive samples, then its class is positive
+				\item If it is more similar to negative samples, then its class is negative
+			\end{itemize}
+			\item The similarities does not have the same weight
+			\begin{itemize}
+				\item If the new sample is similar to a training sample which is far from the other class, then its class is more likely to be similar
+				\item If the new sample is similar to a training sample which is near the other class, then its class is less likely to be similar
+			\end{itemize}
+		\end{itemize}
+	\end{minipage}
+	\begin{minipage}{0.29\textwidth} 
+		\hgraphpage{SVM_dual.pdf}
+	\end{minipage}
+	
+	
+\end{frame}
+
+
+\subsection{Cost function}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection (1)}
+	
+	\begin{itemize}
+		\item By deconstructing the hinge loss, the optimization problem will be :
+		\begin{align*}
+			& \min_{\theta, \zeta^{(i)}} \frac{||\theta||^2}{2} +  C \sum_{i=1}^{M} \zeta^{(i)} \\
+			& \text{subject to } y^{(i)} z^{(i)} \ge 1 - \zeta^{(i)},\ \zeta^{(i)} \ge 0,\ \forall i \in {1 \cdots M} \\
+		\end{align*}
+		\item where $ \zeta^{(i)} = \max (0, 1 - y^{(i)} z^{(i)}) $
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection (2)}
+	
+	\begin{itemize}
+		\item By solving for the Lagrangian dual:
+		\begin{align*}
+			& \max_{\alpha_i}  \sum\limits_{i=1}^{M} \alpha_i - \frac{1}{2} \sum\limits_{i=1}^{M} \sum\limits_{j=1}^{M} \alpha_i \alpha_j y^{(i)} y^{(j)} x^{(i)} x^{(j)} \\
+			& \text{subject to } \sum\limits_{i=1}^{M} \alpha_i y^{(i)} = 0,\ 0 \le \alpha_i \le C,\ \forall i \in {1 \cdots M} \\
+		\end{align*}
+		\item $ x^{(i)} x^{(j)} $ can be seen as a similarity measure called dot product
+		\item We can use other similarity measures $ K(x^{(i)}, x^{(j)}) $ 
+%		\[J_\alpha = \sum\limits_{i=1}^{M} \alpha_i - \frac{1}{2} \sum\limits_{i=1}^{M} \sum\limits_{j=1}^{M} \alpha_i \alpha_j y^{(i)} y^{(j)} K(x^{(i)}, x^{(j)})\]
+		\item $ K(x^{(i)}, x^{(j)}) $ is called \keyword{kernel}
+	\end{itemize}
+	
+\end{frame}
+
+\subsection{Class estimation}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection}
+	
+	\[\hat{y_t} = sign(\sum^M_{i=1} \alpha_i y^{(i)} K(x^{(i)}, x_t) - b)\]
+	\begin{itemize}
+		\item $ \hat{y_t} $ is the estimated class of the given test sample $ x_t $
+		\item $ x^{(i)} $ are training samples
+		\item $ K(a, b) $ is a kernel function
+		\begin{itemize}
+			\item Linear kernel $ K(A, B) = A \cdot B^T$
+			\item RBF kernel $ K(A, B) = \exp(-\frac{||A-B||^2}{2\sigma})$
+		\end{itemize}
+	\end{itemize}
+	
+\end{frame}
+
+\subsection{Optimization algorithms}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection}
+	
+	\begin{itemize}
+		\item The problem can be solved using Quadratic programming
+		\item One optimization function is \keyword{Sequential minimal optimization} \cite{1998-platt}
+	\end{itemize}
+
+	
+\end{frame}
+
+
+
+\insertbibliography{ML_Lab-SVM}{*}
+
+\end{document}
+
+
+
