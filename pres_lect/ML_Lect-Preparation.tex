@@ -1,0 +1,1004 @@
+% !TEX TS-program = pdflatex
+% !TeX program = pdflatex
+% !TEX encoding = UTF-8
+% !TeX spellcheck = en_US
+
+\documentclass[xcolor=table]{beamer}
+
+\usepackage{../extra/beamer/karimml}
+
+\input{options}
+
+\subtitle[Data \& eval]{Data preparation and models' evaluation} 
+
+\changegraphpath{../img/preparation/}
+
+\begin{document}
+	
+\begin{frame}
+	\frametitle{\inserttitle}
+	\framesubtitle{\insertshortsubtitle: Introduction}
+	
+	\begin{figure}
+		\centering
+		\hgraphpage[.4\textwidth]{crisp-dm.png}
+		\caption{CRISP-DM (Cross-industry standard process for data mining)}
+	\end{figure}
+	
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{\inserttitle}
+	\framesubtitle{\insertshortsubtitle: Plan}
+	
+	\begin{multicols}{2}
+		%	\small
+		\tableofcontents
+	\end{multicols}
+\end{frame}
+
+\section{Data collection}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle}
+	\framesubtitle{\insertsection}
+	
+	
+\end{frame}
+
+\subsection{Data quality}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection}
+	
+	\begin{itemize}
+		\item Size: Number of samples.
+		\item Number and type of characteristics (nominal, binary, ordinal or continuous).
+		\item Annotation errors.
+		\item Amount of noise in the data: errors and exceptions.
+	\end{itemize}
+
+\end{frame}
+
+
+\subsection{Data integration}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection}
+	
+	\begin{itemize}
+		\item \optword{Data sources}
+		\begin{itemize}
+			\item Structured data: \expword{DB, tabulators (CSV, etc.)}
+			\item Semi-structured data: \expword{XML, JSON, etc.}
+			\item Unstructured data: \expword{text documents, images, metadata, etc.}
+		\end{itemize}
+	
+		\item \optword{Data integrity}
+		\begin{itemize}
+			\item Conformance of XML files to their DTD definitions
+			\item Correct separators for CSV files
+		\end{itemize}
+	
+		\item \optword{Data merge}
+		\begin{itemize}
+			\item Naming problem: \expword{bd1.nbrclient, bd2.clientid}
+			\item Value conflicts: \expword{bd1.height(cm), bd2.height(inches)}
+			\item Redundancy: calculated attributes and identical records.
+			\item Different types of attributes: \expword{bd1.temperature (cold, hot, ...), bd2.temperature (15, 23, ...)}
+		\end{itemize}
+	\end{itemize}
+
+\end{frame}
+
+
+\subsection{Data annotation}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Internal}
+	
+	\begin{itemize}
+		\item A team designated for annotation
+		\item Better if there are sufficient human, financial and time resources
+		\item \textbf{Advantages}
+		\begin{itemize}
+			\item Ability to track progress
+			\item Good quality
+		\end{itemize}
+		\item \textbf{Disadvantages}
+		\begin{itemize}
+			\item Too slow: if we gain quality, we will lose time.
+		\end{itemize}
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Outsourcing}
+	
+	\begin{itemize}
+		\item Hire independent annotators (freelancers)
+		\item If there are not enough human resources or time
+		\item \textbf{Steps}
+		\begin{enumerate}
+			\item Prepare the data and set the required time to annotate it
+			\item Divide data into subsets
+			\item Post job offers on social media
+		\end{enumerate}
+		\item \textbf{Advantages}
+		\begin{itemize}
+			\item We know who we hired: We can check their skills
+		\end{itemize}
+		\item \textbf{Disadvantages}
+		\begin{itemize}
+			\item Preparing detailed annotation instructions
+			\item Task submission and verification time
+			\item Create a workflow: an interface that helps annotators.
+		\end{itemize}
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Crowdsourcing}
+	
+	\begin{columns}
+		\begin{column}{0.78\textwidth}
+			\begin{itemize}
+				\item Use crowdsourcing platforms.
+				\item Ex. \expword{Amazon Mechanical Turk (MTurk) and Clickworker}.
+				\item \textbf{Types of crowdsourcing}
+				\begin{enumerate}
+					\item \optword{Explicit}: By directly requesting contributions
+					\item \optword{Implicit}: By integrating tasks into other forms
+					\begin{itemize}
+						\item Unavoidable tasks (Ex. \expword{reCAPTCHA})
+						\item Games with objectives (Ex. \expword{ESP game})
+					\end{itemize}
+				\end{enumerate}
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.22\textwidth}
+			\hgraphpage{captcha.png}
+		\end{column}
+	\end{columns}
+	
+	\begin{itemize}
+		\item \textbf{Advantages}
+		\begin{itemize}
+			\item Fast results
+			\item Affordable costs
+		\end{itemize}
+		\item \textbf{Disadvantages}
+		\begin{itemize}
+			\item Quality of annotations
+			\item Preparing detailed instructions on the annotation process
+		\end{itemize}
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Evaluation (Kappa; classification)}
+	
+	\begin{itemize}
+		\item Inter-rater agreement (inter-rater reliability)
+	\end{itemize}
+
+\begin{columns}
+\begin{column}{0.6\textwidth}
+	\begin{itemize}
+%		\item Concordance inter-juges (fiabilité inter-évaluateurs) 
+		\item \optword{Cohen's Kappa}
+		\begin{itemize}
+			\item Measures agreement between two raters and two categories
+			\item $K = \frac{P_o - P_e}{1 - P_e}$
+			\item $P_o = \frac{a + d}{a+b+c+d}$
+			\item $P_{Yes} = \frac{a+b}{a+b+c+d} * \frac{a+c}{a+b+c+d}$
+			\item $P_{No} = \frac{c+d}{a+b+c+d} * \frac{b+d}{a+b+c+d}$
+			\item $P_e = P_{Yes} + P_{No}$
+			\item \expword{sklearn.metrics.cohen\_kappa\_score}
+		\end{itemize}
+	\end{itemize}
+\end{column}
+\begin{column}{0.4\textwidth}
+	\begin{tabular}{|c|c|c|c|}
+		\cline{3-4}
+		\multicolumn{2}{c|}{}& \multicolumn{2}{c|}{B} \\
+		\cline{3-4}
+		\multicolumn{2}{c|}{}& Yes & No \\
+		\hline
+		\multirow{2}{*}{A} & Yes & a & b \\
+		\cline{2-4}
+		& No & c & d \\
+		\hline
+	\end{tabular}
+\end{column}
+\end{columns}
+
+\begin{itemize}
+	\item \optword{Scott's Pi}
+	\begin{itemize}
+		\item Like Cohen's but $P_e$ is calculated differently (multi-classes)
+	\end{itemize}
+	\item \optword{Fleiss' Kappa}
+	\begin{itemize}
+		\item Generalization of Scott's Pi for more than two raters
+	\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Evaluation (Correlation; regression)}
+	
+	\begin{itemize}
+		\item \optword{Pearson}
+		\begin{itemize}
+			\item Continuous data (regression)
+			\item $r_{Y^{(1)},Y^{(2)}} = \frac{covariance(Y^{(1)},Y^{(2)})}{\sigma_{Y^{(1)}} \sigma_{Y^{(2)}}}$
+			\item \expword{scipy.stats.pearsonr}
+		\end{itemize}
+		\item \optword{Spearman}
+		\begin{itemize}
+			\item Ordinal data
+			\item $\rho_{Y^{(1)},Y^{(2)}} = \frac{covariance(R(Y^{(1)}),R(Y^{(2)}))}{\sigma_{R(Y^{(1)})} \sigma_{R(Y^{(2)})}}$
+			\item $R$ is the rank in ascending order
+			\item \expword{scipy.stats.spearmanr}
+		\end{itemize}
+		\item \optword{Kendall}
+		\begin{itemize}
+			\item Ordinal data
+			\item $\tau_{Y^{(1)},Y^{(2)}} = \frac{2}{n (n-1)} \sum_{i<j} sign(y^{(1)}_i - y^{(1)}_j) sign(y^{(2)}_i - y^{(2)}_j)$
+			\item \expword{scipy.stats.kendalltau}
+		\end{itemize}
+	\end{itemize}
+	
+\end{frame}
+
+\subsection{Data cleaning}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Problems}
+	
+	\begin{itemize}
+		\item \optword{Omitted values (Unavailable data)}
+		\begin{itemize}
+			\item Equipment malfunction
+			\item Inconsistent with other data and therefore removed
+			\item Not entered because not (or poorly) understood
+			\item Considered unimportant at the time of entry
+		\end{itemize}
+		\item \optword{Duplicate samples}
+		\begin{itemize}
+			\item Multiple data sources
+		\end{itemize}
+		\item \optword{Bad annotations}
+		\begin{itemize}
+			\item Inconsistency in naming conventions
+		\end{itemize}
+		\item \optword{Noise (error or random variance of a measured variable)}
+		\begin{itemize}
+			\item Defective measuring instrument
+			\item Input problem
+			\item Transmission problem
+		\end{itemize}
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Possible solutions}
+	
+	\begin{itemize}
+		\item \optword{Omitted values (Unavailable data)}
+		\begin{itemize}
+			\item Deletion or manual entry
+			\item Replacement by a global constant. Ex., \expword{``unknown" or ``0"}.
+			\item Replacement by the average of numeric values, preference: same class.
+			\item Replacement with the most frequent nominal value.
+		\end{itemize}
+		\item \optword{Duplicate samples}
+		\begin{itemize}
+			\item Deletion
+		\end{itemize}
+		\item \optword{Bad annotations}
+		\begin{itemize}
+			\item Measuring inter-rater reliability
+		\end{itemize}
+		\item \optword{Noise}
+		\begin{itemize}
+			\item Clustering to detect exceptions
+			\item Automatic detection of suspicious values and human verification.
+			\item Smoothing of data using regression methods.
+		\end{itemize}
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Some humor}
+	
+	\begin{center}
+		\vgraphpage{humour-collection.jpg}
+	\end{center}
+	
+\end{frame}
+
+\section{Data transformation}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle}
+	\framesubtitle{\insertsection}
+	
+	
+\end{frame}
+
+\subsection{Numerical features}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Binning (bucketing)}
+	
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\hgraphpage{bucketing-1.png}
+			
+			\vspace{-6pt}
+			\begin{center}
+				quartiles
+			\end{center}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\hgraphpage{bucketing-2.png}
+			
+			\vspace{-6pt}
+			\begin{center}
+				identical ranges
+			\end{center}
+		\end{column}
+	\end{columns}
+
+	\begin{center}
+		Example of binning \cite{2021-google-prep}
+	\end{center}
+
+	\begin{itemize}
+		\item when there is no linear relationship with the output
+		\item \expword{sklearn.preprocessing.KBinsDiscretizer}
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Normalization}
+	
+	\hgraphpage{norm.png}
+	
+	\begin{center}
+		Comparison between normalization functions \cite{2021-google-prep}
+	\end{center}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Normalization (Clipping)}
+	
+	\begin{columns}
+	\begin{column}{.5\textwidth}
+	\[x' = \begin{cases}
+	\alpha & \text{if } x \ge \alpha \\
+	\beta & \text{if } x \le \beta \\
+	x & \text{otherwise}
+	\end{cases}
+	\]
+	
+	\begin{itemize}
+		\item This normalization is used when
+		\begin{itemize}
+			\item there is some extremely outliers.
+		\end{itemize}
+		\item \textbf{Example}
+		\begin{itemize}
+			\item \expword{Number of rooms per person}
+		\end{itemize}
+		\item \expword{numpy.clip}
+	\end{itemize}
+	\end{column}
+	\begin{column}{.5\textwidth}
+		\hgraphpage{norm-coupure.png}
+		
+		\begin{center}
+			Example of clipping \cite{2021-google-prep}
+		\end{center}
+	\end{column}
+ \end{columns}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Normalization (Min-max scaling)}
+	
+	\[x' = \frac{x - x_{min}}{x_{max} - x_{min}}\]
+	
+	\begin{itemize}
+		\item This normalization is used when
+		\begin{itemize}
+			\item we know the lower and upper limits;
+			\item the values are almost evenly distributed over this range
+		\end{itemize}
+		\item \textbf{Example}
+		\begin{itemize}
+			\item \textbf{Good}: \expword{ages}
+			\item \textbf{Bad}: \expword{income (few people with high income)}
+		\end{itemize}
+		\item \expword{sklearn.preprocessing.MinMaxScaler}
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Normalization (Log scaling)}
+	
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			
+	\[x' = \log(x)	\]
+	
+	\begin{itemize}
+		\item This normalization is used when
+		\begin{itemize}
+			\item the feature follows power law
+		\end{itemize}
+		\item \textbf{Example}
+		\begin{itemize}
+			\item \expword{Number of rooms per person}
+		\end{itemize}
+		\item \expword{numpy.log}
+	\end{itemize}
+	\end{column}
+	\begin{column}{.5\textwidth}
+		\hgraphpage{norm-log.png}
+		
+		\begin{center}
+			Example of Log scaling \cite{2021-google-prep}
+		\end{center}
+	\end{column}
+\end{columns}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Normalization (Z-score; standardization)}
+	
+	\begin{columns}
+	\begin{column}{.5\textwidth}
+	\[x' = \frac{x - \mu}{\sigma}	\]
+	
+	\begin{itemize}
+		\item This normalization is used when
+		\begin{itemize}
+			\item there are few outliers.
+			\item we want to have a mean of 0 and standard deviation of 1
+		\end{itemize}
+		\item Example
+		\begin{itemize}
+			\item \expword{Number of rooms per person}
+		\end{itemize}
+		\item \expword{sklearn.preprocessing.StandardScaler}
+	\end{itemize}
+	\end{column}
+	\begin{column}{.5\textwidth}
+		\hgraphpage{norm-z.png}
+		
+		\begin{center}
+			Example of standardization \cite{2021-google-prep}
+		\end{center}
+	\end{column}
+\end{columns}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Features generation}
+	
+%	\begin{columns}
+%		\begin{column}{.5\textwidth}
+			
+			\begin{itemize}
+				\item Features generation is used when
+				\begin{itemize}
+					\item we want more complex features
+				\end{itemize}
+				\item \optword{Polynomial generation} (interactions)
+				\begin{itemize}
+					\item $(X_1, X_2, \ldots) \longrightarrow (1, X_1, X_2, X_1 X_2, X_1^2, X_2^2, \ldots)$
+					\item \expword{sklearn.preprocessing.PolynomialFeatures}
+				\end{itemize}
+				\item \optword{Sparse Auto-encoders}
+				\begin{itemize}
+					\item A neural network trained using unsupervised learning
+					\item It aims to represent the samples with more characteristics (a vector representation with more dimensionality)
+				\end{itemize}
+			\end{itemize}
+%		\end{column}
+%		\begin{column}{.5\textwidth}
+%			\hgraphpage{norm-z.png}
+%		\end{column}
+%	\end{columns}
+	
+\end{frame}
+
+\subsection{Categorical features}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Encoding}
+	
+	\begin{itemize}
+		\item \optword{Ordinal encoding}
+		\begin{itemize}
+			\item the API used for training does not accept categories
+			\item the learning algorithm does not consider the feature's categories as ordered: Multinomial Naive Bayes
+			\item or if the categories order is important
+			\item \expword{sklearn.preprocessing.OrdinalEncoder}
+		\end{itemize}
+	
+		\item \optword{One-Hot encoding}
+		\begin{itemize}
+			\item when we want to give the same chance to different categories
+			\item Each feature's category will be encoded as a separate column (binary)
+			\item \expword{sklearn.preprocessing.OneHotEncoder}
+		\end{itemize}
+
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Some humor}
+	
+	\begin{center}
+		\hgraphpage[0.5\textwidth]{humour-transformation.jpeg}
+	\end{center}
+	
+\end{frame}
+
+\section{Data sampling and splitting}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle}
+	\framesubtitle{\insertsection}
+	
+	
+\end{frame}
+
+\subsection{Unbalanced data}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection}
+	
+	\begin{table}
+	\SetTblrInner{rowsep=0pt,colsep=1pt}
+	\begin{tblr}{
+			colspec = {p{0.3\textwidth}p{0.5\textwidth}},
+			row{odd} = {lightblue, font=\small},
+			row{even} = {lightyellow, font=\small},
+			row{1} = {darkblue, font=\bfseries},
+		}
+			\textcolor{white}{Imbalance degree} & \textcolor{white}{Minority class proportion} \\
+			mild & 20-40\% of data \\
+			moderate & 1-20\% of data \\
+			extreme &	\textless 1\% of data \\
+	\end{tblr}
+	\caption{Imbalance degree \cite{2021-google-prep}}
+	\end{table}
+
+	\begin{itemize}
+		\item \url{https://github.com/scikit-learn-contrib/imbalanced-learn}
+		\item \textbf{pip install -U imbalanced-learn}
+		\item \textbf{conda install -c conda-forge imbalanced-learn}
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Under sampling}
+	
+	\begin{itemize}
+		\item Remove samples from majority class (downsampling)
+		\item Calibrate the model (upweithing)
+		\item \optword{Random deletion}
+		\begin{itemize}
+			\item \expword{imblearn.under\_sampling.RandomUnderSampler}
+		\end{itemize}
+		\item \optword{Cluster centroids}
+		\begin{itemize}
+			\item Apply \keyword{K-Means} on the majority class (with K being the number of desired samples)
+			\item Take the center of each cluster as representative
+			\item \expword{imblearn.under\_sampling.ClusterCentroids}
+		\end{itemize}
+		\item \optword{Tomek links}
+		\begin{itemize}
+			\item Detect the closest majority class points to the minority class points
+			\item Delete these points
+			\item \expword{imblearn.under\_sampling.TomekLinks}
+		\end{itemize}
+		\item \keyword{I'm too lazy to present more methods! :)}
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Over sampling}
+	
+	\begin{itemize}
+		\item Add samples to the minority class (oversampling)
+		\item \optword{Random duplication}
+		\begin{itemize}
+			\item \expword{imblearn.over\_sampling.RandomOverSampler}
+		\end{itemize}
+		\item \optword{SMOTE (Synthetic Minority Over-sampling Technique)}
+		\begin{itemize}
+			\item Find the K nearest neighbors of each point of the minority class
+			\item Define a new point between this point and one of its neighbors
+			\item \expword{imblearn.over\_sampling.SMOTE}
+		\end{itemize}
+		\item \optword{ADASYN (Adaptive Synthetic Sampling)}
+		\begin{itemize}
+			\item Like \keyword{SMOTE}
+			\item The method favors points in non-homogeneous spaces
+			\item \expword{imblearn.over\_sampling.ADASYN}
+		\end{itemize}
+		\item \keyword{Still lazy}
+	\end{itemize}
+	
+\end{frame}
+
+\subsection{Data splitting}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection}
+	
+	\begin{itemize}
+		\item Data splitting
+		\begin{itemize}
+			\item \optword{Training}: a majority of samples (70-80\%)
+			\item \optword{Test}: a minority of samples (30-20\%)
+			\item \optword{Validation}: a minority of samples to adjust hyper-parameters (20\% from training)
+		\end{itemize}
+		\item Split condition
+		\begin{itemize}
+			\item The test data is sufficient to have meaningful results.
+			\item Test data is representative. You should not take a set with different features from those of the training data.
+			\item If the problem is a prediction of the future based on the past, the dataset must be divided such that the test data follows the training one
+			\item To avoid losing training data, use cross-validation
+		\end{itemize}
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Data and training}
+	
+	\begin{itemize}
+		\item \optword{Underfitting}
+		\begin{itemize}
+			\item The model took less time to generalize on the training data
+			\item Few training data
+			\item Training data is not representative
+		\end{itemize}
+
+		\item \optword{Overfitting}
+		\begin{itemize}
+			\item The model was exactly adapted to the training data
+			\item There is noise in the training data
+			\item Test data is not representative.
+		\end{itemize}
+
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Stratified sampling}
+	
+	\begin{itemize}
+		\item Random data splitting
+		\begin{itemize}
+			\item Test data may not contain classes
+			\item Test data may not be proportional to the training one
+		\end{itemize}
+		\item Steps
+		\begin{itemize}
+			\item Separate data according to their classes
+			\item Take random samples from each class to form the test dataset
+			\item We can calculate the original proportions of each class in the data and extract samples according to its proportions
+		\end{itemize}
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Cross validation}
+	
+	\begin{figure}
+		\centering
+		\hgraphpage[.5\textwidth]{grid_search_workflow.png}
+		\caption{Machine learning workflow with cross-validation \cite{2020-sklearn-man}}
+	\end{figure}
+	
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Cross validation (K-Folds)}
+	
+	\begin{figure}
+		\centering
+		\hgraphpage[.6\textwidth]{grid_search_cross_validation.png}
+		\caption{Illustration of K-Folds cross-validation \cite{2020-sklearn-man}}
+	\end{figure}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Some humor}
+	
+		\begin{center}
+			\vgraphpage{humour-fractionnement.jpeg}
+			\vgraphpage{humour-traintest.jpg}
+		\end{center}
+	
+\end{frame}
+
+\section{Models' evaluation}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle}
+	\framesubtitle{\insertsection}
+	
+	
+\end{frame}
+
+\subsection{Classification}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Confusion matrix}
+	
+	\begin{tabular}{|c|c|c|c|}
+		\cline{3-4}
+		\multicolumn{2}{c|}{}& \multicolumn{2}{c|}{Classes réelles} \\
+		\cline{3-4}
+		\multicolumn{2}{c|}{}& Positive & Negative \\
+		\hline
+		\multirow{2}{*}{Prediction} & Positive & True Positive (TP) & False Positive (FP) \\
+		\cline{2-4}
+		& Negative & False Negative (FN) & True Negative (TN) \\
+		\hline
+	\end{tabular}
+
+	\begin{itemize}
+		\item \optword{True positive}: The model correctly predicts the positive class.
+		\item \optword{True negative}: The model correctly predicts the negative class.
+		\item \optword{False positive}: The model incorrectly predicts the positive class.
+		\item \optword{False negative}: The model incorrectly predicts the negative class.
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Accuracy}
+	
+	\[Accuracy = \frac{TP + TN}{TP + FP + FN + TN}\]
+	
+	\begin{tabular}{|c|c|c|c|}
+		\cline{3-4}
+		\multicolumn{2}{c|}{}& \multicolumn{2}{c|}{Real} \\
+		\cline{3-4}
+		\multicolumn{2}{c|}{}& Spam & Not-Spam \\
+		\hline
+		\multirow{2}{*}{Prediction} & Spam & 0 & 1 \\
+		\cline{2-4}
+		& Not-Spam & 3 & 16 \\
+		\hline
+	\end{tabular}
+	
+	\begin{itemize}
+		\item $Accuracy = \frac{0 + 16}{1 + 1 + 3 + 16} = \frac{16}{20} = 80\%$
+		\item Accuracy is not a good metric if
+		\begin{itemize}
+			\item classes are unbalanced
+			\item we want to test the model's performance only on the positive class
+		\end{itemize}
+		\item \expword{sklearn.metrics.accuracy\_score}
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Recall, Precision and F1 score}
+	
+	\vspace{-6pt}
+	\[R = \frac{TP}{TP + FN} = \frac{\text{correctly predicted positives}}{\text{real positives}}\]
+	
+	\begin{itemize}
+		\item The classifier's ability to find all positive samples
+		\item \expword{sklearn.metrics.recall\_score}
+	\end{itemize}
+	
+	\vspace{-6pt}
+	\[P = \frac{TP}{TP + FP} = \frac{\text{correctly predicted positives}}{\text{predicted positives}}\]
+	
+	\begin{itemize}
+		\item The classifier's ability to not label negative samples as positive ones 
+		\item \expword{sklearn.metrics.precision\_score}
+	\end{itemize}
+	
+	\vspace{-6pt}
+	\[F1 = \frac{2 P R}{P + R}\]
+	
+	\begin{itemize}
+		\item Harmonic mean between P and R
+		\item \expword{sklearn.metrics.f1\_score}
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: R, P et F1 (multi-classes)}
+
+	\begin{itemize}
+		\item $\hat{y}$: the set of predictions, $y$: the set of correct labels
+		\item $L$: all labels (classes)
+		\item $S$: all samples
+		\item $M$: the metric which can be $R$, $P$ or $F1$
+	\end{itemize}
+
+	\begin{center}
+		\SetTblrInner{rowsep=0pt,colsep=1pt}
+		\begin{tblr}{
+				colspec = {p{0.3\textwidth}p{0.5\textwidth}},
+				row{odd} = {lightblue, font=\small},
+				row{even} = {lightyellow, font=\small},
+				row{1} = {darkblue, font=\bfseries},
+			}
+			\textcolor{white}{Mean} & \textcolor{white}{Calculation formula} \\
+			micro (Precision) & \vspace{-6pt}\[\frac{\sum_{l \in L} TP_l}{\sum_{l \in L} (TP_l + FP_l)}\]\vspace{-6pt} \\
+			macro & \vspace{-6pt}\[\frac{1}{|L|} \sum_{l \in L} M(y_l, \hat{y}_l)\]\vspace{-6pt}\\
+			weighted & \vspace{-6pt}\[\frac{1}{\sum_{l \in L} |\hat{y}_l|} \sum_{l \in L} |\hat{y}_l| M(y_l, \hat{y}_l)\]\vspace{-6pt} \\
+		\end{tblr}
+	\end{center}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Matthews correlation coefficient}
+	
+	\[CCM = \frac{TP \times TN - FP \times FN}{\sqrt{(TP + FP)(TP + FN)(TN + FP)(TN + FN)}}\]
+	\begin{itemize}
+		\item The coefficient can be between \textbf{-1} and \textbf{+1}
+		\begin{itemize}
+			\item -1: the predictions are completely wrong.
+			\item 0: the performance of the model is comparable with a random system.
+			\item +1: the predictions are perfect.
+		\end{itemize}
+		\item \expword{sklearn.metrics.matthews\_corrcoef}
+	\end{itemize}
+		
+\end{frame}
+
+\subsection{Regression}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Mean Squared Error}
+	
+	\[MSE(\hat{y}, y) = \mathbb{E}(y - \hat{y})^2 =  \frac{1}{|S|} \sum_{i=1}^{|S|} (y_i - \hat{y}_i)^2\]
+
+	\begin{itemize}
+		\item Punishes the model when there are big mistakes (magnifies big mistakes)
+		\item Actually, it calculates the squared error
+		\item \expword{sklearn.metrics.mean\_squared\_error}
+		\item To get the error, we can apply a square root
+		\item $RMSE(\hat{y}, y) = \sqrt{MSE(\hat{y}, y)}$
+		\item \optword{Root Mean Squared Error}
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Mean Absolute Error}
+	
+	\[MAE(\hat{y}, y) = \mathbb{E}|y - \hat{y}| =  \frac{1}{|S|} \sum_{i=1}^{|S|} |y_i - \hat{y}_i|\]
+	
+	\begin{itemize}
+		\item Attributes the same magnitude to small errors and large errors 
+		\item \expword{sklearn.metrics.mean\_absolute\_error}
+	\end{itemize}
+	
+\end{frame}
+
+\subsection{Clustering}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Rand index}
+	
+	\[RI(\hat{y}, y) = \frac{|\hat{y} \bigcap y|}{|y|}\]
+	
+	\begin{itemize}
+		\item Test dataset must be annotated
+		\item \expword{sklearn.metrics.rand\_score}
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Silhouette}
+	
+		\begin{itemize}
+		\item $C$: Clusters' set
+		\item $a_i$: the average of distances of the point $i$ from those of the same cluster
+		\item $b_i$: the average of distances of the point $i$ from those of the closest cluster
+		\item \expword{sklearn.metrics.silhouette\_score}
+	\end{itemize}
+	
+	\[a_i = \frac{1}{|C_k| - 1} \sum_{j \in C_k,\; i \ne j} d(i, j) / \; i \in C_k\]
+	\[b_i = \min_{i \notin C_k} \frac{1}{|C_k|} \sum_{j \in C_k} d(i, j)\]
+	\[s_i = \frac{b_i - a_i}{max(a_i, b_i)}\]
+	
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Some humor}
+	
+	\begin{center}
+		\vgraphpage{humour-eval1.png}
+		\vgraphpage{humour-eval2.jpg}
+	\end{center}
+	
+\end{frame}
+
+\insertbibliography{ML_Lect-Preparation}{*}
+
+\end{document}
+
+
+
