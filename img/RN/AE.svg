@@ -7,7 +7,7 @@
    viewBox="0 0 180 100"
    version="1.1"
    id="svg8"
-   inkscape:version="1.2.2 (1:1.2.2+202212051552+b0a8486541)"
+   inkscape:version="1.3.2 (1:1.3.2+202311252150+091e20ef0f)"
    sodipodi:docname="AE.svg"
    inkscape:export-filename="/home/kariminf/Github/projeduc/1CP_BWeb/img/Bweb01-environnement/access-web.png"
    inkscape:export-xdpi="90"
@@ -28,13 +28,13 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.504099"
-     inkscape:cx="259.95629"
+     inkscape:cx="260.28872"
      inkscape:cy="216.74105"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1920"
-     inkscape:window-height="1007"
+     inkscape:window-height="1008"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -771,7 +771,7 @@
        xml:space="preserve"
        id="flowRoot361"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       transform="matrix(0.26458333,0,0,0.26458333,28.859311,144.26655)"><flowRegion
+       transform="matrix(0.26458333,0,0,0.26458333,33.621814,144.26655)"><flowRegion
          id="flowRegion363"
          style="line-height:100%"><rect
            id="rect365"
@@ -781,7 +781,7 @@
            y="127.5433"
            style="line-height:100%" /></flowRegion><flowPara
          id="flowPara5582"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:33.3333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start">Encodeur</flowPara></flowRoot>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:33.3333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start">Encoder</flowPara></flowRoot>
     <flowRoot
        xml:space="preserve"
        id="flowRoot361-2"
@@ -801,7 +801,7 @@
        xml:space="preserve"
        id="flowRoot361-8"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       transform="matrix(0.26458333,0,0,0.26458333,117.05257,143.45437)"><flowRegion
+       transform="matrix(0.26458333,0,0,0.26458333,120.22759,143.45437)"><flowRegion
          id="flowRegion363-88"
          style="line-height:100%"><rect
            id="rect365-6"
@@ -811,7 +811,7 @@
            y="127.5433"
            style="line-height:100%" /></flowRegion><flowPara
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:33.3333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
-         id="flowPara7359">Décodeur</flowPara></flowRoot>
+         id="flowPara7359">Decoder</flowPara></flowRoot>
     <g
        id="g2741"
        transform="translate(-0.94614358,-101.1388)">

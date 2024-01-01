@@ -7,7 +7,7 @@
    viewBox="0 0 220 120"
    version="1.1"
    id="svg8"
-   inkscape:version="1.2.2 (1:1.2.2+202212051552+b0a8486541)"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
    sodipodi:docname="bert-arch.svg"
    inkscape:export-filename="/home/kariminf/Github/projeduc/1CP_BWeb/img/Bweb01-environnement/access-web.png"
    inkscape:export-xdpi="90"
@@ -28,20 +28,18 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.2216267"
-     inkscape:cx="421.56903"
-     inkscape:cy="320.88361"
+     inkscape:zoom="0.64117666"
+     inkscape:cx="336.10082"
+     inkscape:cy="91.238505"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1920"
-     inkscape:window-height="1007"
+     inkscape:window-width="1366"
+     inkscape:window-height="695"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:pagecheckerboard="0"
-     inkscape:showpageshadow="2"
-     inkscape:deskcolor="#d1d1d1" />
+     inkscape:pagecheckerboard="0" />
   <defs
      id="defs2">
     <marker
@@ -3681,7 +3679,7 @@
            width="235.41415"
            id="rect365-85-7-6-16" /></flowRegion><flowPara
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000"
-         id="flowPara5582-22-4-06-5">1iere phrase ou la 2ieme</flowPara></flowRoot>
+         id="flowPara5582-22-4-06-5">1st sentence or 2nd</flowPara></flowRoot>
     <g
        id="g20722-0"
        transform="matrix(0.50000001,0,0,0.50000001,-161.55265,199.13936)"
@@ -3734,7 +3732,7 @@
            width="235.41415"
            id="rect365-85-7-6-16-6" /></flowRegion><flowPara
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000"
-         id="flowPara5582-22-4-06-5-6">position dans la phrase</flowPara></flowRoot>
+         id="flowPara5582-22-4-06-5-6">position in sentence</flowPara></flowRoot>
     <g
        id="g19149-0"
        transform="matrix(0.50000001,0,0,0.50000001,-161.51173,207.43469)"
@@ -3787,7 +3785,7 @@
            width="267.45599"
            id="rect365-85-7-6-16-6-3" /></flowRegion><flowPara
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.755906;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="flowPara5582-22-4-06-5-6-7">position dans le vocabulaire</flowPara></flowRoot>
+         id="flowPara5582-22-4-06-5-6-7">position in vocabulary</flowPara></flowRoot>
     <g
        id="g22724"
        transform="matrix(0.5,0,0,0.5,-216.806,187.34977)"

@@ -6,7 +6,7 @@
    version="1.1"
    id="svg252"
    sodipodi:docname="NN-types.svg"
-   inkscape:version="1.2.2 (1:1.2.2+202212051552+b0a8486541)"
+   inkscape:version="1.3.2 (1:1.3.2+202311252150+091e20ef0f)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -37,12 +37,12 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-width="1920"
-     inkscape:window-height="1007"
+     inkscape:window-height="1008"
      id="namedview254"
      showgrid="false"
-     inkscape:zoom="4.4029692"
-     inkscape:cx="259.93823"
-     inkscape:cy="168.0684"
+     inkscape:zoom="2.2699913"
+     inkscape:cx="184.80247"
+     inkscape:cy="118.50266"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -110,13 +110,13 @@
   <text
      id="text82-5"
      y="6.8352437"
-     x="-185.92696"
+     x="-175.47591"
      style="font-style:normal;font-weight:normal;font-size:6.77333px;font-family:'Crimson Text';text-anchor:middle;fill:#6600cc;fill-opacity:1"
      font-size="6.77333"><tspan
        id="tspan80-3"
        y="6.8352437"
-       x="-185.92696"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.9347px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#6600cc;fill-opacity:1">Réseaux de neurones</tspan></text>
+       x="-175.47591"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.9347px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#6600cc;fill-opacity:1">Neural Networks</tspan></text>
   <rect
      id="rect78-7-9"
      height="21.081881"
@@ -127,24 +127,15 @@
      ry="5.3564916" />
   <text
      id="text82-5-7"
-     y="20.182213"
-     x="-240.72249"
+     y="25.407738"
+     x="-241.76759"
      style="font-style:normal;font-weight:normal;font-size:6.77333px;font-family:'Crimson Text';text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:1"
      font-size="6.77333"><tspan
        sodipodi:role="line"
-       id="tspan488"
-       x="-240.72249"
-       y="20.182213"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.36083px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"><tspan
-         id="tspan80-3-8"
-         y="20.182213"
-         x="-240.72249"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.36083px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:1">à propagation avant</tspan></tspan><tspan
-       sodipodi:role="line"
        id="tspan490"
-       x="-240.72249"
-       y="30.633251"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.36083px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">&quot;Feed Forward (FFNN)&quot;</tspan></text>
+       x="-241.76759"
+       y="25.407738"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.36083px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">Feed Forward (FFNN)</tspan></text>
   <rect
      id="rect78-7-9-89"
      height="20.772858"
@@ -155,24 +146,15 @@
      ry="5.16361" />
   <text
      id="text82-5-7-7"
-     y="20.117138"
+     y="25.342663"
      x="-120.78358"
      style="font-style:normal;font-weight:normal;font-size:6.77333px;font-family:'Crimson Text';text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:1"
      font-size="6.77333"><tspan
        sodipodi:role="line"
-       id="tspan488-3"
-       x="-120.78358"
-       y="20.117138"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.36083px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"><tspan
-         id="tspan80-3-8-6"
-         y="20.117138"
-         x="-120.78358"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.36083px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:1">récurrents</tspan></tspan><tspan
-       sodipodi:role="line"
        id="tspan490-1"
        x="-120.78358"
-       y="30.568176"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.36083px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">&quot;Recurrent (RNN)&quot;</tspan></text>
+       y="25.342663"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.36083px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">Recurrent (RNN)</tspan></text>
   <rect
      id="rect78-7-9-8-6"
      height="64.1875"
@@ -737,7 +719,7 @@
        id="tspan1214-9-7-4-8-2-2-1-4"
        x="-249.57207"
        y="108.6155"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.18042px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke-width:0.522552px">Encodeur-Décodeur</tspan></text>
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.18042px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke-width:0.522552px">Encoder-Decoder</tspan></text>
   <rect
      style="fill:#ffffff;fill-opacity:1;stroke-width:1.39347;stroke-linejoin:round"
      id="rect472-9-7-6-4-9"

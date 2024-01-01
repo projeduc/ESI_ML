@@ -7,7 +7,7 @@
    viewBox="0 0 300 130"
    version="1.1"
    id="svg8"
-   inkscape:version="1.2.2 (1:1.2.2+202212051552+b0a8486541)"
+   inkscape:version="1.3.2 (1:1.3.2+202311252150+091e20ef0f)"
    sodipodi:docname="seq2seq_exp.svg"
    inkscape:export-filename="/home/kariminf/Github/projeduc/1CP_BWeb/img/Bweb01-environnement/access-web.png"
    inkscape:export-xdpi="90"
@@ -26,14 +26,14 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.76444731"
-     inkscape:cx="606.3204"
-     inkscape:cy="274.70827"
+     inkscape:zoom="0.85069192"
+     inkscape:cx="507.23416"
+     inkscape:cy="237.45377"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1920"
-     inkscape:window-height="1007"
+     inkscape:window-height="1008"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -5466,9 +5466,9 @@
            width="513.19751"
            id="rect365-85-7-82-6-6-2-9-8" /></flowRegion><flowPara
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:21.3333px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000"
-         id="flowPara5582-22-4-5-2-5-1-9-3">Fonction de vectorization de mots (embedding)</flowPara></flowRoot>
+         id="flowPara5582-22-4-5-2-5-1-9-3">Words' vectorization function (embedding)</flowPara></flowRoot>
     <flowRoot
-       transform="matrix(0.26458333,0,0,0.26458333,198.66175,263.28138)"
+       transform="matrix(0.26458333,0,0,0.26458333,202.89511,263.28138)"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:'Crimson Text';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        id="flowRoot361-49-5-99-3-3-8-4-8-3"
        xml:space="preserve"><flowRegion
@@ -5481,9 +5481,9 @@
            width="475.53833"
            id="rect365-85-7-82-6-6-2-9-8-3" /></flowRegion><flowPara
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:40px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000"
-         id="flowPara5582-22-4-5-2-5-1-9-3-8">Décodeur</flowPara></flowRoot>
+         id="flowPara5582-22-4-5-2-5-1-9-3-8">Decoder</flowPara></flowRoot>
     <flowRoot
-       transform="matrix(0.26458333,0,0,0.26458333,46.927195,233.27365)"
+       transform="matrix(0.26458333,0,0,0.26458333,53.277199,233.27365)"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:'Crimson Text';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        id="flowRoot361-49-5-99-3-3-8-4-8-3-9"
        xml:space="preserve"><flowRegion
@@ -5496,7 +5496,7 @@
            width="475.53833"
            id="rect365-85-7-82-6-6-2-9-8-3-2" /></flowRegion><flowPara
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:40px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000"
-         id="flowPara5582-22-4-5-2-5-1-9-3-8-0">Encodeur</flowPara></flowRoot>
+         id="flowPara5582-22-4-5-2-5-1-9-3-8-0">Encoder</flowPara></flowRoot>
     <flowRoot
        transform="matrix(0.26458333,0,0,0.26458333,29.092866,144.59628)"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:'Crimson Text';letter-spacing:0px;word-spacing:0px;fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"

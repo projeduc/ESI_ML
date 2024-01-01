@@ -7,7 +7,7 @@
    viewBox="0 0 335 135"
    version="1.1"
    id="svg8"
-   inkscape:version="1.2.2 (1:1.2.2+202212051552+b0a8486541)"
+   inkscape:version="1.3.2 (1:1.3.2+202311252150+091e20ef0f)"
    sodipodi:docname="seq2seq_att_exp.svg"
    inkscape:export-filename="/home/kariminf/Github/projeduc/1CP_BWeb/img/Bweb01-environnement/access-web.png"
    inkscape:export-xdpi="90"
@@ -26,14 +26,14 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4303634"
-     inkscape:cx="398.15058"
-     inkscape:cy="258.67553"
+     inkscape:zoom="0.66209213"
+     inkscape:cx="314.91086"
+     inkscape:cy="60.414553"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1920"
-     inkscape:window-height="1007"
+     inkscape:window-height="1008"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -7306,7 +7306,7 @@
          style="fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:0.111978;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.67187, 0.223957;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
          ry="2.3885093" />
       <flowRoot
-         transform="matrix(0.26458333,0,0,0.26458333,112.67407,194.40412)"
+         transform="matrix(0.26458333,0,0,0.26458333,112.67407,194.93329)"
          style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:'Crimson Text';letter-spacing:0px;word-spacing:0px;fill:#ffff00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          id="flowRoot361-49-5-99-3-0-7-2"
          xml:space="preserve"><flowRegion
@@ -7334,7 +7334,7 @@
          style="fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:0.111978;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.67187, 0.223957;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
          ry="2.3885093" />
       <flowRoot
-         transform="matrix(0.26458333,0,0,0.26458333,113.20324,194.40412)"
+         transform="matrix(0.26458333,0,0,0.26458333,113.20324,194.93329)"
          style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:'Crimson Text';letter-spacing:0px;word-spacing:0px;fill:#ffff00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          id="flowRoot361-49-5-99-3-0-7-2-6"
          xml:space="preserve"><flowRegion
@@ -7362,7 +7362,7 @@
          style="fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:0.111978;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.67187, 0.223957;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
          ry="2.3885093" />
       <flowRoot
-         transform="matrix(0.26458333,0,0,0.26458333,113.01414,194.31336)"
+         transform="matrix(0.26458333,0,0,0.26458333,113.01414,194.84253)"
          style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:'Crimson Text';letter-spacing:0px;word-spacing:0px;fill:#ffff00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          id="flowRoot361-49-5-99-3-0-7-2-1"
          xml:space="preserve"><flowRegion
@@ -7390,7 +7390,7 @@
          style="fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:0.111978;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.67187, 0.223957;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
          ry="2.3885093" />
       <flowRoot
-         transform="matrix(0.26458333,0,0,0.26458333,112.84635,194.36192)"
+         transform="matrix(0.26458333,0,0,0.26458333,112.84635,194.89109)"
          style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:'Crimson Text';letter-spacing:0px;word-spacing:0px;fill:#ffff00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          id="flowRoot361-49-5-99-3-0-7-2-4"
          xml:space="preserve"><flowRegion
@@ -7543,7 +7543,7 @@
          style="fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:0.111978;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.67187, 0.223957;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
          ry="2.3885093" />
       <flowRoot
-         transform="matrix(0.26458333,0,0,0.26458333,113.20324,194.40412)"
+         transform="matrix(0.26458333,0,0,0.26458333,113.20324,194.93329)"
          style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:'Crimson Text';letter-spacing:0px;word-spacing:0px;fill:#ffff00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          id="flowRoot361-49-5-99-3-0-7-2-4-8"
          xml:space="preserve"><flowRegion
@@ -7571,7 +7571,7 @@
          style="fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:0.111978;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.67187, 0.223957;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
          ry="2.3885093" />
       <flowRoot
-         transform="matrix(0.26458333,0,0,0.26458333,113.03165,194.45365)"
+         transform="matrix(0.26458333,0,0,0.26458333,113.03165,194.98282)"
          style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:'Crimson Text';letter-spacing:0px;word-spacing:0px;fill:#ffff00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          id="flowRoot361-49-5-99-3-0-7-2-4-6"
          xml:space="preserve"><flowRegion
@@ -7599,7 +7599,7 @@
          style="fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:0.111978;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.67187, 0.223957;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
          ry="2.3885093" />
       <flowRoot
-         transform="matrix(0.26458333,0,0,0.26458333,113.03424,194.43002)"
+         transform="matrix(0.26458333,0,0,0.26458333,113.03424,194.95919)"
          style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:'Crimson Text';letter-spacing:0px;word-spacing:0px;fill:#ffff00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          id="flowRoot361-49-5-99-3-0-7-2-4-4"
          xml:space="preserve"><flowRegion
@@ -7627,7 +7627,7 @@
          style="fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:0.111978;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.67187, 0.223957;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
          ry="2.3885093" />
       <flowRoot
-         transform="matrix(0.26458333,0,0,0.26458333,112.89812,194.41486)"
+         transform="matrix(0.26458333,0,0,0.26458333,112.89812,194.94403)"
          style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:'Crimson Text';letter-spacing:0px;word-spacing:0px;fill:#ffff00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          id="flowRoot361-49-5-99-3-0-7-2-4-64"
          xml:space="preserve"><flowRegion
@@ -7655,7 +7655,7 @@
          style="fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:0.111978;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.67187, 0.223957;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
          ry="2.3885093" />
       <flowRoot
-         transform="matrix(0.26458333,0,0,0.26458333,113.08785,194.39542)"
+         transform="matrix(0.26458333,0,0,0.26458333,113.08785,194.92459)"
          style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:'Crimson Text';letter-spacing:0px;word-spacing:0px;fill:#ffff00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          id="flowRoot361-49-5-99-3-0-7-2-4-5"
          xml:space="preserve"><flowRegion
@@ -7671,7 +7671,7 @@
            id="flowPara5582-22-4-5-2-6-2-87-03-94">1, 2, 5</flowPara></flowRoot>
     </g>
     <flowRoot
-       transform="matrix(0.26458333,0,0,0.26458333,168.73887,141.76042)"
+       transform="matrix(0.26458333,0,0,0.26458333,171.38472,141.76042)"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:'Crimson Text';letter-spacing:0px;word-spacing:0px;fill:#008000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        id="flowRoot361-49-5-99-3-3-8"
        xml:space="preserve"><flowRegion
@@ -7683,8 +7683,8 @@
            height="65.937119"
            width="659.72723"
            id="rect365-85-7-82-6-6-2" /></flowRegion><flowPara
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:21.3333px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#008000"
-         id="flowPara5582-22-4-5-2-5-1">&lt;s&gt;                this            product            is               good   </flowPara></flowRoot>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:21.3333px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#008000"
+         id="flowPara5582-22-4-5-2-5-1">&lt;s&gt;                      this                 product                 is                      good   </flowPara></flowRoot>
     <g
        id="g21025-46"
        transform="translate(-139.05673,-20.795756)">
@@ -7748,8 +7748,8 @@
            height="50.460213"
            width="638.29712"
            id="rect365-85-7-82-6-6-2-9" /></flowRegion><flowPara
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:21.3333px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#0000ff;fill-opacity:1"
-         id="flowPara5582-22-4-5-2-5-1-9">this           product            is               good              &lt;/s&gt; </flowPara></flowRoot>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:21.3333px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#0000ff;fill-opacity:1"
+         id="flowPara5582-22-4-5-2-5-1-9">this               product                   is                      good                    &lt;/s&gt; </flowPara></flowRoot>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1, 1;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow2Mend-71)"
        d="m 172.67696,282.38573 c 31.34915,4.3113 -4.8466,-98.17116 33.9082,-99.8318"
@@ -7772,7 +7772,7 @@
        sodipodi:nodetypes="cc" />
     <g
        id="g20849-64"
-       transform="translate(14.028136,105.10944)">
+       transform="translate(14.065503,105.37674)">
       <rect
          ry="1.9405861"
          y="-184.48322"
@@ -7799,7 +7799,7 @@
            id="flowPara36475-3-0-88">V</flowPara></flowRoot>
     </g>
     <flowRoot
-       transform="matrix(0.26458333,0,0,0.26458333,195.97573,259.24178)"
+       transform="matrix(0.26458333,0,0,0.26458333,195.57653,260.39761)"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:'Crimson Text';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        id="flowRoot361-49-5-99-3-3-8-4-8"
        xml:space="preserve"><flowRegion
@@ -7812,9 +7812,9 @@
            width="513.19751"
            id="rect365-85-7-82-6-6-2-9-8" /></flowRegion><flowPara
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:21.3333px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000"
-         id="flowPara5582-22-4-5-2-5-1-9-3">Fonction de vectorization de mots (embedding)</flowPara></flowRoot>
+         id="flowPara5582-22-4-5-2-5-1-9-3">Words' vectorization function (embedding)</flowPara></flowRoot>
     <flowRoot
-       transform="matrix(0,-0.26458333,0.26458333,0,108.29933,232.60686)"
+       transform="matrix(0,-0.26458333,0.26458333,0,111.88077,230.26727)"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:'Crimson Text';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        id="flowRoot361-49-5-99-3-3-8-4-8-3"
        xml:space="preserve"><flowRegion
@@ -7827,9 +7827,9 @@
            width="475.53833"
            id="rect365-85-7-82-6-6-2-9-8-3" /></flowRegion><flowPara
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:40px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000"
-         id="flowPara5582-22-4-5-2-5-1-9-3-8">Décodeur</flowPara></flowRoot>
+         id="flowPara5582-22-4-5-2-5-1-9-3-8">Decoder</flowPara></flowRoot>
     <flowRoot
-       transform="matrix(0,-0.26458333,0.26458333,0,-24.809386,231.54719)"
+       transform="matrix(0,-0.26458333,0.26458333,0,-21.057868,229.77809)"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:'Crimson Text';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        id="flowRoot361-49-5-99-3-3-8-4-8-3-9"
        xml:space="preserve"><flowRegion
@@ -7842,9 +7842,9 @@
            width="475.53833"
            id="rect365-85-7-82-6-6-2-9-8-3-2" /></flowRegion><flowPara
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:40px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000"
-         id="flowPara5582-22-4-5-2-5-1-9-3-8-0">Encodeur</flowPara></flowRoot>
+         id="flowPara5582-22-4-5-2-5-1-9-3-8-0">Encoder</flowPara></flowRoot>
     <flowRoot
-       transform="matrix(0.26458333,0,0,0.26458333,29.092866,141.42126)"
+       transform="matrix(0.26458333,0,0,0.26458333,30.680367,141.42126)"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:'Crimson Text';letter-spacing:0px;word-spacing:0px;fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        id="flowRoot361-49-5-99-3-3"
        xml:space="preserve"><flowRegion
@@ -7856,8 +7856,8 @@
            height="59.431194"
            width="437.84427"
            id="rect365-85-7-82-6-6" /></flowRegion><flowPara
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:21.3333px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#0000ff;fill-opacity:1"
-         id="flowPara5582-22-4-5-2-5">ce         produit         est           bon   </flowPara></flowRoot>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:21.3333px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#0000ff;fill-opacity:1"
+         id="flowPara5582-22-4-5-2-5">ce              produit           est                bon   </flowPara></flowRoot>
     <g
        id="g10421-4-5"
        transform="translate(-1.795502,-2.2955257)">
@@ -8579,8 +8579,8 @@
       <flowRoot
          xml:space="preserve"
          id="flowRoot361-8-9-2-3-2"
-         style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:'Crimson Text';letter-spacing:5.33px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.13386;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         transform="matrix(0.26458333,0,0,0.26458333,84.119445,227.90247)"><flowRegion
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:'Crimson Text';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.13386;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         transform="matrix(0.26458333,0,0,0.26458333,85.94037,228.55961)"><flowRegion
            id="flowRegion363-88-4-8-0-0"
            style="line-height:100%;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.13386;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"><rect
              id="rect365-6-8-3-78-5"
@@ -8589,7 +8589,7 @@
              x="16"
              y="127.5433"
              style="line-height:100%;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.13386;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" /></flowRegion><flowPara
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:18.6667px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;letter-spacing:6.21px;writing-mode:lr-tb;text-anchor:start;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:1.13386;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:18.6667px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;letter-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:1.13386;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
            id="flowPara7359-1-8-68-5">Softmax</flowPara></flowRoot>
     </g>
     <g
@@ -8607,8 +8607,8 @@
       <flowRoot
          xml:space="preserve"
          id="flowRoot361-8-9-2-3-2-1"
-         style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:'Crimson Text';letter-spacing:5.33px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.13386;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         transform="matrix(0.26458333,0,0,0.26458333,66.657,227.85495)"><flowRegion
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:'Crimson Text';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.13386;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         transform="matrix(0.26458333,0,0,0.26458333,77.768028,228.41435)"><flowRegion
            id="flowRegion363-88-4-8-0-0-3"
            style="line-height:100%;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.13386;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"><rect
              id="rect365-6-8-3-78-5-4"
@@ -8617,8 +8617,8 @@
              x="16"
              y="127.5433"
              style="line-height:100%;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.13386;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" /></flowRegion><flowPara
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:18.6667px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;letter-spacing:6.21px;writing-mode:lr-tb;text-anchor:start;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:1.13386;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           id="flowPara7359-1-8-68-5-9">Somme vectorielle</flowPara></flowRoot>
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:18.6667px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;letter-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:1.13386;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="flowPara7359-1-8-68-5-9">Element-wise  Sum</flowPara></flowRoot>
     </g>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1, 1;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow2Mend-71-4)"

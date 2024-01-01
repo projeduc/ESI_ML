@@ -1,0 +1,2173 @@
+% !TEX TS-program = pdflatex
+% !TeX program = pdflatex
+% !TEX encoding = UTF-8
+% !TeX spellcheck = en_US
+
+\documentclass[xcolor=table]{beamer}
+
+\usepackage{../extra/beamer/karimml}
+
+\input{options}
+
+\subtitle[Neural Networks]{Neural Networks}  
+
+\changegraphpath{../img/RN/}
+
+\begin{document}
+
+\begin{frame}
+	\frametitle{\inserttitle}
+	\framesubtitle{\insertshortsubtitle: Motivation}
+
+	\begin{figure}
+		\centering
+		\hgraphpage[.8\textwidth]{neuron.png}
+		\caption{Biological neuron \cite{2017-cain}}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\inserttitle}
+	\framesubtitle{\insertshortsubtitle: Network types}
+	
+	\hgraphpage[\textwidth]{NN-types.pdf}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\inserttitle}
+	\framesubtitle{\insertshortsubtitle: Plan}
+
+	\begin{multicols}{2}
+		%	\small
+		\tableofcontents
+	\end{multicols}
+\end{frame}
+
+\section{Neuron}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle}
+	\framesubtitle{\insertsection}
+	
+	\begin{itemize}
+		\item Let's remember \optword{Logistic regression}
+		\item We make a linear combination of features' values: this can be seen as the accumulation of signals
+		\[z(x) = \theta_0 + \sum\limits_{j=1}^{N} \theta_j x_j\]
+		\item Then, we apply the logistic function to this sum: we call it an \keyword{activation function} (send the signal or not according to a threshold)
+		\[\sigma(z) = \frac{1}{1 + e^{-z}}\]
+		\item To calculate the classification error, we use a \keyword{cost function}
+		\item To train the parameters, we use an \keyword{optimization function}
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle}
+	\framesubtitle{\insertsection}
+
+\begin{center}
+	\hgraphpage[0.6\textwidth]{aneuron.pdf}
+\end{center}
+
+\[\hat{y} = \varphi (b + \sum_{j=1}^n X_j W_j)\]
+
+\end{frame}
+
+\subsection{Network}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle}
+	\framesubtitle{\insertsection: Motivation}
+	
+	\begin{minipage}{0.59\textwidth}
+		\begin{itemize}
+			\item To train complex functions, a single neuron is not enough
+			\item For example, \expword{Two variables' XOR function}
+			\item If we train a logistic regression model (a neuron with the logistic function as activation function), the algorithm tries to separate the samples with a decision line
+			\item Whatever the decision line, there is at least one misclassified sample
+		\end{itemize}
+	\end{minipage}
+	\begin{minipage}{0.4\textwidth}
+		\hgraphpage[\textwidth]{xor.png}
+	\end{minipage}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Architecture}
+	
+	\begin{minipage}{0.59\textwidth}
+		\begin{itemize}
+			\item \optword{Input layer}: contains input values and no parameters
+			\item \optword{Hidden layers}: each layer receives the outputs of the previous layer.
+			It contains a number of neurons which calculate the weighted sum with an activation function.
+			\item \optword{Output layer}: contains the neurons that calculate the output.
+		\end{itemize}
+	\end{minipage}
+	\begin{minipage}{0.4\textwidth}
+		\hgraphpage[\textwidth]{NN.pdf}
+	\end{minipage}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Some humor}
+	
+	\begin{center}
+		\hgraphpage[0.6\textwidth]{humor/humor-neuron.jpeg}
+	\end{center}
+	
+\end{frame}
+
+\subsection{Activation functions}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Sigmoid functions}
+	
+	\begin{tabular}{ll}
+		Logistic function & Hyperbolic tangent \\
+		\hgraphpage[.4\textwidth]{logistique.png} & 
+		\hgraphpage[.4\textwidth]{tanh.png} \\
+		$\color{blue}\sigma(x) = \frac{1}{1 + e^{-x}}$ & 
+		$\color{blue}tanh(x) = \frac{e^{x} - e^{-x}}{e^{x} + e^{-x}} = \frac{2}{1 + e^{-2x}} - 1$ \\
+		
+		$\sigma(x) \in ]0, 1[$ & 
+		$tanh(x) \in ]-1, 1[$ \\
+		
+		$\color{red}\sigma'(x) = \sigma(x) (1-\sigma(x))$ & 
+		$\color{red}tanh'(x) = 1 - tanh(x)^2$ \\
+	\end{tabular}
+
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Sigmoid functions (2)}
+	
+	\begin{tabular}{ll}
+		Arc tangent & Softsign \\
+		\hgraphpage[.4\textwidth]{arctan.png} & 
+		\hgraphpage[.4\textwidth]{so.png} \\
+		$\color{blue}f(x) = \frac{2}{\pi} tan^{-1}(x)$ & 
+		$\color{blue}f(x) = \frac{x}{1 + |x|}$ \\
+		
+		$f(x) \in ]-1, 1[$ & 
+		$f(x) \in ]-1, 1[$ \\
+		
+		$\color{red}f'(x) = \frac{2}{\pi} \frac{1}{x^2 + 1}$ & 
+		$\color{red}f'(x) = \frac{1}{(1 + |x|)^2}$ \\
+	\end{tabular}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Linear functions}
+
+\begin{tabular}{ll}
+	Linear function & Identity function \\
+	\hgraphpage[.4\textwidth]{lineaire.png} & 
+	\hgraphpage[.4\textwidth]{identite.png} \\
+	$\color{blue} f(x) = k x$ & 
+	$\color{blue} f(x) = x$ \\
+	
+	$f(x) \in ]-\infty, +\infty[$ & 
+	$f(x) \in ]-\infty, +\infty[$ \\
+	
+	$\color{red}f'(x) = k$ & 
+	$\color{red}f'(x) = 1$ \\
+\end{tabular}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Step functions}
+
+\begin{tabular}{ll}
+	Heaviside function & Sign function \\
+	\hgraphpage[.4\textwidth]{heaviside.png} & 
+	\hgraphpage[.4\textwidth]{signe.png} \\
+	$\color{blue} H(x) = \begin{cases}
+	0 & \text{if } x < 0 \\
+	1 & \text{otherwise}
+	\end{cases}$ & 
+	$\color{blue} S(x) = \begin{cases}
+	-1 & \text{if } x < 0 \\
+	1 & \text{otherwise}
+	\end{cases} = 2 H(x) - 1$ \\
+	
+	$H(x) \in \{0, 1\}$ & 
+	$S(x) \in \{-1, 1\}$ \\
+	
+	$\color{red}H'(x) = \begin{cases}
+	0 & \text{if } x \ne 0 \\
+	+\infty & \text{otherwise}
+	\end{cases}$ & 
+	$\color{red}S'(x) = 2H'(x)$ \\
+\end{tabular}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Hockey stick functions}
+
+\begin{tabular}{ll}
+	Rectified Linear Unit & Parametric ReLU \\
+	\hgraphpage[.4\textwidth]{relu.png} & 
+	\hgraphpage[.4\textwidth]{prelu.png} \\
+	$\color{blue} ReLU(x) = x H(x) = \max(0, x)$ & 
+	$\color{blue} PReLU(\alpha, x) = \begin{cases}
+	\alpha x & \text{if } x < 0 \\
+	x & \text{otherwise}
+	\end{cases}$ \\
+	
+	$ReLU(x) \in [0, +\infty[$ & 
+	$PReLU(x) \in ]-\infty, +\infty[$ \\
+	
+	$\color{red}ReLU'(x) = H(x) = \begin{cases}
+	0 & \text{if } x < 0 \\
+	1 & \text{otherwise}
+	\end{cases}$ & 
+	$\color{red}PReLU'(x) = \begin{cases}
+	\alpha & \text{if } x < 0 \\
+	1 & \text{otherwise}
+	\end{cases}$ \\
+\end{tabular}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Hockey stick functions (2)}
+
+\begin{tabular}{ll}
+	Exponential Linear Unit & Sigmoid Linear Unit \\
+	\hgraphpage[.4\textwidth]{elu.png} & 
+	\hgraphpage[.4\textwidth]{slu.png} \\
+	$\color{blue} ELU(\alpha, x) = \begin{cases}
+	\alpha (e^x - 1) & \text{if } x < 0 \\
+	x & \text{otherwise}
+	\end{cases}$ & 
+	$\color{blue} SLU(x) = x \sigma(x) = \frac{x}{1 + e^{-x}}$ \\
+	
+	$ELU(\alpha, x) \in ]-\infty, +\infty[$ & 
+	$SLU(x) \in ]-\infty, +\infty[$ \\
+	
+	$\color{red}ELU'(\alpha, x) = \begin{cases}
+	ELU(\alpha, x) + \alpha & \text{if } x < 0 \\
+	1 & \text{otherwise}
+	\end{cases}$ & 
+	$\color{red}SLU'(x) = \sigma(x) (1 + x \sigma(-x))$ \\
+\end{tabular}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Some humor}
+	
+	\begin{center}
+		\hgraphpage[0.7\textwidth]{humor/humor-relu.png}
+	\end{center}
+	
+\end{frame}
+
+\subsection{Cost functions}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Regression (MSE)}
+	
+	\begin{columns}
+		\begin{column}{.68\linewidth}
+			\begin{block}{Mean Squared Error, L2 loss}
+				\[MSE = \frac{1}{2} (y - \hat{y})^2\]
+				
+				\[
+				\frac{\partial MSE}{\partial \hat{y}} = \hat{y} - y
+				\]
+			\end{block}
+		\end{column}%
+		\begin{column}{.3\linewidth}
+			\begin{figure}
+				\hgraphpage[\textwidth]{regression-loss_.pdf}
+				\caption{Regression cost functions \cite{2017-rosenberg}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Regression (MSE)}
+
+	\begin{itemize}
+		\item \optword{Advantages}
+		\begin{itemize}
+			\item A quadratic function has only one global minimum.
+		\end{itemize}
+		\item \optword{Disadvantages}
+		\begin{itemize}
+			\item MSE is less robust to outliers.
+		\end{itemize}
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Regression (MAE)}
+	
+	\begin{columns}
+		\begin{column}{.68\linewidth}
+			\begin{block}{Mean Absolute Error, L1 loss}
+				\[MAE = |y - \hat{y}|\]
+				
+				\[
+				\frac{\partial MAE}{\partial \hat{y}} = 
+				\begin{cases}
+					+1 & \text{ if } \hat{y} > y \\
+					-1 & \text{ if } \hat{y} < y \\
+					[-1, +1] & \text{ if } \hat{y} = y \\
+				\end{cases}
+				\]
+			\end{block}
+		\end{column}%
+		\begin{column}{.3\linewidth}
+			\begin{figure}
+				\hgraphpage[\textwidth]{regression-loss_.pdf}
+				\caption{Regression cost functions \cite{2017-rosenberg}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Regression (MAE)}
+	
+	\begin{itemize}
+		\item \optword{Advantages}
+		\begin{itemize}
+			\item Less sensitive to outliers
+		\end{itemize}
+		\item \optword{Disadvantages}
+		\begin{itemize}
+			\item The amplitude of the gradient does not depend on the size of the error, only on the sign of y - ŷ. This leads to the gradient magnitude being large even when the error is small
+		\end{itemize}
+	\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Regression (Huber)}
+	
+	\begin{columns}
+		\begin{column}{.68\linewidth}
+			\begin{block}{Huber Loss}
+				\[J = %\frac{1}{M} \sum\limits_{i=1}^{M} 
+				\begin{cases}
+					\frac{1}{2} (y - \hat{y})^2 & \text{if } |y - \hat{y}| \le \delta \\
+					\delta |y - \hat{y}| - \frac{1}{2} \delta^2 & \text{otherwise }\\
+				\end{cases}
+				\]
+				
+				\[
+				\frac{\partial J}{\partial \hat{y}} = 
+				\begin{cases}
+					\hat{y} - y & \text{ if } |\hat{y} - y| \le \delta \\
+					-\delta & \text{ if } \hat{y} - y < -\delta \\
+					+\delta & \text{ if } \hat{y} - y > \delta \\
+				\end{cases}
+				\]
+				
+			\end{block}
+			
+		\end{column}%
+		\begin{column}{.3\linewidth}
+			\begin{figure}
+				\hgraphpage[\textwidth]{regression-loss_.pdf}
+				\caption{Regression cost functions \cite{2017-rosenberg}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Regression (Huber)}
+	
+	\begin{itemize}
+		\item \optword{Advantages}
+		\begin{itemize}
+			\item Same advantages as MSE and MAE
+		\end{itemize}
+		\item \optword{Disadvantages}
+		\begin{itemize}
+			\item Hyper-parameter $\delta$ must be tuned
+		\end{itemize}
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Binary classification (BCE)}
+	
+	\begin{block}{Binary Cross Entropy Loss}
+		\[J = - (y \log(\hat{y}) + (1 - y) \log(1 - \hat{y}))\]
+		
+		\[
+		\frac{\partial J}{\partial \hat{y}} = \frac{\hat{y} - y}{\hat{y} - \hat{y}^2}
+		\]
+	\end{block}
+
+	\begin{itemize}
+		\item \optword{Advantages}
+		\begin{itemize}
+			\item works well with activation functions that model probabilities (sigmoid)
+			\item Therefore, best estimate of the probabilities
+		\end{itemize}
+		\item \optword{Disadvantages}
+		\begin{itemize}
+			\item linear separation margin is not guaranteed to be optimal
+		\end{itemize}
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Binary classification (Hinge)}
+	
+	\begin{block}{Hinge Loss (SVM Loss)}
+		\[J = \max(0, 1 - y \hat{y}), y \in \{-1, 1\}\]
+		
+		\[
+		\frac{\partial J}{\partial \hat{y}} = 
+		\begin{cases}
+			0 & \text{if } y \hat{y} \ge 1 \\
+			-y & \text{otherwise}
+		\end{cases}
+		\]
+	\end{block}
+
+	\begin{itemize}
+		\item \optword{Advantages}
+		\begin{itemize}
+			\item results in better precision
+		\end{itemize}
+		\item \optword{Disadvantages}
+		\begin{itemize}
+			\item non-smooth and non-differentiable, therefore fewer optimization algorithms
+			\item does not model the probability $p(y|x)$ directly
+		\end{itemize}
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Multi-class classification (Cross entropy)}
+	
+	\begin{block}{Cross Entropy Loss}
+		\[J = - \sum\limits_{k=1}^{K} y_{k} \log(\hat{y}_{k}) \text{, où } K \text{ est le nnombre des classes} \]
+		
+		\[
+		\frac{\partial J}{\partial \hat{y}_k} = - \frac{y_{k}}{\hat{y}_{k}}
+		\]
+	\end{block}
+
+%	\begin{itemize}
+%		\item \optword{Advantages}
+%		\begin{itemize}
+%			\item 
+%		\end{itemize}
+%		\item \optword{Disadvantages}
+%		\begin{itemize}
+%			\item 
+%		\end{itemize}
+%	\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Some humor}
+	
+	\begin{center}
+		\vgraphpage{humor/humor-loss.jpg}
+	\end{center}
+	
+\end{frame}
+
+\subsection{Optimization function}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Gradient Descent}
+	
+	\begin{figure}
+		\vgraphpage[.7\textheight]{steepest.png}
+		\caption{Illustration of gradient descent \cite{2020-calin}}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Gradient Descent}
+	
+	\begin{algorithm}[H]
+		\KwData{$ X, Y, \alpha, T $}
+		\KwResult{$ \theta $}
+		initialize $ \theta $ ; $ t = 0 $\;
+		\While{$ t < T$ and no convergence}{
+			$ \theta = \theta - \alpha \Delta_\theta J(X, Y; \theta) $\;
+			%		Mettre à jours les $\theta$\;
+			t = t + 1 \;
+		}
+		\caption{Gradient Descent}
+	\end{algorithm}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Gradient Descent}
+	
+	\begin{itemize}
+		\item \optword{Properties}:
+		\begin{itemize}
+			\item Solve the optimal value in the direction of gradient descent.
+			\item The method converges with a linear manner.
+		\end{itemize}
+		\item \optword{Advantages}:
+		\begin{itemize}
+			\item The solution is a global optimum when the objective function is convex.
+		\end{itemize}
+		\item \optword{Disadvantages}:
+		\begin{itemize}
+			\item For each parameter update, the gradients of all samples must be calculated. So the computational cost is very high.
+			\item The entire workout may be too large to process in memory
+			\item can converge to a local minimum when the objective function is not convex
+		\end{itemize}
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Stochastic Gradient Descent}
+	
+	\begin{algorithm}[H]
+		\KwData{$ X, Y, \alpha, T$}
+		\KwResult{$ \theta $}
+		initialize $ \theta $ ; $ t = 0 $\;
+		\While{$ t < T$ and no convergence}{
+			Randomly choose $ (X^{(i)}, Y^{(i)}) \in (X, Y)$\;
+			$ \theta = \theta - \alpha \Delta_\theta J(X^{(i)}, Y^{(i)}; \theta) $\;
+			t = t + 1 \;
+		}
+		\caption{Stochastic Gradient Descent}
+	\end{algorithm}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Stochastic Gradient Descent}
+	
+	\begin{itemize}
+		\item \optword{Properties}:
+		\begin{itemize}
+			\item Parameters are updated based on each sample
+		\end{itemize}
+		\item \optword{Advantages}:
+		\begin{itemize}
+			\item Can avoid local minima
+		\end{itemize}
+		\item \optword{Disadvantages}:
+		\begin{itemize}
+			% \item Frequent updating is more computationally expensive
+			\item It is difficult for the model to converge to a minimum
+		\end{itemize}
+	\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Mini-Batch Gradient Descent}
+	
+	\begin{algorithm}[H]
+		\KwData{$ X, Y, \alpha, T, b $}
+		\KwResult{$ \theta $}
+		initialize $ \theta $ ; $ t = 0 $\;
+		\While{$ t < T$ et pas de convergence}{
+			Randomly shuffle the data\;
+			Split the data into $b$ batches\;
+			\lForEach{$ (X^b, Y^b) \in batches$}{
+				$ \theta = \theta - \alpha \Delta_\theta J(X^b, Y^b; \theta) $
+				%			Mettre à jours les $\theta$\;
+			}
+			\tcp{{\tiny We can update the parameters with the average of the steps}}
+			t = t + 1 \;
+		}
+		\caption{Mini-Batch Gradient Descent}
+	\end{algorithm}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Mini-Batch Gradient Descent}
+	
+	\begin{itemize}
+		\item \optword{Properties}:
+		\begin{itemize}
+			\item Training is done on subsets of the dataset
+			\item A hyper-parameter $b$ for the size of a batch
+		\end{itemize}
+		\item \optword{Advantages}:
+		\begin{itemize}
+			\item Can avoid local minima due to frequent updates
+			\item Effective in case of large training data
+		\end{itemize}
+		\item \optword{Disadvantages}:
+		\begin{itemize}
+			\item An additional hyper-parameter must be configured
+		\end{itemize}
+	\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Adaptive Gradient Descent (AdaGrad)}
+	
+	\begin{algorithm}[H]
+		\KwData{$ X, Y, \alpha, T$}
+		\KwResult{$ \theta $}
+		initialize $ \theta $ ; $ t = 0 $\;
+		initialize $v$ ($|v| = |\theta|$) to zero\;
+		\While{$ t < T$ and no convergence}{
+			$ v = v + (\Delta_\theta J(X, Y; \theta))^2 $\;
+			$ \theta = \theta - \frac{\alpha}{\sqrt{v + \epsilon}} \Delta_\theta J(X, Y; \theta) $;\tcp{{\tiny epsilon is used to avoid division by 0, typically 1e-8}}
+			%		Mettre à jours les $\theta$\;
+			
+			t = t + 1 \;
+		}
+		\caption{Adaptive Gradient Descent \cite{2011-duchi-al}}
+	\end{algorithm}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Adaptive Gradient Descent (AdaGrad)}
+	
+	\begin{itemize}
+		\item \optword{Properties}:
+		\begin{itemize}
+			\item The learning rate is adaptively adjusted based on the sum of squares of all historical gradients.
+		\end{itemize}
+		\item \optword{Advantages}:
+		\begin{itemize}
+			\item The learning rate of each parameter adjusts adaptively
+		\end{itemize}
+		\item \optword{Disadvantages}:
+		\begin{itemize}
+			\item Over time, the learning rate falls toward zero; the algorithm is not desirable for non-convex functions.
+		\end{itemize}
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Root Mean Square Propagation (RMSProp)}
+	
+	\begin{algorithm}[H]
+		\KwData{$ X, Y, \alpha, T, \beta$}
+		\KwResult{$ \theta $}
+		initialize $ \theta $ ; $ t = 0 $\;
+		initialize $v$ ($|v| = |\theta|$) to zero\;
+		\While{$ t < T$ and no convergence}{
+			$ v = \beta v + (1-\beta)(\Delta_\theta J(X, Y; \theta))^2 $\;
+			$ \theta = \theta - \frac{\alpha}{\sqrt{v} + \epsilon} \Delta_\theta J(X, Y; \theta) $\;
+			%		Mettre à jours les $\theta$\;
+			t = t + 1 \;
+		}
+		\caption{RMSProp \cite{2014-hinton-al}}
+	\end{algorithm}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Root Mean Square Propagation (RMSProp)}
+
+	\begin{itemize}
+		\item \optword{Properties}:
+		\begin{itemize}
+			\item Change the total gradient accumulation mode to exponential moving average.
+			\item By default, $\beta = 0.9$
+		\end{itemize}
+		\item \optword{Advantages}:
+		\begin{itemize}
+			\item Addresses the inefficient learning problem in late AdaGrad.
+			\item Suitable for the optimization of non-stationary and non-convex problems.
+		\end{itemize}
+		\item \optword{Disadvantages}:
+		\begin{itemize}
+			\item At the end of training, the update process can be stuck around the local minimum.
+		\end{itemize}
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Adaptive Moment Estimation (Adam)}
+	
+	\begin{algorithm}[H]
+		\KwData{$ X, Y, \alpha, T, \beta_1, \beta_2$}
+		\KwResult{$ \theta $}
+		initialize $ \theta $ ; $ t = 0 $\;
+		initialize $v$ et $m$ ($|v| = |m| = |\theta|$) to zero\;
+		\While{$ t < T$ and no convergence}{
+			$ g = \Delta_\theta J(X, Y; \theta) $\;
+			$ m = \beta_1 m + (1-\beta_1) g $; $\hat{m} = \frac{m}{1-\beta_1^t}$\;
+			$ v = \beta_2 v + (1-\beta_2) g^2 $;
+			$\hat{v} = \frac{v}{1-\beta_2^t}$\;
+			$ \theta = \theta - \frac{\alpha \hat{m}}{\sqrt{\hat{v}} + \epsilon} $\;
+			%		Mettre à jours les $\theta$\;
+			t = t + 1 \;
+		}
+		\caption{Adam \cite{2015-kingma-ba}}
+	\end{algorithm}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Adaptive Moment Estimation (Adam)}
+	
+	\begin{itemize}
+		\item \optword{Properties}:
+		\begin{itemize}
+			\item Use of first-order and second-order moments to dynamically adjust the learning rate for each parameter.
+			\item Addition of bias correction.
+			\item Default values: $\beta_1 = 0.9, \beta_2 = 0.999$ 
+		\end{itemize}
+		\item \optword{Advantages}:
+		\begin{itemize}
+			\item The gradient descent process is relatively stable. 
+			\item It is suitable for most non-convex optimization problems with large datasets and high-dimensional spaces.
+		\end{itemize}
+		\item \optword{Disadvantages}:
+		\begin{itemize}
+			\item The method may not converge in certain cases.
+		\end{itemize}
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Others}
+	
+	\begin{itemize}
+		\item \textbf{COCOB} \cite{orabona2017training} {\scriptsize \url{https://arxiv.org/pdf/1705.07795.pdf}}
+		
+		\item \textbf{Yogi} \cite{zaheer2018adaptive} {\scriptsize \url{https://proceedings.neurips.cc/paper/2018/file/90365351ccc7437a1309dc64e4db32a3-Paper.pdf}}
+		
+		\item \textbf{NovoGrad} \cite{ginsburg2019training} {\scriptsize \url{https://arxiv.org/pdf/1905.11286.pdf}} 
+		
+		\item \textbf{Lookahead} \cite{10.5555/3454287.3455148} {\scriptsize \url{https://arxiv.org/pdf/1907.08610v1.pdf}} 
+		
+		\item \textbf{LAMB} \cite{you2020large} {\scriptsize \url{https://arxiv.org/abs/1904.00962}} 
+		
+		\item \textbf{AdaBelief} \cite{zhuang2020adabelief} {\scriptsize \url{https://arxiv.org/pdf/2010.07468.pdf}}
+		
+%		\item \textbf{} \cite{} {\scriptsize \url{}} 
+		
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Some humor}
+	
+	\begin{center}
+		\vgraphpage{humor/humor-gd.jpg}
+	\end{center}
+	
+\end{frame}
+
+\section{Feedforward Neural Networks (FFNN)}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle}
+	\framesubtitle{\insertsection}
+	
+	
+\end{frame}
+
+\subsection{Architecture multicouches}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Notation}
+
+	\begin{center}
+		\hgraphpage[0.9\textwidth]{RNPA.pdf}
+	\end{center}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Example}
+
+	\hgraphpage[\textwidth]{RNPA-exp.pdf}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Backpropagation [example] (1)}
+	
+	Update $w_{11}^{(4)}$
+	
+	\small
+	
+	\[
+	\frac{\partial J}{\partial w_{11}^{(4)}} = \overbrace{\frac{\partial J}{\partial f_{1}^{(4)}} \frac{\partial f_{1}^{(4)}}{\partial z_{1}^{(4)}}}^{\delta_{1}^{(4)}} \overbrace{\frac{\partial z_{1}^{(4)}}{\partial w_{11}^{(4)}}}^{a_{1}^{(3)}}
+	\]
+	
+	$ 
+	\frac{\partial J}{\partial f_{1}^{(4)}} = \frac{(0.840, 0.843) - (0, 1)}{(0.840, 0.843) - (0.840, 0.843)^2} 
+	= (6.25, -1.186)
+	$
+	
+	$ 
+	\frac{\partial f_{1}^{(4)}}{\partial z_{1}^{(4)}} = (0.840, 0.843) (0.160, 0.157) = (0.134, 0.132)
+	$
+	
+	$
+	\delta_{1}^{(4)} = (6.25, -1.186) (0.134, 0.132) \approx (0.838, -0.157)
+	$
+	
+	$
+	\frac{\partial J}{\partial w_{11}^{(4)}} = avg((0.838, -0.157) (0.555, 0.612)) 
+	\approx avg(0.465, -0.096) = 0.184
+	$
+	
+	$
+	w_{11}^{(4)} = 0.7 - 1 * (0.184) = 0.516 \text{ , supposing } \alpha = 1
+	$
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Backpropagation [example] (2)}
+	
+	Update $w_{21}^{(4)}$
+	
+	\small
+	
+	\[
+	\frac{\partial J}{\partial w_{21}^{(4)}} = \overbrace{\frac{\partial J}{\partial f_{1}^{(4)}} \frac{\partial f_{1}^{(4)}}{\partial z_{1}^{(4)}}}^{\delta_{1}^{(4)}} \overbrace{\frac{\partial z_{1}^{(4)}}{\partial w_{21}^{(4)}}}^{a_{2}^{(3)}}
+	\]
+	
+	
+	$
+	\delta_{1}^{(4)} = (0.838, -0.157)
+	$
+	
+	$
+	\frac{\partial J}{\partial w_{21}^{(4)}} = avg((0.838, -0.157) (0.386, 0.360)) 
+	\approx avg(0.323, -0.056) = 0.134
+	$
+	
+	$
+	w_{21}^{(4)} = 0.7 - 1 * (0.134) = 0.566 \text{ , supposing } \alpha = 1
+	$
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Backpropagation [example] (3)}
+	
+	Update $w_{11}^{(3)}$
+	
+	\small
+	
+	\[
+	\frac{\partial J}{\partial w_{11}^{(3)}} = 
+	\overbrace{
+		\overbrace{
+			\frac{\partial J}{\partial f_{1}^{(4)}} 
+			\frac{\partial f_{1}^{(4)}}{\partial z_{1}^{(4)}}
+		}^{\delta_{1}^{(4)}} 
+		\overbrace{
+			\frac{\partial z_{1}^{(4)}}{\partial f_{1}^{(3)}}
+		}^{w_{11}^{(4)}} 
+		\frac{\partial f_{1}^{(3)}}{\partial z_{1}^{(3)}} 
+	}^{\delta_{1}^{(3)}} 
+	\overbrace{
+		\frac{\partial z_{1}^{(3)}}{\partial w_{11}^{(3)}}
+	}^{a_{1}^{(2)}}
+	\text{ Here, we use the past } w_{11}^{(4)}
+	\]
+	
+	$
+	\frac{\partial f_{1}^{(3)}}{\partial z_{1}^{(3)}} \approx 
+	(0.555, 0.612) (0.445, 0.388) = (0.247, 0.237)
+	$
+	
+	$
+	\delta_{1}^{(3)} = (0.838, -0.157) * 0.7 * (0.247, 0.237) \approx (0.145, -0.026)
+	$
+	
+	$
+	\frac{\partial J}{\partial w_{11}^{(2)}} = avg((0.145, -0.026) (0.622, 0.900)) 
+	= avg(0.090, -0.023) = 0.033
+	$
+	
+	$
+	w_{11}^{(2)} = 0.3 - 1 * (0.033) = 0.267 \text{ , supposing } \alpha = 1
+	$
+
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Backpropagation [example] (4)}
+	
+	Update $w_{12}^{(3)}$
+	
+	\small
+	
+	\[
+	\frac{\partial J}{\partial w_{12}^{(3)}} = 
+	\overbrace{
+		\overbrace{
+			\frac{\partial J}{\partial f_{1}^{(4)}} 
+			\frac{\partial f_{1}^{(4)}}{\partial z_{1}^{(4)}}
+		}^{\delta_{1}^{(4)}} 
+		\overbrace{
+			\frac{\partial z_{1}^{(4)}}{\partial f_{2}^{(3)}}
+		}^{w_{11}^{(4)}} 
+		\frac{\partial f_{2}^{(3)}}{\partial z_{2}^{(3)}} 
+	}^{\delta_{2}^{(3)}} 
+	\overbrace{
+		\frac{\partial z_{2}^{(3)}}{\partial w_{12}^{(3)}}
+	}^{a_{1}^{(2)}}
+	\text{ Here, we use use the past } w_{12}^{(4)}
+	\]
+	
+	$
+	\frac{\partial f_{2}^{(3)}}{\partial z_{2}^{(3)}} \approx 
+	(0.386, 0.360) (0.614, 0.64) = (0.237, 0.230)
+	$
+	
+	$
+	\delta_{2}^{(3)} = (0.838, -0.157) * 0.7 * (0.237, 0.230) \approx (0.139, -0.025)
+	$
+	
+	$
+	\frac{\partial J}{\partial w_{11}^{(2)}} = avg((0.139, -0.025) (0.622, 0.900)) 
+	= avg(0.086, -0.023) = 0.032
+	$
+	
+	$
+	w_{11}^{(2)} = - 0.1 - 1 * (0.032) = - 0.132 \text{ , supposing } \alpha = 1
+	$
+
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Backpropagation [example] (5)}
+	
+	Update $w_{11}^{(2)}$
+	
+	\small
+	
+	\[
+	\frac{\partial J}{\partial w_{11}^{(2)}} = 
+	\overbrace{ 
+		\left(
+		\delta_{1}^{(3)} 
+		\overbrace{
+			\frac{\partial z_{1}^{(3)}}{\partial f_{1}^{(2)}}
+		}^{w_{11}^{(3)}}
+		+
+		\delta_{2}^{(3)} 
+		\overbrace{
+			\frac{\partial z_{2}^{(3)}}{\partial f_{1}^{(2)}}
+		}^{w_{12}^{(3)}}
+		\right)
+		\frac{\partial f_{1}^{(2)}}{\partial z_{1}^{(2)}}
+	}^{\delta_{1}^{(2)}} 
+	\overbrace{
+		\frac{\partial z_{1}^{(2)}}{\partial w_{11}^{(2)}}
+	}^{a_{1}^{(1)}}
+	\]
+	
+	$
+	\frac{\partial f_{1}^{(2)}}{\partial z_{1}^{(2)}} = (0.622, 0.900) (0.378, 0.100) = (0.235, 0.09)
+	$
+	
+	$
+	\delta_{1}^{(2)} = \left((0.145, -0.026) * (0.3) + (0.139, -0.025) * (-0.1)\right) * (0.235, 0.09) \approx (0.006956, -0.00047683)
+	$
+	
+	
+	%$
+	%\frac{\partial J}{\partial w_{11}^{(2)}} = avg((0.039, -0.01) (2, 3)) 
+	%= avg(0.078, -0.03) = 0.024
+	%$
+	%
+	%$
+	%w_{11}^{(2)} = 0.5 - 1 * (0.024) = 0.476 \text{ , supposing } \alpha = 1
+	%$
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Backpropagation [General case]}
+	
+	\begin{itemize}
+		\item $\delta^{(l)}$  are calculated, where $l$ is the layer's order
+	\end{itemize}
+	
+	\[ 
+	\delta^{(out)} = 
+	\frac{\partial J}{\partial f^{(out)}} \frac{\partial f^{(out)}}{\partial z^{(out)}}
+	\,,\,
+	\delta^{(l)} = \frac{\partial f^{(l)}}{\partial z^{(l)}} w^{(l+1)} \delta^{(l+1)}
+	\]
+	
+	\begin{itemize}
+		\item Gradients are calculated
+	\end{itemize}
+	
+	\[ 
+	\frac{\partial J}{\partial w^{(l)}} = a^{(l-1)} \delta^{(l)}
+	\,,\,
+	\frac{\partial J}{\partial b^{(l)}} = \delta^{(l)}
+	\]
+	
+	\begin{itemize}
+		\item Parameters are updated
+	\end{itemize}
+	
+	\[ 
+	w = w - \alpha \frac{\partial J}{\partial w^{(l)}}
+	\,,\,
+	b = b - \alpha \frac{\partial J}{\partial b^{(l)}}
+	\]
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Backpropagation (Some humor)}
+	
+	\hgraphpage[.62\textwidth]{humor/humor-deep.jpg}
+	\hgraphpage[.36\textwidth]{humor/humor-retro3.jpg}
+
+\end{frame}
+
+\subsection{Auto-encoders}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection}
+	
+	\begin{itemize}
+		\item It is a multi-layer neural network.
+		\item It learns a compression algorithm.
+		\item It is characterized by \cite{2016-keras}:
+		\begin{itemize}
+			\item Data-driven: unlike compression algorithms like JPEG.
+			\item Lossy data: the constructed output is not entirely identical to the input.
+			\item Unsupervised learning.
+		\end{itemize}
+		\item It is not particularly effective for the compression task.
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Architecture}
+
+	\hgraphpage[\textwidth]{AE.pdf}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Denoising Auto-encoder}
+
+	\hgraphpage[\textwidth]{AE-noise.pdf}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Denoising Auto-encoder (Some applications)}
+	
+	\begin{itemize}
+		\item Improving the quality of speech (audio) \cite{2013-lu}.
+		\item Cleaning dirty documents (refer to this competition: \url{https://www.kaggle.com/c/denoising-dirty-documents}).
+		\item Retrieving historical documents \cite{2019-neji}.
+		\item Completing hidden parts of the face \cite{2017-li-al}.
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Sparse Auto-encoder}
+	
+	\begin{itemize}
+		\item Size of hidden layers must be equal to or larger than the input size.
+		\item It is used to automatically learn features (feature engineering) to be used in another task, such as classification.
+		\item Parameter (weight) regularization is applied.
+		\item \textbf{L1} and \textbf{Kullback-Leibler divergence} are used.
+		\item Some parameters converge to zero, allowing the learning of representations such as the contours of an object in an image.
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Variational Auto-encoder (Motivation)}
+	
+	\begin{itemize}
+		\item {\scriptsize\url{https://github.com/projeduc/ESI_ML/blob/main/demos/NN/TF_Autoencoder.ipynb}}
+	\end{itemize}
+	
+	\begin{minipage}{0.47\textwidth} 
+		\begin{center}
+			Clustering Auto-encoder
+		\end{center}\vskip-6pt
+		\hgraphpage[\textwidth]{auto-enc.png}
+	\end{minipage}
+	%
+	\begin{minipage}{0.47\textwidth}
+		\begin{center}
+			Variational Auto-encoder
+		\end{center}\vskip-6pt
+		\hgraphpage[\textwidth]{auto-enc-var.png}
+	\end{minipage}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Variational Auto-encoder}
+	
+	\begin{itemize}
+		\item To generate new content, some random values can be input into the decoder.
+		\item The problem is that the encoder learns to perfectly separate the different clusters.
+		\item Solution: force the auto-encoder to learn a distribution.
+	\end{itemize}
+
+	\begin{minipage}{0.60\textwidth} 
+		\begin{align*}
+			z = \mu + \sigma * N(0, 1) \\
+			J'(x, \hat{x}) = J(x, \hat{x}) + KL(N(\mu, \sigma), N(0, 1)) \\
+			KL(p||q) = \sum_i p(x_i) log(\frac{p(x_i)}{q(x_i)})
+		\end{align*}
+	\end{minipage}
+	%
+	\begin{minipage}{0.39\textwidth}
+		\hgraphpage[\textwidth]{AE-var.pdf}
+	\end{minipage}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Variational Auto-encoder (Summary)}
+	
+	\begin{itemize}
+		\item Standard auto-encoder learns a perfect separation of clusters (non-smooth representation of latent states).
+		\item \textbf{Solution}: force the model to learn a distribution (typically similar to the normal distribution).
+		\item The model may learn broad distributions.
+		\item \textbf{Solution}: use regularization (KL Divergence) to narrow them.
+		\item The model may learn negative values for $\sigma$.
+		\item \textbf{Solution}: learn $\log \sigma$.
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Some humor}
+
+	\begin{center}
+		\hgraphpage[0.9\textwidth]{humor/humor-unsupervised.jpg}
+	\end{center}
+
+\end{frame}
+
+\subsection{Convolutional Neural Network (CNN)}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Image processing (traditional architecture)}
+
+	\begin{center}
+		\hgraphpage[\textwidth]{img-learn.pdf}
+	\end{center}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Image processing (preprocessing)}
+	
+	\begin{itemize}
+		\item There are several preprocessing techniques (see \cite{2010-alginahi}).
+		\item We focus on convolution-based techniques (modifying the value of a pixel relative to its neighbors).
+		\item Two parameters: \optword{padding} (surrounding the image with zeros to preserve the original size) and \optword{stride} (the step size of the kernel/mask as it slides).
+	\end{itemize}
+
+	\begin{center}
+		\hgraphpage[.8\textwidth]{conv.pdf}
+	\end{center}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Image processing (example of preprocessing)}
+
+	An example from \href{https://en.wikipedia.org/wiki/Kernel_(image_processing)}{Wikipedia}
+	
+	\begin{tabular}{p{.3\textwidth}p{.1\textwidth}p{.2\textwidth}p{.2\textwidth}}
+		\hline\hline
+		Operation & Original & Kernel & Transformed \\
+		\hline
+		Edge detection & 
+		\graphpage[valign=c]{Vd-Orig.png} & 
+		$\begin{bmatrix}
+			-1 & -1 & -1\\ 
+			-1 & 8 & -1\\ 
+			-1 & -1 & -1
+		\end{bmatrix}$ & 
+		\graphpage[valign=c]{Vd-Edge3.png} \\
+		
+		\hline
+		Sharpen & 
+		\graphpage[valign=c]{Vd-Orig.png} & 
+		$\begin{bmatrix}
+			0 & -1 & 0\\ 
+			-1 & 5 & -1\\ 
+			0 & -1 & 0
+		\end{bmatrix}$ & 
+		\graphpage[valign=c]{Vd-Sharp.png} \\
+		
+		\hline
+		Box blur & 
+		\graphpage[valign=c]{Vd-Orig.png} & 
+		$\frac{1}{9}\begin{bmatrix}
+			1 & 1 & 1\\ 
+			1 & 1 & 1\\ 
+			1 & 1 & 1
+		\end{bmatrix}$ & 
+		\graphpage[valign=c]{Vd-Blur2.png} \\
+		\hline\hline
+		
+	\end{tabular}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Limitations of the previous solution}
+	
+	According to LeCun and his colleagues \cite{1998-lecun}:
+	\begin{itemize}
+		\item When the size of the images is large, there will be a large number of parameters to train.
+		\item To achieve this, a large dataset must be provided.
+		\item The memory required to store the parameters will be very large.
+		\item To train the model on images, preprocessing such as translations and distortions must be applied.
+		\item Variations in images (such as the position of an object) can only be captured when multiple layers are used.
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Conv2D layer}
+	
+	\begin{minipage}{0.60\textwidth} 
+		\begin{itemize}
+			\item Preserve images' spatial structure.
+			\item $ w' = \frac{w - w_f + 2P}{S} + 1$, $ h' = \frac{h - h_f + 2P}{S} + 1$
+			\item A layer can have $k$ filters/kernels.
+			\item Number of parameters: $w_f * h_f * c * k$ plus $k$ biases.
+			\item Example, \expword{image: 32x32x3;} \expword{kernel: 5x5; s: 1; p: 0; k: 6.} \\ Number of trainable parameters: \expword{456}
+		\end{itemize}
+	\end{minipage}
+	%
+	\begin{minipage}{0.39\textwidth}
+		\hgraphpage[\textwidth]{conv2d.pdf}
+		
+		\hgraphpage[.7\textwidth]{conv2d-exp_.pdf}
+	\end{minipage}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Conv2D layer (Example)}
+	
+	
+	\begin{center}
+		\vskip-6pt\hgraphpage[0.8\textwidth]{conv2D_imlp.pdf}
+	\end{center}\vskip-16pt
+
+	{\scriptsize 
+		\[O_{11} = ReLU(\Sigma = b + F_{11} I_{11} + \textcolor{blue}{F_{12} I_{12}} + F_{21} I_{21} + \textcolor{red}{F_{22} I_{22}})  \]
+		\[O_{12} = ReLU(\Sigma = b + \textcolor{blue}{F_{11} I_{12}} + F_{12} I_{13} + \textcolor{red}{F_{21} I_{22}} + F_{22} I_{23})  \]
+		\[O_{21} = ReLU(\Sigma = b + F_{11} I_{21} + \textcolor{red}{F_{12} I_{22}} + F_{21} I_{31} + F_{22} I_{32})  \]
+		\[O_{22} = ReLU(\Sigma = b + \textcolor{red}{F_{11} I_{22}} + F_{12} I_{23} + F_{21} I_{32} + F_{22} I_{33})  \]
+	    	
+	    \[\textcolor{red}{\frac{\partial J}{\partial I_{22}}} 
+		= \underbrace{\frac{\partial J}{\partial O_{11}}}_{G_{11} = 1} 
+		\underbrace{\frac{\partial ReLU}{\partial \sum}}_{1} 
+		\underbrace{\frac{\partial \sum}{\partial I_{22}}}_{F_{22} = 3}
+		+ \underbrace{\frac{\partial J}{\partial O_{12}}}_{G_{12} = 2} 
+		\underbrace{\frac{\partial ReLU}{\partial \sum}}_{1} 
+		\underbrace{\frac{\partial \sum}{\partial I_{22}}}_{F_{21} = -2}
+		+ \underbrace{\frac{\partial J}{\partial O_{21}}}_{G_{21} = 3} 
+		\underbrace{\frac{\partial ReLU}{\partial \sum}}_{1} 
+		\underbrace{\frac{\partial \sum}{\partial I_{22}}}_{F_{12} = -1}
+		+ \underbrace{\frac{\partial J}{\partial O_{22}}}_{G_{22} = 4} 
+		\underbrace{\frac{\partial ReLU}{\partial \sum}}_{0} 
+		\underbrace{\frac{\partial \sum}{\partial I_{22}}}_{F_{11} = 1}\]
+		
+		\[\textcolor{blue}{\frac{\partial J}{\partial I_{12}}} 
+		= \underbrace{\frac{\partial J}{\partial O_{11}}}_{G_{11} = 1} 
+		\underbrace{\frac{\partial ReLU}{\partial \sum}}_{1} 
+		\underbrace{\frac{\partial \sum}{\partial I_{12}}}_{F_{12} = -1}
+		+ \underbrace{\frac{\partial J}{\partial O_{12}}}_{G_{12} = 2} 
+		\underbrace{\frac{\partial ReLU}{\partial \sum}}_{1} 
+		\underbrace{\frac{\partial \sum}{\partial I_{12}}}_{F_{11} = 1}\]
+	}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Pooling}
+	
+	\begin{minipage}{0.60\textwidth} 
+		\begin{itemize}
+			\item Make the representation smaller and more manageable.
+			\item $ w' = \frac{w - w_f + 2P}{S} + 1$, $ h' = \frac{h - h_f + 2P}{S} + 1$
+			\item No parameters.
+			\item \optword{Max Pool}: The gradient is only passed to the winning cell. If there are multiple max values, choose one (usually the first).
+			\item \optword{Average Pool}: The average gradient is passed to participating cells. Each cell will have a gradient $\frac{\text{gradient}}{w_f * h_f}$.
+		\end{itemize}
+	\end{minipage}
+	%
+	\begin{minipage}{0.39\textwidth}
+		\hgraphpage[\textwidth]{maxpool.pdf}
+		
+		\hgraphpage[.8\textwidth]{pool-exp_.pdf}
+	\end{minipage}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: MaxPool2D layer (Example)}
+	
+	
+	\begin{center}
+		\vskip-6pt\hgraphpage[0.7\textwidth]{pool2D_imlp.pdf}
+	\end{center}\vskip-16pt
+	
+	{\scriptsize 
+		\[O_{11} = Max(I_{11} + \textcolor{blue}{I_{12}} + I_{21} + \textcolor{red}{I_{22}}) = \textcolor{red}{I_{22}}  \]
+		\[O_{12} = Max(\textcolor{blue}{I_{12}} + I_{13} + \textcolor{red}{I_{22}} + I_{23}) = I_{23}  \]
+		\[O_{21} = Max(I_{21} + \textcolor{red}{I_{22}} + I_{31} + I_{32}) = \textcolor{red}{I_{22}} \]
+		\[O_{22} = Max(\textcolor{red}{I_{22}} + I_{23} + I_{32} + I_{33}) = \textcolor{red}{I_{22}}  \]
+		
+		\[\textcolor{red}{\frac{\partial J}{\partial I_{22}}} 
+		= \underbrace{\frac{\partial J}{\partial O_{11}}}_{G_{11} = 1} 
+		\underbrace{\frac{\partial Max}{\partial I_{22}}}_{1}
+		+ \underbrace{\frac{\partial J}{\partial O_{12}}}_{G_{12} = 2} 
+		\underbrace{\frac{\partial Max}{\partial I_{22}}}_{0}
+		+ \underbrace{\frac{\partial J}{\partial O_{21}}}_{G_{21} = 3} 
+		\underbrace{\frac{\partial Max}{\partial I_{22}}}_{1}
+		+ \underbrace{\frac{\partial J}{\partial O_{22}}}_{G_{22} = 4} 
+		\underbrace{\frac{\partial Max}{\partial I_{22}}}_{1}\]
+		
+		\[\textcolor{blue}{\frac{\partial J}{\partial I_{12}}} 
+		= \underbrace{\frac{\partial J}{\partial O_{11}}}_{G_{11} = 1} 
+		\underbrace{\frac{\partial Max}{\partial I_{12}}}_{0}
+		+ \underbrace{\frac{\partial J}{\partial O_{12}}}_{G_{12} = 2} 
+		\underbrace{\frac{\partial Max}{\partial I_{12}}}_{0}\]
+	}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Some humor}
+
+	\begin{center}
+		\vgraphpage{humor/humor-conv2d.jpg}
+	\end{center}
+
+\end{frame}
+
+\subsection{Regularization}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Droupout}
+	
+	\begin{itemize}
+		\item When training large neural networks on a small dataset, overfitting can occur.
+		\item One solution is to reduce the size of the network.
+		\item Another is to temporarily deactivate connections in a random manner.
+		\item This technique is called \optword{dropout}.
+		\item The dropout layer takes a dropout rate as a parameter.
+		\item This layer deactivates some outputs (considers them as 0) during training (not during inference).
+	\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Some humor}
+
+	\hgraphpage[.35\textwidth]{humor/humor-overfiting2.jpeg}
+	\hgraphpage[.63\textwidth]{humor/humor-overfiting1.png}
+
+\end{frame}
+
+
+\section{Recurrent Neural Networks (RNN)}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle}
+	\framesubtitle{\insertsection}
+	
+	
+\end{frame}
+
+
+\subsection{Architecture (RNN)}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection}
+	
+	\begin{minipage}{0.49\textwidth} 
+		\begin{itemize}
+			\item \optword{Elman network}
+			\begin{align*}
+				h_t = f(w_x x_t + w_h \textcolor{red}{h_{t-1}} + b_h) \\
+				\hat{y}_t = g(w_y h_t + b_y)
+			\end{align*}
+			\item \optword{Jordan network}
+			\begin{align*}
+				h_t = f(w_x x_t + w_h \textcolor{red}{\hat{y}_{t-1}} + b_h) \\
+				\hat{y}_t = g(w_y h_t + b_y)
+			\end{align*}
+		\end{itemize}
+	\end{minipage}
+	%
+	\begin{minipage}{0.5\textwidth}
+		\hgraphpage[\textwidth]{RNN.pdf}
+	\end{minipage}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Backpropagation}
+	
+	\begin{itemize}
+		\item Define the cost function for each output.
+		\item Use backpropagation through time \cite{1990-werbos}
+		\begin{itemize}
+			\item Unroll the recurrent network over time.
+			\item The network will be similar to a feed-forward one.
+			\item Accumulate gradients starting from the last state.
+			\item Update parameters when reaching the first state.
+		\end{itemize}
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Applications}
+	
+	\begin{tabular}{p{.32\textwidth}p{.15\textwidth}p{.4\textwidth}}
+		%			\hline\hline
+		\textbf{Type} & \textbf{Illustration} & \textbf{Example} \\
+		%			\hline
+		Many to many & 
+		\vgraphpage[1.4cm, valign=c]{RNNpp1.pdf} & 
+		Named entity detection \\
+		
+		%			\hline
+		Many to many (Seq2seq) & 
+		\vgraphpage[1.4cm, valign=c]{RNNpp2.pdf} & 
+		Machine translation \\
+		
+		%			\hline
+		Many to one & 
+		\vgraphpage[1.4cm, valign=c]{RNNp1.pdf} & 
+		Sentiment classification \\
+		
+		%			\hline
+		One to many & 
+		\vgraphpage[1.4cm, valign=c]{RNN1p.pdf} & 
+		Image caption generation \\
+		
+		%			\hline\hline
+		
+	\end{tabular}
+
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Applications (direct many to many}
+%	\vspace*{-0.5cm}
+	\[ h_t = f(x_t, h_{t-1}, W_x, W_h),\,\,\, \hat{y}_t = g(h_t, W_y),\,\,\,  J(\hat{y}, y) = \frac{1}{T} \sum_{t=1}^{T} j(\hat{y}_t, y_t)\]
+
+	\begin{minipage}{0.6\textwidth}\scriptsize
+		\begin{align*}
+			\frac{\partial J}{\partial W_h} & = \frac{1}{T} \sum_{t=1}^{T} \frac{\partial j(\hat{y}_t, y_t)}{\partial W_h}
+			= \frac{1}{T} \sum_{t=1}^{T} \frac{\partial j(\hat{y}_t, y_t)}{\partial \hat{y}_t} 
+			\frac{\partial g(h_t, W_y)}{\partial h_t} 
+			\frac{\partial h_t}{\partial W_h} \\
+			\frac{\partial h_t}{\partial W_h} & = 
+			\frac{\partial f(x_t, h_{t-1}, W_x, W_h)}{\partial W_h} + 
+			\frac{\partial f(x_t, h_{t-1}, W_x, W_h)}{\partial h_{t-1}} \frac{\partial h_{t-1}}{\partial W_h} \\
+			\frac{\partial J}{\partial W_y} & =
+			\frac{1}{T} \sum_{t=1}^{T} \frac{\partial j(\hat{y}_t, y_t)}{\partial W_y}
+			= \frac{1}{T} \sum_{t=1}^{T} \frac{\partial j(\hat{y}_t, y_t)}{\partial \hat{y}_t} 
+			\frac{\partial g(h_t, W_y)}{\partial W_y} \\
+			\frac{\partial J}{\partial W_x} & = 
+			\frac{1}{T} \sum_{t=1}^{T} \frac{\partial j(\hat{y}_t, y_t)}{\partial W_x}
+			= \frac{1}{T} \sum_{t=1}^{T} \frac{\partial j(\hat{y}_t, y_t)}{\partial \hat{y}_t} 
+			\frac{\partial g(h_t, W_y)}{\partial h_t} 
+			\frac{\partial h_t}{\partial W_x} \\
+			\frac{\partial h_t}{\partial W_x} & = 
+			\frac{\partial f(x_t, h_{t-1}, W_x, W_h)}{\partial W_x} + 
+			\frac{\partial f(x_t, h_{t-1}, W_x, W_h)}{\partial h_{t-1}} \frac{\partial h_{t-1}}{\partial W_x} \\
+		\end{align*}
+	\end{minipage}
+	\begin{minipage}{0.38\textwidth}
+		\hgraphpage[\textwidth]{RNNpp1_exp.pdf}
+	\end{minipage}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Applications (indirect many to many)}
+	
+	\vskip-12pt
+
+	\[ \text{Encoder: } h^e_t = f^e(x_t, h^e_{t-1}, W^e_x, W^e_h), \,\,\, \hat{y}_1 = g^e(h^e_{T}, W_y^e)\]
+	
+	\[ \text{Decoder: } h^d_{t} = f^d(\hat{y}_{t}, h^d_{t-1}, W^d_x, W^d_h), \,\,\, \hat{y}_{t} = g^d(h^d_{t-1}, W^d_y)\]
+
+	\[ J(\hat{y}, y) = \frac{1}{T'} \sum_{t=1}^{T'} j(\hat{y}_{t}, y_t)\]
+	
+	\begin{center}
+		\hgraphpage[0.8\textwidth]{RNNpp2_exp.pdf}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Applications (many to one)}
+	
+	\vspace*{-0.5cm}
+	\[ h_t = f(x_t, h_{t-1}, W_x, W_h),\,\,\, \hat{y} = g(h_T, W_y),\,\,\,  J(\hat{y}, y) = j(\hat{y}, y)\]
+	
+%	\vspace*{-0.5cm}
+	\begin{minipage}{0.6\textwidth}\scriptsize
+		\begin{align*}
+			\frac{\partial J}{\partial W_h} &= \frac{\partial j(\hat{y}, y)}{\partial W_h}
+			= \frac{\partial j(\hat{y}, y)}{\partial \hat{y}} 
+			\frac{\partial g(h_T, W_y)}{\partial h_T} 
+			\frac{\partial h_T}{\partial W_h} \\
+			\frac{\partial h_t}{\partial W_h} &= 
+			\frac{\partial f(x_t, h_{t-1}, W_x, W_h)}{\partial W_h} + 
+			\frac{\partial f(x_t, h_{t-1}, W_x, W_h)}{\partial h_{t-1}} \frac{\partial h_{t-1}}{\partial W_h}\\
+		\end{align*}
+	\end{minipage}
+	\begin{minipage}{0.38\textwidth}
+		\hgraphpage{RNNp1_exp.pdf}
+	\end{minipage}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Applications (one to many)}
+	
+	\vspace*{-0.5cm}
+	\[ J(\hat{y}, y) = \frac{1}{T} \sum_{t=1}^{T} j(\hat{y}_{t}, y_t)\]
+	
+%	\vspace*{-0.5cm}
+	\begin{minipage}{0.6\textwidth}
+		\begin{align*}
+			h_1 & = f(x, h_{0}, W_x, W_h) \\
+			h_{t} & = f(\hat{y}_{t-1}, h_{t-1}, W_y, W_h) \\
+			\hat{y}_{t} & = g(h_{t-1}, W_y) \\
+		\end{align*}
+	\end{minipage}
+	\begin{minipage}{0.38\textwidth}
+		\hgraphpage{RNN1p_exp.pdf}
+	\end{minipage}
+%\begin{center}
+%	\hgraphpage[0.4\textwidth]{RNN1p_exp.pdf}
+%\end{center}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Bidirectional RNN}
+	
+	\begin{center}
+		\hgraphpage[0.8\textwidth]{bi-rnn_exp.pdf}
+	\end{center}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Some humor}
+	
+	\begin{center}
+		\vgraphpage{humor/humor-rnn.jpg}
+	\end{center}
+	
+\end{frame}
+
+
+\subsection{Long Short-Term Memory (LSTM)}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Architecture}
+	
+	\begin{minipage}{0.50\textwidth} 
+		\begin{itemize}
+			\item $i$: \optword{input gate};
+			How much information will be added to the cell's intern state?
+			\item $f$: \optword{Forget gate};
+			Must the past state be forgotten?
+			\item $o$: \optword{Output gate} ;
+			Combining the cell's intern and current states	
+		\end{itemize}
+	\end{minipage}
+	%
+	\begin{minipage}{0.49\textwidth}
+		\hgraphpage[\textwidth]{LSTM.pdf}
+	\end{minipage}
+	
+	\begin{itemize}
+		\item $g$ : \optword{Input node};
+		Will the state be  increased or decreased?
+		(mostly considered to be a part of input gate)
+		
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Equations}
+	\huge\vskip-24pt
+	\begin{align*}
+	f_t &= \sigma(W_f X_t + U_f h_{t-1} + b_f) \\
+	i_t &= \sigma(W_i X_t + U_i h_{t-1} + b_i) \\
+	g_t &= \tanh(W_g X_t + U_g h_{t-1} + b_g) \\
+	o_t &= \tanh(W_o X_t + U_o h_{t-1} + b_o) \\
+	c_t &= f_t \circ c_{t-1} \oplus i_t \circ g_t \\
+	h_t &= o_t + \tanh(c_t)
+	\end{align*}
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Some humor}
+
+	\begin{center}
+		\hgraphpage[.5\textwidth]{humor/humor-lstm.jpg}
+	\end{center}
+
+\end{frame}
+
+\subsection{Gated Recurrent Unit (GRU)}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Architecture}
+	
+	\begin{minipage}{0.50\textwidth} 
+		\begin{itemize}
+			\item $z$: \optword{Update gate};
+			Merges LSTM's input and forget gates. 
+			\item $r$ : \optword{Reset gate}; 
+			How much update from the past state?
+			\item $h'$ : \optword{Candidate hidden state};
+			Current state.	
+		\end{itemize}
+	\end{minipage}
+	%
+	\begin{minipage}{0.49\textwidth}
+		\hgraphpage[\textwidth]{GRU.pdf}
+	\end{minipage}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Equations}
+	
+	{\huge\vskip-24pt
+	\begin{align*}
+	z_t &= \sigma(W_z X_t + U_z h_{t-1} + b_z) \\
+	r_t &= \sigma(W_r X_t + U_r h_{t-1} + b_r) \\
+	h'_t &= \tanh(W X_t + U (h_{t-1} \circ r_t) + b) \\
+	h_t &= z_t \circ h_{t-1} \oplus (1-z_t) \circ h'_{t-1}
+	\end{align*}
+	}
+	
+	\vskip12pt
+	GRU Backpropagation Tutorial:
+	
+	\url{https://www.math.ucla.edu/~minchen/doc/BPTTTutorial.pdf}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Some humor}
+	
+	\begin{center}
+		\vgraphpage{humor/humor-gru.png}
+	\end{center}
+	
+\end{frame}
+
+
+\section{Attention}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle}
+	\framesubtitle{\insertsection: Motivation}
+	
+	\begin{center}
+		\hgraphpage[0.8\textwidth]{seq2seq_exp.pdf}
+	\end{center}
+
+	\begin{itemize}
+		\item Model: Seq2Seq (Encoder-Decoder)
+		\item Long-term dependencies are not considered.
+		\item The generation of target words depends only on previously generated words and the last words of the original text.
+	\end{itemize}
+	
+\end{frame}
+
+\subsection{Attention mechanism}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection}
+	
+	\begin{center}
+		\hgraphpage[0.8\textwidth]{seq2seq_att_exp.pdf}
+	\end{center}
+	
+	\vskip-6pt
+	\begin{itemize}
+		\item Keep $T$ hidden states from the encoder: $h_i$
+		\item For each $s_{t-1}$, calculate its alignment with the hidden states.
+		$ e_{t, i} = a(s_{t-1}, h_i) $
+		\item Calculate the weights of the hidden states: $\alpha_{t, i} = \text{softmax}(e_{t, i})$
+		\item Calculate the state vector $c_t = \sum_{i=1}^{T} \alpha_{t, i} h_i$
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Formalism (1)}
+	
+	\begin{center}
+		\hgraphpage[0.8\textwidth]{attention.pdf}
+	\end{center}
+	
+	\vskip-6pt
+	\begin{itemize}
+		\item Keys ($k_i$): $m$ states which are used to estimate values' weights
+		\item Values ($v_i$): $m$ states used to construct the context 
+		\item Queries ($q_j$): current representation 
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Formalism (2)}
+	
+	\begin{itemize}
+		\item Let $ w_1 \cdots w_m $ a source sequence
+		\begin{itemize}
+			\item $ k_i =  Embedding_k(w_i)$ a vector of $ d $ elements
+			\item $ v_i =  Embedding_v(w_i)$ a vector of $ v $ elements
+		\end{itemize}
+		\item Let $ w'_j $ a current target word
+		\begin{itemize}
+			\item $ q_j =  Embedding_q(w'_j)$ a vector of $ d $ elements
+		\end{itemize}
+		\item Calculate a similarity between each key $ k_i $ and our current target word 
+		\[e_i = a(q_j, k_i)\]
+		\item Calculate the percentage similarity (softmax can be masked)
+		\[\alpha_i = softmax(e_i) = \frac{exp(e_i)}{\sum_k exp(e_k)}\] 
+		\item The attention is a vector formed by cumulating percentages of each value vector
+		\vspace{-6pt}\[attention(q, K, V) = \sum_{i=1}^{m} \alpha_i v_i\]
+	\end{itemize}
+	
+\end{frame}
+
+%\begin{frame}
+%	\frametitle{\insertshortsubtitle: \insertsection}
+%	\framesubtitle{\insertsubsection: Architecture}
+%	
+%	\begin{center}
+%		\hgraphpage[\textwidth]{attention.pdf}
+%	\end{center}
+%	
+%\end{frame}
+
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Attention functions (non parametric)}
+	
+	\[Q \in \mathbb{R}^{n \times d}, \, K \in \mathbb{R}^{m \times d}, \, a(Q, K) \in \mathbb{R}^{n \times m}, V \in \mathbb{R}^{m \times v} \]
+	
+	\vspace{12pt}
+	
+	Dot product (\textbf{tf.keras.layers.Attention})
+	\[a(Q, K) = Q \cdot K^\top\]
+	
+	Scaled dot product 
+	\[a(Q, K) = \frac{Q \cdot K^\top}{\sqrt{d}}\]
+	
+	Cosine similarity
+	\[a(Q, K) = \frac{Q \cdot K^\top}{||Q|| \, ||K||}\]
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Attention functions (parametric)}
+	
+	\[Q \in \mathbb{R}^{n \times d}, \, K \in \mathbb{R}^{m \times d}, \, a(Q, K) \in \mathbb{R}^{n \times m}, V \in \mathbb{R}^{m \times v} \]
+	
+	\vspace{12pt}
+	
+	Additive attention (\textbf{tf.keras.layers.AdditiveAttention})
+	
+	Bahdanau Attention
+	
+	\[a(Q, K) = W_v^\top \cdot \tanh(W_q Q + W_k K)\]
+	
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Some humor}
+	
+	\begin{center}
+		\vgraphpage{humor/humor-attention.jpeg}
+	\end{center}
+	
+\end{frame}
+
+\subsection{Multi-Head Attention}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection}
+
+%	\vspace{-0.5cm}
+	\begin{figure}
+		\centering
+		\hgraphpage[0.9\textwidth]{multi_head_att_.pdf}
+		
+		\vskip-12pt
+		\caption{Multi-Head Attention \cite{2017-vaswani-al}}
+	\end{figure}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Formulas}
+	
+	\[Q \in \mathbb{R}^{n \times d}, \, K \in \mathbb{R}^{m \times d}, \, MultiHead \in \mathbb{R}^{n \times d_{model}}, V \in \mathbb{R}^{m \times v} \]
+	
+	\[W^Q_i \in \mathbb{R}^{d_{model} \times d}, \,  W^K_i \in \mathbb{R}^{d_{model} \times d}, \, W^V_i \in \mathbb{R}^{d_{model} \times v}, \, W^O \in \mathbb{R}^{hv \times d_{model}}\]
+	
+	\[head_i = Attention(Q W^Q_i, K W^Q_i, V W^V_i)\]
+	
+	\[MultiHead(Q, K, V) = Concat(head_1, \ldots, head_h) \cdot W^O\]
+	
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Some humor}
+	
+	\begin{center}
+		\vgraphpage{humor/humor-multihead.jpg}
+	\end{center}
+	
+\end{frame}
+
+
+
+\subsection{Self-attention}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection}
+	
+	\begin{itemize}
+		\item \textbf{GOAL}: Encode an element of a sequence with respect to the entire sequence.
+		\item \textbf{Example}: \expword{Encode a word with respect to the sentence to capture its semantics}.
+		\item \textbf{Method}:
+		\begin{itemize}
+			\item Use MLPs to learn the query, key, and value for each element.
+			\item Set the maximum number of elements in a sequence.
+			\item Truncate sequences that exceed this number.
+			\item Pad those that do not reach this number with a predefined code.
+			\item Optionally use multi-head attention to learn multiple representations.
+			\item Add positional embeddings to retain positional information in the sequence.
+		\end{itemize}
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Example}
+	
+	\begin{center}
+		\vgraphpage{self-attention_exp.pdf}
+	\end{center}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Some humor}
+	
+%	\begin{center}
+		\hgraphpage{humor/humor-self-attention.jpg}
+%	\end{center}
+	
+\end{frame}
+
+
+\subsection{Transformer}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection}
+
+%	\vspace{-4pt}
+	\begin{minipage}{0.49\textwidth}
+		\begin{figure}
+			\centering
+			\hgraphpage[0.68\textwidth]{transformers_.pdf}
+			\vskip-8pt
+			\caption{Transformers' architecture \cite{2017-vaswani-al}}
+		\end{figure}
+	\end{minipage}
+	\begin{minipage}{0.1\textwidth}
+		=
+	\end{minipage}
+	\begin{minipage}{0.39\textwidth}
+			\hgraphpage[\textwidth]{transformers.pdf}
+	\end{minipage}
+
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Encoder}
+	
+	\begin{itemize}
+		\item Encodes each input element based on its context (the entire input).
+		\item Uses multi-head self-attention
+		\item Completely bi-directional
+		\begin{itemize}
+			\item In BiRNN architecture, the encoder represents long-term relation indirectly (using a context).
+			\item In Encoders it is directly represented, but the notion of element's position is lost.
+		\end{itemize} 
+		\item We can introduce position's embedding into the word's initial representation (before being transformed into keys, values and queries).
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Decoder}
+	
+	\begin{itemize}
+		\item \keyword{Autoregressive}: The output is a \optword{direct} function of the past elements
+		\[\hat{y}_t = \sum_{i = 1}^{\rho} \varphi_{i} y_{t-i} + \epsilon_t\]
+		\item Not as RNNs where the dependence is indirect
+		\[\hat{y}_t = \arg\max_y p(y | X;\ y_1, \cdots, y_{i-1};\ W;\ b)\]
+		\item Each time an element is generated, it will be added into the input to generate the next element.
+		\item To stop generating, a maximum size is used. Also, a special token is used to mark the end of generation.
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Pretrained models (BERT: Enc) \cite{devlin-etal-2019-bert}}
+
+	\begin{center}
+		\hgraphpage[0.95\textwidth]{bert-arch.pdf}
+	\end{center}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Pretrained models (ViT: Enc) \cite{dosovitskiy2021an}}
+	
+%	\begin{itemize}
+%		\item Encoder chaque partie de l'image (\keyword{patch}) par rapport à d'autres.
+%		\item Voir \url{https://arxiv.org/pdf/2010.11929.pdf}
+%	\end{itemize}
+	
+	\vspace{-6pt}
+	\begin{figure}[htp!]
+		\centering
+		\hgraphpage[0.62\textwidth]{vit.pdf}
+		\vskip-8pt
+		\caption{Example of images encoder [modified from \cite{zhang2021dive}]}
+	\end{figure}
+	
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Pretrained models (GPT: Dec) \cite{radford2018improving}}
+	
+	\begin{figure}[htbp]
+		\hgraphpage[\textwidth]{gpt-arch_.pdf}
+		\caption{GPT's architecture and different tasks \cite{radford2018improving}}
+	\end{figure}
+	
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Pretrained models (T5: Enc-Dec) \cite{T5}}
+	
+	\begin{figure}[htbp]
+		\hgraphpage[\textwidth]{t5-arch_.pdf}
+		\caption{T5 (Text-to-Text Transfer Transformer) training \cite{T5}}
+	\end{figure}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Pretrained models (BART: Enc-Dec) \cite{bart}}
+	
+	\begin{figure}[htbp]
+		\centering
+		\hgraphpage[0.58\textwidth]{bart-arch1_.pdf}
+		\hgraphpage[0.4\textwidth]{bart-arch2_.pdf}
+		\caption{BART training \cite{bart}}
+	\end{figure}
+	
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Some humor}
+	
+	\begin{center}
+		\vgraphpage{humor/humor-transformer.png}
+	\end{center}
+	
+\end{frame}
+
+
+\insertbibliography{ML_Lect-NN}{*}
+
+\begin{frame}[plain]
+	\begin{center}
+		\hgraphpage[.9\textwidth]{humor/humor-nn.jpg}
+	\end{center}
+\end{frame}
+
+\end{document}
+
