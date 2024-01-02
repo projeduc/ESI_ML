@@ -9,7 +9,7 @@
 
 \input{options}
 
-\subtitle[Naive Bayes]{Naive Bayes}  
+\subtitle[Naïve Bayes]{Naïve Bayes}  
 
 \changegraphpath{../img/naive-bayes/}
 
@@ -40,7 +40,45 @@
 	\frametitle{\insertshortsubtitle}
 	\framesubtitle{\insertsection}
 	
+	\scriptsize
+	\begin{tblr}{
+			colspec = {>{\raggedright\arraybackslash}p{.10\textwidth}l>{\raggedright\arraybackslash}p{.40\textwidth}l>{\raggedright\arraybackslash}p{.42\textwidth}},
+			row{odd} = {lightblue},
+			row{1} = {darkblue, fg=white, font=\bfseries, valign=m, halign=c},
+			column{2,4}={white},
+			column{1}={bg=darkblue, fg=white, font=\bfseries, valign=m},
+			row{even} = {white},
+			cell{1}{1}={white},
+			colsep=3pt,
+			rowsep=3pt,
+			stretch = 0,
+		}
+		
+		&& Generative && Discriminative \\
+		
+		&&&&\\
+		
+		Non-temporal && 
+		\optword{Naïve Bayes (NB)}\linebreak Generative Adversarial Network (GAN)\linebreak Variational Autoencoder\linebreak Gaussian Mixture Model (GMM)\linebreak Boltzmann machine\linebreak Latent Dirichlet Allocation (LDA) && 
+		Logistic regression (LR)\linebreak Support Vector Machine (SVM)\linebreak Decision Tree (DT)\linebreak k-nearest neighbors algorithm (k-NN)\linebreak Random forests \\
+		
+		&&&&\\
+		
+		Sequence && 
+		\optword{Hidden Markov Model (HMM)}\linebreak RNN-based Autoencoder && 
+		Maximum Entropy Markov Model (MEMM)\linebreak Conditional random field (CRF)\linebreak Recurrent Neural Network (RNN) \\
+		
+	\end{tblr}
 	
+%	\vfill
+%	
+%	\begin{itemize}
+%		\item \optword{Generative model}: a model that learns to generate features given a class:
+%		\[\hat{Y} = \arg\max_k P(Y_k) P(X | Y_k)\]
+%		
+%		\item \optword{Discriminative model}: a model that learns to estimate a class given some features: 
+%		\[\hat{Y} = \arg\max_k P(Y_k | X)\]
+%	\end{itemize}
 	
 \end{frame}
 

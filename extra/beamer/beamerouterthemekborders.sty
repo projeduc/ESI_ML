@@ -23,12 +23,12 @@
 
 
 \usesectionheadtemplate
-{\hfill\insertsectionhead}
+{\hfill\insertsectionhead}%
 {\hfill\color{fg!50!bg}\insertsectionhead}
 
 \newcommand{\kcolorbox}[3][0.4cm]{%
 	\begin{tikzpicture}%
-		\node [draw=\beamer@thc@fg, line width=2pt, rounded corners=5pt, %
+		\node [draw=\beamer@thc@fg, line width=1pt, rounded corners=5pt, %
 		inner sep=0pt,minimum height=#1, text width=\dimexpr#2-4pt\relax, align=center] {%
 			\begin{minipage}[b]{\dimexpr#2-4pt\relax}%
 				#3%
@@ -71,7 +71,7 @@
 		\hskip2pt%
 		\usebeamercolor{subsection in head/foot}%
 		\usebeamerfont{subsection in head/foot}%
-		\kcolorbox[\dimexpr\headheight-4pt\relax]{0.5\paperwidth}{\vfil\insertsubsectionnavigation{\dimexpr0.5\paperwidth-4pt\relax}\vfil}%
+		\kcolorbox[\dimexpr\headheight-3pt\relax]{0.5\paperwidth}{\vfil\insertsubsectionnavigation{\dimexpr0.5\paperwidth-4pt\relax}\vfil}%
 	}%
 	\vskip1pt%
 }
@@ -111,7 +111,7 @@
   \leavevmode%
   \hbox{\hskip\dimexpr-\Gm@lmargin+1pt\relax\hbox{%\leavevmode%%
   \kcolorbox{\paperwidth}{%
-  	\hskip\Gm@lmargin\vbox{
+  	\hskip4pt\vbox{%\hskip\Gm@lmargin
   	\usebeamerfont{frametitle}\vskip2pt\strut\insertframetitle\strut\par%
   	\ifx\insertframesubtitle\@empty\else%
   	{\usebeamerfont*{framesubtitle}{\usebeamercolor{framesubtitle}\insertframesubtitle}\strut\par}%
