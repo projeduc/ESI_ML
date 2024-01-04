@@ -407,17 +407,16 @@
 		\item $J_\theta$ is a scalar
 	\end{itemize}
 	
-	
 	\[
-	\frac{\partial BCE}{\partial \theta_j} = \frac{1}{M} \sum\limits_{i=1}^{M} (H^{(i)} - Y^{(i)}) X_j^{(i)}
+	\frac{\partial J}{\partial \theta_{jk}} = \frac{1}{M} \sum\limits_{i=1}^{M} (H^{(i)}_k - Y^{(i)}_k) X_j^{(i)}
 	\]
 	
 	\[
-	\frac{\partial BCE}{\partial \theta} = \frac{1}{M} (H - Y) \cdot X
+	\frac{\partial J}{\partial \theta} = \frac{1}{M} X^T \cdot (H - Y)
 	\]
 	
 	\begin{itemize}
-		\item $\frac{\partial BCE}{\partial \theta}[N, L]$ is a matrix of $N\times L$ elements (features X classes)
+		\item $\frac{\partial J}{\partial \theta}[N, L]$ is a matrix of $N\times L$ elements (features X classes)
 	\end{itemize}
 	
 \end{frame}
