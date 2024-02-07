@@ -1,0 +1,261 @@
+% !TEX TS-program = pdflatex
+% !TeX program = pdflatex
+% !TEX encoding = UTF-8
+% !TeX spellcheck = en_US
+
+\documentclass[11pt, a4paper]{article}
+%\usepackage{fullpage}
+\usepackage[left=1cm,right=1cm,top=1cm,bottom=2cm]{geometry}
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+%\usepackage{indentfirst}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french,english]{babel}
+\usepackage{txfonts} 
+\usepackage[]{graphicx}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{parskip}
+\usepackage{multicol}
+\usepackage{wrapfig}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{tcolorbox}
+\usepackage{natbib}
+
+\usepackage{turnstile}%Induction symbole
+
+\renewcommand{\baselinestretch}{1}
+
+\setlength{\parindent}{24pt}
+
+%\usepackage{etoolbox}
+%\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+
+\fancyhf{}
+
+\lfoot{Abdelkrime Aries}
+\cfoot{ESI/ML/2CSSIL2-2CSSIQ2  (2023-2024)}
+\rfoot{\textbf{\thepage}}
+
+\renewcommand{\headrulewidth}{0pt} % remove lines as well
+\renewcommand{\footrulewidth}{1pt}
+
+\newcommand\repeatstr[1]{\leavevmode\xleaders\hbox{#1}\hfill\kern0pt}
+
+\renewcommand{\bibsection}{}
+%\bibliographystyle{humannat}
+
+\begin{document}
+
+%\selectlanguage {french}
+%\pagestyle{empty} 
+\pagestyle{fancy}
+
+\noindent
+\begin{tabular}{ll}
+\multirow{3}{*}{\includegraphics[width=1.5cm]{../logo/esi.ml.pdf}} & \'Ecole national Supérieure d'Informatique, Algiers\\
+& 2CSSIL2/2CSSIQ2 (2023/2024)\\
+& Machine Learning (ML)
+\end{tabular}\\[2pt]
+\noindent\rule{\textwidth}{1pt}\\[-0.5cm]
+\begin{center}
+{\LARGE \textbf{Practicals: syllabus}}
+\begin{flushright}
+	Dr. Abdelkrime Aries
+\end{flushright}
+\end{center}\vspace{-0.5cm}
+\noindent\rule{\textwidth}{1pt}
+
+\begin{abstract}
+	Machine learning (ML) is part of artificial intelligence methods. 
+	It is based on mathematical and statistical approaches to enable a machine to learn from certain data. 
+	These data play a significant role in the success of an ML model.
+	Certainly, data preparation is a crucial step in designing an ML system. 
+	However, understanding ML algorithms is also important. 
+	In these practical sessions (Labs), we will learn how these algorithms work by attempting to implement simple versions. 
+	Additionally, we will test some parameters to understand their effects.
+	
+	In the practical sessions, we will have two types of practicals: graded Labs and Workshops. 
+	Graded Labs aim to understand the concepts covered in class. 
+	They are divided into two parts: Implementation and Analysis. 
+	The first part involves implementing algorithms from scratch. 
+	The complete code is implemented, then a portion is removed to be filled in (gap filling). 
+	The second part utilizes existing APIs to test various parameters of an algorithm. 
+	In this part, the student must analyze the test results (why did we get these results?).
+	Workshops are highly guided practicals: step by step. 
+	They are not graded but remain important. 
+	Their goal is to learn a tool or architecture such as GANs, for example. 
+	Demos are provided to guide these workshops. 
+	Check this link for the demos: \url{https://github.com/projeduc/ESI_ML/tree/main/demos}.
+\end{abstract}
+
+\section{General information}
+
+\begin{minipage}{0.49\textwidth}
+
+\subsection{Prerequisites}
+
+\begin{itemize}
+	\item Data structures;
+	\item Probability and statistics;
+	\item Algebra and calculus;
+	\item Programming (Python with Jupyter notebook)
+\end{itemize}
+\end{minipage}
+\begin{minipage}{0.49\textwidth}
+	
+\subsection{Objectives}
+
+\begin{itemize}
+	\item Apply mathematical concepts learned throughout the curriculum to real-world problems.
+	\item Implement some ML algorithms to understand how they work.
+	\item Discover some ML tools and resources.
+	\item Learn how to conduct tests and analyze results (Synthesis aspect).
+	\item Learn the scientific method (Observation, hypothesis formulation, Experimentation, analysis, conclusion).
+\end{itemize}
+
+\end{minipage}
+
+\subsection{Office hours}
+
+If you have questions about labs or something about ML, you can join me following these recommendations:
+\begin{itemize}
+	\item \textbf{Location}: New laboratory building (near DG), LCSI lab (first floor), office N 68 (left).
+	\item \textbf{Time}: Each Tuesday from 13h30 to 16h30.
+\end{itemize}
+
+\subsection{Tools}
+
+\begin{itemize}
+	\item \href{https://jupyter.org}{Jupyter Notebook}: All Labs are presented as Jupyter Notebook files which allow as to integrate documentation into Python code.
+	\item \href{https://pandas.pydata.org/}{pandas}: an API to analyze and manipulate data.
+	\item \href{https://scikit-learn.org/}{scikit-learn}: an API used for data preprocessing and ML training (different algorithms).
+	\item \href{https://www.tensorflow.org/}{Tensorflow}: an API used for neural networks. Past workshops are using this API, but there is a chance to converge to pytorch.
+	\item \href{https://pytorch.org/}{Pytorch}: an API used for neural networks. Either this or tensorflow; not decided yet.
+\end{itemize}
+
+The first three tools are preinstalled with \href{https://www.anaconda.com/products/individual#Downloads}{Anaconda}.
+On Linux, these tools can be installed using \textbf{pip} (python packages managing tool).
+It is also possible to use Google Colab. 
+Although, it is more preferable to use personal machines since the labs do not consume too much resources (CPU and memory).
+
+\section{Session organization}
+
+\begin{itemize}
+	\item \textbf{Saturday}: The lab will be shared on \textit{Google Classroom}. 
+	
+	\item \textbf{20mn of the session}: thee past lab will bee discussed.
+	\begin{itemize}
+		\item Only the second part of the lab.
+		\item You have to participate into the discussion even if the answer is false.
+		\item You have to follow the discussion in order to understand.
+		\item \textbf{\color{red}No written answer} will be provided. This practical session is based solely on discussion.
+	\end{itemize}
+
+	\item \textbf{Next 10mn}: The new lab will be explained.
+	\begin{itemize}
+		\item You must follow the explanation in order to understand what to do.
+		\item You will not be graded on your understanding, but on what the question is about.
+	\end{itemize}
+	
+	\item \textbf{Next 1h20mn}: students must implement the lab.
+	\begin{itemize}
+		\item The lab can be done individually or in pairs.
+		\item For each new lab session, it is allowed to change the pair.
+		\item During the session, it is necessary to call the professor in case of ambiguity or if one is stuck on a code.
+	\end{itemize}
+	
+	\item \textbf{Last 10mn}: the advancement will be verified.
+	\begin{itemize}
+		\item The first part of the lab must be achieved in class (during the session);
+		\item The advancement is graded.
+	\end{itemize}
+
+	\item \textbf{Saturday night}: the final lab version must be submitted on \textit{Google Classroom}.
+	\begin{itemize}
+		\item The lab report must be submitted before the deadline;
+		\item In the case of a pair, only one student should submit the lab report (\textbf{not both});
+		\item Multiple versions of the lab report can be submitted (only the last one will be considered);
+		\item Only the \textbf{.ipynb} file without the data should be submitted;
+		\item The file name should be in the format \textbf{TPXX\_NAME1\_NAME2\_vY.ipynb};
+		\item The names and the version must be in the filename and also inside (otherwise you will loose some grades)
+	\end{itemize}
+
+\end{itemize}
+
+\textbf{\color{red}P.S. Saturday can be changed according to the schedule. When the schedule is shared by admin, the day which will replace "Saturday" will be shared.}
+
+
+\section{Planning}
+
+The planning is already shared on Google Drive. 
+You have to verify it periodically in case of changes.
+
+\section{Evaluation policy}
+
+In this section, we will discover how students will be evaluated in practicals.
+You have to know that all labs will be graded.
+Workshops are not graded, but it is highly recommended to implement them as if your lives depend on it.
+
+\subsection{Grading}
+
+\begin{itemize}
+	\item Each lab assignment is graded out of 64/80 (16/20). 
+	The distribution of grades for parts 1 and 2 depends on the nature of the lab.
+	\item Progress is graded out of 8/80 (2/20).
+	\item Submitting the lab assignment on time is worth 8/80 (2/20). 
+	The deadline is Sunday at 23:59 (unless changed in classroom).
+	After 30 minutes past this deadline, the score will be decreased until reaching 0.
+	Claiming it was a connectivity issue will not be accepted.
+	You had a week to submit the lab assignment.
+	Waiting until the last minute is poor time management on your part; you will be penalized for it.
+	\item Once the lab assignment has been discussed (the first session between the two groups), the submitted lab assignments will only be graded for progress plus the percentage completed in class.
+	If a student was absent during the session, they will receive a zero (The portion completed in class is that of their partner only).
+	\item If there is a complaint to be made, it must be done within one week of receiving the grade. 
+	Generally, lab assignments will be graded on Saturdays.
+	
+\end{itemize}
+
+\subsection{Plagiarism}
+
+\begin{itemize}
+	\item It is permissible to use external resources (books, websites, etc.) to answer questions. 
+	However, copying the answer verbatim is not allowed.
+	You must first understand the question, then answer it in your own words.
+	\item Similar answers (part 2) will be penalized.
+	\begin{itemize}
+		\item If the file contains names of other pairs, both teams will receive zeros even if the content is different.
+		\item If two (or more) teams answer a question in the same way, they will receive a 0 for that question.
+		Rewriting a sentence in the passive voice or replacing a word with its synonym still counts as the same answer.
+		\item None of these reasons will be accepted: "\textit{I sent the wrong file}" (having another team's solution is already an error), "\textit{My partner sent the solution to another team without my knowledge}" (You chose your partner, so you must take responsibility), "\textit{I sent them the solution so they could understand what to do}" (They understand by attending the lab session; Staying at home and waiting for solutions from colleagues is not a method of learning), "\textit{We used the same resource}" (You need to write! Copying the answer verbatim means you didn't understand anything), "\textit{I beg you!}" (You will receive a zero among several lab assignments, so it's not a big deal. Also, by reading this, you know the risk.), etc.
+		\item Because labs grades follow a total transparency policy, plagiarism will be shared \textbf{publicly} on a shared file. 
+		In this case, everyone can know exactly how they have each grade in each lab.
+	\end{itemize}
+\end{itemize}
+
+\subsection{Missed labs}
+
+\begin{itemize}
+	\item A student who did not attend the session will receive a score of 0/2 for progress, even if their partner attended.
+	\item Again, submitting latter than thee deadline will result in 0/2 for timely submission. 
+	You had one week and you can even send the answer in the same day as the session (so you can live your life as you wish). 
+	\textbf{\color{red}TRY TO COMPLETE THE ASSIGNMENT IN CLASS, SO YOU WILL NOT BE WHINING ABOUT WORKLOAD}. 
+	If the assignment took more than 3 hours; you are exaggerating or you are not attending lectures so naturally you have to spend more time to understand the concepts. 
+	\item Once the lab assignment has been discussed (the first session between the two groups), the submitted lab assignments will only be graded for progress plus the percentage completed in class.
+	If a student was absent during the session, they will receive a zero (The portion completed in class is that of their partner only).
+	\item \textbf{\color{red}IF I RECEIVE A COMPLAINT ABOUT A MISSED LAB AFTER SHARING FINAL GRADES, YOU WILL HAVE A MALUS (PENALTY)}
+\end{itemize}
+
+\section{Bibliography}
+
+This is official Github repo for ML practicals (not lectures): \url{https://github.com/projeduc/ESI_ML}
+
+\nocite{*}
+
+\bibliographystyle{apalike}
+
+\bibliography{ML_TP_biblio}
+
+\end{document}

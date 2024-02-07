@@ -278,6 +278,8 @@
 		\item for each value $v \in V_j$, we create a set $Y_{j, v}$;
 		\item if $|V_j| = K$, we will have $K$ sets $Y_1, \cdots, Y_K$;
 	\end{itemize}
+
+	\[split(Y, X_j, v) = Y_{j,v}\]
 	
 	\[Y_{j,v} = \{y^{(i)} \in Y / X_j^{(i)} \in X_j \wedge X_j^{(i)} = v\}\]
 
@@ -292,13 +294,11 @@
 	
 	\begin{itemize}
 		\item Entropy gain (information gain) $IG(Y, X_j)$ is used;
-		\item $j = \arg\max_{j'} IG(Y, X_{j'})$;
-		\item This measure calculates how much uncertainty in $Y$ was reduced after it was split using the feature $j$;
+		\[ j_{best} = \arg\max_{j} IG(Y, X_{j}) \]
+		\item It measures how much uncertainty in $Y$ was reduced after $ Y $ was split using the feature $j$;
 		\item $ IG $ is the difference between the entropy of $Y$ and the weighted entropy of the split sets;
+		\[IG(Y, X_j) = H(Y) - \sum_{v \in V_j} p(v/X_j) H(Y_{j, v})\]
 	\end{itemize}
-
-	\[IG(Y, X_j) = H(Y) - \sum_{v \in V_j} p(v/X_j) H(Y_{j, v})\]
-	
 	
 \end{frame}
 
@@ -386,9 +386,11 @@
 		\item for each value $v \in V_j$, two sets ($Y_G$ and $Y_D$) are created;
 		\item $Y_G$ (with values $X_j > v$) and $Y_D$ (with values $X_j \le v$);
 	\end{itemize}
+
+	\[split(Y, X_j, v) = (Y_L, Y_R)\]
 	
-	\[Y_G = \{y^{(i)} \in Y / X_j^{(i)} \in X_j \wedge X_j^{(i)} > v\}\]
-	\[Y_D = \{y^{(i)} \in Y / X_j^{(i)} \in X_j \wedge X_j^{(i)} \le v\}\]
+	\[Y_L = \{y^{(i)} \in Y / X_j^{(i)} \in X_j \wedge X_j^{(i)} > v\}\]
+	\[Y_R = \{y^{(i)} \in Y / X_j^{(i)} \in X_j \wedge X_j^{(i)} \le v\}\]
 	
 \end{frame}
 
@@ -399,15 +401,15 @@
 	\framesubtitle{\insertsubsection}
 	
 	\begin{itemize}
-		\item Gini diversity of the division $Gini_{div}(Y_G, Y_D)$ is used;
-		\item $j, v = \arg\min_{j', v'} Gini_{div}(Y_G, Y_D)$;
+		\item Gini impurity of the split $Gini_{split}(Y_L, Y_R)$ is used;
+		\[ j_{best}, v_{best} = \arg\min_{j, v \in X_j} Gini_{split}(Y_L, Y_R) \text{ where } (Y_L, Y_R) = split(Y, X_j, v)\]
 		\item Here, not only the split feature $j$ is explored, but also the value $v$ which minimizes the Gini diversity of the division;
-		\item $|S| = |S_G| + |S_D|$;
+		\[Gini_{split}(S_L, S_R) = \frac{|S_L|}{|S_L| + |S_R|} Gini(S_L) + \frac{|S_R|}{|S_L| + |S_R|} Gini(S_R)\]
 		\item for regression, \keyword{MSE} is used instead of \keyword{Gini};
 		\item the estimate in the case of regression is the average of the leaf's $Y$;
 	\end{itemize}
 	
-	\[Gini_{div}(S_G, S_D) = \frac{|S_G|}{|S|} Gini(S_G) + \frac{|S_D|}{|S|} Gini(S_D)\]
+	
 	
 	
 \end{frame}
