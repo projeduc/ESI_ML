@@ -1,0 +1,642 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="12cm"
+   height="6.4000001cm"
+   viewBox="-301 0 237 113.37143"
+   version="1.1"
+   id="svg252"
+   sodipodi:docname="sampling.svg"
+   inkscape:version="1.3.2 (1:1.3.2+202311252150+091e20ef0f)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <metadata
+     id="metadata258">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs256" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1008"
+     id="namedview254"
+     showgrid="false"
+     inkscape:zoom="1.2945102"
+     inkscape:cx="332.94446"
+     inkscape:cy="183.08083"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg252"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="cm"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#d1d1d1" />
+  <rect
+     id="rect78-7-9-8"
+     height="52.054901"
+     width="112.09532"
+     y="38.563942"
+     x="-298.80948"
+     style="fill:none;fill-opacity:0.651376;stroke:#6600cc;stroke-width:0.696736;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     ry="5.1682329" />
+  <text
+     font-size="12.4178"
+     style="font-style:normal;font-weight:normal;font-size:12.41779995px;font-family:'Crimson Text';text-anchor:start;fill:#000000"
+     x="121.584"
+     y="0.15550365"
+     id="text44"><tspan
+       x="121.584"
+       y="0.15550365"
+       id="tspan42" /></text>
+  <rect
+     id="rect76-6"
+     height="11.6683"
+     width="43.429199"
+     y="-4.2323031"
+     x="-299.98373"
+     style="fill:#ffffff" />
+  <rect
+     id="rect78-7"
+     height="17.316427"
+     width="231.58615"
+     y="-5.2813978"
+     x="-298.42865"
+     style="fill:none;fill-opacity:1;stroke:#6600cc;stroke-width:1.38692;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     ry="3.4561815" />
+  <text
+     id="text82-5"
+     y="6.8352437"
+     x="-181.74654"
+     style="font-style:normal;font-weight:normal;font-size:6.77333px;font-family:'Crimson Text';text-anchor:middle;fill:#6600cc;fill-opacity:1"
+     font-size="6.77333"><tspan
+       id="tspan80-3"
+       y="6.8352437"
+       x="-181.74654"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.9347px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#6600cc;fill-opacity:1">Data sampling</tspan></text>
+  <rect
+     id="rect78-7-9"
+     height="20.440306"
+     width="111.27287"
+     y="14.759223"
+     x="-299.0657"
+     style="fill:#6600cc;fill-opacity:1;stroke:none;stroke-width:0.4393;stroke-miterlimit:4;stroke-dasharray:none"
+     ry="5.3564916" />
+  <text
+     id="text82-5-7"
+     y="27.497948"
+     x="-241.76759"
+     style="font-style:normal;font-weight:bold;font-size:11.1478px;font-family:'Crimson Text';text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:1;-inkscape-font-specification:'Crimson Text, Bold';font-stretch:normal;font-variant:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
+     font-size="6.77333"><tspan
+       sodipodi:role="line"
+       id="tspan490"
+       x="-241.76759"
+       y="27.497948"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:11.14777784px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">Unbalanced data</tspan></text>
+  <text
+     id="text82-5-7-7"
+     y="27.432873"
+     x="-120.78358"
+     style="font-style:normal;font-weight:normal;font-size:6.77333px;font-family:'Crimson Text';text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:1"
+     font-size="6.77333"><tspan
+       sodipodi:role="line"
+       id="tspan490-1"
+       x="-120.78358"
+       y="27.432873"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.36083px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">Categorical features</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.57389px;line-height:0%;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.522552px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="-288.11157"
+     y="54.258041"
+     id="text1216-8-8-4-6-1-06"><tspan
+       sodipodi:role="line"
+       id="tspan1214-9-7-4-8-2-2"
+       x="-288.11157"
+       y="54.258041"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.18042px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.522552px">Random deletion</tspan></text>
+  <rect
+     style="fill:#000000;stroke-width:1.39347;stroke-linejoin:round"
+     id="rect472-9-7-6"
+     width="3.95"
+     height="3.9484177"
+     x="-293.15228"
+     y="51.000652"
+     ry="1.9742088" />
+  <rect
+     id="rect78-7-9-3-8-1-9-4-0-6"
+     height="7.4888701"
+     width="107.01128"
+     y="41.949223"
+     x="-296.50885"
+     style="fill:#ffffff;fill-opacity:1;stroke:#6600cc;stroke-width:0.788657;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     ry="3.2734222" />
+  <text
+     id="text82-5-7-1-4-4"
+     y="46.979137"
+     x="-237.23012"
+     style="font-style:normal;font-weight:normal;font-size:6.77333px;font-family:'Crimson Text';text-anchor:middle;fill:#6600cc;fill-opacity:1;stroke-width:1"
+     font-size="6.77333"><tspan
+       id="tspan80-3-8-8-8-7"
+       y="46.979137"
+       x="-237.23012"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.57389px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#6600cc;fill-opacity:1;stroke-width:1">Under sampling</tspan></text>
+  <rect
+     id="rect78-7-9-89-7"
+     height="25.220665"
+     width="233.18442"
+     y="93.428024"
+     x="-299.5112"
+     style="fill:#6600cc;fill-opacity:1;stroke:none;stroke-width:0.564932;stroke-miterlimit:4;stroke-dasharray:none"
+     ry="4.3031015" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.57389px;line-height:0%;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffff00;fill-opacity:1;stroke:none;stroke-width:0.522552px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="-146.07463"
+     y="115.98383"
+     id="text1216-8-8-4-6-1-06-3-6-7-2"><tspan
+       sodipodi:role="line"
+       id="tspan1214-9-7-4-8-2-2-1-4-1-7"
+       x="-146.07463"
+       y="115.98383"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.57389px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#ffff00;fill-opacity:1;stroke-width:0.522552px">Repeated random sub-sampling</tspan></text>
+  <path
+     sodipodi:type="star"
+     style="fill:#ffff00;fill-opacity:1;stroke:#ffffff;stroke-width:0.987498;stroke-opacity:1"
+     id="path1-7-2"
+     inkscape:flatsided="false"
+     sodipodi:sides="3"
+     sodipodi:cx="144.27187"
+     sodipodi:cy="228.11084"
+     sodipodi:r1="16.209444"
+     sodipodi:r2="4.3413186"
+     sodipodi:arg1="0.6007787"
+     sodipodi:arg2="1.7424033"
+     inkscape:rounded="0"
+     inkscape:randomized="0"
+     d="m 157.64297,237.2738 -14.11245,-4.88541 -13.87956,2.72068 11.28711,-9.77903 4.5836,-13.38039 2.82534,14.66444 z"
+     transform="matrix(0.15839766,-0.10076667,0.09557802,0.15024149,-194.65251,95.037765)"
+     inkscape:transform-center-x="-0.89564779"
+     inkscape:transform-center-y="0.61151125" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.57389px;line-height:0%;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffff00;fill-opacity:1;stroke:none;stroke-width:0.522552px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="-145.87746"
+     y="108.81395"
+     id="text1216-8-8-4-6-1-06-3-6-2"><tspan
+       sodipodi:role="line"
+       id="tspan1214-9-7-4-8-2-2-1-4-6"
+       x="-145.87746"
+       y="108.81395"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.57389px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#ffff00;fill-opacity:1;stroke-width:0.522552px">K-folds</tspan></text>
+  <path
+     sodipodi:type="star"
+     style="fill:#ffff00;fill-opacity:1;stroke:#ffffff;stroke-width:0.987498;stroke-opacity:1"
+     id="path1-1"
+     inkscape:flatsided="false"
+     sodipodi:sides="3"
+     sodipodi:cx="144.27187"
+     sodipodi:cy="228.11084"
+     sodipodi:r1="16.209444"
+     sodipodi:r2="4.3413186"
+     sodipodi:arg1="0.6007787"
+     sodipodi:arg2="1.7424033"
+     inkscape:rounded="0"
+     inkscape:randomized="0"
+     d="m 157.64297,237.2738 -14.11245,-4.88541 -13.87956,2.72068 11.28711,-9.77903 4.5836,-13.38039 2.82534,14.66444 z"
+     transform="matrix(0.15839766,-0.10076667,0.09557802,0.15024149,-194.45532,87.867892)"
+     inkscape:transform-center-x="-0.89564779"
+     inkscape:transform-center-y="0.61151125" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.57389px;line-height:0%;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffff00;fill-opacity:1;stroke:none;stroke-width:0.522552px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="-225.71989"
+     y="116.07693"
+     id="text1216-8-8-4-6-1-06-3-6-7"><tspan
+       sodipodi:role="line"
+       id="tspan1214-9-7-4-8-2-2-1-4-1"
+       x="-225.71989"
+       y="116.07693"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.57389px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#ffff00;fill-opacity:1;stroke-width:0.522552px">Leave-one-out</tspan></text>
+  <path
+     sodipodi:type="star"
+     style="fill:#ffff00;fill-opacity:1;stroke:#ffffff;stroke-width:0.987498;stroke-opacity:1"
+     id="path1-7"
+     inkscape:flatsided="false"
+     sodipodi:sides="3"
+     sodipodi:cx="144.27187"
+     sodipodi:cy="228.11084"
+     sodipodi:r1="16.209444"
+     sodipodi:r2="4.3413186"
+     sodipodi:arg1="0.6007787"
+     sodipodi:arg2="1.7424033"
+     inkscape:rounded="0"
+     inkscape:randomized="0"
+     d="m 157.64297,237.2738 -14.11245,-4.88541 -13.87956,2.72068 11.28711,-9.77903 4.5836,-13.38039 2.82534,14.66444 z"
+     transform="matrix(0.15839766,-0.10076667,0.09557802,0.15024149,-274.29785,95.130861)"
+     inkscape:transform-center-x="-0.89564779"
+     inkscape:transform-center-y="0.61151125" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.96736px;line-height:0%;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.522552px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="-159.18739"
+     y="101.20695"
+     id="text1216-8-8-4-6-1-06-3-0-9"><tspan
+       sodipodi:role="line"
+       id="tspan1214-9-7-4-8-2-2-1-6-2"
+       x="-159.18739"
+       y="101.20695"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.96736px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke-width:0.522552px">Non-Exhaustive</tspan></text>
+  <rect
+     style="fill:#ffffff;fill-opacity:1;stroke-width:1.39347;stroke-linejoin:round"
+     id="rect472-9-7-6-4-8-6"
+     width="3.95"
+     height="3.9484177"
+     x="-163.86543"
+     y="97.703812"
+     ry="1.9742088" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.96736px;line-height:0%;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.522552px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="-236.21683"
+     y="101.23714"
+     id="text1216-8-8-4-6-1-06-3-0"><tspan
+       sodipodi:role="line"
+       id="tspan1214-9-7-4-8-2-2-1-6"
+       x="-236.21683"
+       y="101.23714"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.96736px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke-width:0.522552px">Exhaustive</tspan></text>
+  <rect
+     style="fill:#ffffff;fill-opacity:1;stroke-width:1.39347;stroke-linejoin:round"
+     id="rect472-9-7-6-4-8"
+     width="3.95"
+     height="3.9484177"
+     x="-241.54597"
+     y="97.408463"
+     ry="1.9742088" />
+  <rect
+     id="rect78-7-9-3-8-4-0-5"
+     height="19.712511"
+     width="48.727608"
+     y="96.344574"
+     x="-296.63815"
+     style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.565344;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     ry="3.1484377" />
+  <text
+     id="text82-5-7-1-4-3-7"
+     y="114.92435"
+     x="-281.13251"
+     style="font-style:normal;font-weight:normal;font-size:6.77333px;line-height:1;font-family:'Crimson Text';text-anchor:middle;white-space:pre;inline-size:83.3973;display:inline;fill:#6600cc;fill-opacity:1;stroke-width:1"
+     font-size="6.77333"
+     transform="translate(9.0029306,-11.020763)"
+     xml:space="preserve"><tspan
+       x="-281.13251"
+       y="114.92435"
+       id="tspan2"><tspan
+         style="font-weight:bold;font-size:9.75431px;-inkscape-font-specification:'Crimson Text, Bold'"
+         id="tspan1">Cross 
+</tspan></tspan><tspan
+       x="-281.13251"
+       y="124.67865"
+       id="tspan8"><tspan
+         style="font-weight:bold;font-size:9.75431px;-inkscape-font-specification:'Crimson Text, Bold'"
+         id="tspan3">validation</tspan></tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.57389px;line-height:0%;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffff00;fill-opacity:1;stroke:none;stroke-width:0.522552px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="-225.52272"
+     y="108.90704"
+     id="text1216-8-8-4-6-1-06-3-6"><tspan
+       sodipodi:role="line"
+       id="tspan1214-9-7-4-8-2-2-1-4"
+       x="-225.52272"
+       y="108.90704"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.57389px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#ffff00;fill-opacity:1;stroke-width:0.522552px">Leave-p-out</tspan></text>
+  <rect
+     id="rect78-7-9-2"
+     height="20.440306"
+     width="111.27287"
+     y="14.694063"
+     x="-177.75151"
+     style="fill:#6600cc;fill-opacity:1;stroke:none;stroke-width:0.4393;stroke-miterlimit:4;stroke-dasharray:none"
+     ry="5.3564916" />
+  <text
+     id="text82-5-7-73"
+     y="27.959848"
+     x="-122.27661"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:11.1478px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:1"
+     font-size="6.77333"><tspan
+       sodipodi:role="line"
+       id="tspan490-6"
+       x="-122.27661"
+       y="27.959848"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:11.1478px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">Data splitting</tspan></text>
+  <rect
+     id="rect78-7-9-3-8-1-9-4-0-6-9"
+     height="7.4888701"
+     width="107.01128"
+     y="68.13253"
+     x="-295.98199"
+     style="fill:none;fill-opacity:1;stroke:#6600cc;stroke-width:0.788657;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     ry="3.2734222" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.57389px;line-height:0%;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.522552px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="-228.02753"
+     y="54.223831"
+     id="text1216-8-8-4-6-1-06-1"><tspan
+       sodipodi:role="line"
+       id="tspan1214-9-7-4-8-2-2-9"
+       x="-228.02753"
+       y="54.223831"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.18042px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.522552px">Cluster centroids</tspan></text>
+  <rect
+     style="fill:#000000;stroke-width:1.39347;stroke-linejoin:round"
+     id="rect472-9-7-6-47"
+     width="3.95"
+     height="3.9484177"
+     x="-233.06824"
+     y="50.966442"
+     ry="1.9742088" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.57389px;line-height:0%;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.522552px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="-275.05722"
+     y="59.971905"
+     id="text1216-8-8-4-6-1-06-1-8"><tspan
+       sodipodi:role="line"
+       id="tspan1214-9-7-4-8-2-2-9-4"
+       x="-275.05722"
+       y="59.971905"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.18042px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.522552px">Tomek links</tspan></text>
+  <rect
+     style="fill:#000000;stroke-width:1.39347;stroke-linejoin:round"
+     id="rect472-9-7-6-47-5"
+     width="3.95"
+     height="3.9484177"
+     x="-280.09793"
+     y="56.714516"
+     ry="1.9742088" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.57389px;line-height:0%;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.522552px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="-211.51401"
+     y="58.955765"
+     id="text1216-8-8-4-6-1-06-1-8-3"><tspan
+       sodipodi:role="line"
+       id="tspan1214-9-7-4-8-2-2-9-4-6"
+       x="-211.51401"
+       y="58.955765"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.18042px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.522552px">...</tspan></text>
+  <rect
+     style="fill:#000000;stroke-width:1.39347;stroke-linejoin:round"
+     id="rect472-9-7-6-47-5-1"
+     width="3.95"
+     height="3.9484177"
+     x="-216.55472"
+     y="55.698376"
+     ry="1.9742088" />
+  <text
+     id="text82-5-7-1-4-4-0"
+     y="73.210777"
+     x="-237.04674"
+     style="font-style:normal;font-weight:normal;font-size:6.77333px;font-family:'Crimson Text';text-anchor:middle;fill:#6600cc;fill-opacity:1;stroke-width:1"
+     font-size="6.77333"><tspan
+       id="tspan80-3-8-8-8-7-6"
+       y="73.210777"
+       x="-237.04674"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.57389px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#6600cc;fill-opacity:1;stroke-width:1">Over sampling</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.57389px;line-height:0%;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.522552px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="-288.43753"
+     y="80.957527"
+     id="text1216-8-8-4-6-1-06-32"><tspan
+       sodipodi:role="line"
+       id="tspan1214-9-7-4-8-2-2-0"
+       x="-288.43753"
+       y="80.957527"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.18042px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.522552px">Random duplication</tspan></text>
+  <rect
+     style="fill:#000000;stroke-width:1.39347;stroke-linejoin:round"
+     id="rect472-9-7-6-6"
+     width="3.95"
+     height="3.9484177"
+     x="-293.47824"
+     y="77.700134"
+     ry="1.9742088" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.57389px;line-height:0%;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.522552px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="-228.35349"
+     y="80.923317"
+     id="text1216-8-8-4-6-1-06-1-1"><tspan
+       sodipodi:role="line"
+       id="tspan1214-9-7-4-8-2-2-9-5"
+       x="-228.35349"
+       y="80.923317"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.18042px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.522552px">SMOTE</tspan></text>
+  <rect
+     style="fill:#000000;stroke-width:1.39347;stroke-linejoin:round"
+     id="rect472-9-7-6-47-54"
+     width="3.95"
+     height="3.9484177"
+     x="-233.3942"
+     y="77.665924"
+     ry="1.9742088" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.57389px;line-height:0%;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.522552px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="-275.38318"
+     y="86.671387"
+     id="text1216-8-8-4-6-1-06-1-8-7"><tspan
+       sodipodi:role="line"
+       id="tspan1214-9-7-4-8-2-2-9-4-65"
+       x="-275.38318"
+       y="86.671387"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.18042px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.522552px">ADASYN</tspan></text>
+  <rect
+     style="fill:#000000;stroke-width:1.39347;stroke-linejoin:round"
+     id="rect472-9-7-6-47-5-6"
+     width="3.95"
+     height="3.9484177"
+     x="-280.42389"
+     y="83.414001"
+     ry="1.9742088" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.57389px;line-height:0%;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.522552px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="-211.83995"
+     y="85.655251"
+     id="text1216-8-8-4-6-1-06-1-8-3-9"><tspan
+       sodipodi:role="line"
+       id="tspan1214-9-7-4-8-2-2-9-4-6-3"
+       x="-211.83995"
+       y="85.655251"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.18042px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.522552px">...</tspan></text>
+  <rect
+     style="fill:#000000;stroke-width:1.39347;stroke-linejoin:round"
+     id="rect472-9-7-6-47-5-1-7"
+     width="3.95"
+     height="3.9484177"
+     x="-216.88066"
+     y="82.397858"
+     ry="1.9742088" />
+  <rect
+     id="rect78-7-9-8-4"
+     height="52.054901"
+     width="112.09532"
+     y="39.09668"
+     x="-178.51913"
+     style="fill:none;fill-opacity:0.651376;stroke:#6600cc;stroke-width:0.696736;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     ry="5.1682329" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.57389px;line-height:0%;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.522552px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="-167.82123"
+     y="54.790779"
+     id="text1216-8-8-4-6-1-06-5"><tspan
+       sodipodi:role="line"
+       id="tspan1214-9-7-4-8-2-2-2"
+       x="-167.82123"
+       y="54.790779"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.18042px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.522552px">Train/test</tspan></text>
+  <rect
+     style="fill:#000000;stroke-width:1.39347;stroke-linejoin:round"
+     id="rect472-9-7-6-5"
+     width="3.95"
+     height="3.9484177"
+     x="-172.86194"
+     y="51.53339"
+     ry="1.9742088" />
+  <rect
+     id="rect78-7-9-3-8-1-9-4-0-6-4"
+     height="7.4888701"
+     width="107.01128"
+     y="42.48196"
+     x="-176.21851"
+     style="fill:#ffffff;fill-opacity:1;stroke:#6600cc;stroke-width:0.788657;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     ry="3.2734222" />
+  <text
+     id="text82-5-7-1-4-4-7"
+     y="47.511875"
+     x="-116.93979"
+     style="font-style:normal;font-weight:normal;font-size:6.77333px;font-family:'Crimson Text';text-anchor:middle;fill:#6600cc;fill-opacity:1;stroke-width:1"
+     font-size="6.77333"><tspan
+       id="tspan80-3-8-8-8-7-4"
+       y="47.511875"
+       x="-116.93979"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.57389px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#6600cc;fill-opacity:1;stroke-width:1">Subsets' numbr</tspan></text>
+  <rect
+     id="rect78-7-9-3-8-1-9-4-0-6-9-4"
+     height="7.4888701"
+     width="107.01128"
+     y="68.665268"
+     x="-175.69165"
+     style="fill:none;fill-opacity:1;stroke:#6600cc;stroke-width:0.788657;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     ry="3.2734222" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.57389px;line-height:0%;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.522552px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="-110.8725"
+     y="54.756569"
+     id="text1216-8-8-4-6-1-06-1-3"><tspan
+       sodipodi:role="line"
+       id="tspan1214-9-7-4-8-2-2-9-0"
+       x="-110.8725"
+       y="54.756569"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.18042px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.522552px">Train/test/validation</tspan></text>
+  <rect
+     style="fill:#000000;stroke-width:1.39347;stroke-linejoin:round"
+     id="rect472-9-7-6-47-7"
+     width="3.95"
+     height="3.9484177"
+     x="-115.91321"
+     y="51.49918"
+     ry="1.9742088" />
+  <text
+     id="text82-5-7-1-4-4-0-9"
+     y="73.743515"
+     x="-116.75639"
+     style="font-style:normal;font-weight:normal;font-size:6.77333px;font-family:'Crimson Text';text-anchor:middle;fill:#6600cc;fill-opacity:1;stroke-width:1"
+     font-size="6.77333"><tspan
+       id="tspan80-3-8-8-8-7-6-2"
+       y="73.743515"
+       x="-116.75639"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.57389px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#6600cc;fill-opacity:1;stroke-width:1">Subsets' distribution</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.57389px;line-height:0%;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.522552px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="-168.14719"
+     y="81.490265"
+     id="text1216-8-8-4-6-1-06-32-0"><tspan
+       sodipodi:role="line"
+       id="tspan1214-9-7-4-8-2-2-0-6"
+       x="-168.14719"
+       y="81.490265"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.18042px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.522552px">Random data splitting</tspan></text>
+  <rect
+     style="fill:#000000;stroke-width:1.39347;stroke-linejoin:round"
+     id="rect472-9-7-6-6-8"
+     width="3.95"
+     height="3.9484177"
+     x="-173.1879"
+     y="78.232872"
+     ry="1.9742088" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.57389px;line-height:0%;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.522552px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="-112.24357"
+     y="81.456055"
+     id="text1216-8-8-4-6-1-06-1-1-9"><tspan
+       sodipodi:role="line"
+       id="tspan1214-9-7-4-8-2-2-9-5-2"
+       x="-112.24357"
+       y="81.456055"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.18042px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.522552px">Stratified data splitting</tspan></text>
+  <rect
+     style="fill:#000000;stroke-width:1.39347;stroke-linejoin:round"
+     id="rect472-9-7-6-47-54-6"
+     width="3.95"
+     height="3.9484177"
+     x="-117.28427"
+     y="78.198662"
+     ry="1.9742088" />
+  <path
+     sodipodi:type="star"
+     style="fill:#ffff00;fill-opacity:1;stroke:#ffffff;stroke-width:0.987498;stroke-opacity:1"
+     id="path1"
+     inkscape:flatsided="false"
+     sodipodi:sides="3"
+     sodipodi:cx="144.27187"
+     sodipodi:cy="228.11084"
+     sodipodi:r1="16.209444"
+     sodipodi:r2="4.3413185"
+     sodipodi:arg1="0.6007787"
+     sodipodi:arg2="1.7424033"
+     inkscape:rounded="0"
+     inkscape:randomized="0"
+     d="m 157.64297,237.2738 -14.11245,-4.88541 -13.87956,2.72068 11.28711,-9.77903 4.5836,-13.38039 2.82534,14.66444 z"
+     transform="matrix(0.15839766,-0.10076667,0.09557802,0.15024149,-274.10066,87.960988)"
+     inkscape:transform-center-x="-0.89564779"
+     inkscape:transform-center-y="0.61151125" />
+</svg>

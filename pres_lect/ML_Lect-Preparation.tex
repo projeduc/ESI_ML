@@ -56,6 +56,7 @@
 	\frametitle{\insertshortsubtitle}
 	\framesubtitle{\insertsection}
 	
+	\hgraphpage{collection.pdf}
 	
 \end{frame}
 
@@ -66,10 +67,22 @@
 	\framesubtitle{\insertsubsection}
 	
 	\begin{itemize}
-		\item Size: Number of samples.
-		\item Number and type of characteristics (nominal, binary, ordinal or continuous).
-		\item Annotation errors.
-		\item Amount of noise in the data: errors and exceptions.
+		\item \optword{Completeness}: is all required data present?
+		\begin{itemize}
+			\item Sufficient number of samples.
+			\item Less percentage of missing values.
+		\end{itemize}
+		\item \optword{Validity}: does the data match the required format for the business?
+		\begin{itemize}
+			\item Number and type of features (nominal, binary, ordinal or continuous).
+		\end{itemize}
+		\item \optword{Accuracy}: correctness of the data values based on the agreed upon "source of truth".
+		\item \optword{Uniqueness}: are all features unique?
+		\item \optword{Consistency}: is the data consistent?
+		\begin{itemize}
+			\item Data from many sources must have the same format (scale, etc.).
+		\end{itemize}
+		\item \optword{Timeliness}: is the data up to date?
 	\end{itemize}
 
 \end{frame}
@@ -354,6 +367,7 @@
 	\frametitle{\insertshortsubtitle}
 	\framesubtitle{\insertsection}
 	
+	\hgraphpage{transformation.pdf}
 	
 \end{frame}
 
@@ -527,36 +541,6 @@
 	
 \end{frame}
 
-\begin{frame}
-	\frametitle{\insertshortsubtitle: \insertsection}
-	\framesubtitle{\insertsubsection: Features generation}
-	
-%	\begin{columns}
-%		\begin{column}{.5\textwidth}
-			
-			\begin{itemize}
-				\item Features generation is used when
-				\begin{itemize}
-					\item we want more complex features
-				\end{itemize}
-				\item \optword{Polynomial generation} (interactions)
-				\begin{itemize}
-					\item $(X_1, X_2, \ldots) \longrightarrow (1, X_1, X_2, X_1 X_2, X_1^2, X_2^2, \ldots)$
-					\item \expword{sklearn.preprocessing.PolynomialFeatures}
-				\end{itemize}
-				\item \optword{Sparse Auto-encoders}
-				\begin{itemize}
-					\item A neural network trained using unsupervised learning
-					\item It aims to represent the samples with more characteristics (a vector representation with more dimensionality)
-				\end{itemize}
-			\end{itemize}
-%		\end{column}
-%		\begin{column}{.5\textwidth}
-%			\hgraphpage{norm-z.png}
-%		\end{column}
-%	\end{columns}
-	
-\end{frame}
 
 \subsection{Categorical features}
 
@@ -594,12 +578,46 @@
 	
 \end{frame}
 
+\subsection{Feature generation}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection}
+	
+	%	\begin{columns}
+		%		\begin{column}{.5\textwidth}
+			
+			\begin{itemize}
+				\item Features generation is used when
+				\begin{itemize}
+					\item we want more complex features
+				\end{itemize}
+				\item \optword{Polynomial generation} (interactions)
+				\begin{itemize}
+					\item $(X_1, X_2, \ldots) \longrightarrow (1, X_1, X_2, X_1 X_2, X_1^2, X_2^2, \ldots)$
+					\item \expword{sklearn.preprocessing.PolynomialFeatures}
+				\end{itemize}
+				\item \optword{Sparse Auto-encoders}
+				\begin{itemize}
+					\item A neural network trained using unsupervised learning
+					\item It aims to represent the samples with more characteristics (a vector representation with more dimensionality)
+				\end{itemize}
+			\end{itemize}
+			%		\end{column}
+		%		\begin{column}{.5\textwidth}
+			%			\hgraphpage{norm-z.png}
+			%		\end{column}
+		%	\end{columns}
+	
+\end{frame}
+
 \section{Data sampling and splitting}
 
 \begin{frame}
 	\frametitle{\insertshortsubtitle}
 	\framesubtitle{\insertsection}
 	
+	\hgraphpage{sampling.pdf}
 	
 \end{frame}
 
@@ -714,7 +732,7 @@
 
 \begin{frame}
 	\frametitle{\insertshortsubtitle: \insertsection}
-	\framesubtitle{\insertsubsection: Data and training}
+	\framesubtitle{\insertsubsection: Validation}
 	
 	\begin{itemize}
 		\item \optword{Underfitting}
@@ -755,9 +773,11 @@
 	
 \end{frame}
 
+\subsection{Cross validation}
+
 \begin{frame}
 	\frametitle{\insertshortsubtitle: \insertsection}
-	\framesubtitle{\insertsubsection: Cross validation}
+	\framesubtitle{\insertsubsection}
 	
 	\begin{figure}
 		\centering
@@ -770,7 +790,7 @@
 
 \begin{frame}
 	\frametitle{\insertshortsubtitle: \insertsection}
-	\framesubtitle{\insertsubsection: Cross validation (K-Folds)}
+	\framesubtitle{\insertsubsection: K-Folds}
 	
 	\begin{figure}
 		\centering
@@ -797,6 +817,7 @@
 	\frametitle{\insertshortsubtitle}
 	\framesubtitle{\insertsection}
 	
+	\hgraphpage{evaluation.pdf}
 	
 \end{frame}
 
@@ -912,6 +933,49 @@
 			weighted & \vspace{-6pt}\[\frac{1}{\sum_{l \in L} |\hat{y}_l|} \sum_{l \in L} |\hat{y}_l| M(y_l, \hat{y}_l)\]\vspace{-6pt} \\
 		\end{tblr}
 	\end{center}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: R, P et F1 (multi-classes: Example)}
+	
+	
+	\begin{center}
+		\SetTblrInner{rowsep=1pt,colsep=5pt}
+		\begin{tblr}{
+			hlines, vlines,
+			colspec = {lllllllllllll},
+			row{odd} = {lightblue, font=\small},
+			row{even} = {lightyellow, font=\small},
+			column{1} = {darkblue, font=\bfseries},
+		}
+		\textcolor{white}{True} & A & A & A & A & A & B & B & B & B & C & C & C  \\
+		\textcolor{white}{Pred} & A & A & A & \color{red}C & \color{red}C & \color{red}A & B & \color{red}C & \color{red}C & \color{red}B & C & C  \\
+		\end{tblr}
+	\end{center}
+
+	\begin{center}
+		\begin{tabular}{llll}
+		\cline{2-4}
+		& A & B & C \\
+		\hline
+		Recall & 3/5 & 1/4 & 2/3 \\
+		Precision & 3/4 & 1/2 & 2/6 \\
+		\hline
+		\end{tabular}
+	\end{center}
+
+	Accuracy = P(micro) = R(micro) = 6/12 = 50\%
+	
+	R(macro) = (3/5 + 1/4 + 2/3)/3 = 9/20 = 45\%
+	
+	P(macro) = (3/4 + 1/2 + 2/6)/3 = 19/36 = 52.77\%
+	
+	R(weighted) = (5 * 3/5 + 4 * 1/4 + 3 * 2/3)/12 = 6/12 = 50\%
+	
+	P(weighted) = (5 * 3/4 + 4 * 1/2 + 3 * 2/6)/12 = 27/48 = 56.25\%
+	
 	
 \end{frame}
 
