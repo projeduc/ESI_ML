@@ -1,0 +1,163 @@
+% !TEX TS-program = pdflatex
+% !TeX program = pdflatex
+% !TEX encoding = UTF-8
+% !TeX spellcheck = en_US
+
+\documentclass[11pt, a4paper]{article}
+%\usepackage{fullpage}
+\usepackage[left=1cm,right=1cm,top=1cm,bottom=2cm]{geometry}
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+%\usepackage{indentfirst}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french,english]{babel}
+\usepackage{txfonts} 
+\usepackage[]{graphicx}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{parskip}
+\usepackage{multicol}
+\usepackage{wrapfig}
+
+\usepackage{turnstile}%Induction symbole
+
+\usepackage{tikz}
+\usetikzlibrary{arrows, automata}
+\usetikzlibrary{decorations.pathmorphing}
+
+\renewcommand{\baselinestretch}{1}
+
+\setlength{\parindent}{24pt}
+
+
+\begin{document}
+
+%\pagestyle{empty} 
+\noindent
+\begin{tabular}{ll}
+\multirow{3}{*}{\includegraphics[width=1.5cm]{../../extra/logo/esi.ml.pdf}} & \'Ecole national Supérieure d'Informatique, Algiers, Algeria\\
+& 2CSSIL2/2CSSIQ2 (2023/2024)\\
+& Machine Learning (ML)
+\end{tabular}\\[.25cm]
+\noindent\rule{\textwidth}{1pt}\\[-0.5cm]
+\begin{center}
+{\LARGE \textbf{Workshop 01: Numpy}}
+\begin{flushright}
+	Abdelkrime ARIES
+\end{flushright}
+\end{center}\vspace{-.25cm}
+\noindent\rule{\textwidth}{1pt}
+
+\noindent
+\begin{tabular}{|p{\textwidth}|}
+	\hline
+	\textbf{Objective}: Learn numpy (which will be used afterwards to implement basic ML algorithms) \\
+	\textbf{Demo}: \url{https://github.com/projeduc/ESI_ML/blob/main/demos/Init/ML_numpy.ipynb} \\
+	\textbf{Numpy doc}: \url{https://numpy.org/doc/stable/} \\
+	\hline
+\end{tabular}
+
+We want to study users' popularity on Twitter.
+To do this, we will analyze the interactions (Reply, Retweet, Like) between 5 users.
+The number of tweets by each user is represented by the vector: \textbf{[2, 5, 10, 4, 3]}.
+Responses are not considered as tweets.
+The following graph represents interactions in the form of (Reply, Retweet, Like) between users.
+When there is no edge from one node to another, this means that all three interactions are (0, 0, 0).
+
+\begin{center}
+	
+\begin{tikzpicture}[
+> = stealth, % arrow head style
+shorten > = 1pt, % don't touch arrow head to node
+auto,
+node distance = 3cm, % distance between nodes
+semithick % line style
+]
+
+\tikzstyle{every state}=[
+draw = black,
+thick,
+fill = white,
+minimum size = 4mm
+]
+
+\node[state] (u0) {0};
+\node[state] (u1) [right of=u0, xshift=3cm] {1};
+\node[state] (u4) [below of=u1] {4};
+\node[state] (u2) [right of=u1, xshift=3cm] {2};
+\node[state] (u3) [below of=u4] {3};
+
+\path[->] 	
+(u0) 	edge [bend right] 	node {(3, 0, 3)} (u4)
+        edge [loop left] 	node {(1, 0, 2)} ()
+        edge [] 	node {(5, 2, 5)} (u1)
+		edge [bend left] 	node {(5, 4, 1)} (u2)
+(u1) 	edge [bend left] 	node {(2, 0, 0)} (u0)
+		edge [bend left] 	node {(3, 0, 0)} (u4)
+		edge [bend left] 	node {(5, 0, 0)} (u2)
+(u2) 	edge [] 	node {(0, 0, 5)} (u1)
+		edge [bend left] 	node {(0, 0, 3)} (u4)
+		edge [bend left] 	node {(0, 0, 3)} (u3)
+(u3) 	edge [] 	node {(0, 3, 1)} (u4)
+		edge [bend left] 	node {(2, 0, 1)} (u0)
+		edge [loop right] 	node {(4, 4, 4)} ()
+(u4) 	edge [bend left] 	node {(4, 2, 0)} (u1)
+		edge [] 	node {(2, 5, 9)} (u2)
+;
+
+\end{tikzpicture}
+
+\end{center}
+
+\begin{itemize}
+	\item Represent the interactions as three 5x5 matrices.
+\end{itemize}
+
+\section*{Engagement Statistics}
+
+Here, we want to extract some statistics on user engagement with others.
+In this case, we are interested in outgoing edges.
+
+\begin{enumerate}
+	\item Find the user who replies more than others.
+	\item Find the user who retweets more than others.
+	\item Find users who neither reply nor retweet.
+	\item Display the number of likes each user has given to their own tweets.
+	\item Display the number of likes each user has given to tweets other than their own.
+	\item Find users who like their own tweets more than they like others' tweets.
+	\item Calculate their number.
+	\item Display the number of interactions each user has made.
+\end{enumerate}
+
+\newpage
+\section*{Interaction Statistics}
+
+\begin{enumerate}
+	\item Display the maximum number of likes each user has received (from users other than themselves).
+	\textit{To eliminate the diagonal, we can create a 5x5 diagonal matrix and invert the values. Then, apply element-wise multiplication.}
+	\item Find users who have received likes for all their tweets by at least one person other than themselves.
+	For example, User 1 has posted 5 tweets and there is at least one other user who has liked all 5 of these tweets (in this case, Users 0 and 2).
+	\item Calculate the number of incoming edges (having at least one interaction).
+	\item Calculate the number of outgoing edges (having at least one interaction).
+	\item Find nodes where the number of incoming edges is equal to the number of outgoing edges.
+	\item Display the likes they have given to each other.
+\end{enumerate}
+
+\section*{Popularity}
+
+\begin{itemize}
+	\item We are not interested in reflexive interactions (e.g., someone liking their own tweets), which are represented by the diagonal for Likes and Replies. However, we are interested in reflexive Retweets.
+	\textit{To eliminate the diagonal, we can create a 5x5 diagonal matrix and invert the values. Then, apply element-wise multiplication.}
+	\item We want to weight the matrices as follows:
+	\begin{itemize}
+		\item Reply Score: We assume that Replies are generally objections; therefore, they have a negative effect. For each interaction, if the number of Replies received from a person is more than their Likes, we multiply the number of Replies by (-0.5). If it is equal, we multiply their own Likes by (-0.25). Otherwise, it has no effect (0). \textbf{HINT: Use numpy.where}
+		\item Retweet Score: We assume that Retweets are generally neutral; therefore, we do not apply any transformation on these interactions. However, if someone retweets their own tweets, they will be penalized by (-0.25) for each retweet.
+		\item Like Score: We assume that Likes have a positive effect on popularity. For each interaction, if the number of Likes received from a person is greater than half of the tweets published, we multiply it by (1.5). Otherwise, the score is the number of Likes.
+	\end{itemize}
+	\item Calculate the popularity score for each user for each interaction which is the average of the received scores.
+	\item Calculate the final score which is the average of the scores from different interactions.
+\end{itemize}
+
+
+\end{document}
