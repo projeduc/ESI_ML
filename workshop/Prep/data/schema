@@ -1,0 +1,14 @@
+CREATE TABLE failure(
+    ID VARCHAR(7) NOT NULL,
+    Air_Temperature_K FLOAT,
+    ProcessTemperature_K FLOAT,
+    Rotational_speed INTEGER,
+    Torque FLOAT,
+    Tool_wear INTEGER,
+    Failure INTEGER,
+    TWF INTEGER,
+    HDF INTEGER,
+    PWF INTEGER,
+    OSF INTEGER,
+    RNF INTEGER
+);
