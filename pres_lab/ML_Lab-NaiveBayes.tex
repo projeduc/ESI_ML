@@ -1,0 +1,421 @@
+% !TEX TS-program = pdflatex
+% !TeX program = pdflatex
+% !TEX encoding = UTF-8
+% !TeX spellcheck = en_US
+
+\documentclass[xcolor=table]{beamer}
+
+\usepackage{../extra/beamer/karimml}
+
+\input{options-sid}
+
+\subtitle[Naïve Bayes]{Naïve Bayes}  
+
+\changegraphpath{../img/naive-bayes/}
+
+\begin{document}
+
+\begin{frame}
+	\frametitle{\inserttitle}
+	\framesubtitle{\insertshortsubtitle: Bayes theory}
+	\huge
+	\[
+	\overbrace{P(A|B)}^\text{Posterior} = \frac{\overbrace{P(A)}^\text{Prior} \overbrace{P(B|A)}^{\text{Likelihood}}}{\underbrace{P(B)}_\text{Evidence}}
+	\]
+\end{frame}
+
+\begin{frame}
+	\frametitle{\inserttitle}
+	\framesubtitle{\insertshortsubtitle: Plan}
+
+	\begin{multicols}{2}
+		%	\small
+		\tableofcontents
+	\end{multicols}
+\end{frame}
+
+\section{Theoretical formulation}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle}
+	\framesubtitle{\insertsection}
+	
+	\begin{itemize}
+		\item Given a sample $ x $, the probability of generating a class $ k $ can be expressed as:
+		\[p(y=k|x) = \frac{p(y=k) p(x|y=k)}{p(x)}\]
+		\item Given $ L $ classes, the output class is the one that maximizes this probability
+		\[\hat{y} = \arg\max_{k} p(y=k|x),\ k \in \{1, \cdots, L\} \]
+		\item in this case, no need for Evidence probability (not dependent to $ y $)
+		\[p(y=k|x) \propto p(y=k) p(x|y=k)\]
+	\end{itemize}
+	
+\end{frame}
+
+\subsection{Estimation}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection}
+	
+	\begin{itemize}
+		\item The output class $ \hat{y} $ is estimated as
+		\[\hat{y} = \arg\max_{k} p(y=k|x) = \arg\max_{k} p(y=k) p(x|y=k),\ k \in \{1, \cdots, L\} \]
+		
+		\item \textbf{The naive part}: the assumption of features independence
+		\[p(x|y=k) \approx \prod_{j=1}^{N} P(x_j|y=k)\]
+		
+		\item In this case, the estimation function would be:
+		\[\hat{y} = \arg\max_{y=k} p(y=k) \prod_{j=1}^{N} P(x_j|y=k),\ k \in \{1, \cdots, L\}\]
+		
+		\item In practice, the calculation is simplified 
+		\[\hat{y} = \arg\max_{y=k} \log p(y=k) + \sum_{j=1}^{N} \log p(x_j|y=k),\ k \in \{1, \cdots, L\}\]
+	\end{itemize}
+	
+\end{frame}
+
+\subsection{Prior probability}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection}
+	
+	\[p(y=k) = \frac{|\{y^{(i)} = k,\ i \in \{1, \cdots, M\}\}|}{M}\]
+	
+	\vfill
+	
+	\begin{itemize}
+		\item $|\{y^{(i)} = k,\ i \in \{1, \cdots, M\}\}|$ is the number of training samples having $k$ as class
+		\item $M$ is the size of the training dataset
+		\item If classes' distribution is uniform, this probability can be ignored 
+		\item If we want to give the same prior probability to classes, this probability can be ignored
+	\end{itemize}
+	
+\end{frame}
+
+\subsection{Likelihood}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Multinomial distribution}
+	
+	\[p(x_j = v|y=k) = \frac{|\{y^{(i)} = k \wedge x^{(i)}_j = v,\ i \in \{1, \cdots, M\}\}|}{|\{y^{(i)} = k,\ i \in \{1, \cdots, M\}\}|} = \frac{\#(y = k \wedge x_j = v)}{\#(y = k)}\]
+	
+	\begin{itemize}
+		\item $x_j$ is a categorical feature having a value $ v $
+		\item $v$ is a value among unique values $ V_j $ (called \keyword{vocabulary}) of the feature $j$
+		\item $\#(y = k \wedge x_j = v)$ is the number of training samples with feature $j$ equals to $v$ and having $k$ as class
+		\item $\#(y = k)$ is the number of training samples having $k$ as class
+		\item Smoothing can be used in case there are unseen values $v$ in the test dataset
+		\[P(x_j = v|y_k) = \frac{\#(y = k \wedge x_j = v) + \alpha}{\#(y = k) + \alpha |V_j|}\]
+		\item \expword{sklearn.naive\_bayes.CategoricalNB}
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Multinomial distribution (text)}
+	
+	\[p(word = w_j|y=k) = \frac{C_{jk} + \alpha}{C_k + \alpha |V|}\]
+	
+	\vfill
+	
+	\[\hat{y} = \arg\max_{k} p(y=k) * \prod_{w \in text} p(word = w|y=k)\]
+	
+	\vfill
+	
+	\begin{itemize}
+		\item A text can be seen as one feature with words as values
+		\item $C_k$ is the number of training samples having $k$ as class
+		\item $C_{jk}$ is the number of occurrences of word $w_j$ in texts having $k$ as class
+		\item $V$ is the vocabulary (unique words in the training dataset)
+		\item \expword{sklearn.naive\_bayes.MultinomialNB}
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Bernoulli distribution}
+	
+	\[p(x_j=v|y=k) = p(x_j=1|y=k) v + (1-p(x_j=1|y=k)) (1-v)\]
+	
+	\vfill
+	
+	\[p(x_j=1|y_k) = \frac{|\{x_j^{(i)} = 1 \wedge y^{(i)} = k,\ i \in \{1, \cdots, M\}\}|}{|\{y^{(i)} = k,\ i \in \{1, \cdots, M\}\}|}\]
+	
+	\vfill
+	
+	\begin{itemize}
+		\item $x_j$ is a boolean feature having a value $v \in \{0, 1\}$
+		\item \expword{sklearn.naive\_bayes.BernoulliNB}
+	\end{itemize}
+	
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Normal (Gaussian) distribution}
+	
+	\[p(x_j = v|Y_k) = \frac{1}{\sqrt{2\pi \sigma_{kj}^2}} e^\frac{-(v-\mu_{kj})^2}{2 \sigma_{kj}^2}\]
+	
+	\vfill
+	
+	\begin{itemize}
+		\item $x_j$ is a numerical feature having values $ v in ]-\infty, +\infty[ $
+		\item $\mu_{kj}$ is the mean of $x_j$'s values having $k$ as class
+		\item $\sigma_{kj}^2$ is the variance $x_j$'s values having $k$ as class
+		\item \expword{sklearn.naive\_bayes.GaussianNB}
+	\end{itemize}
+	
+	
+\end{frame}
+
+
+\section{Numerical application}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle}
+	\framesubtitle{\insertsection}
+	
+	\begin{itemize}
+		\item \textbf{Multinomial NB}: Play or not based on these categorical features: outlook (sunny, overcast, rainy), temp (hot, mild, cool), humidity (high, normal), windy (true, false)
+		\item \textbf{Bernoulli NB}: Pass the exam or fail based on these boolean features: confident, studied, sick
+		\item \textbf{Normal NB}: Male or female based on these numerical features: height (cm), weight (kg), footsize (cm)
+	\end{itemize}
+	
+	
+\end{frame}
+
+\subsection{Multinomial NB}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Example (1)}
+	
+	\begin{minipage}{0.35\textwidth}
+		\scriptsize
+		\SetTblrInner{rowsep=0pt,colsep=1pt}
+		\begin{tblr}{
+				colspec = {lllll},
+				row{odd} = {lightblue},
+				row{even} = {lightyellow},
+				row{1} = {bg=darkblue, fg=white},
+			} 
+			%			\begin{tabular}{llllll}
+				outlook & temp & humidity & windy & play \\
+				sunny & hot & high & false & no \\
+				sunny & hot & high & true & no \\
+				overcast & hot & high & false & yes \\
+				rainy & mild & high & false & yes \\
+				rainy & cool & normal & false & yes \\
+				rainy & cool & normal & true & no \\
+				overcast & cool & normal & true & yes \\
+				sunny & mild & high & false & no \\
+				sunny & cool & normal & false & yes \\
+				rainy & mild & normal & false & yes \\
+				sunny & mild & normal & true & yes \\
+				overcast & mild & high & true & yes \\
+				overcast & hot & normal & false & yes \\
+				rainy & mild & high & true & no \\
+				%			\end{tabular}
+		\end{tblr}
+	\end{minipage}
+	\begin{minipage}{0.64\textwidth}
+		\begin{itemize}
+			\item Prior probability
+			\begin{itemize}
+				\item $p(play=yes) = \frac{\#(play = yes)}{M} = \frac{9}{14}$
+				\item $p(play=no) = \frac{\#(play = no)}{M} = \frac{5}{14}$
+			\end{itemize}
+			\item Likelihood probability of $ outlook=rainy $
+			\begin{itemize}
+				\item $p(outlook=rainy|play=yes) = \frac{\#(outlook=rainy \wedge play = yes)}{\#(play = yes)} = \frac{3}{9}$
+				\item $p(outlook=rainy|play=no) = \frac{\#(outlook=rainy \wedge play = no)}{\#(play = yes)} = \frac{2}{5}$
+			\end{itemize}
+			\item Likelihood probability of $ temp=hot $
+			\begin{itemize}
+				\item $p(temp=hot|play=yes) = \frac{\#(temp=hot \wedge play = yes)}{\#(play = yes)} = \frac{2}{9}$
+				\item $p(temp=hot|play=no) = \frac{\#(temp=hot \wedge play = no)}{\#(play = yes)} = \frac{2}{5}$
+			\end{itemize}
+		\end{itemize}
+	\end{minipage}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Example (2)}
+	
+	\begin{itemize}
+		\item Likelihood probability of $ humidity=high $
+		\begin{itemize}
+			\item $p(humidity=high|play=yes) = \frac{\#(humidity=high \wedge play = yes)}{\#(play = yes)} = \frac{3}{9}$
+			\item $p(humidity=high|play=no) = \frac{\#(humidity=high \wedge play = no)}{\#(play = yes)} = \frac{4}{5}$
+		\end{itemize}
+		\item Likelihood probability of $ windy=false $
+		\begin{itemize}
+			\item $p(windy=false|play=yes) = \frac{\#(windy=false \wedge play = yes)}{\#(play = yes)} = \frac{6}{9}$
+			\item $p(windy=false|play=no) = \frac{\#(windy=false \wedge play = no)}{\#(play = yes)} = \frac{2}{5}$
+		\end{itemize}
+	\end{itemize}
+	
+	\vfill
+	Given $ \vec{v} = [rainy, hot, high, false]$
+	\begin{itemize}
+		\item $p(play=yes|x=\vec{v}) \propto \frac{9}{14} (\frac{3}{9} \frac{2}{9} \frac{3}{9} \frac{6}{9}) = \frac{6}{567} \approx 0.0106$
+		\item $p(play=no|x=\vec{v}) \propto \frac{5}{14} (\frac{2}{5} \frac{2}{5} \frac{4}{5} \frac{2}{5}) = \frac{16}{875} \approx 0.0183$
+		\item $ \hat{y} = no $
+	\end{itemize}
+	
+\end{frame}
+
+
+\subsection{Bernoulli NB}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Example (1)}
+	
+	\begin{minipage}{0.5\textwidth}
+		\scriptsize
+		\SetTblrInner{rowsep=0pt,colsep=1pt}
+		\begin{tblr}{
+				colspec = {p{.2\textwidth}p{.2\textwidth}p{.2\textwidth}p{.2\textwidth}},
+				row{odd} = {lightblue, font=\small},
+				row{even} = {lightyellow, font=\small},
+				row{1} = {darkblue, font=\bfseries},
+			}
+			\textcolor{white}{confident} & \textcolor{white}{studied} & \textcolor{white}{sick} & \textcolor{white}{result} \\
+			1 & 0 & 0 & fail \\
+			1 & 0 & 1 & pass \\
+			0 & 1 & 1 & fail \\
+			0 & 1 & 0 & pass \\
+			1 & 1 & 1 & pass \\
+		\end{tblr}
+	\end{minipage}
+	\begin{minipage}{0.49\textwidth}
+		\begin{itemize}
+			\item Prior probability
+			\begin{itemize}
+				\item $p(pass) = \frac{\#(pass)}{M} = \frac{3}{5}$
+				\item $p(fail) = \frac{\#(fail)}{M} = \frac{2}{5}$
+			\end{itemize}
+		\end{itemize}
+	\end{minipage}
+
+	\begin{itemize}
+		\item Prior probability
+	\end{itemize}
+
+	\begin{minipage}{0.12\textwidth}\small
+		\hfill
+	\end{minipage}
+	\begin{minipage}{0.43\textwidth}\small
+		\begin{itemize}
+			\item $p(confident|pass) = \frac{2}{3}$
+			\item $p(studied|pass) = \frac{2}{3}$
+			\item $p(sick|pass) = \frac{2}{3}$
+		\end{itemize}
+	\end{minipage}
+	\begin{minipage}{0.43\textwidth}\small
+		\begin{itemize}
+			\item $p(confident|fail) = \frac{1}{2}$
+			\item $p(studied|fail) = \frac{1}{2}$
+			\item $p(sick|fail) = \frac{1}{2}$
+		\end{itemize}
+	\end{minipage}
+
+	\vfill
+	Given $ \vec{v} = [1, 0, 0]$
+	\begin{itemize}
+		\item $p(pass|\vec{v}) \propto \frac{3}{5} [\frac{2}{3} (1-\frac{2}{3}) (1-\frac{2}{3})]  = \frac{2}{45} \approx 0.0444$
+		\item $p(fail|\vec{v}) \propto \frac{2}{5} [\frac{1}{2} (1-\frac{1}{2}) (1-\frac{1}{2})]  = \frac{1}{20} \approx 0.05$
+		\item $ \hat{y} = fail $
+	\end{itemize}
+	
+	
+\end{frame}
+
+
+\subsection{Normal NB}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Example}
+	
+	\begin{minipage}{0.35\textwidth}
+		\scriptsize
+		\SetTblrInner{rowsep=1pt,colsep=1pt}
+		\begin{tblr}{
+				colspec = {llll},
+				row{odd} = {lightblue, font=\small},
+				row{even} = {lightyellow, font=\small},
+				row{1} = {darkblue, font=\bfseries},
+			}
+			\textcolor{white}{height} & \textcolor{white}{weight} & \textcolor{white}{footsize} & \textcolor{white}{person} \\
+			182 & 81.6 & 30 & male\\
+			180 & 86.2 & 28 & male\\
+			170 & 77.1 & 30 & male\\
+			180 & 74.8 & 25 & male\\
+			152 & 45.4 & 15 & female\\
+			168 & 68.0 & 20 & female\\
+			165 & 59.0 & 18 & female\\
+			175 & 68.0 & 23 & female\\
+		\end{tblr}
+	\end{minipage}
+	\begin{minipage}{0.64\textwidth}
+		\begin{itemize}
+			\item Prior probability: no need since the classes distribution is uniform
+		\end{itemize}
+		\scriptsize\SetTblrInner{rowsep=2pt,colsep=3pt}
+		\begin{tblr}{
+				colspec = {ccccccc},
+				row{odd} = {lightblue, font=\small},
+				row{even} = {lightyellow, font=\small},
+				row{1,2} = {darkblue, font=\bfseries},
+				cell{1}{1} = {r=2}{c},
+				cell{1}{2, 4, 6} = {c=2}{c},
+			}
+			\textcolor{white}{person} & \textcolor{white}{height} & & \textcolor{white}{weight} & & \textcolor{white}{footsize} & \\
+			& \textcolor{white}{$ \mu $} & \textcolor{white}{$ \sigma^2 $} & \textcolor{white}{$ \mu $} & \textcolor{white}{$ \sigma^2 $} &
+			\textcolor{white}{$ \mu $} & \textcolor{white}{$ \sigma^2 $} \\
+			male & 178 & 29.33 & 79.92 & 25.48 & 28.25 & 5.58\\
+			female & 165 & 92.67 & 60.1 & 114.04 & 19 & 11.33\\
+		\end{tblr}
+	\end{minipage}
+	
+	\vfill
+	Given $ \vec{v} = [183, 59, 20]$
+	\begin{itemize}
+		\item $ p(height=183|male) = \frac{1}{\sqrt{2\pi * 29.33}} e^\frac{-(183-165)^2}{2 * 29.33} $
+		\item $ p(height=183|female) = \frac{1}{\sqrt{2\pi * 92.67}} e^\frac{-(183-165)^2}{2 * 92.67} $
+	\end{itemize}
+	
+	
+\end{frame}
+
+\insertbibliography{ML_Lab-NaiveBayes}{*}
+
+\begin{frame}[plain]
+	
+	\begin{center}
+		\Huge 
+		The probability of finding 
+		
+		another slide 
+		
+		given 
+		
+		the slides you already seen 
+		
+		is 
+		
+		0
+	\end{center}
+	
+\end{frame}
+
+\end{document}
+

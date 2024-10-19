@@ -26,9 +26,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.0150103"
-     inkscape:cx="52.708823"
-     inkscape:cy="217.23917"
+     inkscape:zoom="0.50750515"
+     inkscape:cx="-530.04388"
+     inkscape:cy="105.41765"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -1687,20 +1687,20 @@
          style="font-weight:bold;font-size:40px;line-height:0.8;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';text-align:center;letter-spacing:0px;white-space:pre;shape-inside:url(#rect1-8-5-5);display:inline;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:1.88976"
          transform="translate(121.08042,-11.480486)"><tspan
            x="167.58301"
-           y="549.59813"
-           id="tspan28825"><tspan
+           y="548.53664"
+           id="tspan1685"><tspan
              style="font-style:italic;font-family:Tinos;-inkscape-font-specification:'Tinos, Bold Italic'"
-             id="tspan28823">x</tspan></tspan></text>
+             id="tspan1683">x</tspan></tspan></text>
       <text
          xml:space="preserve"
          id="text1-7-7-4-2"
          style="font-weight:bold;font-size:40px;line-height:0.8;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';text-align:center;letter-spacing:0px;white-space:pre;shape-inside:url(#rect1-9-6-9-3);display:inline;fill:#1a1a1a;fill-opacity:1;stroke:#800000;stroke-width:1.88976"
          transform="translate(133.40089,-2.7690812)"><tspan
            x="170.91633"
-           y="549.59813"
-           id="tspan28829"><tspan
+           y="547.41424"
+           id="tspan1689"><tspan
              style="font-style:italic;font-size:26.6667px;font-family:Tinos;-inkscape-font-specification:'Tinos, Bold Italic';stroke:none"
-             id="tspan28827">2</tspan></tspan></text>
+             id="tspan1687">2</tspan></tspan></text>
     </g>
     <path
        sodipodi:type="star"
@@ -1953,20 +1953,20 @@
          style="font-weight:bold;font-size:40px;line-height:0.8;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';text-align:center;letter-spacing:0px;white-space:pre;shape-inside:url(#rect1-8-5-5-3);display:inline;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:1.88976"
          transform="translate(121.08042,-11.480486)"><tspan
            x="167.58301"
-           y="549.59813"
-           id="tspan28833"><tspan
+           y="548.53664"
+           id="tspan1693"><tspan
              style="font-style:italic;font-family:Tinos;-inkscape-font-specification:'Tinos, Bold Italic'"
-             id="tspan28831">x</tspan></tspan></text>
+             id="tspan1691">x</tspan></tspan></text>
       <text
          xml:space="preserve"
          id="text1-7-7-4-2-3"
          style="font-weight:bold;font-size:40px;line-height:0.8;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';text-align:center;letter-spacing:0px;white-space:pre;shape-inside:url(#rect1-9-6-9-3-6);display:inline;fill:#1a1a1a;fill-opacity:1;stroke:#800000;stroke-width:1.88976"
          transform="translate(133.40089,-2.7690812)"><tspan
            x="170.91633"
-           y="549.59813"
-           id="tspan28837"><tspan
+           y="547.41424"
+           id="tspan1697"><tspan
              style="font-style:italic;font-size:26.6667px;font-family:Tinos;-inkscape-font-specification:'Tinos, Bold Italic';stroke:none"
-             id="tspan28835">1</tspan></tspan></text>
+             id="tspan1695">1</tspan></tspan></text>
     </g>
     <rect
        style="fill:#00ff00;stroke-width:2"
@@ -2823,18 +2823,20 @@
        sodipodi:nodetypes="cccccc" />
     <text
        xml:space="preserve"
-       transform="matrix(0.26458333,0,0,0.26458333,-2.2594845,172.0218)"
+       transform="matrix(0.26458333,0,0,0.26458333,-8.2125072,177.8373)"
        id="text14725"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect14727);fill:#000000;fill-opacity:1;stroke:none"><tspan
-         x="194.24805"
-         y="200.01805"
-         id="tspan28841"><tspan
-           style="font-weight:bold;font-size:32px;font-family:Tinos;-inkscape-font-specification:'Tinos, Bold'"
-           id="tspan28839">Binary </tspan></tspan><tspan
-         x="194.24805"
-         y="250.01805"
-         id="tspan28845"><tspan
-           style="font-weight:bold;font-size:32px;font-family:Tinos;-inkscape-font-specification:'Tinos, Bold'"
-           id="tspan28843">relevance</tspan></tspan></text>
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:34.6667px;line-height:1.25;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect14727);fill:#000000;fill-opacity:1;stroke:none"
+       x="70.856773"
+       y="0"><tspan
+         x="223.65653"
+         y="193.27271"
+         id="tspan1701"><tspan
+           style="text-align:center;text-anchor:middle"
+           id="tspan1699">Binary </tspan></tspan><tspan
+         x="203.17474"
+         y="236.60608"
+         id="tspan1705"><tspan
+           style="text-align:center;text-anchor:middle"
+           id="tspan1703">relevance</tspan></tspan></text>
   </g>
 </svg>
