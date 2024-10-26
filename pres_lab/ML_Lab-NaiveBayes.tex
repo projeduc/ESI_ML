@@ -105,7 +105,8 @@
 		\item $v$ is a value among unique values $ V_j $ (called \keyword{vocabulary}) of the feature $j$
 		\item $\#(y = k \wedge x_j = v)$ is the number of training samples with feature $j$ equals to $v$ and having $k$ as class
 		\item $\#(y = k)$ is the number of training samples having $k$ as class
-		\item Smoothing can be used in case there are unseen values $v$ in the test dataset
+		\item Smoothing can be used in case there are unseen values $v$ in the test dataset,
+		where $V_j$ is the vocabulary of the feature $j$ (unique categories)
 		\[P(x_j = v|y_k) = \frac{\#(y = k \wedge x_j = v) + \alpha}{\#(y = k) + \alpha |V_j|}\]
 		\item \expword{sklearn.naive\_bayes.CategoricalNB}
 	\end{itemize}
@@ -163,12 +164,25 @@
 	\vfill
 	
 	\begin{itemize}
-		\item $x_j$ is a numerical feature having values $ v in ]-\infty, +\infty[ $
+		\item $x_j$ is a numerical feature having values $ v \in ]-\infty, +\infty[ $
 		\item $\mu_{kj}$ is the mean of $x_j$'s values having $k$ as class
-		\item $\sigma_{kj}^2$ is the variance $x_j$'s values having $k$ as class
+		\item $\sigma_{kj}^2$ is the \textbf{unbiased} variance of $x_j$'s values having $k$ as class
 		\item \expword{sklearn.naive\_bayes.GaussianNB}
 	\end{itemize}
 	
+	
+\end{frame}
+
+\begin{frame}[plain]
+	
+	\begin{center}
+		 
+		This slide 
+		
+		is left blank
+		
+		for no reason
+	\end{center}
 	
 \end{frame}
 
@@ -194,9 +208,9 @@
 	\frametitle{\insertshortsubtitle: \insertsection}
 	\framesubtitle{\insertsubsection: Example (1)}
 	
-	\begin{minipage}{0.35\textwidth}
+	\begin{minipage}{0.37\textwidth}
 		\scriptsize
-		\SetTblrInner{rowsep=0pt,colsep=1pt}
+		\SetTblrInner{rowsep=1pt,colsep=2pt}
 		\begin{tblr}{
 				colspec = {lllll},
 				row{odd} = {lightblue},
@@ -222,7 +236,7 @@
 				%			\end{tabular}
 		\end{tblr}
 	\end{minipage}
-	\begin{minipage}{0.64\textwidth}
+	\begin{minipage}{0.62\textwidth}
 		\begin{itemize}
 			\item Prior probability
 			\begin{itemize}
@@ -389,8 +403,8 @@
 	\vfill
 	Given $ \vec{v} = [183, 59, 20]$
 	\begin{itemize}
-		\item $ p(height=183|male) = \frac{1}{\sqrt{2\pi * 29.33}} e^\frac{-(183-165)^2}{2 * 29.33} $
-		\item $ p(height=183|female) = \frac{1}{\sqrt{2\pi * 92.67}} e^\frac{-(183-165)^2}{2 * 92.67} $
+		\item $ p(height=183|male) = \frac{1}{\sqrt{2\pi * 29.33}} e^\frac{-(183-178)^2}{2 * 29.33} \approx\ 0.04810173$
+		\item $ p(height=183|female) = \frac{1}{\sqrt{2\pi * 92.67}} e^\frac{-(183-165)^2}{2 * 92.67} \approx\ 0.00721463$
 	\end{itemize}
 	
 	
