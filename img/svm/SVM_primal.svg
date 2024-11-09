@@ -8,7 +8,7 @@
    height="500"
    viewBox="0 0 500 500"
    sodipodi:docname="SVM_primal.svg"
-   inkscape:version="1.3.2 (1:1.3.2+202311252150+091e20ef0f)"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    inkscape:export-filename="/home/kariminf/Github/projeduc/ESI_2CS_ML/img/rlmul-adagrad/DG-J.png.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90"
@@ -28,17 +28,17 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="1008"
+     inkscape:window-width="1536"
+     inkscape:window-height="792"
      id="namedview4"
      showgrid="false"
-     inkscape:zoom="0.86097333"
-     inkscape:cx="58.654546"
-     inkscape:cy="301.9838"
+     inkscape:zoom="1.0777972"
+     inkscape:cx="299.68532"
+     inkscape:cy="290.87105"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg2"
+     inkscape:current-layer="g2-7"
      inkscape:showpageshadow="2"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1" />
@@ -446,6 +446,18 @@
        width="257.54022"
        height="73.24437"
        id="rect1-8-5-5-6-1" />
+    <rect
+       x="135.51073"
+       y="522.20251"
+       width="84.146156"
+       height="86.931984"
+       id="rect1-8-5-5-3" />
+    <rect
+       x="135.51073"
+       y="522.20251"
+       width="84.146156"
+       height="86.931984"
+       id="rect1-9-6-9-3-6" />
   </defs>
   <path
      style="fill:none;stroke:#000000;stroke-width:3;stroke-dasharray:none;stroke-dashoffset:51.0299;stroke-opacity:1;marker-start:url(#marker6)"
@@ -467,19 +479,19 @@
        transform="translate(121.08042,-11.480486)"><tspan
          x="167.58301"
          y="548.53664"
-         id="tspan7"><tspan
+         id="tspan969"><tspan
            style="font-style:italic;font-family:Tinos;-inkscape-font-specification:'Tinos, Bold Italic'"
-           id="tspan6">x</tspan></tspan></text>
+           id="tspan967">x</tspan></tspan></text>
     <text
        xml:space="preserve"
        id="text1-7-7-4-2"
        style="font-weight:bold;font-size:40px;line-height:0.8;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';text-align:center;letter-spacing:0px;white-space:pre;shape-inside:url(#rect1-9-6-9-3);display:inline;fill:#1a1a1a;fill-opacity:1;stroke:#800000;stroke-width:1.88976"
        transform="translate(133.40089,-2.7690812)"><tspan
          x="170.91633"
-         y="546.21094"
-         id="tspan9"><tspan
+         y="547.41424"
+         id="tspan973"><tspan
            style="font-style:italic;font-size:26.6667px;font-family:Tinos;-inkscape-font-specification:'Tinos, Bold Italic';stroke:none"
-           id="tspan8">2</tspan></tspan></text>
+           id="tspan971">2</tspan></tspan></text>
   </g>
   <path
      sodipodi:type="star"
@@ -1311,40 +1323,64 @@
      style="font-weight:bold;font-size:40px;line-height:0.8;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';text-align:center;letter-spacing:0px;white-space:pre;shape-inside:url(#rect1-8-5-5-6);display:inline;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:1.88976"
      transform="rotate(-85.181149,167.27594,512.36737)"><tspan
        x="209.00677"
-       y="546.21094"
-       id="tspan13"><tspan
+       y="547.41424"
+       id="tspan981"><tspan
          style="font-style:italic;font-size:26.6667px;font-family:Tinos;-inkscape-font-specification:'Tinos, Bold Italic'"
-         id="tspan10">X.</tspan><tspan
+         id="tspan975">X.</tspan><tspan
          style="font-style:italic;font-size:26.6667px;font-family:Tinos;-inkscape-font-specification:'Tinos, Bold Italic'"
-         id="tspan11">θ+</tspan><tspan
+         id="tspan977">θ+</tspan><tspan
          style="font-style:italic;font-size:26.6667px;font-family:Tinos;-inkscape-font-specification:'Tinos, Bold Italic'"
-         id="tspan12">b=+1</tspan></tspan></text>
+         id="tspan979">b=+1</tspan></tspan></text>
   <text
      xml:space="preserve"
      id="text1-6-27-6-1-4"
      style="font-weight:bold;font-size:40px;line-height:0.8;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';text-align:center;letter-spacing:0px;white-space:pre;shape-inside:url(#rect1-8-5-5-6-8);display:inline;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:1.88976"
      transform="rotate(-80.782543,190.43895,487.67819)"><tspan
        x="216.60443"
-       y="546.21094"
-       id="tspan17"><tspan
+       y="547.41424"
+       id="tspan989"><tspan
          style="font-style:italic;font-size:26.6667px;font-family:Tinos;-inkscape-font-specification:'Tinos, Bold Italic'"
-         id="tspan14">X.</tspan><tspan
+         id="tspan983">X.</tspan><tspan
          style="font-style:italic;font-size:26.6667px;font-family:Tinos;-inkscape-font-specification:'Tinos, Bold Italic'"
-         id="tspan15">θ+</tspan><tspan
+         id="tspan985">θ+</tspan><tspan
          style="font-style:italic;font-size:26.6667px;font-family:Tinos;-inkscape-font-specification:'Tinos, Bold Italic'"
-         id="tspan16">b=0</tspan></tspan></text>
+         id="tspan987">b=0</tspan></tspan></text>
   <text
      xml:space="preserve"
      id="text1-6-27-6-1-5"
      style="font-weight:bold;font-size:40px;line-height:0.8;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';text-align:center;letter-spacing:0px;white-space:pre;shape-inside:url(#rect1-8-5-5-6-1);display:inline;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:1.88976"
      transform="rotate(-85.069085,219.18922,461.32808)"><tspan
        x="212.16432"
-       y="546.21094"
-       id="tspan21"><tspan
+       y="547.41424"
+       id="tspan997"><tspan
          style="font-style:italic;font-size:26.6667px;font-family:Tinos;-inkscape-font-specification:'Tinos, Bold Italic'"
-         id="tspan18">X.</tspan><tspan
+         id="tspan991">X.</tspan><tspan
          style="font-style:italic;font-size:26.6667px;font-family:Tinos;-inkscape-font-specification:'Tinos, Bold Italic'"
-         id="tspan19">θ+</tspan><tspan
+         id="tspan993">θ+</tspan><tspan
          style="font-style:italic;font-size:26.6667px;font-family:Tinos;-inkscape-font-specification:'Tinos, Bold Italic'"
-         id="tspan20">b=-1</tspan></tspan></text>
+         id="tspan995">b=-1</tspan></tspan></text>
+  <g
+     id="g2-7"
+     transform="translate(170.11393,-51.98132)">
+    <text
+       xml:space="preserve"
+       id="text1-6-27-6-5"
+       style="font-weight:bold;font-size:40px;line-height:0.8;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';text-align:center;letter-spacing:0px;white-space:pre;shape-inside:url(#rect1-8-5-5-3);display:inline;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:1.88976"
+       transform="translate(121.08042,-11.480486)"><tspan
+         x="167.58301"
+         y="548.53664"
+         id="tspan1001"><tspan
+           style="font-style:italic;font-family:Tinos;-inkscape-font-specification:'Tinos, Bold Italic'"
+           id="tspan999">x</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       id="text1-7-7-4-2-3"
+       style="font-weight:bold;font-size:40px;line-height:0.8;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';text-align:center;letter-spacing:0px;white-space:pre;shape-inside:url(#rect1-9-6-9-3-6);display:inline;fill:#1a1a1a;fill-opacity:1;stroke:#800000;stroke-width:1.88976"
+       transform="translate(133.40089,-2.7690812)"><tspan
+         x="170.91633"
+         y="547.41424"
+         id="tspan1005"><tspan
+           style="font-style:italic;font-size:26.6667px;font-family:Tinos;-inkscape-font-specification:'Tinos, Bold Italic';stroke:none"
+           id="tspan1003">1</tspan></tspan></text>
+  </g>
 </svg>
