@@ -7,7 +7,7 @@
 
 \usepackage{../extra/beamer/karimml}
 
-\input{options}
+\input{options2}
 
 \subtitle[Neural Networks]{Neural Networks}  
 
@@ -795,17 +795,36 @@
 	\framesubtitle{\insertsubsection: Others}
 	
 	\begin{itemize}
-		\item \textbf{COCOB} \cite{orabona2017training} {\scriptsize \url{https://arxiv.org/pdf/1705.07795.pdf}}
+		\item \textbf{COCOB} \cite{orabona2017training}
+		\begin{itemize}
+			\item {\scriptsize \url{https://arxiv.org/pdf/1705.07795.pdf}}
+		\end{itemize}
+		 
+		\item \textbf{Yogi} \cite{zaheer2018adaptive} 
+		\begin{itemize}
+			\item {\scriptsize \url{https://proceedings.neurips.cc/paper/2018/file/90365351ccc7437a1309dc64e4db32a3-Paper.pdf}}
+		\end{itemize}
 		
-		\item \textbf{Yogi} \cite{zaheer2018adaptive} {\scriptsize \url{https://proceedings.neurips.cc/paper/2018/file/90365351ccc7437a1309dc64e4db32a3-Paper.pdf}}
+		\item \textbf{NovoGrad} \cite{ginsburg2019training} 
+		\begin{itemize}
+			\item {\scriptsize \url{https://arxiv.org/pdf/1905.11286.pdf}} 
+		\end{itemize}
 		
-		\item \textbf{NovoGrad} \cite{ginsburg2019training} {\scriptsize \url{https://arxiv.org/pdf/1905.11286.pdf}} 
+		\item \textbf{Lookahead} \cite{10.5555/3454287.3455148} 
+		\begin{itemize}
+			\item {\scriptsize \url{https://arxiv.org/pdf/1907.08610v1.pdf}} 
+		\end{itemize}
 		
-		\item \textbf{Lookahead} \cite{10.5555/3454287.3455148} {\scriptsize \url{https://arxiv.org/pdf/1907.08610v1.pdf}} 
+		\item \textbf{LAMB} \cite{you2020large} 
+		\begin{itemize}
+			\item {\scriptsize \url{https://arxiv.org/abs/1904.00962}}
+		\end{itemize}
+		 
+		\item \textbf{AdaBelief} \cite{zhuang2020adabelief} 
+		\begin{itemize}
+			\item {\scriptsize \url{https://arxiv.org/pdf/2010.07468.pdf}}
+		\end{itemize}
 		
-		\item \textbf{LAMB} \cite{you2020large} {\scriptsize \url{https://arxiv.org/abs/1904.00962}} 
-		
-		\item \textbf{AdaBelief} \cite{zhuang2020adabelief} {\scriptsize \url{https://arxiv.org/pdf/2010.07468.pdf}}
 		
 %		\item \textbf{} \cite{} {\scriptsize \url{}} 
 		
@@ -829,6 +848,21 @@
 	\frametitle{\insertshortsubtitle}
 	\framesubtitle{\insertsection}
 	
+	\begin{block}{Definition}
+		\vspace{6pt}
+		A "Feedforward Neural Network" is an architecture of Neural Networks. 
+		In this one, there is no "feed" back from the outputs of the neurons to the inputs throughout the network. \cite{2006-sazli}
+		
+		\vspace{6pt}
+		In other word, there is no temporal phenomena treated in the problem in question; current output does not depend on the past one.
+		\vspace{6pt}
+	\end{block}
+	
+	\begin{exampleblock}{Example}
+		\begin{itemize}
+			\item Predicting the class of an image only based on its pixels 
+		\end{itemize}
+	\end{exampleblock}
 	
 \end{frame}
 
@@ -1490,6 +1524,21 @@
 	\frametitle{\insertshortsubtitle}
 	\framesubtitle{\insertsection}
 	
+	\begin{block}{Definition}
+		\vspace{6pt}
+		A "Recurrent Neural Network" is an architecture of Neural Networks. 
+		In this one, there is a "feed" back from the outputs of the neurons to the inputs throughout the network. \cite{2006-sazli}
+		
+		\vspace{6pt}
+		In other word, there is a temporal phenomena treated in the problem in question; current output depends on the past one.
+		\vspace{6pt}
+	\end{block}
+	
+	\begin{exampleblock}{Example}
+		\begin{itemize}
+			\item Predicting future weather based on some features, plus the current one
+		\end{itemize}
+	\end{exampleblock}
 	
 \end{frame}
 

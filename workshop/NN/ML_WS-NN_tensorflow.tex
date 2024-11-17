@@ -1,0 +1,328 @@
+% !TEX TS-program = pdflatex
+% !TeX program = pdflatex
+% !TEX encoding = UTF-8
+% !TeX spellcheck = en_US
+
+\documentclass[11pt, a4paper]{article}
+%\usepackage{fullpage}
+\usepackage[left=1cm,right=1cm,top=1cm,bottom=2cm]{geometry}
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+%\usepackage{indentfirst}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french,english]{babel}
+\usepackage{txfonts} 
+\usepackage[]{graphicx}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{parskip}
+\usepackage{multicol}
+\usepackage{wrapfig}
+\usepackage{multicol}
+
+\usepackage{turnstile}%Induction symbole
+
+\usepackage{tikz}
+\usetikzlibrary{arrows, automata}
+\usetikzlibrary{decorations.pathmorphing}
+
+\renewcommand{\baselinestretch}{1}
+
+\setlength{\parindent}{0pt}
+
+
+\begin{document}
+	
+	%\pagestyle{empty} 
+	\begin{tabular}{ll}
+		\multirow{3}{*}{\includegraphics[width=1.5cm]{../img/esi.mlsid.pdf}} 
+		& \'Ecole national Supérieure d'Informatique, Algiers, Algeria\\
+		& 2CSSID (2024/2025)\\
+		& Machine Learning (ML)
+	\end{tabular}\\[.25cm]
+	\noindent\rule{\textwidth}{1pt}\\[-0.5cm]
+	\begin{center}
+		{\LARGE \textbf{Workshop 03: Neural Networks' tools (Tensorflow)}}
+		\begin{flushright}
+			Mr. Abdelkrime ARIES
+		\end{flushright}
+	\end{center}\vspace{-.25cm}
+	\noindent\rule{\textwidth}{1pt}
+	
+	\begin{center}
+		\begin{tabular}{|p{.8\textwidth}|}
+			\hline
+			Get familiar with a tool to create MLPs and train them.  \\
+			Learn how to create custom MLPs using this tool. \\
+			Understand how this tool works by programming low level MLPs \\
+			\hline
+		\end{tabular}
+	\end{center}
+
+%\section*{Useful links}
+%
+%\begin{itemize}
+%	\item \textbf{Dataset}: {\scriptsize \url{https://archive.ics.uci.edu/dataset/601/ai4i+2020+predictive+maintenance+dataset}} 
+%	\item \textbf{Demo}: {\scriptsize \url{https://github.com/projeduc/ESI_ML/blob/main/TP/SD_2022-2023/TP01/TP01_pretraitement_sujet.ipynb}}
+%	\item \textbf{MatplotLib}: {\scriptsize \url{https://matplotlib.org/stable/gallery/index.html}}
+%	\item \textbf{imbalanced-learn}: {\scriptsize \url{https://imbalanced-learn.org/stable/user_guide.html#user-guide}}
+%	\item \textbf{CRISP-DM (web)}: {\scriptsize \url{https://www.ibm.com/docs/en/spss-modeler/18.5.0?topic=dm-crisp-help-overview}}
+%	\item  \textbf{CRISP-DM (pdf)}: {\scriptsize \url{https://www.ibm.com/docs/en/SS3RA7_18.5.0/pdf/ModelerCRISPDM.pdf}}
+%\end{itemize}
+
+
+\begin{multicols}{2}
+	\section{Data Preparation}
+	
+	We will use the \textbf{satellite} dataset:
+	\begin{itemize} 
+		\item Import the training dataset. 
+		\item Separate the input data and normalize it by dividing by \textbf{255}. 
+		\item Separate the output data and encode it in OneHot format using \textbf{LabelBinarizer} from \textbf{scikit-learn}.
+		\item Transform \textbf{X\_train} and \textbf{Y\_train} to \textbf{tf.constant} with \textbf{dtype=tf.float32}.
+		\item Redo the same with test dataset, except do not transform \textbf{Y\_test} to \textbf{tf.constant}.
+	\end{itemize}
+	
+	\section{Keras}
+	
+	In this section, we will create a project to classify satellite images.
+	We will try to use high level APIs to create an MLP.
+	
+	\subsection{Sequential model}
+	
+	Create a sequential model (\textbf{nn1}). Then, add:
+	\begin{itemize} 
+		\item an input layer having a shape (number of features of the past dataset, );
+		\item a dense layer having 10 neurons and an activation function 'relu';
+		\item a dense layer having 10 neurons and an activation function 'relu';
+		\item and a dense layer having number-of-classes neurons and an activation function 'softmax'.
+	\end{itemize}
+	Use its method \textbf{summary} to print its structure.
+	
+	\subsection{Model training}
+	
+	\begin{itemize}  
+		\item Compile \textbf{nn1} by calling the method \textbf{compile}:
+		\begin{itemize} 
+			\item Use cross entropy as loss function.
+			\item Define Adam as an optimization function.
+		\end{itemize}
+		\item Train \textbf{nn1} using its method \textbf{fit}.
+		\begin{itemize} 
+			\item Use \textbf{X\_train} and \textbf{Y\_train} as its obligatory arguments.
+			\item Use a number of epochs of your choice.
+		\end{itemize}
+	\end{itemize}
+	
+	\subsection{Model testing}
+	\begin{itemize}  
+		\item Generate the estimations of \textbf{X\_test} using \textbf{nn1}.
+		\item Transform these estimations into classes using the method \textbf{inverse\_transform} of our \textbf{LabelBinarizer}.
+		\item Use these to print a classification report.
+	\end{itemize}
+	
+	\section{High level with a custom class}
+	
+	We want to create a custom model which adds layers one after the other.
+	It verifies if the layers are compatibles.
+	Then, when finished, we cannot add any more layers (we lock it).
+	
+	\subsection{Custom Layer}
+	
+	\begin{itemize}  
+		\item Create a class called \textbf{MyLayer} which inherits from \textbf{keras.layers.Dense}.
+		\item Its obligatory arguments are: the number of inputs and the number of outputs.
+		\item Its optional arguments are: a boolean for bias (True by default) and a string of activation function to choose from 'relu', 'sigmoid' and 'linear' ('linear' by default).
+		\item Use \textbf{assert} to verify that both the number of inputs and outputs are more than 0.
+		\item In this case the number of outputs is the number of units (neurons).
+		To specify the number of inputs, call the method \textbf{build((number of inputs, ))}.
+		\item You have some unitary tests, adapt them to your model to test it.
+	\end{itemize}
+	
+	\subsection{Custom Net}
+	
+	\begin{itemize}  
+		\item Create a class called \textbf{MyMLP} which inherits from \textbf{keras.Model}.
+		\item It has no arguments; but, it contains 2 attributes: a lock initialized to False and a list to store our layers. 
+		\item Add a method \textbf{add\_layer} which has one argument: a layer. 
+		\begin{itemize} 
+			\item It raises an exception when the object is locked.
+			\item It raises an exception when the previous layer's output is not as the current layer's input.
+			\item In case this is the first layer to add, no need to check.
+			\item It adds the layer when all is right.
+			\item Then, it returns \textbf{self}; this allows us to call this method in one line 
+		\end{itemize}
+		\item Add a method \textbf{compile} which has these optional arguments: number of inputs of the output layer (=1), number of outputs of the output layer (=1), bias of the output layer (=True), a boolean indicating if it is a multi-class classification (=False), and learning rate (=1.).
+		\begin{itemize} 
+			\item If there are past layers, it modifies the number of inputs of the output layer to be the output of the last layer.
+			\item The output layer will have a sigmoid activation function
+			\item If it is multi-class and the number of outputs is more than 1, this function must be softmax.
+			\item The loss function must be BCE.
+			\item If it is multi-class and the number of outputs is more than 1, The loss function must be CE.
+			\item The optimizer must be Adam, taking this model's parameters and the bias.
+			\item Lock the model.
+		\end{itemize}
+		\item Add the \textbf{forward} method taking \textbf{X} as argument.
+		\item Override \textbf{\_\_call\_\_} which returns the backward pass's result.
+	\end{itemize}
+	
+	\subsection{Model training} 
+	
+	\begin{itemize}  
+		\item Create a model (\textbf{nn2}) composed of:
+		\begin{itemize} 
+			\item a hidden layer having a shape (number of features of the past dataset, 10) and ReLU activation function;
+			\item a hidden layer having a shape (10, 10) and a ReLU activation function;
+			\item an output layer having a shape (10, number of classes) for multi-class classification.
+		\end{itemize}
+		\item Call \textbf{summary} to print its structure.
+		\item Fit it on \textbf{satellite} train dataset.
+	\end{itemize}
+	
+	\subsection{Model testing} 
+	
+	\begin{itemize}  
+		\item Generate the estimations of \textbf{X\_test} using \textbf{nn2}.
+		\item Transform these estimations into classes using the method \textbf{inverse\_transform} of our \textbf{LabelBinarizer}.
+		\item Use these to print a classification report.
+	\end{itemize}
+	
+	\section{Low Level}
+	
+	\subsection{Activation functions}
+	
+	\begin{itemize}  
+		\item Create functions \textbf{simple\_sigmoid}, \textbf{simple\_ReLU} and \textbf{simple\_softmax} which takes \textbf{X} as argument.
+		\item You have to use \textbf{tf} functions.
+	\end{itemize}
+	
+	\subsection{Loss functions}
+	
+	\begin{itemize}  
+		\item Create classes \textbf{SimpleBCE} and \textbf{SimpleCE} which inherit from \textbf{keras.Loss}.
+		\item No constructor is required. 
+		\item Add the \textbf{call} method which takes \textbf{X, Y} as arguments.
+	\end{itemize}
+	
+	\subsection{Optimization functions}
+	
+	\begin{itemize}  
+		\item Create a class \textbf{SimpleGD} which inherits from \textbf{keras.Optimizer}.
+		\item The constructor takes \textbf{lr} as argument. 
+		\item It passes it to the super class as \textbf{super().\_\_init\_\_(learning\_rate=lr)}
+		\item Override the \textbf{apply\_gradients} method which takes one argument: \textbf{grads\_and\_vars}. 
+		\begin{itemize}  
+			\item The argument is a list of tuples (grads, vars).
+			\item Update the parameters (vars) using their method \textbf{assign\_sub} which is the original value minus the value in the arguments.
+		\end{itemize}
+	\end{itemize}
+	
+	\subsection{Custom Layer}
+	
+	\begin{itemize}  
+		\item Copy \textbf{MyLayer} and rename it \textbf{SimpleLayer}, but it must inherit from \textbf{object}.
+		\item Create an attribute \textbf{trainable\_weights} which is a list to store the variables.
+		\item Create an attribute \textbf{W} of type \textbf{tf.Variable} initialized to zeros.
+		Add it to \textbf{trainable\_weights}.
+		\item Create an attribute \textbf{W} initialized to zeros. 
+		It can be only transformed to \textbf{tf.Variable} and stored in \textbf{trainable\_weights} if bias=True.
+		In this case, it will be subscribed into the module's parameters; thus can be recovered using the method \textbf{parameters}.
+		\item Replace all activation functions by our simple versions.
+		\item Add a method \textbf{randomize} which randomizes all trainable parameters using a normal law (\textbf{tf.random.normal}) having a mean of 0 and a standard deviation of 1.
+		Try to update them using \textbf{assign} method.
+		\item Add the \textbf{forward} method.
+		\item Override \textbf{\_\_call\_\_} to return the result of the past method.
+	\end{itemize}
+	
+	\subsection{Custom Net}
+	
+	\begin{itemize}  
+		\item Copy \textbf{MyMLP} and rename it into \textbf{SimpleMLP}, but it must inherit from \textbf{object}.
+		\item Create an attribute \textbf{trainable\_weights} which is a list to store the variables.
+		\item Modify it to handle our new structures.
+		\item Add a method \textbf{randomize} which randomizes all layers.
+		\item Add a method \textbf{compile} which has these optional arguments: number of inputs of the output layer (=1), number of outputs of the output layer (=1), bias of the output layer (=True), a boolean indicating if it is a multi-class classification (=False), and learning rate (=1.).
+		\begin{itemize} 
+			\item If there are past layers, it modifies the number of inputs of the output layer to be the output of the last layer.
+			\item The output layer will have a sigmoid activation function
+			\item If it is multi-class and the number of outputs is more than 1, this function must be softmax.
+			\item The loss function must be BCE.
+			\item If it is multi-class and the number of outputs is more than 1, The loss function must be CE.
+			\item The optimizer must be Adam, taking this model's parameters and the bias.
+			\item Lock the model.
+			\item Update the \textbf{trainable\_weights}.
+		\end{itemize}
+		\item Add the \textbf{forward} method taking \textbf{X} as argument.
+		\item Add the \textbf{backward} method taking \textbf{X, Y} as arguments:
+		\begin{itemize} 
+			\item In the context of a \textbf{tf.GradientTape()} called \textbf{tape}, perform a forward pass to get the predicted classes. Calculate the error using the \textbf{loss} function stored as an attribute. 
+			\item Exit the \textbf{tape} context and compute the gradients using \textbf{tape.gradient} with the error and the list of parameters as arguments. 
+			\item Use the optimizer to apply the gradients (method \textbf{apply\_gradients}) which takes the gradients and the zipped list of parameters as arguments. 
+			\item Return the overall error as numpy with \textbf{.numpy()}. 
+		\end{itemize}
+		\item Add a \textbf{fit} method taking \textbf{X, Y, epochs} as arguments.
+		For each iteration, it shows the cost.
+		\item Override \textbf{\_\_call\_\_} which returns the backward pass's result. 
+	\end{itemize}
+	
+	\subsection{Model training} 
+	
+	\begin{itemize}  
+		\item Create a model (\textbf{nn3}) composed of:
+		\begin{itemize} 
+			\item a hidden layer having a shape (number of features of the past dataset, 10) and ReLU activation function;
+			\item a hidden layer having a shape (10, 10) and a ReLU activation function;
+			\item an output layer having a shape (10, number of classes) for multi-class classification.
+		\end{itemize}
+		\item Randomize it.
+		\item Print its parameters. The method \textbf{parameters} returns an iterator, so you have to cast it into a list.
+		\item Fit it on \textbf{satellite} train dataset.
+	\end{itemize}
+	
+	\subsection{Model testing} 
+	
+	\begin{itemize}  
+		\item Generate the estimations of \textbf{X\_test} using \textbf{nn3}.
+		\item Transform these estimations into classes using the method \textbf{inverse\_transform} of our \textbf{LabelBinarizer}.
+		\item Use these to print a classification report.
+	\end{itemize}
+
+\end{multicols}
+
+\section*{Appendix}
+
+\begin{itemize}  
+	\item pandas.read\_csv: \url{https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html}
+	\item sklearn.preprocessing.LabelBinarizer: \url{https://scikit-learn.org/1.5/modules/generated/sklearn.preprocessing.LabelBinarizer.html}
+	\item tf.constant: \url{https://www.tensorflow.org/api_docs/python/tf/constant}
+	\item tf.keras.Sequential: \url{https://www.tensorflow.org/api_docs/python/tf/keras/Sequential}
+	\item tf.keras.Input: \url{https://www.tensorflow.org/api_docs/python/tf/keras/Input}
+	\item tf.keras.layers.Dense: \url{https://www.tensorflow.org/api_docs/python/tf/keras/layers/Dense}
+	\item tf.keras.optimizers.Adam: \url{https://www.tensorflow.org/api_docs/python/tf/keras/optimizers/Adam}
+	\item tf.keras.losses.CategoricalCrossentropy: \url{https://www.tensorflow.org/api_docs/python/tf/keras/losses/CategoricalCrossentropy}
+	\item sklearn.metrics.classification\_report: \url{https://scikit-learn.org/1.5/modules/generated/sklearn.metrics.classification_report.html}
+	\item assert: \url{https://docs.python.org/3/reference/simple_stmts.html#assert}
+	\item tf.keras.Model: \url{https://www.tensorflow.org/api_docs/python/tf/keras/Model}
+	\item Exception: \url{https://docs.python.org/3/library/exceptions.html#Exception}
+	\item tf.keras.losses.BinaryCrossentropy: \url{https://www.tensorflow.org/api_docs/python/tf/keras/losses/BinaryCrossentropy}
+	\item tf.keras.Loss: \url{https://www.tensorflow.org/api_docs/python/tf/keras/Loss}
+	\item tf.math.exp: \url{https://www.tensorflow.org/api_docs/python/tf/math/exp}
+	\item tf.where: \url{https://www.tensorflow.org/api_docs/python/tf/where}
+	\item tf.reshape: \url{https://www.tensorflow.org/api_docs/python/tf/reshape}
+	\item tf.reduce\_sum: \url{https://www.tensorflow.org/api_docs/python/tf/math/reduce_sum}
+	\item tf.reduce\_mean: \url{https://www.tensorflow.org/api_docs/python/tf/math/reduce_mean}
+	\item tf.math.log: \url{https://www.tensorflow.org/api_docs/python/tf/math/log}
+	\item tf.keras.Optimizer: \url{https://www.tensorflow.org/api_docs/python/tf/keras/Optimizer}
+	\item tf.Variable: \url{https://www.tensorflow.org/api_docs/python/tf/Variable}
+	\item tf.zeros: \url{https://www.tensorflow.org/api_docs/python/tf/zeros}
+	\item tf.random.normal: \url{https://www.tensorflow.org/api_docs/python/tf/random/normal}
+	\item tf.matmul: \url{https://www.tensorflow.org/api_docs/python/tf/linalg/matmul}
+	\item tf.GradientTape: \url{https://www.tensorflow.org/api_docs/python/tf/GradientTape}
+	
+%	\item tf.keras.Layer: \url{https://www.tensorflow.org/api_docs/python/tf/keras/Layer}
+%	\item tf.keras.activations.sigmoid: \url{https://www.tensorflow.org/api_docs/python/tf/keras/activations/sigmoid}
+\end{itemize}
+
+
+\end{document}

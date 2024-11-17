@@ -1,0 +1,322 @@
+% !TEX TS-program = pdflatex
+% !TeX program = pdflatex
+% !TEX encoding = UTF-8
+% !TeX spellcheck = en_US
+
+\documentclass[11pt, a4paper]{article}
+%\usepackage{fullpage}
+\usepackage[left=1cm,right=1cm,top=1cm,bottom=2cm]{geometry}
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+%\usepackage{indentfirst}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french,english]{babel}
+\usepackage{txfonts} 
+\usepackage[]{graphicx}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{parskip}
+\usepackage{multicol}
+\usepackage{wrapfig}
+\usepackage{multicol}
+
+\usepackage{turnstile}%Induction symbole
+
+\usepackage{tikz}
+\usetikzlibrary{arrows, automata}
+\usetikzlibrary{decorations.pathmorphing}
+
+\renewcommand{\baselinestretch}{1}
+
+\setlength{\parindent}{0pt}
+
+
+\begin{document}
+	
+	%\pagestyle{empty} 
+	\begin{tabular}{ll}
+		\multirow{3}{*}{\includegraphics[width=1.5cm]{../img/esi.mlsid.pdf}} 
+		& \'Ecole national Supérieure d'Informatique, Algiers, Algeria\\
+		& 2CSSID (2024/2025)\\
+		& Machine Learning (ML)
+	\end{tabular}\\[.25cm]
+	\noindent\rule{\textwidth}{1pt}\\[-0.5cm]
+	\begin{center}
+		{\LARGE \textbf{Workshop 03: Neural Networks' tools (Pytorch)}}
+		\begin{flushright}
+			Mr. Abdelkrime ARIES
+		\end{flushright}
+	\end{center}\vspace{-.25cm}
+	\noindent\rule{\textwidth}{1pt}
+	
+	\begin{center}
+		\begin{tabular}{|p{.8\textwidth}|}
+		\hline
+		Get familiar with a tool to create MLPs and train them.  \\
+		Learn how to create custom MLPs using this tool. \\
+		Understand how this tool works by programming low level MLPs \\
+		\hline
+	\end{tabular}
+	\end{center}
+
+%\section*{Useful links}
+%
+%\begin{itemize}
+%	\item \textbf{Dataset}: {\scriptsize \url{https://archive.ics.uci.edu/dataset/601/ai4i+2020+predictive+maintenance+dataset}} 
+%	\item \textbf{Demo}: {\scriptsize \url{https://github.com/projeduc/ESI_ML/blob/main/TP/SD_2022-2023/TP01/TP01_pretraitement_sujet.ipynb}}
+%	\item \textbf{MatplotLib}: {\scriptsize \url{https://matplotlib.org/stable/gallery/index.html}}
+%	\item \textbf{imbalanced-learn}: {\scriptsize \url{https://imbalanced-learn.org/stable/user_guide.html#user-guide}}
+%	\item \textbf{CRISP-DM (web)}: {\scriptsize \url{https://www.ibm.com/docs/en/spss-modeler/18.5.0?topic=dm-crisp-help-overview}}
+%	\item  \textbf{CRISP-DM (pdf)}: {\scriptsize \url{https://www.ibm.com/docs/en/SS3RA7_18.5.0/pdf/ModelerCRISPDM.pdf}}
+%\end{itemize}
+
+
+\begin{multicols}{2}
+	\section{Data Preparation}
+	
+	We will use the \textbf{satellite} dataset:
+	\begin{itemize} 
+		\item Import the training dataset. 
+		\item Separate the input data and normalize it by dividing by \textbf{255}. 
+		\item Separate the output data and encode it in OneHot format using \textbf{LabelBinarizer} from \textbf{scikit-learn}.
+		\item Transform \textbf{X\_train} and \textbf{Y\_train} to \textbf{torch.Tensor}.
+		\item Redo the same with test dataset, except do not transform \textbf{Y\_test} to \textbf{torch.Tensor}.
+	\end{itemize}
+	
+	\section{High Level}
+	
+	In this section, we will create a project to classify satellite images.
+	We will try to use high level APIs to create an MLP.
+	In PyTorch, the training loop is not handled implicitly; you have to define it yourself.
+	But, you can use some other APIs such as \href{https://github.com/Lightning-AI/pytorch-lightning}{pytorch-lightning}.
+	
+	\subsection{Sequential model}
+	
+	Create a sequential model (\textbf{nn1}) composed of:
+	\begin{itemize} 
+		\item a dense layer having a shape (number of features of the past dataset, 10);
+		\item a ReLU activation function;
+		\item a dense layer having a shape (10, 10);
+		\item a ReLU activation function;
+		\item a dense layer having a shape (10, number of classes);
+		\item and a Softmax activation function with dim=1.
+	\end{itemize}
+	Print it to get its structure.
+	
+	\subsection{Model training}
+	
+	\begin{itemize}  
+		\item Use cross entropy as loss function.
+		\item Define Adam as an optimization function by passing \textbf{nn1.parameters()} and a learning rate
+		\item Train \textbf{nn1} with a loop over a range of iterations of your choice.
+		\begin{itemize} 
+			\item Apply a forward pass by passing \textbf{X\_train} into \textbf{nn1}.
+			\item Calculate the loss.
+			\item Set gradients to 0 (\textbf{optimizer.zero\_grad()}).
+			\item Apply a backward pass using the instruction \textbf{loss.backward()}.
+			\item Apply an optimization step using the instruction \textbf{optimizer.step()}.
+			\item Print the loss.
+		\end{itemize}
+	\end{itemize}
+	
+	\subsection{Model testing}
+	\begin{itemize}  
+		\item Generate the estimations of \textbf{X\_test} using \textbf{nn1}.
+		\item Transform these estimations into classes using the method \textbf{inverse\_transform} of our \textbf{LabelBinarizer}.
+		\item Use these to print a classification report.
+	\end{itemize}
+	
+	\section{High level with a custom class}
+	
+	We want to create a custom model which adds layers one after the other.
+	It verifies if the layers are compatibles.
+	Then, when finished, we cannot add any more layers (we lock it).
+	
+	\subsection{Custom Layer}
+	
+	\begin{itemize}  
+		\item Create a class called \textbf{MyLayer} which inherits from \textbf{torch.nn.Layer}.
+		\item Its obligatory arguments are: the number of inputs and the number of outputs.
+		\item Its optional arguments are: a boolean for bias (True by default) and a string of activation function to choose from 'relu', 'sigmoid' and 'linear' ('linear' by default).
+		\item Use \textbf{assert} to verify that both the number of inputs and outputs are more than 0.
+		\item Add the \textbf{forward} method.
+		\item You have some unitary tests, adapt them to your model to test it.
+	\end{itemize}
+	
+	\subsection{Custom Net}
+	
+	\begin{itemize}  
+		\item Create a class called \textbf{MyMLP} which inherits from \textbf{torch.nn.Module}.
+		\item It has no arguments; but, it contains 2 attributes: a lock initialized to False and a list to store our layers. 
+		Do not use \textbf{list}; use \textbf{torch.nn.ModuleList} instead. 
+		This is because the latter let the module access the trainable parameters in the list.
+		\item Add a method \textbf{add\_layer} which has one argument: a layer. 
+		\begin{itemize} 
+			\item It raises an exception when the object is locked.
+			\item It raises an exception when the previous layer's output is not as the current layer's input.
+			\item In case this is the first layer to add, no need to check.
+			\item It adds the layer when all is right
+			\item Then, it returns \textbf{self}; this allows us to call this method in one line 
+		\end{itemize}
+		\item Add a method \textbf{compile} which has these optional arguments: number of inputs of the output layer (=1), number of outputs of the output layer (=1), bias of the output layer (=True), a boolean indicating if it is a multi-class classification (=False), and learning rate (=1.).
+		\begin{itemize} 
+			\item If there are past layers, it modifies the number of inputs of the output layer to be the output of the last layer.
+			\item The output layer will have a sigmoid activation function
+			\item If it is multi-class and the number of outputs is more than 1, this function must be softmax.
+			\item The loss function must be BCE.
+			\item If it is multi-class and the number of outputs is more than 1, The loss function must be CE.
+			\item The optimizer must be Adam, taking this model's parameters and the bias.
+			\item Lock the model.
+		\end{itemize}
+		\item Add the \textbf{forward} method taking \textbf{X} as argument.
+		\item Add the \textbf{backward} method taking \textbf{X, Y} as arguments:
+		\begin{itemize} 
+			\item It applies a forward pass.
+			\item It calculates a loss using the output and \textbf{Y}.
+			\item It initializes the gradients of the optimizer to zero (\textbf{.zero\_grad()}).
+			\item It applies a backward pass on the loss.
+			\item It applies a step of the optimizer.
+			\item It returns the loss as numpy (use \textbf{.detach().numpy()}) .
+		\end{itemize}
+		\item Add a \textbf{fit} method taking \textbf{X, Y, epochs} as arguments.
+		For each iteration, it shows the cost.
+		\item Override \textbf{\_\_call\_\_} which returns the backward pass's result.
+	\end{itemize}
+	
+	\subsection{Model training} 
+	
+	\begin{itemize}  
+		\item Create a model (\textbf{nn2}) composed of:
+		\begin{itemize} 
+			\item a hidden layer having a shape (number of features of the past dataset, 10) and ReLU activation function;
+			\item a hidden layer having a shape (10, 10) and a ReLU activation function;
+			\item an output layer having a shape (10, number of classes) for multi-class classification.
+		\end{itemize}
+		\item  Print it to get its structure.
+		\item Fit it on \textbf{satellite} train dataset.
+	\end{itemize}
+	
+	\subsection{Model testing} 
+	
+	\begin{itemize}  
+		\item Generate the estimations of \textbf{X\_test} using \textbf{nn2}.
+		\item Transform these estimations into classes using the method \textbf{inverse\_transform} of our \textbf{LabelBinarizer}.
+		\item Use these to print a classification report.
+	\end{itemize}
+	
+	\section{Low Level}
+	
+	\subsection{Activation functions}
+	
+	\begin{itemize}  
+		\item Create classes \textbf{SimpleSigmoid}, \textbf{SimpleReLU} and \textbf{SimpleSoftmax} which inherit from \textbf{torch.nn.Module}.
+		\item No constructor is required. 
+		\item Add the \textbf{forward} method which takes \textbf{X} as argument.
+	\end{itemize}
+	
+	\subsection{Loss functions}
+	
+	\begin{itemize}  
+		\item Create classes \textbf{SimpleBCE} and \textbf{SimpleCE} which inherit from \textbf{torch.nn.Module}.
+		\item No constructor is required. 
+		\item Add the \textbf{forward} method which takes \textbf{X, Y} as arguments.
+	\end{itemize}
+	
+	\subsection{Optimization functions}
+	
+	\begin{itemize}  
+		\item Create a class \textbf{SimpleGD} which inherits from \textbf{optim.Optimizer}.
+		\item The constructor takes \textbf{params} and \textbf{lr} as arguments. 
+		\item It passes them to the super class as \textbf{super().\_\_init\_\_(params, defaults=\{'lr': lr\})}
+		\item Add the \textbf{step} method which takes no arguments. 
+		This function must update all parameters based on their gradients and their learning rate.
+		\begin{itemize}  
+			\item \textbf{self.groups} contains a list of parameters' groups.
+			\item each group is a dictionary containing, among others, a key '\textbf{lr}' and another '\textbf{params}'.
+			\item the value of '\textbf{lr}' is the learning rate of this group of parameters.
+			\item the value of '\textbf{params}' is a list of tensors. 
+			Since these tensors are 'trainable', they have an attribute \textbf{data} containing theirs current values, and another \textbf{grad} containing their current gradients.
+			{\color{red} These gradients are coming from \textbf{loss.backward()} which will calculate the gradients of all the trainable parameters contributing to the loss and for each stores the gradient in its \textbf{grad} attribute}.
+		\end{itemize}
+	\end{itemize}
+	
+	\subsection{Custom Layer}
+	
+	\begin{itemize}  
+		\item Copy \textbf{MyLayer} and rename it \textbf{SimpleLayer}, but it must inherit from \textbf{torch.nn.Module}.
+		\item Create an attribute \textbf{W} of type \textbf{nn.parameter.Parameter} initialized to zeros.
+		\item Create an attribute \textbf{W} initialized to zeros. 
+		It can be only transformed to \textbf{nn.parameter.Parameter} if bias=True.
+		In this case, it will be subscribed into the module's parameters; thus can be recovered using the method \textbf{parameters}.
+		\item Replace all activation functions by our simple versions.
+		\item Add a method \textbf{randomize} which randomizes all trainable parameters using a normal law (\textbf{torch.normal}) having a mean of 0 and a standard deviation of 1.
+		Try to update their \textbf{data} attribute.
+	\end{itemize}
+	
+	\subsection{Custom Net}
+	
+	\begin{itemize}  
+		\item Copy \textbf{MyMLP} and rename it into \textbf{SimpleMLP}.
+		\item Modify it to handle our new structures.
+		\item Add a method \textbf{randomize} which randomizes all layers. 
+	\end{itemize}
+	
+	\subsection{Model training} 
+	\begin{itemize}  
+		\item Create a model (\textbf{nn3}) composed of:
+		\begin{itemize} 
+			\item a hidden layer having a shape (number of features of the past dataset, 10) and ReLU activation function;
+			\item a hidden layer having a shape (10, 10) and a ReLU activation function;
+			\item an output layer having a shape (10, number of classes) for multi-class classification.
+		\end{itemize}
+		\item Randomize it.
+		\item Print its parameters. The method \textbf{parameters} returns an iterator, so you have to cast it into a list.
+		\item Fit it on \textbf{satellite} train dataset.
+	\end{itemize}
+	
+	\subsection{Model testing} 
+	
+	\begin{itemize}  
+		\item Generate the estimations of \textbf{X\_test} using \textbf{nn3}.
+		\item Transform these estimations into classes using the method \textbf{inverse\_transform} of our \textbf{LabelBinarizer}.
+		\item Use these to print a classification report.
+	\end{itemize}
+	
+	
+\end{multicols}
+
+\section*{Appendix}
+
+\begin{itemize}  
+	\item pandas.read\_csv: \url{https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html}
+	\item sklearn.preprocessing.LabelBinarizer: \url{https://scikit-learn.org/1.5/modules/generated/sklearn.preprocessing.LabelBinarizer.html}
+	\item torch.Tensor: \url{https://pytorch.org/docs/main/tensors.html}
+	\item torch.nn.Sequential: \url{https://pytorch.org/docs/stable/generated/torch.nn.Sequential.html}
+	\item torch.nn.Linear: \url{https://pytorch.org/docs/stable/generated/torch.nn.Linear.html#torch.nn.Linear}
+	\item torch.nn.ReLU: \url{https://pytorch.org/docs/stable/generated/torch.nn.ReLU.html#relu}
+	\item torch.nn.Softmax: \url{https://pytorch.org/docs/stable/generated/torch.nn.Softmax.html#softmax}
+	\item torch.optim.Adam: \url{https://pytorch.org/docs/stable/generated/torch.optim.Adam.html#adam}
+	\item torch.nn.CrossEntropyLoss: \url{https://pytorch.org/docs/stable/generated/torch.nn.CrossEntropyLoss.html#crossentropyloss}
+	\item sklearn.metrics.classification\_report: \url{https://scikit-learn.org/1.5/modules/generated/sklearn.metrics.classification_report.html}
+	\item assert: \url{https://docs.python.org/3/reference/simple_stmts.html#assert}
+	\item torch.nn.Sigmoid: \url{https://pytorch.org/docs/stable/generated/torch.nn.Sigmoid.html#torch.nn.Sigmoid}
+	\item Exception: \url{https://docs.python.org/3/library/exceptions.html#Exception}
+	\item torch.nn.Module: \url{https://pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module}
+	\item torch.nn.ModuleList: \url{https://pytorch.org/docs/stable/generated/torch.nn.ModuleList.html#torch.nn.ModuleList}
+	\item torch.nn.BCELoss: \url{https://pytorch.org/docs/stable/generated/torch.nn.BCELoss.html#bceloss}
+	\item torch.exp: \url{https://pytorch.org/docs/stable/generated/torch.exp.html#torch-exp}
+	\item torch.where: \url{https://pytorch.org/docs/stable/generated/torch.where.html#torch-where}
+	\item torch.Tensor.view: \url{https://pytorch.org/docs/stable/generated/torch.Tensor.view.html}
+	\item torch.sum: \url{https://pytorch.org/docs/stable/generated/torch.sum.html#torch.sum}
+	\item torch.mean: \url{https://pytorch.org/docs/stable/generated/torch.mean.html#torch-mean}
+	\item torch.log: \url{https://pytorch.org/docs/stable/generated/torch.log.html#torch-log}
+	\item torch.optim.Optimizer: \url{https://pytorch.org/docs/stable/optim.html#torch.optim.Optimizer}
+	\item torch.nn.parameter.Parameter: \url{https://pytorch.org/docs/stable/generated/torch.nn.parameter.Parameter.html#torch.nn.parameter.Parameter}
+	\item torch.zeros: \url{https://pytorch.org/docs/stable/generated/torch.zeros.html#torch-zeros}
+	\item torch.normal: \url{https://pytorch.org/docs/stable/generated/torch.normal.html#torch-normal}
+	\item torch.matmul: \url{https://pytorch.org/docs/stable/generated/torch.matmul.html#torch-matmul}
+\end{itemize}
+
+
+\end{document}
