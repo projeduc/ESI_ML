@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   width="1172"
+   height="738"
+   id="svg253"
+   sodipodi:docname="act_slu.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview255"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="0.62677952"
+     inkscape:cx="1011.52"
+     inkscape:cy="259.26182"
+     inkscape:window-width="1536"
+     inkscape:window-height="792"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg253" />
+  <defs
+     id="defs5">
+    <marker
+       style="overflow:visible"
+       id="marker1205"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Arrow2"
+       markerWidth="7.6999998"
+       markerHeight="5.5999999"
+       viewBox="0 0 7.7 5.6"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.7)"
+         d="M -2,-4 9,0 -2,4 c 2,-2.33 2,-5.66 0,-8 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         id="path1203" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Arrow2"
+       markerWidth="7.6999998"
+       markerHeight="5.5999999"
+       viewBox="0 0 7.7 5.6"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.7)"
+         d="M -2,-4 9,0 -2,4 c 2,-2.33 2,-5.66 0,-8 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         id="arrow2L" />
+    </marker>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath797">
+      <g
+         id="g803">
+        <g
+           id="g801">
+          <path
+             fill="none"
+             stroke="none"
+             d="M 0,0 H 1172 V 738 H 0 Z"
+             id="path799" />
+        </g>
+      </g>
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath805">
+      <g
+         id="g811">
+        <g
+           id="g809">
+          <path
+             fill="none"
+             stroke="none"
+             d="M 0,0 H 1172 V 738 H 0 Z"
+             id="path807" />
+        </g>
+      </g>
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath813">
+      <g
+         id="g819">
+        <g
+           id="g817">
+          <path
+             fill="none"
+             stroke="none"
+             d="M 0,0 H 1172 V 738 H 0 Z"
+             id="path815" />
+        </g>
+      </g>
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath821">
+      <g
+         id="g827">
+        <g
+           id="g825">
+          <path
+             fill="none"
+             stroke="none"
+             d="M 0,0 H 1172 V 738 H 0 Z"
+             id="path823" />
+        </g>
+      </g>
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath829">
+      <g
+         id="g835">
+        <g
+           id="g833">
+          <path
+             fill="none"
+             stroke="none"
+             d="M 0,0 H 1172 V 738 H 0 Z"
+             id="path831" />
+        </g>
+      </g>
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath837">
+      <g
+         id="g843">
+        <g
+           id="g841">
+          <path
+             fill="none"
+             stroke="none"
+             d="M 0,0 H 1172 V 738 H 0 Z"
+             id="path839" />
+        </g>
+      </g>
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath845">
+      <g
+         id="g851">
+        <g
+           id="g849">
+          <path
+             fill="none"
+             stroke="none"
+             d="M 0,0 H 1172 V 738 H 0 Z"
+             id="path847" />
+        </g>
+      </g>
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath853">
+      <g
+         id="g859">
+        <g
+           id="g857">
+          <path
+             fill="none"
+             stroke="none"
+             d="M 0,0 H 1172 V 738 H 0 Z"
+             id="path855" />
+        </g>
+      </g>
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath861">
+      <g
+         id="g867">
+        <g
+           id="g865">
+          <path
+             fill="none"
+             stroke="none"
+             d="M 0,0 H 1172 V 738 H 0 Z"
+             id="path863" />
+        </g>
+      </g>
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath869">
+      <g
+         id="g875">
+        <g
+           id="g873">
+          <path
+             fill="none"
+             stroke="none"
+             d="M 0,0 H 1172 V 738 H 0 Z"
+             id="path871" />
+        </g>
+      </g>
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath877">
+      <g
+         id="g883">
+        <g
+           id="g881">
+          <path
+             fill="none"
+             stroke="none"
+             d="M 0,0 H 1172 V 738 H 0 Z"
+             id="path879" />
+        </g>
+      </g>
+    </clipPath>
+  </defs>
+  <rect
+     fill="#ffffff"
+     stroke="none"
+     x="0"
+     y="0"
+     width="1172"
+     height="738"
+     fill-opacity="1"
+     id="rect7"
+     clip-path="url(#clipPath877)" />
+  <path
+     fill="none"
+     stroke="#c0c0c0"
+     paint-order="fill stroke markers"
+     d="M 1,0 V 738 M 1,0 V 738 M 57,0 V 738 M 112,0 V 738 M 167,0 V 738 M 223,0 V 738 M 278,0 V 738 M 334,0 V 738 M 389,0 V 738 M 445,0 V 738 M 500,0 V 738 M 611,0 V 738 M 666,0 V 738 M 722,0 V 738 M 777,0 V 738 M 832,0 V 738 M 888,0 V 738 M 943,0 V 738 M 999,0 V 738 M 1054,0 V 738 M 1109,0 V 738 M 1165,0 v 738"
+     stroke-opacity="1"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     stroke-miterlimit="10"
+     stroke-width="2"
+     id="path9"
+     clip-path="url(#clipPath869)" />
+  <path
+     fill="none"
+     stroke="#c0c0c0"
+     paint-order="fill stroke markers"
+     d=""
+     stroke-opacity="0.235294"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     stroke-miterlimit="10"
+     stroke-width="2"
+     id="path11" />
+  <path
+     fill="none"
+     stroke="#c0c0c0"
+     paint-order="fill stroke markers"
+     d="M 0,46 H 1172 M 0,46 H 1172 M 0,93 H 1172 M 0,140 H 1172 M 0,187 H 1172 M 0,234 H 1172 M 0,280 H 1172 M 0,327 H 1172 M 0,421 H 1172 M 0,468 H 1172 M 0,515 H 1172 M 0,562 H 1172 M 0,608 H 1172 M 0,655 H 1172 M 0,702 h 1172"
+     stroke-opacity="1"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     stroke-miterlimit="10"
+     stroke-width="2"
+     id="path13"
+     clip-path="url(#clipPath861)" />
+  <path
+     fill="none"
+     stroke="#c0c0c0"
+     paint-order="fill stroke markers"
+     d=""
+     stroke-opacity="0.235294"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     stroke-miterlimit="10"
+     stroke-width="2"
+     id="path15" />
+  <path
+     fill="none"
+     stroke="#252525"
+     paint-order="fill stroke markers"
+     d="M 555.43299,13.539286 555,738"
+     stroke-opacity="1"
+     stroke-miterlimit="10"
+     stroke-width="2"
+     id="path17"
+     clip-path="url(#clipPath853)"
+     style="marker-start:url(#marker1205)"
+     sodipodi:nodetypes="cc" />
+  <path
+     fill="none"
+     stroke="#252525"
+     paint-order="fill stroke markers"
+     d="m 0,374 1153.4332,-0.55613"
+     stroke-opacity="1"
+     stroke-miterlimit="10"
+     stroke-width="2"
+     id="path23"
+     clip-path="url(#clipPath829)"
+     style="marker-end:url(#Arrow2)"
+     sodipodi:nodetypes="cc" />
+  <text
+     x="33"
+     y="370"
+     id="text29"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;dominant-baseline:alphabetic;text-anchor:start;fill:#252525;fill-opacity:1;stroke:none">–4.5</text>
+  <text
+     x="33"
+     y="370"
+     id="text33"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;dominant-baseline:alphabetic;text-anchor:start;fill:#252525;fill-opacity:1;stroke:none">–4.5</text>
+  <text
+     x="95"
+     y="370"
+     id="text39"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;dominant-baseline:alphabetic;text-anchor:start;fill:#252525;fill-opacity:1;stroke:none">–4</text>
+  <text
+     x="144"
+     y="370"
+     id="text45"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;dominant-baseline:alphabetic;text-anchor:start;fill:#252525;fill-opacity:1;stroke:none">–3.5</text>
+  <text
+     x="206"
+     y="370"
+     id="text51"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;dominant-baseline:alphabetic;text-anchor:start;fill:#252525;fill-opacity:1;stroke:none">–3</text>
+  <text
+     x="254"
+     y="370"
+     id="text57"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;dominant-baseline:alphabetic;text-anchor:start;fill:#252525;fill-opacity:1;stroke:none">–2.5</text>
+  <text
+     x="317"
+     y="370"
+     id="text63"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;dominant-baseline:alphabetic;text-anchor:start;fill:#252525;fill-opacity:1;stroke:none">–2</text>
+  <text
+     x="365"
+     y="370"
+     id="text69"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;dominant-baseline:alphabetic;text-anchor:start;fill:#252525;fill-opacity:1;stroke:none">–1.5</text>
+  <text
+     x="428"
+     y="370"
+     id="text75"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;dominant-baseline:alphabetic;text-anchor:start;fill:#252525;fill-opacity:1;stroke:none">–1</text>
+  <text
+     x="476"
+     y="370"
+     id="text81"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;dominant-baseline:alphabetic;text-anchor:start;fill:#252525;fill-opacity:1;stroke:none">–0.5</text>
+  <text
+     x="596"
+     y="394"
+     id="text87"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;dominant-baseline:alphabetic;text-anchor:start;fill:#252525;fill-opacity:1;stroke:none">0.5</text>
+  <text
+     x="659"
+     y="394"
+     id="text93"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;dominant-baseline:alphabetic;text-anchor:start;fill:#252525;fill-opacity:1;stroke:none">1</text>
+  <text
+     x="707"
+     y="394"
+     id="text99"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;dominant-baseline:alphabetic;text-anchor:start;fill:#252525;fill-opacity:1;stroke:none">1.5</text>
+  <text
+     x="770"
+     y="394"
+     id="text105"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;dominant-baseline:alphabetic;text-anchor:start;fill:#252525;fill-opacity:1;stroke:none">2</text>
+  <text
+     x="818"
+     y="394"
+     id="text111"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;dominant-baseline:alphabetic;text-anchor:start;fill:#252525;fill-opacity:1;stroke:none">2.5</text>
+  <text
+     x="881"
+     y="394"
+     id="text117"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;dominant-baseline:alphabetic;text-anchor:start;fill:#252525;fill-opacity:1;stroke:none">3</text>
+  <text
+     x="929"
+     y="394"
+     id="text123"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;dominant-baseline:alphabetic;text-anchor:start;fill:#252525;fill-opacity:1;stroke:none">3.5</text>
+  <text
+     x="991"
+     y="394"
+     id="text129"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;dominant-baseline:alphabetic;text-anchor:start;fill:#252525;fill-opacity:1;stroke:none">4</text>
+  <text
+     x="1040"
+     y="394"
+     id="text135"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;dominant-baseline:alphabetic;text-anchor:start;fill:#252525;fill-opacity:1;stroke:none">4.5</text>
+  <text
+     x="1102"
+     y="394"
+     id="text141"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;dominant-baseline:alphabetic;text-anchor:start;fill:#252525;fill-opacity:1;stroke:none">5</text>
+  <text
+     x="559"
+     y="707"
+     id="text147"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;dominant-baseline:alphabetic;text-anchor:start;fill:#252525;fill-opacity:1;stroke:none">–1.4</text>
+  <text
+     x="559"
+     y="660"
+     id="text153"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;dominant-baseline:alphabetic;text-anchor:start;fill:#252525;fill-opacity:1;stroke:none">–1.2</text>
+  <text
+     x="569"
+     y="613"
+     id="text159"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;dominant-baseline:alphabetic;text-anchor:start;fill:#252525;fill-opacity:1;stroke:none">–1</text>
+  <text
+     x="559"
+     y="566"
+     id="text165"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;dominant-baseline:alphabetic;text-anchor:start;fill:#252525;fill-opacity:1;stroke:none">–0.8</text>
+  <text
+     x="559"
+     y="519"
+     id="text171"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;dominant-baseline:alphabetic;text-anchor:start;fill:#252525;fill-opacity:1;stroke:none">–0.6</text>
+  <text
+     x="559"
+     y="472"
+     id="text177"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;dominant-baseline:alphabetic;text-anchor:start;fill:#252525;fill-opacity:1;stroke:none">–0.4</text>
+  <text
+     x="559"
+     y="426"
+     id="text183"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;dominant-baseline:alphabetic;text-anchor:start;fill:#252525;fill-opacity:1;stroke:none">–0.2</text>
+  <text
+     x="523"
+     y="332"
+     id="text189"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;dominant-baseline:alphabetic;text-anchor:start;fill:#252525;fill-opacity:1;stroke:none">0.2</text>
+  <text
+     x="523"
+     y="285"
+     id="text195"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;dominant-baseline:alphabetic;text-anchor:start;fill:#252525;fill-opacity:1;stroke:none">0.4</text>
+  <text
+     x="523"
+     y="238"
+     id="text201"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;dominant-baseline:alphabetic;text-anchor:start;fill:#252525;fill-opacity:1;stroke:none">0.6</text>
+  <text
+     x="523"
+     y="191"
+     id="text207"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;dominant-baseline:alphabetic;text-anchor:start;fill:#252525;fill-opacity:1;stroke:none">0.8</text>
+  <text
+     x="533"
+     y="144"
+     id="text213"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;dominant-baseline:alphabetic;text-anchor:start;fill:#252525;fill-opacity:1;stroke:none">1</text>
+  <text
+     x="523"
+     y="97"
+     id="text219"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;dominant-baseline:alphabetic;text-anchor:start;fill:#252525;fill-opacity:1;stroke:none">1.2</text>
+  <text
+     x="523"
+     y="51"
+     id="text225"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;dominant-baseline:alphabetic;text-anchor:start;fill:#252525;fill-opacity:1;stroke:none">1.4</text>
+  <text
+     x="531"
+     y="370"
+     id="text231"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;dominant-baseline:alphabetic;text-anchor:start;fill:#252525;fill-opacity:1;stroke:none">0</text>
+  <path
+     fill="none"
+     stroke="#0000ff"
+     paint-order="fill stroke markers"
+     d="m 0,381.91267 4.578125,0.25872 4.578125,0.26667 4.578125,0.27482 4.578125,0.28318 4.578125,0.29175 4.578125,0.30054 4.578125,0.30954 4.578125,0.31876 4.578125,0.3282 4.578125,0.33788 4.578125,0.34776 4.578125,0.35789 4.578125,0.36823 4.578125,0.37881 4.578125,0.38961 4.578125,0.40065 4.578125,0.41191 4.578125,0.4234 4.578125,0.43511 4.578125,0.44705 4.578125,0.45922 4.578125,0.4716 4.57813,0.48419 4.57812,0.497 4.57813,0.51001 4.57812,0.52323 4.57813,0.53663 4.57812,0.55021 4.57812,0.56399 4.57813,0.57791 4.57813,0.59199 4.57812,0.60623 4.57812,0.62057 4.57813,0.63505 4.57812,0.64961 4.57813,0.66426 4.57812,0.67896 4.57813,0.69371 4.57812,0.70847 4.57813,0.72321 4.57812,0.73793 4.57813,0.75257 4.57812,0.76713 4.57813,0.78154 4.57812,0.7958 4.57813,0.80985 4.57813,0.82366 4.57812,0.83717 4.57812,0.85034 4.57813,0.86315 4.57812,0.87549 4.57813,0.88736 4.57812,0.89867 4.57813,0.90936 4.57812,0.91938 4.57813,0.92864 4.57812,0.93708 4.57813,0.94463 4.57812,0.95119 4.57813,0.95668 4.57812,0.96104 4.57813,0.96414 4.57812,0.96591 4.57813,0.96623 4.57812,0.96502 4.57813,0.96216 4.57812,0.95754 4.57813,0.95104 4.57812,0.94256 4.57813,0.93195 4.57812,0.91912 4.57813,0.90392 4.57812,0.88623 4.57813,0.8659 4.57812,0.84282 4.57813,0.81683 4.57812,0.78781 4.57813,0.75563 4.57812,0.72011 4.57813,0.68116 4.57812,0.63861 4.57813,0.59234 4.57812,0.54219 4.57813,0.48807 4.57812,0.42982 4.57813,0.36733 4.57812,0.30045 4.57813,0.22912 4.57812,0.15319 4.57813,0.0726 4.57812,-0.0128 4.57813,-0.10305 4.57812,-0.19821 4.57813,-0.29836 4.57812,-0.40354 4.57813,-0.51379 4.57812,-0.62911 4.57813,-0.74954 4.57812,-0.87503 4.57813,-1.00558 4.57813,-1.14114 4.57812,-1.28164 4.57812,-1.42701 4.57813,-1.57714 4.57812,-1.73195 4.57813,-1.89125 4.57812,-2.05494 4.57813,-2.22282 4.57812,-2.39471 4.57813,-2.5704 4.57812,-2.74966 4.57813,-2.93226 4.57812,-3.11795 4.57813,-3.30644 4.57812,-3.49746 4.57813,-3.69071 4.57812,-3.88589 4.57813,-4.08266 4.57812,-4.28072 4.57813,-4.47973 4.57812,-4.67935 4.57813,-4.87925 4.57812,-5.07907 4.57813,-5.27849 4.57812,-5.47716 4.57813,-5.67476 4.57812,-5.87093 4.57813,-6.06538 4.57812,-6.25778 4.57813,-6.44783 4.57812,-6.63524 4.57813,-6.81974 4.57812,-7.00104 4.57813,-7.17892 4.57812,-7.35312 4.57813,-7.52344 4.57812,-7.68968 4.57813,-7.85164 4.57812,-8.00918 4.57813,-8.16214 4.57812,-8.3104 4.57813,-8.45385 4.57812,-8.5924 4.57813,-8.72597 4.57812,-8.85451 4.57813,-8.978 4.57812,-9.0964 4.57813,-9.20971 4.57812,-9.31794 4.57813,-9.42111 4.57812,-9.51929 4.57813,-9.61248 4.57812,-9.70079 4.57813,-9.78427 4.57812,-9.863 4.57813,-9.9371 2.28906,-4.994914 2.28906,-5.011739 2.28907,-5.028017 2.28906,-5.04375 2.28906,-5.058947 2.28906,-5.073616 2.28907,-5.087764 2.28906,-5.101399 2.28906,-5.114528 2.28906,-5.127163 2.28907,-5.139306 2.28906,-5.150971 2.28906,-5.162164 2.28906,-5.172893 2.28907,-5.183167 2.28906,-5.192995 2.28906,-5.202386 2.28906,-5.211348 2.28907,-5.2198885 2.28906,-5.22801847 2.28906,-5.23574523 2.28906,-5.2430778"
+     stroke-opacity="1"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     stroke-miterlimit="10"
+     stroke-width="3.5"
+     id="path233"
+     clip-path="url(#clipPath805)" />
+  <text
+     x="763.54639"
+     y="36.822586"
+     id="text235"
+     style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:37.3333px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;dominant-baseline:alphabetic;text-anchor:start;fill:#0000ff;fill-opacity:1;stroke:none">f(x)</text>
+  <path
+     fill="none"
+     stroke="#ff0000"
+     paint-order="fill stroke markers"
+     d="m 0,380.31081 4.578125,0.18984 4.578125,0.19479 4.578125,0.19981 4.578125,0.20491 4.578125,0.21006 4.578125,0.21529 4.578125,0.22057 4.578125,0.22591 4.578125,0.23129 4.578125,0.23673 4.578125,0.24219 4.578125,0.24769 4.578125,0.25322 4.578125,0.25875 4.578125,0.2643 4.578125,0.26983 4.578125,0.27536 4.578125,0.28085 4.578125,0.28631 4.578125,0.29172 4.578125,0.29705 4.578125,0.30231 4.57813,0.30747 4.57812,0.3125 4.57813,0.31741 4.57812,0.32215 4.57813,0.32672 4.57812,0.33108 4.57812,0.33522 4.57813,0.33909 4.57813,0.34269 4.57812,0.34597 4.57812,0.34891 4.57813,0.35147 4.57812,0.35361 4.57813,0.3553 4.57812,0.35649 4.57813,0.35716 4.57812,0.35723 4.57813,0.35668 4.57812,0.35546 4.57813,0.3535 4.57812,0.35077 4.57813,0.34719 4.57812,0.34271 4.57813,0.33727 4.57813,0.33082 4.57812,0.32326 4.57812,0.31454 4.57813,0.30459 4.57812,0.29333 4.57813,0.28068 4.57812,0.26657 4.57813,0.2509 4.57812,0.2336 4.57813,0.21459 4.57812,0.19376 4.57813,0.17104 4.57812,0.14633 4.57813,0.11954 4.57812,0.0906 4.57813,0.0593 4.57812,0.0258 4.57813,-0.0103 4.57812,-0.0489 4.57813,-0.0901 4.57812,-0.13406 4.57813,-0.18083 4.57812,-0.23049 4.57813,-0.28313 4.57812,-0.33881 4.57813,-0.39761 4.57812,-0.45959 4.57813,-0.5248 4.57812,-0.59329 4.57813,-0.66511 4.57812,-0.74026 4.57813,-0.81877 4.57812,-0.90065 4.57813,-0.98588 4.57812,-1.07444 4.57813,-1.16628 4.57812,-1.26136 4.57813,-1.3596 4.57812,-1.46088 4.57813,-1.56513 4.57812,-1.67219 4.57813,-1.78192 4.57812,-1.89414 4.57813,-2.00864 4.57812,-2.12522 4.57813,-2.24364 4.57812,-2.36361 4.57813,-2.48488 4.57812,-2.60712 4.57813,-2.73001 4.57812,-2.85319 4.57813,-2.97631 4.57812,-3.09896 4.57813,-3.22078 4.57813,-3.34132 4.57812,-3.46016 4.57812,-3.57687 4.57813,-3.69101 4.57812,-3.80213 4.57813,-3.90978 4.57812,-4.0135 4.57813,-4.11288 4.57812,-4.20745 4.57813,-4.29682 4.57812,-4.38056 4.57813,-4.45829 4.57812,-4.52966 4.57813,-4.5943 4.57812,-4.65191 4.57813,-4.70221 4.57812,-4.74495 4.57813,-4.77991 4.57812,-4.80691 4.57813,-4.82583 4.57812,-4.83656 4.57813,-4.83905 4.57812,-4.83329 4.57813,-4.81929 4.57812,-4.79716 4.57813,-4.76697 4.57812,-4.7289 4.57813,-4.68313 4.57812,-4.6299 4.57813,-4.56945 4.57812,-4.50211 4.57813,-4.42818 4.57812,-4.34801 4.57813,-4.26198 4.57812,-4.1705 4.57813,-4.07397 4.57812,-3.97282 4.57813,-3.86748 4.57812,-3.7584 4.57813,-3.64603 4.57812,-3.53082 4.57813,-3.4132 4.57812,-3.29364 4.57813,-3.17254 4.57812,-3.05035 4.57813,-2.92746 4.57812,-2.80426 4.57813,-2.68116 4.57812,-2.55849 4.57813,-2.4366 4.57812,-2.31581 4.57813,-2.19642 4.57812,-2.0787 4.57813,-1.96292 4.57812,-1.84929 4.57813,-1.73805 4.57812,-1.62935 4.57813,-1.5234 4.57812,-1.42031 4.57813,-1.32021 4.57812,-1.22323 4.57813,-1.12943 4.57812,-1.03888 4.57813,-0.95164 4.57812,-0.86774 4.57813,-0.7872 4.57812,-0.71002 4.57813,-0.63619 4.57812,-0.56571 4.57813,-0.49851 4.57812,-0.4346 4.57813,-0.37389 4.57812,-0.31633 4.57813,-0.26186 4.57812,-0.21043 4.57813,-0.16192 4.57812,-0.11628 4.57813,-0.0734 4.57812,-0.0332 4.57813,0.004 4.57812,0.0394 4.57813,0.072 4.57812,0.10234 4.57813,0.13043 4.57812,0.15639 4.57813,0.18029 4.57812,0.20225 4.57813,0.22235 4.57812,0.24067 4.57813,0.25732 4.57812,0.27235 4.57813,0.28587 4.57812,0.29796 4.57813,0.30869 4.57812,0.31815 4.57813,0.3264 4.57812,0.3335 4.57813,0.33956 4.57812,0.3446 4.57813,0.34871 4.57812,0.35195 4.57813,0.35437 4.57812,0.35603 4.57813,0.35698 4.57812,0.35727 4.57813,0.35696 4.57812,0.35608 4.57813,0.35468 4.57812,0.35282 4.57813,0.3505 4.57812,0.34778 4.57813,0.34471 4.57812,0.3413 4.57813,0.33759 4.57812,0.3336 4.57813,0.32937 4.57812,0.32493 4.57813,0.32029 4.57815,0.31548 4.5781,0.31052 4.5781,0.30543 4.5781,0.30024 4.5782,0.29494 4.5781,0.28958 4.5781,0.28415 4.5782,0.27867 4.5781,0.27317 4.5781,0.26763 4.5781,0.2621 4.5782,0.25655 4.5781,0.25102 4.5781,0.24551 4.5781,0.24002 4.5782,0.23456 4.5781,0.22915 4.5781,0.22378 4.5781,0.21847 4.5782,0.2132 4.5781,0.20801 4.5781,0.20288 4.5781,0.1978 4.5782,0.19282 4.5781,0.1879 4.5781,0.18305 4.5781,0.1783 4.5782,0.17361 4.5781,0.16902 4.5781,0.1645 4.5781,0.16007 4.5782,0.15573 4.5781,0.15146 4.5781,0.1473 4.5781,0.14321 4.5782,0.13921 4.5781,0.13531 4.5781,0.13147"
+     stroke-opacity="1"
+     stroke-linejoin="round"
+     stroke-miterlimit="10"
+     stroke-width="3.5"
+     stroke-dasharray="11.5, 8"
+     id="path241"
+     clip-path="url(#clipPath797)" />
+  <text
+     x="1090.9669"
+     y="115.07141"
+     id="text247"
+     style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:37.3333px;font-family:'Crimson Text';-inkscape-font-specification:'Crimson Text, Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;dominant-baseline:alphabetic;text-anchor:start;fill:#ff0000;fill-opacity:1;stroke:none">f '(x)</text>
+</svg>

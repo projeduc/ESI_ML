@@ -9,9 +9,9 @@
 
 \input{options2}
 
-\subtitle[Neural Networks]{Neural Networks}  
+\subtitle[Advanced Neural Networks]{Advanced Neural Networks}  
 
-\changegraphpath{../img/RN/}
+\changegraphpath{../img/NN/}
 
 \begin{document}
 
@@ -129,10 +129,10 @@
 	\frametitle{\insertshortsubtitle: \insertsection}
 	\framesubtitle{\insertsubsection: Sigmoid functions}
 	
-	\begin{tabular}{ll}
+	\begin{tabular}{cc}
 		Logistic function & Hyperbolic tangent \\
-		\hgraphpage[.4\textwidth]{logistique.png} & 
-		\hgraphpage[.4\textwidth]{tanh.png} \\
+		\hgraphpage[.45\textwidth]{act_log.pdf} & 
+		\hgraphpage[.45\textwidth]{act_tanh.pdf} \\
 		$\color{blue}\sigma(x) = \frac{1}{1 + e^{-x}}$ & 
 		$\color{blue}tanh(x) = \frac{e^{x} - e^{-x}}{e^{x} + e^{-x}} = \frac{2}{1 + e^{-2x}} - 1$ \\
 		
@@ -150,10 +150,10 @@
 	\frametitle{\insertshortsubtitle: \insertsection}
 	\framesubtitle{\insertsubsection: Sigmoid functions (2)}
 	
-	\begin{tabular}{ll}
+	\begin{tabular}{cc}
 		Arc tangent & Softsign \\
-		\hgraphpage[.4\textwidth]{arctan.png} & 
-		\hgraphpage[.4\textwidth]{so.png} \\
+		\hgraphpage[.45\textwidth]{act_arctan.pdf} & 
+		\hgraphpage[.45\textwidth]{act_softsign.pdf} \\
 		$\color{blue}f(x) = \frac{2}{\pi} tan^{-1}(x)$ & 
 		$\color{blue}f(x) = \frac{x}{1 + |x|}$ \\
 		
@@ -170,10 +170,10 @@
 	\frametitle{\insertshortsubtitle: \insertsection}
 	\framesubtitle{\insertsubsection: Linear functions}
 
-\begin{tabular}{ll}
+\begin{tabular}{cc}
 	Linear function & Identity function \\
-	\hgraphpage[.4\textwidth]{lineaire.png} & 
-	\hgraphpage[.4\textwidth]{identite.png} \\
+	\hgraphpage[.45\textwidth]{act_lin.pdf} & 
+	\hgraphpage[.45\textwidth]{act_id.pdf} \\
 	$\color{blue} f(x) = k x$ & 
 	$\color{blue} f(x) = x$ \\
 	
@@ -190,15 +190,15 @@
 	\frametitle{\insertshortsubtitle: \insertsection}
 	\framesubtitle{\insertsubsection: Step functions}
 
-\begin{tabular}{ll}
+\begin{tabular}{cc}
 	Heaviside function & Sign function \\
-	\hgraphpage[.4\textwidth]{heaviside.png} & 
-	\hgraphpage[.4\textwidth]{signe.png} \\
-	$\color{blue} H(x) = \begin{cases}
+	\hgraphpage[.45\textwidth]{act_heaviside.pdf} & 
+	\hgraphpage[.45\textwidth]{act_sign.pdf} \\
+	\scriptsize$\color{blue} H(x) = \begin{cases}
 	0 & \text{if } x < 0 \\
 	1 & \text{otherwise}
 	\end{cases}$ & 
-	$\color{blue} S(x) = \begin{cases}
+	\scriptsize$\color{blue} S(x) = \begin{cases}
 	-1 & \text{if } x < 0 \\
 	1 & \text{otherwise}
 	\end{cases} = 2 H(x) - 1$ \\
@@ -206,7 +206,7 @@
 	$H(x) \in \{0, 1\}$ & 
 	$S(x) \in \{-1, 1\}$ \\
 	
-	$\color{red}H'(x) = \begin{cases}
+	\scriptsize$\color{red}H'(x) = \begin{cases}
 	0 & \text{if } x \ne 0 \\
 	+\infty & \text{otherwise}
 	\end{cases}$ & 
@@ -219,12 +219,12 @@
 	\frametitle{\insertshortsubtitle: \insertsection}
 	\framesubtitle{\insertsubsection: Hockey stick functions}
 
-\begin{tabular}{ll}
+\begin{tabular}{cc}
 	Rectified Linear Unit & Parametric ReLU \\
-	\hgraphpage[.4\textwidth]{relu.png} & 
-	\hgraphpage[.4\textwidth]{prelu.png} \\
+	\hgraphpage[.45\textwidth]{act_relu.pdf} & 
+	\hgraphpage[.45\textwidth]{act_prelu.pdf} \\
 	$\color{blue} ReLU(x) = x H(x) = \max(0, x)$ & 
-	$\color{blue} PReLU(\alpha, x) = \begin{cases}
+	\scriptsize$\color{blue} PReLU(\alpha, x) = \begin{cases}
 	\alpha x & \text{if } x < 0 \\
 	x & \text{otherwise}
 	\end{cases}$ \\
@@ -232,11 +232,11 @@
 	$ReLU(x) \in [0, +\infty[$ & 
 	$PReLU(x) \in ]-\infty, +\infty[$ \\
 	
-	$\color{red}ReLU'(x) = H(x) = \begin{cases}
+	\scriptsize$\color{red}ReLU'(x) = H(x) = \begin{cases}
 	0 & \text{if } x < 0 \\
 	1 & \text{otherwise}
 	\end{cases}$ & 
-	$\color{red}PReLU'(x) = \begin{cases}
+	\scriptsize$\color{red}PReLU'(x) = \begin{cases}
 	\alpha & \text{if } x < 0 \\
 	1 & \text{otherwise}
 	\end{cases}$ \\
@@ -248,11 +248,11 @@
 	\frametitle{\insertshortsubtitle: \insertsection}
 	\framesubtitle{\insertsubsection: Hockey stick functions (2)}
 
-\begin{tabular}{ll}
+\begin{tabular}{cc}
 	Exponential Linear Unit & Sigmoid Linear Unit \\
-	\hgraphpage[.4\textwidth]{elu.png} & 
-	\hgraphpage[.4\textwidth]{slu.png} \\
-	$\color{blue} ELU(\alpha, x) = \begin{cases}
+	\hgraphpage[.45\textwidth]{act_elu.pdf} & 
+	\hgraphpage[.45\textwidth]{act_slu.pdf} \\
+	\scriptsize $\color{blue} ELU(\alpha, x) = \begin{cases}
 	\alpha (e^x - 1) & \text{if } x < 0 \\
 	x & \text{otherwise}
 	\end{cases}$ & 
@@ -261,7 +261,7 @@
 	$ELU(\alpha, x) \in ]-\infty, +\infty[$ & 
 	$SLU(x) \in ]-\infty, +\infty[$ \\
 	
-	$\color{red}ELU'(\alpha, x) = \begin{cases}
+	\scriptsize$\color{red}ELU'(\alpha, x) = \begin{cases}
 	ELU(\alpha, x) + \alpha & \text{if } x < 0 \\
 	1 & \text{otherwise}
 	\end{cases}$ & 
@@ -873,7 +873,7 @@
 	\framesubtitle{\insertsubsection: Notation}
 
 	\begin{center}
-		\hgraphpage[0.9\textwidth]{RNPA.pdf}
+		\hgraphpage[0.9\textwidth]{FFNN.pdf}
 	\end{center}
 
 \end{frame}
@@ -882,7 +882,7 @@
 	\frametitle{\insertshortsubtitle: \insertsection}
 	\framesubtitle{\insertsubsection: Example}
 
-	\hgraphpage[\textwidth]{RNPA-exp.pdf}
+	\hgraphpage[\textwidth]{FFNN_exp.pdf}
 
 \end{frame}
 
@@ -1592,29 +1592,29 @@
 	\framesubtitle{\insertsubsection: Applications}
 	
 	\begin{tabular}{p{.32\textwidth}p{.15\textwidth}p{.4\textwidth}}
-		%			\hline\hline
+%					\hline\hline
 		\textbf{Type} & \textbf{Illustration} & \textbf{Example} \\
-		%			\hline
+%					\hline
 		Many to many & 
-		\vgraphpage[1.4cm, valign=c]{RNNpp1.pdf} & 
+		\vgraphpage[1.4cm, valign=c]{RNN_m2m1.pdf} & 
 		Named entity detection \\
 		
-		%			\hline
+%					\hline
 		Many to many (Seq2seq) & 
-		\vgraphpage[1.4cm, valign=c]{RNNpp2.pdf} & 
+		\vgraphpage[1.4cm, valign=c]{RNN_m2m2.pdf} & 
 		Machine translation \\
 		
-		%			\hline
+%					\hline
 		Many to one & 
-		\vgraphpage[1.4cm, valign=c]{RNNp1.pdf} & 
+		\vgraphpage[1.4cm, valign=c]{RNN_m2o.pdf} & 
 		Sentiment classification \\
 		
-		%			\hline
+%					\hline
 		One to many & 
-		\vgraphpage[1.4cm, valign=c]{RNN1p.pdf} & 
+		\vgraphpage[1.4cm, valign=c]{RNN_o2m.pdf} & 
 		Image caption generation \\
 		
-		%			\hline\hline
+%					\hline\hline
 		
 	\end{tabular}
 
@@ -1623,102 +1623,218 @@
 
 \begin{frame}
 	\frametitle{\insertshortsubtitle: \insertsection}
-	\framesubtitle{\insertsubsection: Applications (direct many to many}
+	\framesubtitle{\insertsubsection: Applications (direct many to many)}
 %	\vspace*{-0.5cm}
-	\[ h_t = f(x_t, h_{t-1}, W_x, W_h),\,\,\, \hat{y}_t = g(h_t, W_y),\,\,\,  J(\hat{y}, y) = \frac{1}{T} \sum_{t=1}^{T} j(\hat{y}_t, y_t)\]
-
-	\begin{minipage}{0.6\textwidth}\scriptsize
-		\begin{align*}
-			\frac{\partial J}{\partial W_h} & = \frac{1}{T} \sum_{t=1}^{T} \frac{\partial j(\hat{y}_t, y_t)}{\partial W_h}
-			= \frac{1}{T} \sum_{t=1}^{T} \frac{\partial j(\hat{y}_t, y_t)}{\partial \hat{y}_t} 
-			\frac{\partial g(h_t, W_y)}{\partial h_t} 
-			\frac{\partial h_t}{\partial W_h} \\
-			\frac{\partial h_t}{\partial W_h} & = 
-			\frac{\partial f(x_t, h_{t-1}, W_x, W_h)}{\partial W_h} + 
-			\frac{\partial f(x_t, h_{t-1}, W_x, W_h)}{\partial h_{t-1}} \frac{\partial h_{t-1}}{\partial W_h} \\
-			\frac{\partial J}{\partial W_y} & =
-			\frac{1}{T} \sum_{t=1}^{T} \frac{\partial j(\hat{y}_t, y_t)}{\partial W_y}
-			= \frac{1}{T} \sum_{t=1}^{T} \frac{\partial j(\hat{y}_t, y_t)}{\partial \hat{y}_t} 
-			\frac{\partial g(h_t, W_y)}{\partial W_y} \\
-			\frac{\partial J}{\partial W_x} & = 
-			\frac{1}{T} \sum_{t=1}^{T} \frac{\partial j(\hat{y}_t, y_t)}{\partial W_x}
-			= \frac{1}{T} \sum_{t=1}^{T} \frac{\partial j(\hat{y}_t, y_t)}{\partial \hat{y}_t} 
-			\frac{\partial g(h_t, W_y)}{\partial h_t} 
-			\frac{\partial h_t}{\partial W_x} \\
-			\frac{\partial h_t}{\partial W_x} & = 
-			\frac{\partial f(x_t, h_{t-1}, W_x, W_h)}{\partial W_x} + 
-			\frac{\partial f(x_t, h_{t-1}, W_x, W_h)}{\partial h_{t-1}} \frac{\partial h_{t-1}}{\partial W_x} \\
-		\end{align*}
+	
+	\begin{minipage}{0.45\textwidth}
+		\begin{center}
+			$h_0$ is a predefined victor
+		\end{center}
+		
+		\[ h_t = f(x_t, h_{t-1}, W_x, W_h)\]
+		
+		\[ \hat{y}_t = g(h_t, W_y)\]
+		
+		\[ J(\hat{y}, y) = \frac{1}{T} \sum_{t=1}^{T} j(\hat{y}_t, y_t)\]
 	\end{minipage}
-	\begin{minipage}{0.38\textwidth}
-		\hgraphpage[\textwidth]{RNNpp1_exp.pdf}
+	\begin{minipage}{0.45\textwidth}
+		\hgraphpage[\textwidth]{RNN_m2m1_exp.pdf}
 	\end{minipage}
 	
 \end{frame}
 
 \begin{frame}
 	\frametitle{\insertshortsubtitle: \insertsection}
-	\framesubtitle{\insertsubsection: Applications (indirect many to many)}
+	\framesubtitle{\insertsubsection: Applications (direct many to many: Back-propagation)}
+	%	\vspace*{-0.5cm}
 	
-	\vskip-12pt
+	\begin{align*}
+		\frac{\partial J}{\partial W_y} & =
+		\frac{1}{T} \sum_{t=1}^{T} \frac{\partial j(\hat{y}_t, y_t)}{\partial W_y}
+		= \frac{1}{T} \sum_{t=1}^{T} \frac{\partial j(\hat{y}_t, y_t)}{\partial \hat{y}_t} 
+		\frac{\partial g(h_t, W_y)}{\partial W_y} \\
+%		
+		\frac{\partial J}{\partial W_h} & = \frac{1}{T} \sum_{t=1}^{T} \frac{\partial j(\hat{y}_t, y_t)}{\partial W_h}
+		= \frac{1}{T} \sum_{t=1}^{T} \frac{\partial j(\hat{y}_t, y_t)}{\partial \hat{y}_t} 
+		\frac{\partial g(h_t, W_y)}{\partial h_t} 
+		\frac{\partial h_t}{\partial W_h} \\
+		\frac{\partial h_t}{\partial W_h} & = 
+		\frac{\partial f(x_t, h_{t-1}, W_x, W_h)}{\partial W_h} + 
+		\frac{\partial f(x_t, h_{t-1}, W_x, W_h)}{\partial h_{t-1}} \frac{\partial h_{t-1}}{\partial W_h} \\
+%		
+		\frac{\partial J}{\partial W_x} & = 
+		\frac{1}{T} \sum_{t=1}^{T} \frac{\partial j(\hat{y}_t, y_t)}{\partial W_x}
+		= \frac{1}{T} \sum_{t=1}^{T} \frac{\partial j(\hat{y}_t, y_t)}{\partial \hat{y}_t} 
+		\frac{\partial g(h_t, W_y)}{\partial h_t} 
+		\frac{\partial h_t}{\partial W_x} \\
+		\frac{\partial h_t}{\partial W_x} & = 
+		\frac{\partial f(x_t, h_{t-1}, W_x, W_h)}{\partial W_x} + 
+		\frac{\partial f(x_t, h_{t-1}, W_x, W_h)}{\partial h_{t-1}} \frac{\partial h_{t-1}}{\partial W_x} \\
+	\end{align*}
+	
+\end{frame}
 
-	\[ \text{Encoder: } h^e_t = f^e(x_t, h^e_{t-1}, W^e_x, W^e_h), \,\,\, \hat{y}_1 = g^e(h^e_{T}, W_y^e)\]
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Applications (direct many to many: Problem)}
+	%	\vspace*{-0.5cm}
+	$\frac{\partial h_t}{\partial W_h}$ can be simplified:
+	\begin{align*}
+	\frac{\partial h_t}{\partial W_h}  = &
+	\frac{\partial f(x_t, h_{t-1}, W_x, W_h)}{\partial W_h} \\
+	& + 
+	\sum_{i=1}^{t-1} \left( {\color{red} \prod_{j=i+1}^{t} \frac{\partial f(x_j, h_{j-1}, W_x, W_h)}{\partial h_{j-1}}} \right)
+	\frac{\partial f(x_i, h_{i-1}, W_x, W_h)}{\partial W_h}\\
+	\end{align*}
 	
-	\[ \text{Decoder: } h^d_{t} = f^d(\hat{y}_{t}, h^d_{t-1}, W^d_x, W^d_h), \,\,\, \hat{y}_{t} = g^d(h^d_{t-1}, W^d_y)\]
+	\begin{itemize}
+		\item Can result in \keyword{vanishing gradients} (e.g. \expword{$f=\sigma(\sum)$})
+		\item Also, \keyword{exploding gradients} (e.g. \expword{$f=ReLU(\sum)$})
+		\item Possible solution: Truncating time steps \cite{2002-jaeger}
+	\end{itemize}
+	
+\end{frame}
 
-	\[ J(\hat{y}, y) = \frac{1}{T'} \sum_{t=1}^{T'} j(\hat{y}_{t}, y_t)\]
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Applications (Seq2seq)}
 	
+%	\vskip-12pt
+
+	\begin{minipage}{0.45\textwidth}
+		\centering\vskip8pt
+		\textbf{Encoder}
+		
+		$h_0$ is a predefined victor
+		
+		\[ h^e_t = f^e(x_t, h^e_{t-1}, W^e_x, W^e_h) \]
+		
+		\[ J(\hat{y}, y) = \frac{1}{T'} \sum_{t=1}^{T'} j(\hat{y}_{t}, y_t)\]
+		
+	\end{minipage}
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\textbf{Decoder}
+		
+		$h^d_{0} = h^e_{T}$, $y_0$ is a predefined victor
+		
+		\[h^d_{t} = f^d(\hat{y}_{t-1}, h^d_{t-1}, W^d_x, W^d_h)\]
+		
+		\[ \hat{y}_{t} = g^d(h^d_{t-1}, W^d_y)\]
+	\end{minipage}
+	
+	\vspace{-12pt}
 	\begin{center}
-		\hgraphpage[0.8\textwidth]{RNNpp2_exp.pdf}
+		\hgraphpage[0.8\textwidth]{RNN_m2m2_exp.pdf}
 	\end{center}
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Applications (Seq2seq: Back-propagation)}
+	
+	\begin{itemize}
+		\item Decoder cell is updated as direct Many2Many, replacing $x_t$ by $\hat{y}_{t-1}$
+		\item Encoder cell is updated as direct Many2Many, but without direct output
+	\end{itemize}
+	
+	\textbf{TODO: Revise (my brain is killing me)}
+	\[\frac{\partial J}{\partial W^e_h} = \frac{\partial J}{\partial h^e_T} \frac{\partial h^e_T}{\partial W^e_h} 
+	\ \ \ \
+	\frac{\partial J}{\partial W^e_x}  = \frac{\partial J}{\partial h^e_T} \frac{\partial h^e_T}{\partial W^e_x} 
+	\]
+	\begin{align*}
+%		\frac{\partial J}{\partial W^e_h} & = \frac{\partial J}{\partial h^e_t} \frac{\partial h^e_t}{\partial W^e_h} 
+%		= \frac{\partial J}{\partial h^e_T} \prod_{t=1}^{T} \frac{\partial h^e_t}{\partial W^e_h}  \\
+%%
+%		\frac{\partial J}{\partial W^e_x} & = \frac{\partial J}{\partial h^e_t} \frac{\partial h^e_t}{\partial W^e_x} 
+%		= \frac{\partial J}{\partial h^e_T} \prod_{t=1}^{T} \frac{\partial h^e_t}{\partial W^e_x}  \\
+%		
+		\frac{\partial J}{\partial h^e_T} & = \frac{\partial J}{\partial h^d_0}
+		 = \frac{1}{T'} \sum_{t=1}^{T'} \frac{\partial j(\hat{y}_t, y_t)}{\partial h^d_0} 
+		 = \frac{1}{T'} \sum_{t=1}^{T'} 
+		 \frac{\partial j(\hat{y}_t, y_t)}{\partial \hat{y}_t} 
+		 \frac{\partial g(h^d_t, W^d_y)}{\partial h^d_t} 
+		 \frac{\partial h^d_t}{\partial h^d_0}\\
+%		 
+		 \frac{\partial h^d_t}{\partial h^d_0} & = 
+		 \frac{\partial f^d(\hat{y}_{t-1}, h^d_{t-1}, W^d_x, W^d_h)}{\partial h^d_{t-1}} \frac{\partial h^d_{t-1}}{\partial h^d_{0}} 
+		 = \prod_{i=1}^{t} \frac{\partial f^d(\hat{y}_{i-1}, h^d_{i-1}, W^d_x, W^d_h)}{\partial h^d_{i-1}}\\
+	\end{align*}
+	
 \end{frame}
 
 \begin{frame}
 	\frametitle{\insertshortsubtitle: \insertsection}
 	\framesubtitle{\insertsubsection: Applications (many to one)}
 	
-	\vspace*{-0.5cm}
-	\[ h_t = f(x_t, h_{t-1}, W_x, W_h),\,\,\, \hat{y} = g(h_T, W_y),\,\,\,  J(\hat{y}, y) = j(\hat{y}, y)\]
-	
 %	\vspace*{-0.5cm}
-	\begin{minipage}{0.6\textwidth}\scriptsize
-		\begin{align*}
-			\frac{\partial J}{\partial W_h} &= \frac{\partial j(\hat{y}, y)}{\partial W_h}
-			= \frac{\partial j(\hat{y}, y)}{\partial \hat{y}} 
-			\frac{\partial g(h_T, W_y)}{\partial h_T} 
-			\frac{\partial h_T}{\partial W_h} \\
-			\frac{\partial h_t}{\partial W_h} &= 
-			\frac{\partial f(x_t, h_{t-1}, W_x, W_h)}{\partial W_h} + 
-			\frac{\partial f(x_t, h_{t-1}, W_x, W_h)}{\partial h_{t-1}} \frac{\partial h_{t-1}}{\partial W_h}\\
-		\end{align*}
+	\begin{minipage}{0.4\textwidth}
+		\begin{center}
+			$h_0$ is a predefined victor
+		\end{center}
+		
+		\[ h_t = f(x_t, h_{t-1}, W_x, W_h)\]
+		
+		\[ \hat{y} = g(h_T, W_y)\]
+		
+		\[ J(\hat{y}, y) = j(\hat{y}, y)\]	
 	\end{minipage}
-	\begin{minipage}{0.38\textwidth}
-		\hgraphpage{RNNp1_exp.pdf}
+	\begin{minipage}{0.58\textwidth}
+		\hgraphpage{RNN_m2o_exp.pdf}
 	\end{minipage}
 
 \end{frame}
 
 \begin{frame}
 	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Applications (many to one: Back-propagation)}
+	
+	\begin{align*}
+		\frac{\partial J}{\partial W_y} & = \frac{\partial j(\hat{y}, y)}{\partial W_y}
+		= \frac{\partial j(\hat{y}, y)}{\partial \hat{y}} \frac{\partial g(h_T, W_y)}{\partial W_y} \\
+		%		
+		\frac{\partial J}{\partial W_h} & = \frac{\partial j(\hat{y}, y)}{\partial W_h}
+		= \frac{\partial j(\hat{y}, y)}{\partial \hat{y}} 
+		\frac{\partial g(h_T, W_y)}{\partial h_T} 
+		\frac{\partial h_T}{\partial W_h} \\
+		\frac{\partial h_t}{\partial W_h} & = 
+		\frac{\partial f(x_t, h_{t-1}, W_x, W_h)}{\partial W_h} + 
+		\frac{\partial f(x_t, h_{t-1}, W_x, W_h)}{\partial h_{t-1}} \frac{\partial h_{t-1}}{\partial W_h} \\
+		%		
+		\frac{\partial J}{\partial W_x} & = \frac{\partial j(\hat{y}, y)}{\partial W_x}
+		= \frac{\partial j(\hat{y}, y)}{\partial \hat{y}} 
+		\frac{\partial g(h_T, W_y)}{\partial h_T} 
+		\frac{\partial h_T}{\partial W_x} \\
+		\frac{\partial h_t}{\partial W_x} & = 
+		\frac{\partial f(x_t, h_{t-1}, W_x, W_h)}{\partial W_x} + 
+		\frac{\partial f(x_t, h_{t-1}, W_x, W_h)}{\partial h_{t-1}} \frac{\partial h_{t-1}}{\partial W_x} \\
+	\end{align*}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
 	\framesubtitle{\insertsubsection: Applications (one to many)}
 	
-	\vspace*{-0.5cm}
-	\[ J(\hat{y}, y) = \frac{1}{T} \sum_{t=1}^{T} j(\hat{y}_{t}, y_t)\]
+%	\vspace*{-0.5cm}
+	
 	
 %	\vspace*{-0.5cm}
-	\begin{minipage}{0.6\textwidth}
-		\begin{align*}
-			h_1 & = f(x, h_{0}, W_x, W_h) \\
-			h_{t} & = f(\hat{y}_{t-1}, h_{t-1}, W_y, W_h) \\
-			\hat{y}_{t} & = g(h_{t-1}, W_y) \\
-		\end{align*}
+	\begin{minipage}{0.4\textwidth}
+		
+		\[h_1  = f(y_{0}, x, W_x, W_h)\]
+		
+		\[h_{t} = f(\hat{y}_{t-1}, h_{t-1}, W_y, W_h)\]
+		
+		\[\hat{y}_{t} = g(h_{t}, W_y)\]
+		
+		\[ J(\hat{y}, y) = \frac{1}{T} \sum_{t=1}^{T} j(\hat{y}_{t}, y_t)\]
 	\end{minipage}
-	\begin{minipage}{0.38\textwidth}
-		\hgraphpage{RNN1p_exp.pdf}
+	\begin{minipage}{0.58\textwidth}
+		\hgraphpage{RNN_o2m_exp.pdf}
 	\end{minipage}
-%\begin{center}
-%	\hgraphpage[0.4\textwidth]{RNN1p_exp.pdf}
-%\end{center}
 
 \end{frame}
 
@@ -1765,7 +1881,7 @@
 	\end{minipage}
 	
 	\begin{itemize}
-		\item $g$ : \optword{Input node};
+		\item $g$: \optword{Input node};
 		Will the state be  increased or decreased?
 		(mostly considered to be a part of input gate)
 		
@@ -1807,9 +1923,9 @@
 		\begin{itemize}
 			\item $z$: \optword{Update gate};
 			Merges LSTM's input and forget gates. 
-			\item $r$ : \optword{Reset gate}; 
+			\item $r$: \optword{Reset gate}; 
 			How much update from the past state?
-			\item $h'$ : \optword{Candidate hidden state};
+			\item $h'$: \optword{Candidate hidden state};
 			Current state.	
 		\end{itemize}
 	\end{minipage}
@@ -1832,11 +1948,6 @@
 	h_t &= z_t \circ h_{t-1} \oplus (1-z_t) \circ h'_{t-1}
 	\end{align*}
 	}
-	
-	\vskip12pt
-	GRU Backpropagation Tutorial:
-	
-	\url{https://www.math.ucla.edu/~minchen/doc/BPTTTutorial.pdf}
 	
 \end{frame}
 
@@ -1977,6 +2088,16 @@
 	
 \end{frame}
 
+\begin{frame}
+	\frametitle{\insertshortsubtitle: \insertsection}
+	\framesubtitle{\insertsubsection: Numerical example}
+	
+	\begin{center}
+		\vgraphpage{attention_exp.pdf}
+	\end{center}
+	
+\end{frame}
+
 
 \begin{frame}
 	\frametitle{\insertshortsubtitle: \insertsection}
@@ -1999,7 +2120,7 @@
 		\centering
 		\hgraphpage[0.9\textwidth]{multi_head_att_.pdf}
 		
-		\vskip-12pt
+%		\vskip-12pt
 		\caption{Multi-Head Attention \cite{2017-vaswani-al}}
 	\end{figure}
 	
@@ -2086,7 +2207,7 @@
 		\begin{figure}
 			\centering
 			\hgraphpage[0.68\textwidth]{transformers_.pdf}
-			\vskip-8pt
+%			\vskip-8pt
 			\caption{Transformers' architecture \cite{2017-vaswani-al}}
 		\end{figure}
 	\end{minipage}
@@ -2155,7 +2276,7 @@
 	\begin{figure}[htp!]
 		\centering
 		\hgraphpage[0.62\textwidth]{vit.pdf}
-		\vskip-8pt
+%		\vskip-8pt
 		\caption{Example of images encoder [modified from \cite{zhang2021dive}]}
 	\end{figure}
 	
@@ -2210,7 +2331,7 @@
 \end{frame}
 
 
-\insertbibliography{ML_Lect-NN}{*}
+\insertbibliography{ML_Lect-ANN}{*}
 
 \begin{frame}[plain]
 	\begin{center}

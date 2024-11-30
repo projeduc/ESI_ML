@@ -5,8 +5,8 @@
    inkscape:export-ydpi="90"
    inkscape:export-xdpi="90"
    inkscape:export-filename="/home/kariminf/ESI/ML/Cours/RN/assets/RNPA-exp.png"
-   sodipodi:docname="RNNpp2_exp.svg"
-   inkscape:version="1.2.2 (1:1.2.2+202212051552+b0a8486541)"
+   sodipodi:docname="RNN_m2m2_exp.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    id="svg8"
    version="1.1"
    viewBox="0 0 252 83"
@@ -23,14 +23,14 @@
      inkscape:window-maximized="1"
      inkscape:window-y="0"
      inkscape:window-x="0"
-     inkscape:window-height="1007"
-     inkscape:window-width="1920"
+     inkscape:window-height="792"
+     inkscape:window-width="1536"
      showgrid="false"
      inkscape:current-layer="layer1"
      inkscape:document-units="mm"
-     inkscape:cy="-194.3359"
-     inkscape:cx="472.32073"
-     inkscape:zoom="0.59175891"
+     inkscape:cy="28.836461"
+     inkscape:cx="554.11238"
+     inkscape:zoom="0.88429715"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0"
      borderopacity="1.0"
@@ -2472,7 +2472,7 @@
          d="m 174.59848,233.70888 -0.0292,-9.2418"
          style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.495823;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Mend-71-3-2-3-1-9-2-6-4-9-6-2)" />
       <g
-         transform="translate(49.437405,75.079403)"
+         transform="translate(52.612407,75.079403)"
          id="g3539-3-8-6-7-3">
         <flowRoot
            transform="matrix(0.15095828,0,0,0.15599299,113.46262,158.44266)"
@@ -2503,7 +2503,7 @@
                width="153.38977"
                id="rect365-83-1-9-7-8-5-5-5-4-7-3-3" /></flowRegion><flowPara
              style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:22.989px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#008000;fill-opacity:1"
-             id="flowPara5582-4-6-7-5-5-6-6-0-8-7-0-2">T'-1</flowPara></flowRoot>
+             id="flowPara5582-4-6-7-5-5-6-6-0-8-7-0-2">T'</flowPara></flowRoot>
         <flowRoot
            transform="matrix(0.15095828,0,0,0.15599299,115.70316,155.8563)"
            style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -2871,7 +2871,7 @@
                width="153.38977"
                id="rect365-83-1-9-7-8-5-5-5-4-7-3-3-4" /></flowRegion><flowPara
              style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:22.989px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#008000;fill-opacity:1"
-             id="flowPara5582-4-6-7-5-5-6-6-0-8-7-0-2-2">2</flowPara></flowRoot>
+             id="flowPara5582-4-6-7-5-5-6-6-0-8-7-0-2-2">3</flowPara></flowRoot>
         <flowRoot
            transform="matrix(0.15095828,0,0,0.15599299,115.70316,155.8563)"
            style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -3239,7 +3239,7 @@
                width="153.38977"
                id="rect365-83-1-9-7-8-5-5-5-4-7-3-3-2" /></flowRegion><flowPara
              style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:22.989px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#008000;fill-opacity:1"
-             id="flowPara5582-4-6-7-5-5-6-6-0-8-7-0-2-1">1</flowPara></flowRoot>
+             id="flowPara5582-4-6-7-5-5-6-6-0-8-7-0-2-1">2</flowPara></flowRoot>
         <flowRoot
            transform="matrix(0.15095828,0,0,0.15599299,115.70316,155.8563)"
            style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -3567,7 +3567,7 @@
                width="153.38977"
                id="rect365-83-1-9-7-8-9-2-78-0-8-6-91-4-0-2-5" /></flowRegion><flowPara
              style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:27.5868px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1"
-             id="flowPara5582-4-6-7-5-5-73-2-5-40-9-6-7-1-4-53-7">e</flowPara></flowRoot>
+             id="flowPara5582-4-6-7-5-5-73-2-5-40-9-6-7-1-4-53-7">d</flowPara></flowRoot>
       </g>
       <path
          sodipodi:nodetypes="cc"
@@ -3607,7 +3607,7 @@
                width="153.38977"
                id="rect365-83-1-9-7-8-5-5-5-4-7-3-3-2-8" /></flowRegion><flowPara
              style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:22.989px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#008000;fill-opacity:1"
-             id="flowPara5582-4-6-7-5-5-6-6-0-8-7-0-2-1-7">T</flowPara></flowRoot>
+             id="flowPara5582-4-6-7-5-5-6-6-0-8-7-0-2-1-7">1</flowPara></flowRoot>
         <flowRoot
            transform="matrix(0.15095828,0,0,0.15599299,115.70316,155.8563)"
            style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -3622,7 +3622,7 @@
                width="153.38977"
                id="rect365-83-1-9-7-8-9-2-78-0-8-6-91-9-6-3-5" /></flowRegion><flowPara
              style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:22.989px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#008000;fill-opacity:1"
-             id="flowPara5582-4-6-7-5-5-73-2-5-40-9-6-7-4-5-11-0">e</flowPara></flowRoot>
+             id="flowPara5582-4-6-7-5-5-73-2-5-40-9-6-7-4-5-11-0">d</flowPara></flowRoot>
       </g>
       <g
          transform="translate(56.491637,108.65968)"
@@ -3641,9 +3641,9 @@
                width="153.38977"
                id="rect365-83-1-9-7-5-2-4-1-4-7-6-1" /></flowRegion><flowPara
              style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:53.3333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#0000ff;fill-opacity:1"
-             id="flowPara5582-4-6-7-5-8-9-7-5-0-2-7-1">x</flowPara></flowRoot>
+             id="flowPara5582-4-6-7-5-8-9-7-5-0-2-7-1">y</flowPara></flowRoot>
         <flowRoot
-           transform="matrix(0.15095828,0,0,0.15599299,118.07105,163.30494)"
+           transform="matrix(0.15095828,0,0,0.15599299,116.959,163.01247)"
            style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
            id="flowRoot361-0-08-4-0-9-8-74-8-9-62-4-7-3"
            xml:space="preserve"><flowRegion
@@ -3656,7 +3656,7 @@
                width="153.38977"
                id="rect365-83-1-9-7-8-5-5-5-4-0-6-0-9" /></flowRegion><flowPara
              style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:36.7824px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#0000ff;fill-opacity:1"
-             id="flowPara5582-4-6-7-5-5-6-6-0-8-8-5-64-3">T</flowPara></flowRoot>
+             id="flowPara5582-4-6-7-5-5-6-6-0-8-8-5-64-3">0</flowPara></flowRoot>
       </g>
       <flowRoot
          transform="matrix(0.15095828,0,0,0.15599299,172.79922,241.28604)"
@@ -3672,7 +3672,7 @@
              width="153.38977"
              id="rect365-83-1-9-7-8-9-2-78-0-8-6-91-5-85-5" /></flowRegion><flowPara
            style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:36.7824px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#ff0000;fill-opacity:1"
-           id="flowPara5582-4-6-7-5-5-73-2-5-40-9-6-7-9-8-0">e</flowPara></flowRoot>
+           id="flowPara5582-4-6-7-5-5-73-2-5-40-9-6-7-9-8-0">d</flowPara></flowRoot>
       <g
          transform="translate(60.56578,38.164201)"
          id="g2181-2-8-7-3-6-6-2-8">
@@ -3720,7 +3720,7 @@
                width="153.38977"
                id="rect365-83-1-9-7-8-9-2-78-0-8-6-91-4-0-9-0-7" /></flowRegion><flowPara
              style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:27.5868px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1"
-             id="flowPara5582-4-6-7-5-5-73-2-5-40-9-6-7-1-4-8-1-6">e</flowPara></flowRoot>
+             id="flowPara5582-4-6-7-5-5-73-2-5-40-9-6-7-1-4-8-1-6">d</flowPara></flowRoot>
       </g>
       <g
          transform="translate(45.852554,34.612734)"
@@ -3769,7 +3769,7 @@
                width="153.38977"
                id="rect365-83-1-9-7-8-9-2-78-0-8-6-91-4-0-9-1-9-9" /></flowRegion><flowPara
              style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:27.5868px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1"
-             id="flowPara5582-4-6-7-5-5-73-2-5-40-9-6-7-1-4-8-3-9-1">e</flowPara></flowRoot>
+             id="flowPara5582-4-6-7-5-5-73-2-5-40-9-6-7-1-4-8-3-9-1">d</flowPara></flowRoot>
       </g>
       <rect
          y="233.96443"
@@ -3808,7 +3808,7 @@
              width="153.38977"
              id="rect365-83-1-9-7-8-9-2-78-0-8-6-91-5-1-6-2" /></flowRegion><flowPara
            style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:36.7824px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#ff0000;fill-opacity:1"
-           id="flowPara5582-4-6-7-5-5-73-2-5-40-9-6-7-9-0-0-8">e</flowPara></flowRoot>
+           id="flowPara5582-4-6-7-5-5-73-2-5-40-9-6-7-9-0-0-8">d</flowPara></flowRoot>
     </g>
     <g
        id="g70119-3-3-2"
@@ -3855,7 +3855,7 @@
          d="m 149.52422,266.39768 19.23976,-0.0326"
          style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.502361;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Mend-71-3-2-3-1-9-2-8-56-3-8-2-5-0)" />
       <g
-         transform="translate(50.495739,75.079403)"
+         transform="translate(53.141574,75.079403)"
          id="g3539-3-8-6-7-3-9-3-8">
         <flowRoot
            transform="matrix(0.15095828,0,0,0.15599299,113.46262,158.44266)"
@@ -3886,7 +3886,7 @@
                width="153.38977"
                id="rect365-83-1-9-7-8-5-5-5-4-7-3-3-2-8-8" /></flowRegion><flowPara
              style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:22.989px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#008000;fill-opacity:1"
-             id="flowPara5582-4-6-7-5-5-6-6-0-8-7-0-2-1-7-6">T-1</flowPara></flowRoot>
+             id="flowPara5582-4-6-7-5-5-6-6-0-8-7-0-2-1-7-6">T</flowPara></flowRoot>
         <flowRoot
            transform="matrix(0.15095828,0,0,0.15599299,115.70316,155.8563)"
            style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -3935,7 +3935,7 @@
                width="153.38977"
                id="rect365-83-1-9-7-8-5-5-5-4-0-6-0-9-1" /></flowRegion><flowPara
              style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:36.7824px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#0000ff;fill-opacity:1"
-             id="flowPara5582-4-6-7-5-5-6-6-0-8-8-5-64-3-9">T-1</flowPara></flowRoot>
+             id="flowPara5582-4-6-7-5-5-6-6-0-8-8-5-64-3-9">T</flowPara></flowRoot>
       </g>
       <flowRoot
          transform="matrix(0.15095828,0,0,0.15599299,172.79922,241.28604)"

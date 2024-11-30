@@ -6,7 +6,7 @@
    inkscape:export-xdpi="90"
    inkscape:export-filename="/home/kariminf/ESI/ML/Cours/RN/assets/RNPA-exp.png"
    sodipodi:docname="RNN1p.svg"
-   inkscape:version="1.3.2 (1:1.3.2+202311252150+091e20ef0f)"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    id="svg8"
    version="1.1"
    viewBox="0 0 118 88"
@@ -23,12 +23,12 @@
      inkscape:window-maximized="1"
      inkscape:window-y="0"
      inkscape:window-x="0"
-     inkscape:window-height="1008"
-     inkscape:window-width="1920"
+     inkscape:window-height="792"
+     inkscape:window-width="1536"
      showgrid="false"
      inkscape:current-layer="layer1"
      inkscape:document-units="mm"
-     inkscape:cy="126.76381"
+     inkscape:cy="229.31925"
      inkscape:cx="280.81705"
      inkscape:zoom="1.1359709"
      inkscape:pageshadow="2"
@@ -1651,27 +1651,27 @@
        id="text2609" />
     <path
        style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Mend-71-3-2-3-1)"
-       d="m 9.1128436,254.52242 10.2242994,0.0552"
+       d="m 9.1128436,268.81001 10.2242994,0.0552"
        id="path403-2-4-0-1"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
     <path
        style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1, 0.5;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow2Mend-71-3-2-3-1-2-4-6-2-3-28)"
-       d="m 55.803594,254.71535 23.78213,0.24011"
+       d="m 55.803594,269.00294 23.78213,0.24011"
        id="path403-2-4-0-1-6-5-3-3-1-7"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
     <rect
-       style="fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:0.323044;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       style="fill:#6478ff;fill-opacity:1;stroke:none;stroke-width:0.323044;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
        id="rect2045-3-6-9-6-8-6"
        width="8.2106256"
        height="21.713938"
        x="0.96453071"
-       y="243.66869"
+       y="257.95605"
        ry="4.1053128" />
     <g
        id="g2181"
-       transform="translate(-115.73033,12.854338)">
+       transform="translate(-115.73033,27.141847)">
       <flowRoot
          xml:space="preserve"
          id="flowRoot361-0-08-4-0"
@@ -1690,7 +1690,7 @@
     </g>
     <g
        id="g4544-2"
-       transform="translate(102.61447,1.0413028)">
+       transform="translate(102.61447,15.328807)">
       <rect
          style="opacity:1;fill:none;fill-opacity:1;stroke:#ff0000;stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
          id="rect2045-3-0"
@@ -1750,7 +1750,7 @@
     </g>
     <g
        id="g4544-7"
-       transform="translate(79.537565,0.97255147)">
+       transform="translate(79.537565,15.260055)">
       <rect
          style="opacity:1;fill:none;fill-opacity:1;stroke:#ff0000;stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
          id="rect2045-3-8"
@@ -1816,7 +1816,7 @@
     </g>
     <g
        id="g4544-7-2"
-       transform="translate(41.930562,1.0334607)">
+       transform="translate(41.930562,15.320965)">
       <rect
          style="opacity:1;fill:none;fill-opacity:1;stroke:#ff0000;stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
          id="rect2045-3-8-2"
@@ -1882,7 +1882,7 @@
     </g>
     <g
        id="g4544-7-6"
-       transform="translate(19.206251,1.085375)">
+       transform="translate(19.206251,15.372879)">
       <rect
          style="opacity:1;fill:none;fill-opacity:1;stroke:#ff0000;stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
          id="rect2045-3-8-1"
