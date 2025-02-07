@@ -1,0 +1,52 @@
+﻿Lab03: Decision trees (DTs) and Ensemle Learning
+=================================================
+
+In this lab, we will learn about decision trees and ensemble learning.
+First, we will try to implement two decision trees Algorithms: ID3 et CART.
+Then, we will test the effect of some hyper-parameters on trees performance as we as that of random forests.
+Also, we will test some ensemble learning algorithms and their effect on performance.
+
+TOOLS:
+------
+Python, Jupyter, pandas, scikit-learn, numpy, timeit, graphviz
+
+DATASETS:
+---------
+Cars Data
+
+PLAN:
+-----
+I. Algorithms implementation
+    I.1. Probability of a category
+    I.2. Homogeneity of a set
+    I.3. Set splitting
+    I.4. Choice of split feature
+    I.5. Splitting feature selection
+    I.6. Stopping criterion
+    I.7. Final product
+II. Application and Analsis
+    II.1. Decision trees and Random forests
+    II.2. Ensemle Learning
+  
+WHAT TO DO:
+-----------
+I. Algorithms implementation
+    - Probability of a category                  [4pts]
+    - Shannon's entropy                          [4pts]
+    - Gini impurity                              [4pts]
+    - Information gain                           [4pts]
+    - Gini impurity of the split                 [4pts]
+    - ID3 splitting feature selection            [4pts]
+    - CART splitting feature and value selection [4pts]
+    - Stopping criterion                         [4pts]
+
+II. Application and Analsis
+    - Feature selection criteria                 [6pts = 2 + 2 + 2]
+    - Maximum depth                              [8pts = 2 + 2 + 2 + 2]
+    - Minimum leaf samples                       [4pts = 2 + 2]
+    - Estimators' number (Ensemble)              [8pts = 2 + 2 + 2 + 2]
+    - Bootstrap's size                           [6pts = 2 + 2 + 2]
+    
+Progress in class                                [8pts]
+Respecting conventions                           [2pts]
+Submit the lab on time                           [6pts]

@@ -1,0 +1,48 @@
+﻿Lab02: Naive Bayes
+===================
+
+In this lab, we will learn about Naive Bayes by testing 2 implementations:
+    - Multinomial Naïve Bayes
+    - Gaussian Naïve Bayes
+
+TOOLS:
+------
+Python, Jupyter, pandas, scikit-learn, numpy
+
+DATASETS:
+---------
+SMS Spam Collection Dataset
+
+PLAN:
+-----
+I. Algorithms implementation
+    I.1. Prior statistics
+    I.2. Multinomial Law
+    I.3. Normal (Gaussian) Law
+    I.4. Multinomial prediction
+    I.5. Final product
+II. Application and Analsis
+    II.1. Prior probability
+    II.2. Smoothing
+    II.3. Naive Bayes performance
+
+WHAT TO DO:
+-----------
+I. Algorithms implementation
+    - Prior statistics                  [4pts]
+    - Multinomial Likelihood statistics [4pts]
+    - Multinomial Likelihood prediction [4pts]
+    - Gaussian Likelihood statistics    [4pts]
+    - Gaussian Likelihood prediction    [4pts]
+    - Final prediction                  [4pts]
+
+II. Application and Analsis
+    - Prior probability                 [8pts = 2 + 4 + 2]
+    - Smoothing                         [12pts = 2 + 4 + 2 + 4]
+    - Naive Bayes performance           [20pts = 2 + 4 + 2 + 4 + 2 + 2 + 2 + 2 ]
+
+
+Progress in class                       [8pts]
+Respecting conventions                  [2pts]
+Submit the lab on time                  [6pts]
+

@@ -1,0 +1,50 @@
+Lab01: Logistic Regression
+===========================
+
+In this lab, we will learn all about logistic regression:
+  - Linear regression
+  - Binary logistic regression
+  - Multi-class logistic regression
+  - Multi-label logistic regression
+
+TOOLS:
+------
+Python, Jupyter, pandas, scikit-learn, numpy, matplotlib
+
+DATASETS:
+---------
+Grades, bodyPerformance
+
+PLAN:
+-----
+I. Algorithms implementation
+    I.1. Prediction functions
+    I.2. Cost functions
+    I.3. Gradients
+    I.4. Final product
+II. Application and Analsis
+    II.1. Binary Ligistic Regression
+    II.2. Multi-class Logistic Regression
+
+WHAT TO DO:
+-----------
+I. Algorithms implementation
+    - Linear combination    [2pts]
+    - Logistic function     [4pts]
+    - Softmax function      [4pts]
+    - MSE cost function     [6pts]
+    - BCE loss function     [6pts]
+    - CE loss function      [6pts]
+    - Gradients function    [4pts]
+    
+II. Application and Analsis
+    - Bias                  [4pts = 2 + 2]
+    - Normalization         [4pts = 2 + 2]
+    - Learning rate         [6pts = 2 + 2 + 2]
+    - OvR vs. MaxEnt        [4pts = 2 + 2]
+    - OvR vs. OvO           [14pts = 2 + 2 + 2 + 4 + 2 + 2]
+
+
+Progress in class           [8pts]
+Respecting conventions      [2pts]
+Submit the lab on time      [6pts]

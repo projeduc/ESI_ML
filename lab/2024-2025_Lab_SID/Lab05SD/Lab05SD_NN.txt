@@ -1,0 +1,50 @@
+﻿Lab05: Neural Networks
+=======================
+
+In this lab, we will learn about neural networks (NN). We will implement backpropagation to understand how a NN works.
+Then, we will test many concepts:
+- Parameters' initialization
+- Activation functions effect
+- Optimization functions for NN
+
+
+TOOLS:
+------
+Python, Jupyter, pandas, numpy, scikit-learn, matplotlib, tensorflow
+
+DATASETS:
+---------
+Diabetes
+
+PLAN:
+-----
+I. Algorithms implementation
+    - I.1. Activation functions
+    - I.2. Loss functions
+    - I.3. Neuron
+    - I.4. Layer
+    - I.5. Network
+II. Application and Analsis
+    - II.1. Initial parameters and complexity
+    - II.2. Activation functions
+    - II.3. Optimisation functions
+    
+WHAT TO DO:
+-----------
+I. Algorithms implementation
+    - Logistic Activation class         [4pts]
+    - ReLU Activation class             [4pts]
+    - BCE Loss class                    [4pts]
+    - Neuron Backpropagation            [8pts]
+    - Layer Backpropagation             [2pts]
+    - Network Backpropagation           [2pts]
+    
+II. Application and Analsis
+    - Initial parameters and complexity [16pts = 2 + 4 + 4 + 6]
+    - Activation functions              [12pts = 4 + 4 + 4]
+    - Optimisation functions            [12pts = 4 + 4 + 4]
+
+
+Progress in class                       [8pts]
+Respecting conventions                  [2pts]
+Submit the lab on time                  [6pts]
