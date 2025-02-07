@@ -19,6 +19,8 @@
 \usepackage{parskip}
 \usepackage{multicol}
 \usepackage{wrapfig}
+\usepackage{verbatim}
+\usepackage{fancyvrb}
 
 \usepackage{turnstile}%Induction symbole
 
@@ -30,6 +32,8 @@
 
 \setlength{\parindent}{24pt}
 
+\newcommand{\cmt}[1]{\textit{\color{red}#1}}
+
 
 \begin{document}
 
@@ -37,14 +41,14 @@
 \noindent
 \begin{tabular}{ll}
 \multirow{3}{*}{\includegraphics[width=1.5cm]{../../extra/logo/esi.ml.pdf}} & \'Ecole national Supérieure d'Informatique, Algiers, Algeria\\
-& 2CSSIL2/2CSSIQ2 (2023/2024)\\
+& 2CSSIL2/2CSSIQ2 (2024/2025)\\
 & Machine Learning (ML)
 \end{tabular}\\[.25cm]
 \noindent\rule{\textwidth}{1pt}\\[-0.5cm]
 \begin{center}
 {\LARGE \textbf{Workshop 01: Numpy}}
 \begin{flushright}
-	Abdelkrime ARIES
+	Mr. Abdelkrime ARIES
 \end{flushright}
 \end{center}\vspace{-.25cm}
 \noindent\rule{\textwidth}{1pt}
@@ -120,14 +124,16 @@ Here, we want to extract some statistics on user engagement with others.
 In this case, we are interested in outgoing edges.
 
 \begin{enumerate}
-	\item Find the user who replies more than others.
-	\item Find the user who retweets more than others.
-	\item Find users who neither reply nor retweet.
-	\item Display the number of likes each user has given to their own tweets.
+	\item Find the user who replies more than others. \cmt{It should be user 0}
+	\item Find the user who retweets more than others. \cmt{It should be user 4}
+	\item Find users who replied or retweeted at least once. \cmt{It should be all users except user 2}
+	\item Display the number of likes each user has given to their own tweets. \cmt{It should be [2., 0., 0., 4., 0.]}
 	\item Display the number of likes each user has given to tweets other than their own.
-	\item Find users who like their own tweets more than they like others' tweets.
-	\item Calculate their number.
-	\item Display the number of interactions each user has made.
+	\cmt{It should be [ 9.,  0., 11.,  2.,  9.]}
+	\item Find users who gave likes to their own tweets more than they gave to others'.
+	\cmt{It should be just user 3}
+	\item Calculate their number. \cmt{Just 1}
+	\item Display the number of interactions each user has made. \cmt{It should be [31, 10, 11, 15, 22]}
 \end{enumerate}
 
 \newpage
@@ -136,12 +142,20 @@ In this case, we are interested in outgoing edges.
 \begin{enumerate}
 	\item Display the maximum number of likes each user has received (from users other than themselves).
 	\textit{To eliminate the diagonal, we can create a 5x5 diagonal matrix and invert the values. Then, apply element-wise multiplication.}
+	\cmt{It should be [2, 5, 9, 4, 3]}
+	
 	\item Find users who have received likes for all their tweets by at least one person other than themselves.
 	For example, User 1 has posted 5 tweets and there is at least one other user who has liked all 5 of these tweets (in this case, Users 0 and 2).
+	\cmt{It should be all users except user 2}
+	
 	\item Calculate the number of incoming edges (having at least one interaction).
+	\cmt{It should be [3, 3, 3, 2, 4]}
 	\item Calculate the number of outgoing edges (having at least one interaction).
+	\cmt{It should be [4, 3, 3, 3, 2]}
 	\item Find nodes where the number of incoming edges is equal to the number of outgoing edges.
+	\cmt{It should be users 1 and 2}
 	\item Display the likes they have given to each other.
+	\cmt{It should be [[0, 0], [5, 0]] or something equivalent}
 \end{enumerate}
 
 \section*{Popularity}
@@ -149,14 +163,25 @@ In this case, we are interested in outgoing edges.
 \begin{itemize}
 	\item We are not interested in reflexive interactions (e.g., someone liking their own tweets), which are represented by the diagonal for Likes and Replies. However, we are interested in reflexive Retweets.
 	\textit{To eliminate the diagonal, we can create a 5x5 diagonal matrix and invert the values. Then, apply element-wise multiplication.}
+%	\cmt{It should be }
 	\item We want to weight the matrices as follows:
 	\begin{itemize}
 		\item Reply Score: We assume that Replies are generally objections; therefore, they have a negative effect. For each interaction, if the number of Replies received from a person is more than their Likes, we multiply the number of Replies by (-0.5). If it is equal, we multiply their own Likes by (-0.25). Otherwise, it has no effect (0). \textbf{HINT: Use numpy.where}
 		\item Retweet Score: We assume that Retweets are generally neutral; therefore, we do not apply any transformation on these interactions. However, if someone retweets their own tweets, they will be penalized by (-0.25) for each retweet.
 		\item Like Score: We assume that Likes have a positive effect on popularity. For each interaction, if the number of Likes received from a person is greater than half of the tweets published, we multiply it by (1.5). Otherwise, the score is the number of Likes.
 	\end{itemize}
-	\item Calculate the popularity score for each user for each interaction which is the average of the received scores.
+%	\cmt{It should be }
+	\item Calculate the popularity scores of each user for his interactions with each user.
+	\cmt{It should be}
+	\begin{Verbatim}[fontsize=\small, formatcom=\color{red}]
+	[[ 0.        ,  2.5       , -0.5       ,  0.        ,  1.5       ],
+	 [-0.33333333,  0.        , -0.83333333,  0.        , -0.5       ],
+	 [ 0.        ,  2.5       ,  0.        ,  1.5       ,  1.5       ],
+	 [ 0.        ,  0.        ,  0.        ,  0.        ,  0.33333333],
+	 [ 0.        , -0.66666667,  5.16666667,  0.        ,  0.        ]]
+	\end{Verbatim}
 	\item Calculate the final score which is the average of the scores from different interactions.
+	\cmt{It should be [-0.06666667,  0.86666667,  0.76666667,  0.3       ,  0.56666667]}
 \end{itemize}
 
 
