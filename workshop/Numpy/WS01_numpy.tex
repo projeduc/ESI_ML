@@ -125,7 +125,7 @@ In this case, we are interested in outgoing edges.
 
 \begin{enumerate}
 	\item Find the user who replies more than others. \cmt{It should be user 0}
-	\item Find the user who retweets more than others. \cmt{It should be user 4}
+	\item Find the user who retweets more than others. \cmt{It should be user 4 and 3}
 	\item Find users who replied or retweeted at least once. \cmt{It should be all users except user 2}
 	\item Display the number of likes each user has given to their own tweets. \cmt{It should be [2., 0., 0., 4., 0.]}
 	\item Display the number of likes each user has given to tweets other than their own.
@@ -133,7 +133,7 @@ In this case, we are interested in outgoing edges.
 	\item Find users who gave likes to their own tweets more than they gave to others'.
 	\cmt{It should be just user 3}
 	\item Calculate their number. \cmt{Just 1}
-	\item Display the number of interactions each user has made. \cmt{It should be [31, 10, 11, 15, 22]}
+	\item Display the number of interactions each user has made. \cmt{It should be [31, 10, 11, 19, 22]}
 \end{enumerate}
 
 \newpage
@@ -177,11 +177,11 @@ In this case, we are interested in outgoing edges.
 	[[ 0.        ,  2.5       , -0.5       ,  0.        ,  1.5       ],
 	 [-0.33333333,  0.        , -0.83333333,  0.        , -0.5       ],
 	 [ 0.        ,  2.5       ,  0.        ,  1.5       ,  1.5       ],
-	 [ 0.        ,  0.        ,  0.        ,  0.        ,  0.33333333],
+	 [ 0.        ,  0.        ,  0.        , -0.33333333,  0.33333333],
 	 [ 0.        , -0.66666667,  5.16666667,  0.        ,  0.        ]]
 	\end{Verbatim}
 	\item Calculate the final score which is the average of the scores from different interactions.
-	\cmt{It should be [-0.06666667,  0.86666667,  0.76666667,  0.3       ,  0.56666667]}
+	\cmt{It should be [-0.06666667,  0.86666667,  0.76666667,  0.23333333,  0.56666667]}
 \end{itemize}
 
 
