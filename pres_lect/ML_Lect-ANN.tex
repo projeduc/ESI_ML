@@ -1456,10 +1456,10 @@
 	\end{center}\vskip-16pt
 	
 	{\scriptsize 
-		\[O_{11} = Max(I_{11} + \textcolor{blue}{I_{12}} + I_{21} + \textcolor{red}{I_{22}}) = \textcolor{red}{I_{22}}  \]
-		\[O_{12} = Max(\textcolor{blue}{I_{12}} + I_{13} + \textcolor{red}{I_{22}} + I_{23}) = I_{23}  \]
-		\[O_{21} = Max(I_{21} + \textcolor{red}{I_{22}} + I_{31} + I_{32}) = \textcolor{red}{I_{22}} \]
-		\[O_{22} = Max(\textcolor{red}{I_{22}} + I_{23} + I_{32} + I_{33}) = \textcolor{red}{I_{22}}  \]
+		\[O_{11} = Max(I_{11}, \textcolor{blue}{I_{12}}, I_{21}, \textcolor{red}{I_{22}}) = \textcolor{red}{I_{22}}  \]
+		\[O_{12} = Max(\textcolor{blue}{I_{12}}, I_{13}, \textcolor{red}{I_{22}}, I_{23}) = I_{23}  \]
+		\[O_{21} = Max(I_{21}, \textcolor{red}{I_{22}}, I_{31}, I_{32}) = \textcolor{red}{I_{22}} \]
+		\[O_{22} = Max(\textcolor{red}{I_{22}}, I_{23}, I_{32}, I_{33}) = \textcolor{red}{I_{22}}  \]
 		
 		\[\textcolor{red}{\frac{\partial J}{\partial I_{22}}} 
 		= \underbrace{\frac{\partial J}{\partial O_{11}}}_{G_{11} = 1} 
